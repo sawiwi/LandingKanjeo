@@ -1,0 +1,28 @@
+.bg-img,
+.bg-img-circular-trip,
+.bg-img-desitions,
+.bg-card {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg-img {
+  background-image: url('https://res.cloudinary.com/dvdb33uyj/image/upload/v1690227843/Projects/qr-service/imgs/Dise%C3%B1o_sin_t%C3%ADtulo_qxnya1.svg');
+}
+
+.bg-img-circular-trip {
+  background-image: url('https://res.cloudinary.com/dvdb33uyj/image/upload/v1690318517/Projects/qr-service/imgs/circular-trip_hhvves.svg');
+}
+
+.bg-img-desitions {
+  background-image: url('https://res.cloudinary.com/dvdb33uyj/image/upload/v1690391832/Projects/qr-service/imgs/hero/bg-desitions-2_lcp4g4.svg');
+}
+
+.bg-card {
+  background-image: url('https://res.cloudinary.com/dvdb33uyj/image/upload/v1690825506/Projects/qr-service/imgs/card-bg_xzwnsz.svg');
+}
+
+.bg-card-whywee {
+  background-image: url('https://res.cloudinary.com/dvdb33uyj/image/upload/v1690825840/Projects/qr-service/imgs/bg-card-whywee_jutprz.svg');
+}
