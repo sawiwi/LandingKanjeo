@@ -1,4 +1,4 @@
-import { FaTruckMoving, AiFillSafetyCertificate } from '../components/icon';
+// import { FaTruckMoving, AiFillSafetyCertificate } from '../components/icon';
 
 export const navigationData = [
   {
@@ -8,37 +8,23 @@ export const navigationData = [
   },
   {
     id: 2,
-    name: '¿Qué Resolvemos?',
-    children: [
-      {
-        id: 1,
-        name: 'Sistema de Gestión para vehículos',
-        href: '/sistema-de-gestion-para-vehiculos',
-        icon: <FaTruckMoving />,
-      },
-      {
-        id: 2,
-        name: 'Sistema de Trazabilidad Certificada',
-        href: '/sistema-de-trazabilidad-certificada',
-        icon: <AiFillSafetyCertificate />,
-      },
-      {
-        id: 3,
-        name: 'Ley REP',
-        href: '/ley-rep',
-        icon: <AiFillSafetyCertificate />,
-      },
-    ],
+    name: 'Servicios',
+    href: '/',  
+  },
+  {
+    id: 3,
+    name: 'Cómo funciona',
+    href: '/',  
+  },
+  {
+    id: 4,
+    name: 'Nosotros',
+    href: '/',  
   },
   {
     id: 5,
     name: 'FAQ',
     href: '/faq',
-  },
-  {
-    id: 5,
-    name: 'Portal de Viajes',
-    href: '/portal-viajes-de-retorno',
   },
   {
     id: 6,

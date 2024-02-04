@@ -9,7 +9,7 @@ import Faq from '../pages/faq';
 export const navigationRoutes = [
   {
     id: 1,
-    name: 'Unne',
+    name: 'Inicio',
     path: '/',
     element: <Home />,
   },

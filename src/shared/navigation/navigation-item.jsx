@@ -75,16 +75,16 @@ const NavigationItem = ({ menuItem }) => {
           ? '_blank'
           : ''
       }
-      className={`tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-outline-none tw-py-2 tw-px-4 xl:tw-px-3 hover:tw-text-primary ${
+      className={`tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-outline-none tw-py-2 tw-px-4 xl:tw-px-3 hover:tw-text-secondary-light ${
         pathname === href
-          ? 'tw-inline-flex tw-text-primary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5'
+          ? 'tw-inline-flex tw-text-secondary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5'
           : name === 'Mi cuenta'
-          ? 'tw-bg-primary tw-rounded-full tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-white hover:tw-bg-primary-light hover:tw-text-white'
+          ? 'tw-bg-secondary tw-border tw-rounded-full tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-primary hover:tw-bg-primary-light hover:tw-text-white hover:tw-border hover:tw-border-secondary-light tw-duration-200'
           : 'tw-inline-flex tw-items-center tw-text-sm xl:text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-slate-800  hover:tw-text-slate-900'
       }`}
       rel="noreferrer"
     >
-      {console.log(href)}
+      {/* {console.log(href)} */}
       {name === 'Mi cuenta' && <AiOutlineUser />} {name}
     </a>
   );

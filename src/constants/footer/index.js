@@ -16,14 +16,14 @@ export const footerSMediaNavigation = [
   {
     id: 2,
     name: 'Instagram',
-    href: 'https://www.instagram.com/qrservicecom',
+    href: 'https://www.instagram.com/',
     icon: <BsInstagram />,
     color: 'tw-text-custom-facebook',
   },
   {
     id: 3,
     name: 'Twitter',
-    href: 'https://twitter.com/qrservicecom',
+    href: 'https://twitter.com/',
     icon: '',
     iconImg: '/images/footer/logo-x.png',
     color: 'tw-text-custom-facebook',
@@ -31,14 +31,14 @@ export const footerSMediaNavigation = [
   {
     id: 4,
     name: 'Youtube',
-    href: 'https://www.youtube.com/channel/UC2QCAdMIoFyWQe1Hq0IXXyw',
+    href: 'https://www.youtube.com/',
     icon: <BsYoutube />,
     color: 'tw-text-custom-facebook',
   },
   {
     id: 5,
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/qrservicecom/',
+    href: 'https://www.linkedin.com/in/',
     icon: <BsLinkedin />,
     color: 'tw-text-custom-facebook',
   },
@@ -50,20 +50,29 @@ export const footerNavigation = [
     name: 'Inicio',
     href: '/',
   },
-
   {
     id: 2,
-    name: 'Gestión de Vehículos',
-    href: '/sistema-de-gestion-para-vehiculos',
+    name: 'Servicios',
+    href: '/',
+  },
+  {
+    id: 2,
+    name: 'Cómo funciona',
+    href: '/',
   },
   {
     id: 3,
-    name: 'Sistema de trazabilidad certificada',
-    href: '/sistema-de-trazabilidad-certificada',
+    name: 'Nosotros',
+    href: '/',
   },
   {
     id: 4,
+    name: 'FAQ',
+    href: '/faq',
+  },
+  {
+    id: 5,
     name: 'Contacto',
-    href: '/contacto',
+    href: '/contact',
   },
 ];

@@ -14,7 +14,7 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
           <Disclosure key={i.href + index} as="li">
             <Link
               to={i.href || '/'}
-              className="tw-flex tw-px-4 tw-py-2.5 tw-text-gray-800 tw-text-sm tw-font-medium tw-rounded-lg hover:tw-bg-gray-100 tw-mt-[2px]"
+              className="tw-flex tw-px-4 tw-py-2.5 tw-text-secondary-light tw-text-sm tw-font-medium tw-rounded-lg hover:tw-bg-gray-100 tw-mt-[2px]"
             >
               <span
                 className={!i.children ? 'tw-block tw-w-full' : ''}
@@ -24,7 +24,7 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
               </span>
               {i.children && (
                 <span
-                  className="tw-block tw-flex-grow"
+                  className="tw-block tw-flex-grow "
                   onClick={(e) => e.preventDefault()}
                 >
                   <Disclosure.Button
@@ -45,9 +45,9 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
 
   const _renderItem = (item) => {
     return (
-      <Disclosure key={item.id} as="li" className="tw-text-gray-900">
+      <Disclosure key={item.id} as="li" className="tw-text-secondary-light">
         <Link
-          className="tw-flex tw-w-full itw-tems-center tw-py-2.5 tw-px-4 tw-font-medium tw-uppercase tw-tracking-wide tw-text-sm hover:tw-bg-gray-100 tw-rounded-lg"
+          className="tw-flex tw-w-full itw-tems-center tw-py-3.5 tw-px-4 tw-font-semibold tw-uppercase tw-tracking-wide tw-text-md hover:tw-bg-gray-100 tw-rounded-lg"
           to={{
             pathname: item.href || undefined,
           }}

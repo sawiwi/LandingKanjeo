@@ -8,17 +8,17 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        body: '#FFFFFF',
-        white: '#FFFFFF',
+        body: '#fbfbfb',
+        white: '#fffefc',
         black: '#010101',
         transparent: 'transparent',
         primary: {
-          DEFAULT: '#E26031',
-          light: '#f97316',
+          DEFAULT: '#f7f4f4',
+          light: '#fffefc',
         },
         secondary: {
-          DEFAULT: '#EFA721',
-          light: '#96D405',
+          DEFAULT: '#431c1c',
+          light: '#592727',
         },
         info: {
           DEFAULT: '#0043BA',

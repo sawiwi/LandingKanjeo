@@ -14,12 +14,12 @@ const Footer = () => {
           <div className="tw-ab">
             <div className="tw-p-4 tw-flex md:tw-w-3/3 tw-flex-col tw-text-center tw-items-center">
               <div className="tw-flex tw-ml-2 md:tw-ml-8 lg:tw-ml-10 tw-justify-start tw-flex-grow tw-items-center tw-space-x-3 sm:tw-space-x-8 lg:tw-space-x-10 tw-mt-5">
-                <Logo />
+                <Logo/>
               </div>
 
               <div className="tw-flex-grow tw-mt-5">
-                <p className="tw-text-white tw-text-lg tw-title-font tw-font-thin tw-mb-3">
-                  "Aportamos tecnología e información valiosa para sus activos"
+                <p className="tw-text-white tw-text-lg tw-title-font tw-font-thin tw-mb-3 tw-tracking-wider">
+                  "Realiza Kanjes con nosotros de forma valiosa"
                 </p>
               </div>
               <div className="tw-flex-shrink-0 tw-flex tw-items-center tw-justify-end tw-text-gray-600 tw-space-x-1 tw-mt-6 tw-mb-5">
@@ -60,7 +60,7 @@ const Footer = () => {
                     {footerNavigation.map((item) => (
                       <Link
                         key={item.id}
-                        className="tw-outline-none hover:tw-text-primary tw-inline-flex tw-text-white tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5"
+                        className="tw-outline-none hover:tw-text-primary-light tw-inline-flex tw-text-primary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5"
                         to={item.href}
                       >
                         {item.name}
@@ -70,10 +70,10 @@ const Footer = () => {
                 </div>
               </div>
               <hr className="tw-my-6 tw-border-gray-200 sm:tw-mx-auto lg:tw-my-8" />
-              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-border tw-w-full tw-p-3 tw-rounded tw-border-gray-700">
+              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-border tw-w-full tw-p-3 tw-rounded tw-border-t-primary">
                 © {getCurrentYear()}{' '}
                 <a href="/" className="hover:tw-underline">
-                  QR Service
+                YoKanjeo
                 </a>
                 . Todos los derechos reservados.
               </span>
