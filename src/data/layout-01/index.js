@@ -224,7 +224,7 @@ export const contentPage1 = {
       headings: [
         {
           id: 1,
-          content: '¿Por qué nosotros?',
+          content: 'Nosotros',
         },
       ],
 
@@ -279,59 +279,59 @@ export const contentPage1 = {
       ],
     },
 
-    {
-      section: 'Idi',
-      headings: [
-        {
-          id: 1,
-          content: 'I + D + I',
-        },
-      ],
+    // {
+    //   section: 'Idi',
+    //   headings: [
+    //     {
+    //       id: 1,
+    //       content: 'I + D + I',
+    //     },
+    //   ],
 
-      subText: [
-        {
-          id: 1,
-          content: 'inteligencia Desarrollo Innovacion',
-        },
-      ],
+    //   subText: [
+    //     {
+    //       id: 1,
+    //       content: 'inteligencia Desarrollo Innovacion',
+    //     },
+    //   ],
 
-      card1: [
-        {
-          id: 1,
-          text: 'Tenemos ',
-          resalt: 'más de 10 años de experiencia',
-          text1: 'en transformación digital',
-        },
+    //   card1: [
+    //     {
+    //       id: 1,
+    //       text: 'Tenemos ',
+    //       resalt: 'más de 10 años de experiencia',
+    //       text1: 'en transformación digital',
+    //     },
 
-        {
-          id: 2,
-          text: 'Desarrollamos ',
-          resalt: 'soluciones tecnológicas',
-          text1: 'que permiten agregar valor a las empresas',
-        },
-      ],
+    //     {
+    //       id: 2,
+    //       text: 'Desarrollamos ',
+    //       resalt: 'soluciones tecnológicas',
+    //       text1: 'que permiten agregar valor a las empresas',
+    //     },
+    //   ],
 
-      card2: [
-        {
-          id: 1,
-          icon: (
-            <AiOutlineDatabase className="tw-text-primary tw-w-10 tw-h-10" />
-          ),
-          texts: 'Administración de datos',
-        },
+    //   card2: [
+    //     {
+    //       id: 1,
+    //       icon: (
+    //         <AiOutlineDatabase className="tw-text-primary tw-w-10 tw-h-10" />
+    //       ),
+    //       texts: 'Administración de datos',
+    //     },
 
-        {
-          id: 2,
-          icon: <TbReportSearch className="tw-text-primary tw-w-10 tw-h-10" />,
-          texts: 'Creamos informes y reportes',
-        },
+    //     {
+    //       id: 2,
+    //       icon: <TbReportSearch className="tw-text-primary tw-w-10 tw-h-10" />,
+    //       texts: 'Creamos informes y reportes',
+    //     },
 
-        {
-          id: 3,
-          icon: <TfiSignal className="tw-text-primary tw-w-10 tw-h-10" />,
-          texts: 'Gestionamos la trazabilidad',
-        },
-      ],
-    },
+    //     {
+    //       id: 3,
+    //       icon: <TfiSignal className="tw-text-primary tw-w-10 tw-h-10" />,
+    //       texts: 'Gestionamos la trazabilidad',
+    //     },
+    //   ],
+    // },
   ],
 };
