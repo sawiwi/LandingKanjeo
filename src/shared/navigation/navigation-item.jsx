@@ -80,7 +80,7 @@ const NavigationItem = ({ menuItem }) => {
           ? 'tw-inline-flex tw-text-secondary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5'
           : name === 'Mi cuenta'
           ? 'tw-bg-secondary tw-border tw-rounded-full tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-primary hover:tw-bg-primary-light hover:tw-text-white hover:tw-border hover:tw-border-secondary-light tw-duration-200'
-          : 'tw-inline-flex tw-items-center tw-text-sm xl:text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-slate-800  hover:tw-text-slate-900'
+          : 'tw-inline-flex tw-items-center tw-text-sm xl:text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-secondary  hover:tw-text-secondary-light'
       }`}
       rel="noreferrer"
     >

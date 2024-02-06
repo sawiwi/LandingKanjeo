@@ -11,7 +11,7 @@
   z-index: -1;
   top: -16px;
   right: -16px;
-  background: #e26031;
+  background: #431c1c;
   height: 25px;
   width: 25px;
   border-radius: 32px;
@@ -27,7 +27,7 @@
   .card1:hover h3,
   .card1:hover p {
     transition: 0.3s ease-out;
-    color: #fff !important;
+    color: #f7f4f4 !important;
   }
 }
 .card1:hover:before {
@@ -41,6 +41,6 @@
 .card1:hover a,
 button {
   transition: 0.3s ease-out;
-  color: #ff422c;
-  background: #fff;
+  color: #431c1c;
+  background: #f7f4f4;
 }

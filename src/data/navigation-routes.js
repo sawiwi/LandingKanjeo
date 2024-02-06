@@ -2,9 +2,10 @@ import Home from '../pages';
 import About from '../pages/contact';
 // import VehicleManagementSystem from '../pages/vehicle-management-system';
 // import CertifiedTraceabilitySystem from '../pages/certified-traceability-system';
-import RepLaw from '../pages/rep-law';
+// import RepLaw from '../pages/rep-law';
 // import ReturnTravelPortal from '../pages/return-travel-portal';
 import Faq from '../pages/faq';
+import ServicesSect from '../pages/services';
 
 export const navigationRoutes = [
   {
@@ -15,12 +16,18 @@ export const navigationRoutes = [
   },
   {
     id: 2,
+    name: 'Servicios',
+    path: '/servicios',
+    element: <ServicesSect />,
+  },
+  {
+    id: 3,
     name: 'Contacto',
     path: '/contacto',
     element: <About />,
   },
   {
-    id: 3,
+    id: 4,
     name: 'FAQ',
     path: '/faq',
     element: <Faq />,

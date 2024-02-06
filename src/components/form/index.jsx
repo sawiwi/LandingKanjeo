@@ -194,8 +194,8 @@ const Index = ({ renderContent }) => {
         formData?.email,
         formData?.company,
         selected.name,
-        'Nuevo mensaje de QR Service',
-        'ign.casrod59@gmail.com'
+        'Nuevo mensaje de YoKanje',
+        'admincorredor@gmail.com'
       );
 
       if (response.success === 'true') {
@@ -220,10 +220,15 @@ const Index = ({ renderContent }) => {
 
   return (
     <div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-gap-10 tw-relative tw-z-10">
+        {/* <img
+          src="https://res.cloudinary.com/dvdb33uyj/image/upload/v1690573530/Projects/qr-service/imgs/Fondo2.webp"
+          alt=""
+          className="tw-absolute tw-w-full tw-left-0 tw-top-0 tw-z-0"
+        /> */}
       <form
         id="contact-plan-form"
         onSubmit={onFormSubmit}
-        className="tw-rounded-2xl tw-bg-white tw-shadow-lg tw-px-8 tw-pt-8 tw-pb-8 tw-mb-4 tw-max-w-[700px] tw-w-full"
+        className="tw-rounded-2xl tw-px-8 tw-pt-8 tw-pb-8 tw-mb-4 tw-max-w-[700px] tw-w-full tw-shadow-lg tw-bg-primary"
       >
         <TitleSection
           title={renderContent.headings[0].content}

@@ -61,40 +61,14 @@ const Home = () => {
       {/* HERO */}
       <ReactSlick renderContent={contentPage1} />
 
-      {/* MAIN CONTENT */}
-      {/* Services CONTENT */}
-      {/* <Section>
-        <img
-          src="https://res.cloudinary.com/dvdb33uyj/image/upload/v1690573290/Projects/qr-service/imgs/Fondo1.webp"
-          alt=""
-          className="tw-absolute tw-max-w-[800] tw-m-auto tw-my-7 tw-w-full tw-left-0 tw-top-0 tw-z-0 tw-h-[65%]"
-        />
-        <div className="tw-relative tw-z-10">
-          <Reveal
-            keyframes={fadeInUp}
-            delay={500}
-            duration={800}
-            triggerOnce={true}
-          >
-            <TitleSection
-              className="tw-text-white"
-              subTitleClassName="tw-text-white"
-              title={process.headings[0].content}
-              subtitle="Data-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure culpa inventore dicta voluptatum fuga,"
-              position="center"
-            />
-            <Business renderContent={process} />
-          </Reveal>
-        </div>
-      </Section> */}
-      
+
       {/* Seccion de Planes */}
-      <Section className="tw-overflow-hidden">
-        <img
+      <Section className="tw-overflow-hidden tw-bg-white" >
+        {/* <img
           src="https://res.cloudinary.com/dvdb33uyj/image/upload/v1690573530/Projects/qr-service/imgs/Fondo2.webp"
           alt=""
           className="tw-absolute tw-w-full tw-left-0 tw-top-0 tw-z-0"
-        />
+        /> */}
         <TitleSection
           className="tw-relative tw-z-10"
           subTitleClassName="tw-relative tw-z-10"
@@ -110,6 +84,7 @@ const Home = () => {
           </div>
         </Fade>
       </Section>
+
       {/* Steps CONTENT */}
       <Section className="tw-overflow-hidden tw-bg-gray-50">
         <TitleSection
@@ -121,7 +96,7 @@ const Home = () => {
       </Section>
 
       {/* Seccion de Por que nosotros? */}
-      <Section>
+      <Section className="tw-overflow-hidden tw-bg-white">
         <Reveal
           keyframes={fadeInUp}
           delay={500}
@@ -137,10 +112,8 @@ const Home = () => {
         </Reveal>
       </Section>
 
-
-
       {/* Seccion Del Formulario */}
-      <Section>
+      <Section className="tw-overflow-hidden tw-bg-gray-50">
         <Form renderContent={formContent} />
       </Section>
     </>

@@ -15,7 +15,7 @@ const MainNav = () => {
         </div>
       </div>
 
-      <div className="tw-flex tw-items-center xl:tw-hidden tw-mr-4 md:tw-mr-8 lg:tw-mr-10">
+      <div className="tw-flex tw-items-center 2xl:tw-hidden tw-mr-4 md:tw-mr-8 lg:tw-mr-10">
         <MenuBar />
       </div>
     </div>

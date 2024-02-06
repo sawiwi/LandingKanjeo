@@ -1,54 +1,70 @@
 export const plansData = [
   {
     id: 1,
-    name: 'Plan Starter',
+    name: 'Plan Emprendedor',
     href: '/',
-    category: 'Micro Empresa',
+    category: 'Corredor principiante',
     description:
-      'Ideal para micro empresas con hasta 4 vehículos que necesiten medir la geolocalización.',
+      'Ideal para corredores que viene integrandose al mundo de corretaje y canje, con ganas de EMPRENDER.',
+      itemList: [
+        'Cantidad inicial de cupo de canje.',
+        'Plataforma de gestión y administración.',
+        'App móvil',   
+        'Reportes (Resumen de tus movimientos, venta, arriendo, canjes).',
+        'Soporte general.',
+
+      ] 
   },
   {
     id: 2,
-    name: 'Plan Medium',
+    name: 'Plan Medio',
     href: '/',
-    category: 'Pequeña Empresa',
+    category: 'Corredor mediano',
     description:
-      'Ideal para empresas con al menos 5 vehículos que necesiten monitorear y controlar su flota.',
+      'Ideal para corredores con una MEDIANA experiencia dentro del mundo del correctaje.',
     itemList: [
-      'Dispositivo GPS de última generación.',
-      'Plataforma de gestión de cuenta y administración.',
-      'App móvil ilimitado.',
-      'Reporte (viajes, kms recorridos, uso de combustible, visitas, historial de viajes).',
+      'Cantidad median de cupo de canje.',
+      'Plataforma de gestión y administración.',
+      'App móvil',
+      'Reportes (Resumen mensual de tus movimientos, venta, arriendo, canjes).',
+      'Soporte mensual.',
+
     ],
   },
   {
     id: 3,
-    name: 'Plan Pro',
+    name: 'Plan Avanzado',
     href: '/',
-    category: 'Mediana Empresa',
+    category: 'Corredor avanzado',
     description:
-      'Ideal para empresas con al menos 20 vehículos que necesiten optimizar su flota y reducir costos.',
-    itemList: [
-      'Los beneficios del plan Medium.',
-      'Dispositivo GPS de ultima generación.',
-      'Alertas configurables.',
-      'Reporte Funcionalidad de Convoy.',
-      'Puntaje conducción.',
-      'Soporte de accesorios.',
+      'Ideal para corredores con una AVANZADA experiencia dentro del mundo del corretaje y sistema de canje.',
+    itemList: [ 
+      'Cantidad aumentada de cupo de canje.',
+      'Plataforma de gestión y administración.',
+      'App móvil',
+      'Reportes (Resumen semanal de tus movimientos, venta, arriendo, canjes).',
+      'Valoración entre corredores.',
+      'Soporte semanal.',
       'Capacitación incluida.',
+      'Accesos a servicios externos'
     ],
   },
   {
     id: 4,
-    name: 'Plan Expert',
+    name: 'Plan Premium',
     href: '/',
-    category: 'Gran Empresa',
+    category: 'Corredor premium',
     description:
-      'Ideal para empresas con más de 100 vehículos que busquen gestionar el desempeño operacional de su flota.',
+      'Ideal para Corredores con un manejo de nivel EXPERTO dentro del corretaje, para esto habilita el Premium de la aplicación.',
     itemList: [
-      'Los beneficios del plan Pro',
-      'Conector CAN.',
-      'Permite funcionalidades adicionales como: Integraciones.',
+      'Cantidad ilimitada de cupo de canje.',
+      'Plataforma de gestión y administración.',
+      'App móvil',
+      'Reportes (Resumen diario de tus movimientos, venta, arriendo, canjes).',
+      'Valoración entre corredores.',
+      'Soporte diario.',
+      'Capacitación incluida.',
+      'Accesos a servicios externos PREMIUM.'
     ],
   },
 ];

@@ -99,14 +99,14 @@ export const contentPage1 = {
       headings: [
         {
           id: 1,
-          content: '¿Te interesa saber más?',
+          content: '¿Quieres cotizar?',
         },
       ],
       texts: [
         {
           id: 1,
           content:
-            'Lorem, ipsum dolor sit amet elit. Aspernatur, eligendi quidem perspiciatis distinctio delectus vitae dolorum?',
+            'Completa el formulario para contactarnos a la brevedad.',
         },
       ],
     },

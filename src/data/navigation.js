@@ -9,7 +9,7 @@ export const navigationData = [
   {
     id: 2,
     name: 'Servicios',
-    href: '/',  
+    href: '/servicios',  
   },
   {
     id: 3,
