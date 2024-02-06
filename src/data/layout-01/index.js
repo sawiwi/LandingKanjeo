@@ -7,6 +7,10 @@ import {
   FiUsers,
 } from '../../components/icon';
 
+import heroImgOne from '../../assets/img/Hero/pexels-luis-yanez-206172.webp';
+import heroImgTwo from '../../assets/img/Hero/pexels-terry-magallanes-2631746.webp';
+import heroImgThree from '../../assets/img/Hero/pexels-pixabay-259588.webp';
+
 export const contentPage1 = {
   name: 'home',
   content: [
@@ -16,21 +20,21 @@ export const contentPage1 = {
         {
           id: 1,
           content:
-            'Sistema de Gestión para Vehículos, Control Eficiente y Automatizado de Flotas de Transporte',
+            'Sistema de Canje de propiedades.',
         },
       ],
       texts: [
         {
           id: 1,
           content:
-            'Optimiza el dominio de tu flota, potencia su eficiencia y alcanza la máxima rentabilidad con nuestra solución integral.',
+            'Optimiza tu tiempo con el sistema eficiente de corretaje de propiedades. Alcanza la máxima rentabilidad con nuestra solución integral.',
         },
       ],
       buttons: [
         {
           id: 1,
           path: '/contacto',
-          content: 'Conocer más',
+          content: 'Registrate',
         },
         {
           id: 2,
@@ -41,17 +45,20 @@ export const contentPage1 = {
       imgs: [
         {
           id: 1,
-          src: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1690390166/Projects/qr-service/imgs/hero/1_vdulpg.png',
+          // src: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1690390166/Projects/qr-service/imgs/hero/1_vdulpg.png',
+          src: heroImgOne,
           alt: 'hero-img-1',
         },
         {
           id: 2,
-          src: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1690390166/Projects/qr-service/imgs/hero/4_emim5h.png',
+          // src: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1690390166/Projects/qr-service/imgs/hero/4_emim5h.png',
+          src: heroImgTwo,
           alt: 'hero-img-2',
         },
         {
           id: 3,
-          src: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1690510365/Projects/qr-service/imgs/hero/12_b56jw4.png',
+          // src: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1690510365/Projects/qr-service/imgs/hero/12_b56jw4.png',
+          src: heroImgThree,
           alt: 'hero-img-3',
         },
       ],

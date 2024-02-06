@@ -56,8 +56,8 @@ const Home = () => {
       {/* HEAD PAGE */}
       <HelmetHead
         titlePage="Inicio"
-        contentPage="Sistema de Gestión para Vehículos: Control Eficiente y Automatizado de Flotas de Transporte"
-        keywords="Sistema de Gestión para Vehículos, Control de Flotas, Automatización de Procesos de Transporte, Monitoreo de Flota por GPS, Herramienta de Análisis de Datos de Vehículos, Aumento de Productividad en Transporte, Gestión Eficiente de Horarios de Conductores, Seguimiento en Tiempo Real de Servicios de Transporte"
+        contentPage="Sistema de Kanje, para que puedas gestionar tus propiedades a la vez que intercambias con otros corredores"
+        keywords="Sistema de Kanje, Gestion de propiedades, Automatización de Procesos compra y venta, Seguimiento de propiedade, Herramienta de Análisis de Datos de Kanje, Gestión Eficiente de Kanje"
       />
 
       {/* HERO */}
