@@ -6,6 +6,7 @@ import About from '../pages/contact';
 // import ReturnTravelPortal from '../pages/return-travel-portal';
 import Faq from '../pages/faq';
 import ServicesSect from '../pages/services';
+import How from '../pages/howWork';
 
 export const navigationRoutes = [
   {
@@ -22,12 +23,18 @@ export const navigationRoutes = [
   },
   {
     id: 3,
+    name: 'Cómo funciona',
+    path: '/como-funciona',
+    element: <How />,
+  },
+  {
+    id: 4,
     name: 'Contacto',
     path: '/contacto',
     element: <About />,
   },
   {
-    id: 4,
+    id: 5,
     name: 'FAQ',
     path: '/faq',
     element: <Faq />,

@@ -5,6 +5,7 @@ import {
   BsCheck,
   BsCheck2Circle,
   FiUsers,
+
 } from '../../components/icon';
 
 import heroImgOne from '../../assets/img/Hero/pexels-luis-yanez-206172.webp';
@@ -176,7 +177,7 @@ export const contentPage1 = {
         {
           id: 1,
           title: 'En pasos sencillos',
-          subtitle: 'Podras gestionar tu flota vehicular',
+          subtitle: 'Podras gestionar tu cartera',
           img: 'https://res.cloudinary.com/dvdb33uyj/image/upload/v1690570027/Projects/qr-service/imgs/personCheck.webp',
         },
       ],
@@ -184,35 +185,35 @@ export const contentPage1 = {
       step: [
         {
           id: 1,
-          icon: <BsCheck2Circle />,
+          icon: <BsCheck2Circle   />,
           content:
             'Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag',
         },
 
         {
           id: 2,
-          icon: <BsCheck2Circle />,
+          icon: <BsCheck2Circle   />,
           content:
             'Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag',
         },
 
         {
           id: 3,
-          icon: <BsCheck2Circle />,
+          icon: <BsCheck2Circle  />,
           content:
             'Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag',
         },
 
         {
           id: 4,
-          icon: <BsCheck2Circle />,
+          icon: <BsCheck2Circle  />,
           content:
             'Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag',
         },
 
         {
           id: 5,
-          icon: <BsCheck2Circle />,
+          icon: <BsCheck2Circle  />,
           content:
             'Copper mug try-hard pitchfork pour-over freegan heirloom neutra air plant cold-pressed tacos poke beard tote bag',
         },

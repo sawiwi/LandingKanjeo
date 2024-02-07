@@ -14,7 +14,7 @@ export const navigationData = [
   {
     id: 3,
     name: 'Cómo funciona',
-    href: '/',  
+    href: '/como-funciona',  
   },
   {
     id: 4,
