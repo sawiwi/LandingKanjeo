@@ -7,7 +7,7 @@ import Card01 from '../components/card/card-01';
 import Form from '../components/form/index.jsx';
 import { contentPage1 } from '../data/layout-01';
 
-import ContactImg from '../assets/img/Contact/chen-mizrach-1NTOQHBRegA-unsplash.webp'
+
 
 const ServicesSect = ()=>{
 
