@@ -53,17 +53,17 @@ export const footerNavigation = [
   {
     id: 2,
     name: 'Servicios',
-    href: '/',
+    href: '/servicios',
   },
   {
     id: 2,
     name: 'Cómo funciona',
-    href: '/',
+    href: '/como-funciona',
   },
   {
     id: 3,
     name: 'Nosotros',
-    href: '/',
+    href: '/nosotros',
   },
   {
     id: 4,
@@ -73,6 +73,6 @@ export const footerNavigation = [
   {
     id: 5,
     name: 'Contacto',
-    href: '/contact',
+    href: '/contacto',
   },
 ];

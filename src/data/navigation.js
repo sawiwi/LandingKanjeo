@@ -19,7 +19,7 @@ export const navigationData = [
   {
     id: 4,
     name: 'Nosotros',
-    href: '/',  
+    href: '/nosotros',  
   },
   {
     id: 5,

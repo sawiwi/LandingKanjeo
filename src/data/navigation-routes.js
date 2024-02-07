@@ -1,5 +1,5 @@
 import Home from '../pages';
-import About from '../pages/contact';
+import About from '../pages/about';
 // import VehicleManagementSystem from '../pages/vehicle-management-system';
 // import CertifiedTraceabilitySystem from '../pages/certified-traceability-system';
 // import RepLaw from '../pages/rep-law';
@@ -7,6 +7,7 @@ import About from '../pages/contact';
 import Faq from '../pages/faq';
 import ServicesSect from '../pages/services';
 import How from '../pages/howWork';
+import Contact from '../pages/contact';
 
 export const navigationRoutes = [
   {
@@ -29,12 +30,18 @@ export const navigationRoutes = [
   },
   {
     id: 4,
-    name: 'Contacto',
-    path: '/contacto',
+    name: 'Nosotros',
+    path: '/nosotros',
     element: <About />,
   },
   {
     id: 5,
+    name: 'Contacto',
+    path: '/contacto',
+    element: <Contact />,
+  },
+  {
+    id: 6,
     name: 'FAQ',
     path: '/faq',
     element: <Faq />,

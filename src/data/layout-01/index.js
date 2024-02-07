@@ -12,6 +12,10 @@ import heroImgOne from '../../assets/img/Hero/pexels-luis-yanez-206172.webp';
 import heroImgTwo from '../../assets/img/Hero/pexels-terry-magallanes-2631746.webp';
 import heroImgThree from '../../assets/img/Hero/pexels-pixabay-259588.webp';
 
+import About1 from '../../assets/img/about/casa1.jpg'
+import About2 from '../../assets/img/about/casa2.jpg'
+import About3 from '../../assets/img/about/casa3.jpg'
+
 export const contentPage1 = {
   name: 'home',
   content: [
@@ -240,99 +244,32 @@ export const contentPage1 = {
       card: [
         {
           id: 1,
-          title: 'Data-Happy Clients',
-          icon: (
-            <FiUsers className="tw-text-orange-500 tw-w-12 tw-h-12 tw-mb-3 tw-inline-block" />
-          ),
+          title: 'Compromiso',
+ 
+          img:About1,
           content:
             'Data-Lorem ipsum dolor sit, amet consectetur adipisicing elit Data-Lorem ipsum dolor sit, amet consectetur adipisicing elit. .',
         },
 
         {
           id: 2,
-          title: 'Data-Happy Clients',
-          icon: (
-            <FiUsers className="tw-text-orange-500 tw-w-12 tw-h-12 tw-mb-3 tw-inline-block" />
-          ),
+          title: 'Dedicación',
+    
+          img:About2,
           content:
             'Data-Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
         },
 
         {
           id: 3,
-          title: 'Data-Security',
-          icon: (
-            <FiUsers className="tw-text-orange-500 tw-w-12 tw-h-12 tw-mb-3 tw-inline-block" />
-          ),
+          title: 'Seguridad',
+ 
+          img:About3,
           content:
             'Data-Lorem ipsum dolor sit, amet consectetur adipisicing elit. Data-Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
         },
 
-        {
-          id: 4,
-          title: 'Data-Security',
-          icon: (
-            <FiUsers className="tw-text-orange-500 tw-w-12 tw-h-12 tw-mb-3 tw-inline-block" />
-          ),
-          content:
-            'Data-Lorem ipsum dolor sit, amet consectetur adipisicing elit.',
-        },
       ],
     },
-
-    // {
-    //   section: 'Idi',
-    //   headings: [
-    //     {
-    //       id: 1,
-    //       content: 'I + D + I',
-    //     },
-    //   ],
-
-    //   subText: [
-    //     {
-    //       id: 1,
-    //       content: 'inteligencia Desarrollo Innovacion',
-    //     },
-    //   ],
-
-    //   card1: [
-    //     {
-    //       id: 1,
-    //       text: 'Tenemos ',
-    //       resalt: 'más de 10 años de experiencia',
-    //       text1: 'en transformación digital',
-    //     },
-
-    //     {
-    //       id: 2,
-    //       text: 'Desarrollamos ',
-    //       resalt: 'soluciones tecnológicas',
-    //       text1: 'que permiten agregar valor a las empresas',
-    //     },
-    //   ],
-
-    //   card2: [
-    //     {
-    //       id: 1,
-    //       icon: (
-    //         <AiOutlineDatabase className="tw-text-primary tw-w-10 tw-h-10" />
-    //       ),
-    //       texts: 'Administración de datos',
-    //     },
-
-    //     {
-    //       id: 2,
-    //       icon: <TbReportSearch className="tw-text-primary tw-w-10 tw-h-10" />,
-    //       texts: 'Creamos informes y reportes',
-    //     },
-
-    //     {
-    //       id: 3,
-    //       icon: <TfiSignal className="tw-text-primary tw-w-10 tw-h-10" />,
-    //       texts: 'Gestionamos la trazabilidad',
-    //     },
-    //   ],
-    // },
   ],
 };
