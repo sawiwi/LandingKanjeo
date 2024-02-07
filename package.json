@@ -24,7 +24,7 @@
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://landing_YoKanjeo.cl",
+  "homepage": "https://landingyokanjeo.cl",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
