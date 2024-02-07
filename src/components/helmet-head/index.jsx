@@ -6,7 +6,7 @@ const HelmetHead = ({ titlePage, contentPage, keywords }) => {
       <Helmet>
         <meta charSet="utf-8" />
         <title>
-          QR Service {titlePage ? `| ${titlePage}` : 'Not found page...'}
+          YoKanjeo {titlePage ? `| ${titlePage}` : 'Not found page...'}
         </title>
         <meta
           name="description"

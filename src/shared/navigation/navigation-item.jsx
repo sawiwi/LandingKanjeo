@@ -40,7 +40,7 @@ const NavigationItem = ({ menuItem }) => {
             <Popover.Panel className="tw-absolute left-tw-1/2 tw-z-10 tw-mt-2 tw-w-56 tw-border-0 tw-rounded-2xl tw-max-w-56 tw-[-translate-x-1/2] tw-transform tw-px-4 sm:tw-px-0 lg:tw-max-w-3xl">
               <div className="tw-overflow-hidden tw-rounded-xl tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 tw-w-50">
                 <div className="tw-relative tw-grid tw-gap-1 tw-p-2 tw-px-2 lg:tw-grid-cols-1 tw-bg-white tw-w-auto tw-rounded-xl">
-                  {children?.map(({ name, href, icon }) => (
+                  {children?.map(({ name, href, icon, status }) => (
                     <Link
                       key={name}
                       to={href}
@@ -77,12 +77,13 @@ const NavigationItem = ({ menuItem }) => {
       }
       className={`tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-outline-none tw-py-2 tw-px-4 xl:tw-px-3 hover:tw-text-secondary-light ${
         pathname === href
-          ? 'tw-inline-flex tw-text-secondary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5'
+          ? 'tw-inline-flex tw-text-secondary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5 '
           : name === 'Mi cuenta'
-          ? 'tw-bg-secondary tw-border tw-rounded-full tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-primary hover:tw-bg-primary-light hover:tw-text-white hover:tw-border hover:tw-border-secondary-light tw-duration-200'
+          ? 'tw-bg-secondary tw-border tw-rounded-full tw-inline-flex tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-primary hover:tw-bg-secondary-light hover:tw-text-white hover:tw-border hover:tw-border-secondary-light tw-duration-200'
           : 'tw-inline-flex tw-items-center tw-text-sm xl:text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5  tw-text-secondary  hover:tw-text-secondary-light'
       }`}
       rel="noreferrer"
+
     >
       {/* {console.log(href)} */}
       {name === 'Mi cuenta' && <AiOutlineUser />} {name}
