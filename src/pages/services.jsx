@@ -21,7 +21,7 @@ const ServicesSect = ()=>{
     ); 
     return(
         <>
-        <Section className="tw-overflow-hidden tw-bg-white" >
+        <Section className="tw-overflow-hidden tw-bg-white" id="servicios">
             <TitleSection
             className="tw-relative tw-z-10"
             subTitleClassName="tw-relative tw-z-10"

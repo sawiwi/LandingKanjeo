@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth !important;
 }
 
 @font-face {
@@ -60,7 +60,7 @@ html {
 }
 
 html {
-  scroll-behavior: auto !important;
+  scroll-behavior: smooth !important;
 }
 
 html,

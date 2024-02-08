@@ -41,9 +41,9 @@ const NavigationItem = ({ menuItem }) => {
               <div className="tw-overflow-hidden tw-rounded-xl tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 tw-w-50">
                 <div className="tw-relative tw-grid tw-gap-1 tw-p-2 tw-px-2 lg:tw-grid-cols-1 tw-bg-white tw-w-auto tw-rounded-xl">
                   {children?.map(({ name, href, icon, status }) => (
-                    <Link
+                    <a
                       key={name}
-                      to={href}
+                      href={href}
                       className={`${
                         pathname === href
                           ? 'tw-bg-primary tw-text-white tw-flex tw-items-center tw-rounded-lg tw-transition tw-duration-150 tw-ease-in-out hover:tw-bg-primary focus:tw-outline-none focus-visible:tw-ring'
@@ -58,7 +58,7 @@ const NavigationItem = ({ menuItem }) => {
                           {name}
                         </p>
                       </div>
-                    </Link>
+                    </a>
                   ))}
                 </div>
               </div>

@@ -9,7 +9,7 @@ const How = () => {
   const steps = contentPage1.content.find((item) => item.section === 'Steps');
   return(
 
-        <Section className="tw-overflow-hidden tw-bg-gray-50">
+        <Section className="tw-overflow-hidden tw-bg-gray-50" id='como-funciona'>
         {/* Steps CONTENT */}
               <TitleSection
                 title="¿Cómo funciona?"

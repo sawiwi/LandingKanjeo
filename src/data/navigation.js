@@ -10,11 +10,13 @@ export const navigationData = [
     id: 2,
     name: 'Servicios',
     href: '/servicios',  
+    // href: '#servicios',  
   },
   {
     id: 3,
     name: 'Cómo funciona',
     href: '/como-funciona',  
+    // href: '#como-funciona',  
   },
   {
     id: 4,
