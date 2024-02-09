@@ -31,11 +31,13 @@ const ContactFormServices = {
     );
     return response.data;
   },
+
+  
   sendContactFormUser: async (
     name,
     email,
     phone,
-    message,
+    // message,
     subjectEmail,
     realtorEmail
   ) => {
@@ -45,7 +47,7 @@ const ContactFormServices = {
         Nombre_empresa: name,
         Correo: email,
         Telefono: phone,
-        Mensaje: message,
+        // Mensaje: message,
         _template: 'table',
         _subject: subjectEmail,
       },

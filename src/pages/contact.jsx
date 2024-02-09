@@ -10,12 +10,13 @@ const Contact = () => {
     <>
       <HelmetHead
         titlePage="Contacto"
-        contentPage="Sistema de Gestión para Vehículos Contacto: Control Eficiente y Automatizado de Flotas de Transporte"
-        keywords="Sistema de Gestión para Vehículos Contacto, Control de Flotas Contacto, Automatización de Procesos de Transporte Contacto, Monitoreo de Flota por GPS Contacto, Herramienta de Análisis de Datos de Vehículos Contacto, Aumento de Productividad en Transporte Contacto, Gestión Eficiente de Horarios de Conductores Contacto, Seguimiento en Tiempo Real de Servicios de Transporte Contacto"
+        contentPage="Sistema de Kanje, para que puedas gestionar tus propiedades a la vez que intercambias con otros corredores"
+        keywords="Sistema de Kanje, Gestion de propiedades, Automatización de Procesos compra y venta, Seguimiento de propiedade, Herramienta de Análisis de Datos de Kanje, Gestión Eficiente de Kanje"
       />
 
-      <div className="tw-container tw-my-24 tw-mx-auto md:tw-px-6">
+      <div className="tw-container tw-my-2 tw-mx-auto md:tw-px-6 xl:tw-px-24">
         <section className="tw-mb-32 tw-text-center">
+
           <ContactForm />
         </section>
       </div>

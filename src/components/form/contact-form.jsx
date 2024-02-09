@@ -4,6 +4,8 @@ import Button from '../ui/button';
 import Alert from '../alert';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Fade } from 'react-awesome-reveal';
+
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +13,7 @@ const ContactForm = () => {
     name: '',
     email: '',
     phone: '',
-    message: '',
+    // message: '',
   });
   const [errorMsg, setErrorMsg] = useState({
     fieldsRequired: '',
@@ -28,7 +30,7 @@ const ContactForm = () => {
       name: '',
       email: '',
       phone: '',
-      message: '',
+      // message: '',
     });
 
   /* ToastMessage : Success */
@@ -80,14 +82,14 @@ const ContactForm = () => {
         formData?.name,
         formData?.email,
         formData?.phone,
-        formData?.message,
-        `${formData?.name} Quiere contactarse con QR Service`,
-        'ign.casrod59@gmail.com'
+        // formData?.message,
+        `${formData?.name} Quiere contactarse con Yokanjeo`,
+        'fabians@bidata.cl'
       );
 
       if ((await response.success) === 'true') {
         showToastSuccessMsg(
-          'Solicitud enviada con exito! Un ejecutivo se contactara contigo'
+          'Solicitud enviada con exito! revisa tu cuenta de correo porfavor'
         );
         setLoading(false);
         resetForm();
@@ -106,25 +108,105 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="tw-min-h-screen tw-bg-gray-50 tw-py-6 tw-flex tw-flex-col tw-justify-center sm:tw-py-12">
-      <div className="tw-relative tw-py-3 sm:tw-max-w-xl sm:tw-mx-auto">
-        <div className="tw-absolute tw-inset-0 tw-bg-gradient-to-r tw-from-blue-300 tw-to-blue-600 tw-shadow-lg tw-transform tw--skew-y-6 sm:tw-skew-y-0 sm:tw--rotate-6 sm:tw-rounded-3xl"></div>
-        <form
-          onSubmit={onFormSubmit}
-          className="tw-relative tw-px-4 tw-py-10 tw-bg-white tw-shadow-lg sm:tw-rounded-3xl sm:tw-p-20"
-        >
-          <div className="tw-max-w-md tw-mx-auto">
-            <div>
-              <h1 className="tw-text-gray-700 tw-text-2xl tw-font-semibold">
-                Completa el formulario
+    <div className="tw-h-[100vh] tw-bg-gray-50 tw-py-6 sm:tw-py-10 lg:tw-py-16 tw-flex tw-flex-col tw-justify-center">
+            <div className='tw-mt-36 tw-mb-3 lg:tw-mb-2  xl:tw-mb-6'>
+              <h1 className="tw-text-secondary tw-text-4xl lg:text-2xl xl:tw-text-6xl tw-font-semibold tw-mb-3 lg:tw-mb-1 xl:tw-mb-4">
+                YoKanjeo
               </h1>
-              <small className="tw-text-gray-400">
-                Un administrador atenderá tu solicitud
+              <h2 className='tw-text-center tw-text-lg xl:tw-text-xl tw-text-secondary'>
+                Crea tu cuenta
+              </h2>
+              <small className="tw-text-secondary-light ">
+                Te enviaremos un email para que puedas registrarte.
               </small>
             </div>
+            <Fade direction="up" triggerOnce={true}>
+              <div className='tw-flex tw-justify-center'>
+                <form  onSubmit={onFormSubmit} className='tw-relative tw-shadow-xl tw-shadow-secondary/40 tw-bg-primary  tw-w-[95%] xl:tw-w-[50%] tw-h-[350px] tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-5 tw-p-4 tw-rounded-md '>
+                    <div className="tw-relative tw-mb-2 tw-mt-4">
+                      <input
+                        autoComplete="off"
+                        id="name"
+                        name="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleInputChange}
+                        className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-border-secondary/70 tw-rounded-full tw-pl-2 tw-text-secondary focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                        placeholder="Ingresa tu nombre personal o empresa"
+                      />
+                      <label
+                        htmlFor="name"
+                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-4 tw-text-secondary-light tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-4 peer-focus:tw-text-secondary/80 peer-focus:tw-text-sm"
+                      >
+                        Ingresa tu Nombre o Empresa
+                      </label>
+                    </div>
+                    <div className="tw-relative tw-mb-10 tw-mt-10">
+                      <input
+                        autoComplete="off"
+                        id="email"
+                        name="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleInputChange}
+                        className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-border-secondary/70 tw-text-secondary tw-rounded-full tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                        placeholder="Correo electrónico"
+                      />
+                      <label
+                        htmlFor="email"
+                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-4 tw-text-secondary-light tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-4 peer-focus:tw-text-secondary/80 peer-focus:tw-text-sm"
+                      >
+                        Correo electrónico
+                      </label>
+                    </div>
+                    <div className="tw-relative tw-mt-10">
+                      <input
+                        autoComplete="off"
+                        id="phone"
+                        name="phone"
+                        type="phone"
+                        value={formData.phone}
+                        onChange={handleInputChange}
+                        className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-border-secondary/70 tw-text-secondary tw-pl-2 tw-rounded-full focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                        placeholder="Teléfono o móvil"
+                      />
+                      <label
+                        htmlFor="phone"
+                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-4 tw-text-secondary-light tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-4 peer-focus:tw-text-secondary/80 peer-focus:tw-text-sm"
+                      >
+                        Teléfono o móvil
+                      </label>
+                    </div>
+                    <div className="tw-relative tw-my-3 tw-mt-10">
+                    <Button
+                      type="submit"
+                      className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-lg tw-px-12 tw-py-2"
+                    >
+                      {loading ? 'Enviando...' : 'Enviar'}
+                    </Button>
+                  </div>
+                  {errorMsg.fieldsRequired && (
+                    <Alert message={errorMsg.fieldsRequired} />
+                  )}
+
+                  {errorMsg.serverError && (
+                    <Alert message={errorMsg.serverError} />
+                  )}
+                </form>
+              </div>
+            </Fade>
+ 
+        {/* <div className="tw-relative tw-py-2 sm:tw-max-w-xl sm:tw-mx-auto">
+
+      <form
+          onSubmit={onFormSubmit}
+          className="tw-relative tw-px-4 tw-py-10 lg:tw-py-6 tw-bg-white tw-shadow-2xl sm:tw-rounded-3xl sm:tw-p-12 tw-h-[45vh] lg:tw-w-[42vw] xl:tw-w-[32vw]"
+        >
+          <div className="tw-max-w-md tw-mx-auto">
+
             <div className="tw-divide-y tw-divide-gray-200">
-              <div className="tw-py-8 tw-text-base tw-leading-6 tw-space-y-4 tw-text-gray-700 sm:tw-text-lg sm:tw-leading-7">
-                <div className="tw-relative tw-my-2">
+              <div className="tw-py-8 tw-text-base tw-leading-6 tw-space-y-4 tw-text-gray-700 sm:tw-text-lg sm:tw-leading-7 tw-h-[100]">
+                <div className="tw-relative tw-mb-10">
                   <input
                     autoComplete="off"
                     id="name"
@@ -133,7 +215,7 @@ const ContactForm = () => {
                     value={formData.name}
                     onChange={handleInputChange}
                     className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border-b-2 tw-border-gray-300 tw-text-gray-900 focus:tw-outline-none focus:tw-borer-rose-600"
-                    placeholder="Ingresa tu Nombre o Empresa"
+                    placeholder="Ingresa tu nombre personal o empresa"
                   />
                   <label
                     htmlFor="name"
@@ -143,7 +225,7 @@ const ContactForm = () => {
                   </label>
                 </div>
 
-                <div className="tw-relative tw-my-2">
+                <div className="tw-relative tw-mb-10">
                   <input
                     autoComplete="off"
                     id="email"
@@ -151,18 +233,18 @@ const ContactForm = () => {
                     type="email"
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border-b-2 tw-border-gray-300 tw-text-gray-900 focus:tw-outline-none focus:tw-borer-rose-600"
+                    className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border-b-2 tw-border-secondary/70 tw-text-secondary focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                     placeholder="Correo electrónico"
                   />
                   <label
                     htmlFor="email"
-                    className="tw-absolute tw-left-0 tw--top-3.5 tw-text-gray-600 tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-440 peer-placeholder-shown:tw-top-2 tw-transition-all peer-focus:tw--top-3.5 peer-focus:tw-text-gray-600 peer-focus:tw-text-sm"
+                    className="tw-absolute tw-left-0 tw--top-3.5 tw-text-secondary-light tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all peer-focus:tw--top-3.5 peer-focustw-text-secondary/80 peer-focus:tw-text-sm"
                   >
                     Correo electrónico
                   </label>
                 </div>
 
-                <div className="tw-relative tw-my-2">
+                <div className="tw-relative tw-mt-10">
                   <input
                     autoComplete="off"
                     id="phone"
@@ -181,7 +263,7 @@ const ContactForm = () => {
                   </label>
                 </div>
 
-                <div className="tw-relative tw-my-2">
+                {/* <div className="tw-relative tw-my-2">
                   <textarea
                     autoComplete="off"
                     rows={3}
@@ -199,20 +281,20 @@ const ContactForm = () => {
                   >
                     Deja tu mensaje
                   </label>
-                </div>
+                </div> */}
 
-                {errorMsg.fieldsRequired && (
+                {/* {errorMsg.fieldsRequired && (
                   <Alert message={errorMsg.fieldsRequired} />
                 )}
 
                 {errorMsg.serverError && (
                   <Alert message={errorMsg.serverError} />
-                )}
+                )} */}
 
-                <div className="tw-relative tw-my-3">
+                {/* <div className="tw-relative tw-my-3 tw-mt-20">
                   <Button
                     type="submit"
-                    className="tw-bg-primary hover:tw-bg-primary-light tw-text-white tw-rounded-md tw-px-12 tw-py-2"
+                    className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-lg tw-px-12 tw-py-2"
                   >
                     {loading ? 'Enviando...' : 'Enviar'}
                   </Button>
@@ -220,8 +302,8 @@ const ContactForm = () => {
               </div>
             </div>
           </div>
-        </form>
-      </div>
+        </form>  
+      </div>*/}
       <ToastContainer />
     </div>
   );
