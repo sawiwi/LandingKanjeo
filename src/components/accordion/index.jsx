@@ -15,7 +15,7 @@ const Accordion = ({ question, answer }) => {
         <button
           type="button"
           onClick={toggleAccordion}
-          className="tw-flex tw-bg-gray-50 tw-border-b tw-my-2 tw-w-[350px] sm:tw-w-[450px] md:tw-w-[700px] lg:tw-w-[850px] tw-items-center tw-justify-between tw-p-5 tw-font-medium tw-text-left tw-text-gray-500 tw-border tw-border-gray-200 tw-rounded-t-xl focus:tw-ring-4 focus:tw-ring-orange-100 hover:tw-bg-orange-50"
+          className="tw-flex tw-bg-gray-50 tw-border-b tw-my-2 tw-w-[350px] sm:tw-w-[450px] md:tw-w-[700px] lg:tw-w-[850px] tw-items-center tw-justify-between tw-p-5 tw-font-medium tw-text-left tw-text-secondary-light tw-border tw-border-gray-200 tw-rounded-t-xl focus:tw-ring-4 focus:tw-ring-orange-100 hover:tw-bg-orange-50"
           data-accordion-target="#accordion-color-body-1"
           aria-expanded="true"
           aria-controls="accordion-color-body-1"
@@ -51,7 +51,7 @@ const Accordion = ({ question, answer }) => {
         aria-labelledby="accordion-color-heading-1"
       >
         <div className="tw-p-5 tw-border tw-border-b tw-border-gray-200">
-          <p className="tw-mb-2 tw-text-gray-500">{answer}</p>
+          <p className="tw-mb-2 tw-text-secondary-light">{answer}</p>
         </div>
       </div>
     </div>
