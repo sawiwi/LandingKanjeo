@@ -12,6 +12,7 @@ const How = () => {
         <Section className="tw-overflow-hidden tw-bg-gray-50" id='como-funciona'>
         {/* Steps CONTENT */}
               <TitleSection
+                className='lg:tw-mt-20'
                 title="¿Cómo funciona?"
                 subtitle="Nuestras soluciones hacen más agil tu negocio"
                 position="center"

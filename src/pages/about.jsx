@@ -34,6 +34,7 @@ return(
       triggerOnce={true}
     >
       <TitleSection
+        className='lg:tw-mt-20'
         title={whyWeContent.headings[0].content}
         subtitle="Data-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure culpa inventore dicta voluptatum fuga,"
         position="center"

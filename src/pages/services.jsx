@@ -23,7 +23,7 @@ const ServicesSect = ()=>{
         <>
         <Section className="tw-overflow-hidden tw-bg-white" id="servicios">
             <TitleSection
-            className="tw-relative tw-z-10"
+            className="tw-relative tw-z-10 lg:tw-mt-20"
             subTitleClassName="tw-relative tw-z-10"
             title="Servicio de YoKanjeo"
             subtitle="Nuestras soluciones se adapta a tu negocio."
