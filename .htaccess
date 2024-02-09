@@ -1,0 +1,30 @@
+RewriteEngine On
+RewriteBase /
+
+# Ruta /
+RewriteRule ^$ /index.html [L]
+
+# Ruta /servicios
+RewriteRule ^servicios /index.html [L]
+
+# Ruta /como-funciona
+RewriteRule ^como-funciona /index.html [L]
+
+# Ruta /nosotros
+RewriteRule ^nosotros /index.html [L]
+
+# Ruta /faq
+RewriteRule ^faq /index.html [L]
+
+# Ruta /contacto
+RewriteRule ^contacto /index.html [L]
+
+# Página 404 personalizada
+ErrorDocument 404 /index.html
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php73” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php73___lsphp .php .php7 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit
