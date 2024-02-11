@@ -26,16 +26,16 @@ const ReactSlick = ({ renderContent }) => {
             className="tw-bg-cover tw-h-[80vh] md:tw-h-[70vh] lg:tw-h-[70vh] xl:tw-h-[60vh] tw-mx-auto tw-w-full tw-object-cover tw-object-center"
           />
           <div className="tw-absolute tw-z-50 tw-inset-0 tw-text-center tw-flex tw-flex-col tw-w-[90%] md:tw-w-[70%] lg:tw-w-[60%] xl:tw-w-[40%] tw-mx-auto tw-justify-center tw-items-center tw-z-100 ">
-            <h1 className="tw-text-primary tw-opacity-100 tw-font-bold tw-text-2xl md:tw-text-4xl">
+            <h1 className="tw-text-primary tw-mt-9 lg:tw-mt-4 tw-opacity-100 tw-font-bold tw-text-3xl md:tw-text-4xl">
               {renderContent.content[0].headings[0].content}
             </h1>
-            <p className="tw-text-white tw-opacity-100 tw-font-light tw-text-lg md:tw-text-xl tw-mt-2 md:tw-mt-3">
+            <p className="tw-text-white tw-opacity-100 tw-font-light tw-text-md md:tw-text-xl tw-mt-2 md:tw-mt-3">
               {renderContent.content[0].texts[0].content}
             </p>
             <div className="tw-mt-8">
               <Button
                 href={renderContent.content[0].buttons[0].path}
-                className="tw-bg-secondary hover:tw-bg-secondary-light tw-shadow-md tw-text-sm lg:tw-text-lg tw-tracking-wider tw-font-extralight lg:tw-font-thin"
+                className="tw-bg-secondary hover:tw-bg-secondary-light tw-shadow-md tw-text-md lg:tw-text-lg tw-tracking-wider tw-font-thin lg:tw-font-thin"
               >
                 {renderContent.content[0].buttons[0].content}
               </Button>
