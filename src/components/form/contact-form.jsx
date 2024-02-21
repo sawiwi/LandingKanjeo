@@ -12,7 +12,7 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    // phone: '',
     // message: '',
   });
   const [errorMsg, setErrorMsg] = useState({
@@ -29,7 +29,7 @@ const ContactForm = () => {
     setFormData({
       name: '',
       email: '',
-      phone: '',
+      // phone: '',
       // message: '',
     });
 
@@ -81,9 +81,9 @@ const ContactForm = () => {
       const response = await ContactFormServices.sendContactFormUser(
         formData?.name,
         formData?.email,
-        formData?.phone,
+        // formData?.phone,
         // formData?.message,
-        `${formData?.name} Quiere contactarse con Yokanjeo`,
+        `${formData?.name} Quiere registrarse en Yokanjeo`,
         'fabians@bidata.cl'
       );
 
@@ -159,7 +159,7 @@ const ContactForm = () => {
                         Correo electrónico
                       </label>
                     </div>
-                    <div className="tw-relative tw-mt-10">
+                    {/* <div className="tw-relative tw-mt-10">
                       <input
                         autoComplete="off"
                         id="phone"
@@ -176,7 +176,7 @@ const ContactForm = () => {
                       >
                         Teléfono o móvil
                       </label>
-                    </div>
+                    </div> */}
                     <div className="tw-relative tw-my-3 tw-mt-10">
                     <Button
                       type="submit"

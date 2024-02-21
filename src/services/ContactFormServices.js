@@ -36,8 +36,6 @@ const ContactFormServices = {
   sendContactFormUser: async (
     name,
     email,
-    phone,
-    // message,
     subjectEmail,
     realtorEmail
   ) => {
@@ -46,8 +44,6 @@ const ContactFormServices = {
       {
         Nombre_empresa: name,
         Correo: email,
-        Telefono: phone,
-        // Mensaje: message,
         _template: 'table',
         _subject: subjectEmail,
       },
