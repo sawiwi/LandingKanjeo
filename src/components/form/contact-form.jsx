@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import ContactFormServices from '../../services/ContactFormServices';
+import RegisterNewUser from '../../services/Register/RegisterFormServices';
+
 import Button from '../ui/button';
 import Alert from '../alert';
 import { ToastContainer, toast } from 'react-toastify';
@@ -15,6 +17,12 @@ const ContactForm = () => {
     // phone: '',
     // message: '',
   });
+  // const [formApiData, setFormApiData] = useState({
+  //   name:'',
+  //   email: ''
+  // })
+
+
   const [errorMsg, setErrorMsg] = useState({
     fieldsRequired: '',
     serverError: '',
@@ -23,7 +31,9 @@ const ContactForm = () => {
   const handleInputChange = (e) => {
     const inputData = { ...formData, [e.target.name]: e.target.value };
     setFormData(inputData);
+    // setFormApiData(inputData);
   };
+  
 
   const resetForm = () =>
     setFormData({
@@ -78,16 +88,20 @@ const ContactForm = () => {
 
     try {
       setLoading(true);
-      const response = await ContactFormServices.sendContactFormUser(
-        formData?.name,
-        formData?.email,
-        // formData?.phone,
-        // formData?.message,
-        `${formData?.name} Quiere registrarse en Yokanjeo`,
-        'fabians@bidata.cl'
-      );
+      // const response = await ContactFormServices.sendContactFormUser(
+      //   formData?.name,
+      //   formData?.email,
+      //   // formData?.phone,
+      //   // formData?.message,
+      //   `${formData?.name} Quiere registrarse en Yokanjeo`,
+      //   'fabians@bidata.cl'
+      // );
 
-      if ((await response.success) === 'true') {
+      const apiResponse = await RegisterNewUser.postNewUser(formData)
+
+      console.log(apiResponse)
+
+      if ( await apiResponse.status === 200) {
         showToastSuccessMsg(
           'Solicitud enviada con exito! revisa tu cuenta de correo porfavor'
         );

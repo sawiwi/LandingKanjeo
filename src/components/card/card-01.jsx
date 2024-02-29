@@ -29,7 +29,7 @@ const Card01 = ({ plan }) => {
       className="card1 tw-relative tw-overflow-hidden tw-transition-transform tw-duration-300 tw-ease-in-out tw-transform hover:tw--translate-y-2 tw-shadow-md tw-shadow-secondary-light/20 hover:tw-shadow-xl tw-rounded-lg tw-p-4 tw-bg-gray-50"
     >
       <div className="tw-w-full tw-p-0 tw-m-0">
-        <Badge content={category} color="red" />
+        <Badge content={category} color="blue" />
       </div>
       <div className="tw-my-2 tw-w-full tw-p-0 tw-m-0">
         <h3 className="tw-text-lg sm:tw-text-xl tw-text-secondary">{name}</h3>
