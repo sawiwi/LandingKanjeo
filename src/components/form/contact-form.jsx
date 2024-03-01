@@ -88,20 +88,20 @@ const ContactForm = () => {
 
     try {
       setLoading(true);
-      // const response = await ContactFormServices.sendContactFormUser(
-      //   formData?.name,
-      //   formData?.email,
-      //   // formData?.phone,
-      //   // formData?.message,
-      //   `${formData?.name} Quiere registrarse en Yokanjeo`,
-      //   'fabians@bidata.cl'
-      // );
+      const response = await ContactFormServices.sendContactFormUser(
+        formData?.name,
+        formData?.email,
+        // formData?.phone,
+        // formData?.message,
+        `${formData?.name} Quiere registrarse en Yokanjeo`,
+        'fabians@bidata.cl'
+      );
 
       const apiResponse = await RegisterNewUser.postNewUser(formData)
 
-      console.log(apiResponse)
+      // console.log(apiResponse)
 
-      if ( await apiResponse.status === 200) {
+      if (response === true &&  apiResponse.status === 'ok') {
         showToastSuccessMsg(
           'Solicitud enviada con exito! revisa tu cuenta de correo porfavor'
         );
