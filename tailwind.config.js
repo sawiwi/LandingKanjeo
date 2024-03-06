@@ -22,6 +22,10 @@ module.exports = {
           DEFAULT: '#5086c1',
           light: '#84b6f4',
         },
+        buttons:{
+          default:'#42ab49',
+          light:'#5dc460'
+        },
         info: {
           DEFAULT: '#0043BA',
         },

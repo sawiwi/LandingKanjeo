@@ -35,7 +35,7 @@ const ReactSlick = ({ renderContent }) => {
             <div className="tw-mt-8">
               <Button
                 href={renderContent.content[0].buttons[0].path}
-                className="tw-bg-secondary hover:tw-bg-secondary-light tw-shadow-md tw-text-md lg:tw-text-lg tw-tracking-wider tw-font-thin lg:tw-font-thin"
+                className="tw-bg-buttons-default hover:tw-bg-buttons-light tw-shadow-md tw-text-md lg:tw-text-lg tw-tracking-wider tw-font-thin lg:tw-font-thin"
               >
                 {renderContent.content[0].buttons[0].content}
               </Button>

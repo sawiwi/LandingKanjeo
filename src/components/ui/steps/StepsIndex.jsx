@@ -31,7 +31,7 @@ const StepsIndex = ({ renderContent }) => {
                     <ul >
                         <Fade direction="left" triggerOnce={true}>
                             <li className="tw-flex tw-relative tw-pb-8 tw-cursor-default tw-group -tw-order-1">
-                                <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-secondary tw-text-primary  group-hover:tw-bg-secondary-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
+                                <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-buttons-default tw-text-primary  group-hover:tw-bg-buttons-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
                                         {renderContent.step[0].icon}
                                 </div>
                                 <p className="tw-flex-grow tw-pl-4 tw-leading-relaxed tw-text-secondary-light">{renderContent.step[0].content}</p>
@@ -40,14 +40,14 @@ const StepsIndex = ({ renderContent }) => {
                         <Fade direction="right" triggerOnce={true}>
                         <li className="tw-flex tw-relative tw-pb-8 tw-cursor-default tw-group">
                             <p className="tw-flex-grow tw-pl-4 tw-leading-relaxed tw-text-secondary-light">{renderContent.step[1].content}</p>
-                            <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-secondary tw-text-primary  group-hover:tw-bg-secondary-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
+                            <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-buttons-default tw-text-primary  group-hover:tw-bg-buttons-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
                                     {renderContent.step[1].icon}
                             </div>
                         </li> 
                         </Fade>
                          <Fade direction="left" triggerOnce={true}>         
                             <li className="tw-flex tw-relative tw-pb-8 tw-cursor-default tw-group -tw-order-1">
-                                <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-secondary tw-text-primary  group-hover:tw-bg-secondary-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
+                                <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-buttons-default tw-text-primary  group-hover:tw-bg-buttons-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
                                         {renderContent.step[2].icon}
                                 </div>
                                 <p className="tw-flex-grow tw-pl-4 tw-leading-relaxed tw-text-secondary-light">{renderContent.step[2].content}</p>
@@ -56,14 +56,14 @@ const StepsIndex = ({ renderContent }) => {
                         <Fade direction="right" triggerOnce={true}>
                         <li className="tw-flex tw-relative tw-pb-8 tw-cursor-default tw-group">
                             <p className="tw-flex-grow tw-pl-4 tw-leading-relaxed tw-text-secondary-light">{renderContent.step[3].content}</p>
-                            <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-secondary tw-text-primary  group-hover:tw-bg-secondary-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
+                            <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-buttons-default tw-text-primary  group-hover:tw-bg-buttons-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
                                     {renderContent.step[3].icon}
                             </div>
                         </li>
                         </Fade>
                         <Fade direction="left" triggerOnce={true}>
                         <li className="tw-flex tw-relative tw-pb-8 tw-cursor-default tw-group -tw-order-1">
-                            <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-secondary tw-text-primary  group-hover:tw-bg-secondary-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
+                            <div className="tw-flex-shrink-0 tw-w-10 tw-h-10 tw-rounded-full tw-bg-buttons-default tw-text-primary  group-hover:tw-bg-buttons-light group-hover:tw-text-primary tw-transition-all tw-duration-200 tw-inline-flex tw-items-center tw-justify-center tw-relative tw-z-10">
                                     {renderContent.step[4].icon}
                             </div>
                             <p className="tw-flex-grow tw-pl-4 tw-leading-relaxed tw-text-secondary-light">{renderContent.step[4].content}</p>

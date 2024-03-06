@@ -136,8 +136,8 @@ const ContactForm = () => {
             </div>
             <Fade direction="up" triggerOnce={true}>
               <div className='tw-flex tw-justify-center'>
-                <form  onSubmit={onFormSubmit} className='tw-relative tw-shadow-xl tw-shadow-secondary/40 tw-bg-primary  tw-w-[95%] xl:tw-w-[50%] tw-h-[350px] tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-5 tw-p-4 tw-rounded-md '>
-                    <div className="tw-relative tw-mb-2 tw-mt-4">
+                <form  onSubmit={onFormSubmit} className='tw-relative tw-shadow-xl tw-shadow-secondary/40 tw-bg-primary/90  tw-w-[95%] xl:tw-w-[50%] tw-h-[350px] tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-8 tw-p-4 tw-rounded-md '>
+                    <div className="tw-relative tw-mb-2 tw-mt-10">
                       <input
                         autoComplete="off"
                         id="name"
@@ -194,7 +194,7 @@ const ContactForm = () => {
                     <div className="tw-relative tw-my-3 tw-mt-10">
                     <Button
                       type="submit"
-                      className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-lg tw-px-12 tw-py-2"
+                      className="tw-bg-buttons-default hover:tw-bg-buttons-light tw-text-primary tw-rounded-full tw-px-12 tw-py-2"
                     >
                       {loading ? 'Enviando...' : 'Enviar'}
                     </Button>
