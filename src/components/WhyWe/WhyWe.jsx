@@ -12,15 +12,10 @@ const WhywE = ({ renderContent }) => {
                     <img src={e.img} className="tw-absolute tw-duration-700 tw-shadow-md tw-group-hover:-tw-translate-y-4 group-hover:-tw-translate-x-4 -tw-bottom-6 -tw-right-3 tw-w-1/2 tw-h-1/2 tw-rounded-lg tw-bg-primary-light" alt='imageHere'/>
                   <div className="">
                     <h2 className="tw-text-2xl tw-font-bold tw-mb-2 tw-text-secondary">{e.title}</h2>
-                    <p className="tw-text-secondary-light tw-line-clamp-3">
+                    <p className="tw-text-gray-800 tw-line-clamp-3">
                     {e.content}
                     </p>
                   </div>
-                  {/* <button
-                    className="hover:tw-bg-gray-300 tw-bg-gray-200 tw-text-gray-800 tw-mt-6 tw-rounded tw-p-2 tw-px-6"
-                  >
-                    Explore
-                  </button> */}
                 </div>
           ))}
 

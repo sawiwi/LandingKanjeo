@@ -99,13 +99,13 @@ const ContactForm = () => {
 
       const apiResponse = await RegisterNewUser.postNewUser(formData)
 
-      // console.log(apiResponse)
-
-      if (response === true &&  apiResponse.status === 'ok') {
-        showToastSuccessMsg(
-          'Solicitud enviada con exito! revisa tu cuenta de correo porfavor'
-        );
-        setLoading(false);
+      if (response === true) {
+        if(apiResponse && (apiResponse.status === 'ok' || apiResponse.status === 201)){
+          showToastSuccessMsg(
+            'Solicitud enviada con exito! revisa tu cuenta de correo porfavor'
+          );
+          setLoading(false);
+        }
         resetForm();
       } else {
         showToastErrorMsg(
@@ -194,7 +194,7 @@ const ContactForm = () => {
                     <div className="tw-relative tw-my-3 tw-mt-10">
                     <Button
                       type="submit"
-                      className="tw-bg-buttons-default hover:tw-bg-buttons-light tw-text-primary tw-rounded-full tw-px-12 tw-py-2"
+                      className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-full tw-px-12 tw-py-2"
                     >
                       {loading ? 'Enviando...' : 'Enviar'}
                     </Button>

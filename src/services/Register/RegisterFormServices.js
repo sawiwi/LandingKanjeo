@@ -1,9 +1,8 @@
 import axios from "axios";
-import api from "../../api";
+// import api from "../../api";
 
 const RegisterNewUser = {
     postNewUser: async (data) => {
-        console.log(api)
         try {
             const response = await axios.post(`https://yokanjeoapi.partnersadvisers.info/users/send-link-for-sign-up`, data);
             return response.data

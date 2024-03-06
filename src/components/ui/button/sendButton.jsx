@@ -2,7 +2,7 @@ import React from 'react'
 
 const sendButton = ({ text = 'Enviar', isLoading = false }) => {
   return (
-    <button className="tw-bg-buttons-default hover:tw-bg-buttons-light tw-text-primary tw-font-bold tw-py-2 tw-px-7 tw-rounded-full focus:tw-outline-none focus:tw-shadow-outline tw-transition-all tw-duration-200"
+    <button className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-font-bold tw-py-2 tw-px-7 tw-rounded-full focus:tw-outline-none focus:tw-shadow-outline tw-transition-all tw-duration-200"
       type="submit"
       disabled={isLoading}
     >
