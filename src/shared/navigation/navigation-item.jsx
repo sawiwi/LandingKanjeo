@@ -71,7 +71,7 @@ const NavigationItem = ({ menuItem }) => {
     <a
       href={href}
       target={
-        href === 'https://qr-service-dashboard.netlify.app/auth-login'
+        href === 'https://keysoft.app/sign-in?redirectUrl=/'
           ? '_blank'
           : ''
       }
