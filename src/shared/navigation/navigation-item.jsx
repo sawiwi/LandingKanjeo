@@ -71,7 +71,7 @@ const NavigationItem = ({ menuItem }) => {
     <a
       href={href}
       target={
-        href === 'https://keysoft.app/sign-in?redirectUrl=/'
+        href === 'https://keysoft.app/sign-in'
           ? '_blank'
           : ''
       }

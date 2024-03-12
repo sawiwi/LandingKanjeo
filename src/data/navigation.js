@@ -31,6 +31,6 @@ export const navigationData = [
   {
     id: 6,
     name: 'Mi cuenta',
-    href: 'https://keysoft.app/sign-in?redirectUrl=/',
+    href: 'https://keysoft.app/sign-in',
   },
 ];

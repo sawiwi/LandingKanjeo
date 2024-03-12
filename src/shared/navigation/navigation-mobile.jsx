@@ -12,10 +12,10 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
       <ul className="tw-nav-mobile-sub-menu tw-pl-6 tw-pb-1 tw-text-base">
         {item.children?.map((i, index) => (
           <Disclosure key={i.href + index} as="li">
-            <Link
-              to={i.href || '/'}
+            <a href={i.href}
+              target={i.href === 'https://keysoft.app/sign-in' ? '_blank' : ''}
               className="tw-flex tw-px-4 tw-py-2.5 tw-text-secondary-light tw-text-sm tw-font-medium tw-rounded-lg hover:tw-bg-gray-100 tw-mt-[2px]"
-            >
+              rel="noreferrer">
               <span
                 className={!i.children ? 'tw-block tw-w-full' : ''}
                 onClick={onClickClose}
@@ -33,7 +33,7 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
                   ></Disclosure.Button>
                 </span>
               )}
-            </Link>
+            </a>
             {i.children && (
               <Disclosure.Panel>{_renderMenuChild(i)}</Disclosure.Panel>
             )}
@@ -46,11 +46,14 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
   const _renderItem = (item) => {
     return (
       <Disclosure key={item.id} as="li" className="tw-text-secondary-light">
-        <Link
+        <a
+          href={item.href}
           className="tw-flex tw-w-full itw-tems-center tw-py-3.5 tw-px-4 tw-font-semibold tw-uppercase tw-tracking-wide tw-text-md hover:tw-bg-gray-100 tw-rounded-lg"
           to={{
             pathname: item.href || undefined,
           }}
+          target={item.href === 'https://keysoft.app/sign-in' ? '_blank' : ''}
+          rel='noreferrer'
         >
           <span
             className={!item.children ? 'tw-block tw-w-full' : ''}
@@ -71,7 +74,7 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
               </Disclosure.Button>
             </span>
           )}
-        </Link>
+        </a>
         {item.children && (
           <Disclosure.Panel>{_renderMenuChild(item)}</Disclosure.Panel>
         )}
