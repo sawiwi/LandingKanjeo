@@ -8,7 +8,7 @@ import { getCurrentYear } from '../../utils';
 
 const Footer = () => {
   return (
-    <footer className="tw-bg-gray-dark tw-shadow tw-mt-[50px]">
+    <footer className="tw-bg-gray-dark tw-shadow tw-mt-[0px]">
       <div className="tw-aie tw-sm-12 tw-md-8 tw-lg-12">
         <div className="tw-gs">
           <div className="tw-ab">

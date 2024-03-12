@@ -19,9 +19,6 @@ const Home = () => {
     (item) => item.section === 'WhyWe'
   );
 
-  // const process = contentPage1.content.find(
-  //   (item) => item.section === 'Process'
-  // );
 
   const _renderedPlans = plansData.map((plan) => (
     <Card01 key={plan.id} plan={plan} />
