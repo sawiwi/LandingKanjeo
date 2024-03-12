@@ -132,8 +132,8 @@ const ContactForm = () => {
 
   return (
     <div className="tw-h-[100vh] tw-bg-gray-50 tw-py-6 sm:tw-py-10 lg:tw-py-16 tw-flex tw-flex-col tw-justify-start">
-            <div className='tw-mt-36 tw-mb-3 lg:tw-mb-2 xl:tw-mb-6'>
-              <h2 className='tw-text-center tw-text-3xl xl:tw-text-5xl tw-text-secondary'>
+            <div className='tw-mt-28 xl:tw-mt-20 2xl:tw-mt-36 tw-mb-3 lg:tw-mb-2 xl:tw-mb-6'>
+              <h2 className='tw-text-center tw-text-3xl xl:tw-text-4xl 2xl:tw-text-5xl tw-text-secondary'>
                 Crea tu cuenta
               </h2>
               <small className="tw-text-secondary-light tw-text-md xl:tw-text-lg">
@@ -142,7 +142,7 @@ const ContactForm = () => {
             </div>
             <Fade direction="up" triggerOnce={true}>
               <div className='tw-flex tw-justify-center'>
-                <form  onSubmit={onFormSubmit} name='FormSubmit' className='tw-relative tw-shadow-xl tw-shadow-secondary/40  tw-w-[95%] xl:tw-w-[40%] tw-h-[350px] tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-8 tw-p-4 tw-rounded-md '>
+                <form  onSubmit={onFormSubmit} name='FormSubmit' className='tw-relative tw-shadow-xl tw-shadow-secondary/40  tw-w-[95%] xl:tw-w-[45%] 2xl:tw-w-[40%] tw-h-[350px]  tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-8 tw-p-4 tw-rounded-md '>
                     <div className="tw-relative tw-mb-2 tw-mt-10">
                       <input
                         autoComplete="off"
