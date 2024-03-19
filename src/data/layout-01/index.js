@@ -8,9 +8,11 @@ import {
 
 } from '../../components/icon';
 
-import heroImgOne from '../../assets/img/Hero/pexels-luis-yanez-206172.webp';
-import heroImgTwo from '../../assets/img/Hero/pexels-terry-magallanes-2631746.webp';
-import heroImgThree from '../../assets/img/Hero/pexels-pixabay-259588.webp';
+
+
+import heroImgOne from '../../assets/img/Hero/hero1.webp';
+import heroImgTwo from '../../assets/img/Hero/hero2.webp';
+import heroImgThree from '../../assets/img/Hero/hero3.webp';
 
 import About1 from '../../assets/img/about/casa1.jpg'
 import About2 from '../../assets/img/about/casa2.jpg'
@@ -25,7 +27,12 @@ export const contentPage1 = {
         {
           id: 1,
           content:
-            'Sistema de Canje de propiedades.',
+            'Cómo funciona',
+        },
+        {
+          id: 2,
+          content:
+            'Nuestra comunidad',
         },
       ],
       texts: [
@@ -68,113 +75,6 @@ export const contentPage1 = {
         },
       ],
     },
-    {
-      section: 'main-area',
-      headings: [
-        {
-          id: 1,
-          content:
-            'Innovación y simpleza a la hora de gestionar tu flota vehicular',
-        },
-      ],
-      texts: [
-        {
-          id: 1,
-          content:
-            'Sumamos una solución de analítica avanzada que brinda indicadores claros de la operación, así como los convierte en reportes gerenciales para la toma de mejores decisiones en la gestión de flotas.',
-        },
-      ],
-      buttons: [
-        {
-          id: 1,
-          path: '/',
-          content: 'Me interesa',
-        },
-      ],
-      imgs: [
-        {
-          id: 1,
-          src: 'https://entelocean.com/hubfs/Recursos%20Marketing/Banner%20Sitio%20web/Onway%20-%20Banner/1.jpg',
-          alt: 'hero-img-1',
-        },
-      ],
-    },
-    {
-      section: 'form-area',
-      headings: [
-        {
-          id: 1,
-          content: '¿Quieres cotizar?',
-        },
-      ],
-      texts: [
-        {
-          id: 1,
-          content:
-            'Completa el formulario para contactarnos a la brevedad.',
-        },
-      ],
-    },
-    {
-      section: 'Process',
-      headings: [
-        {
-          id: 1,
-          content: 'Our Services Data',
-        },
-      ],
-
-      subText: [
-        {
-          id: 1,
-          content:
-            'DATA-Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-        },
-      ],
-
-      text: [
-        {
-          id: 1,
-          content:
-            'DATA-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus aperiam nulla minima.',
-        },
-      ],
-
-      firstCard: [
-        {
-          id: 1,
-          title: 'Data-Lorem1',
-          icon: <BsCheck className="tw-w-12 tw-h-12" />,
-          content:
-            'Data-Lorem ipsum lorem lorem lorem lorem loremlloremdolor sit amet consectetur adipisicing elit. Omnis, fugit repudiandae? Ipsum porro provident quos doloribus facere rem adipisci molestiae, voluptatem nostrum recusandae accusantium possimus expedita mollitia repellendus labore veritatis..',
-        },
-
-        {
-          id: 2,
-          title: 'Data-Lorem2',
-          icon: <BsCheck className="tw-w-12 tw-h-12" />,
-          content:
-            'Data-Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, fugit repudiandae? Ipsum porro provident quos doloribus facere rem adipisci molestiae, voluptatem nostrum recusandae accusantium possimus expedita mollitia repellendus labore veritatis..',
-        },
-
-        {
-          id: 3,
-          title: 'Data-Lorem3',
-          icon: <BsCheck className="tw-w-12 tw-h-12" />,
-          content:
-            'Data-Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, fugit repudiandae? Ipsum porro provident quos doloribus facere rem adipisci molestiae, voluptatem nostrum recusandae accusantium possimus expedita mollitia repellendus labore veritatis..',
-        },
-
-        {
-          id: 4,
-          title: 'Data-Lorem4',
-          icon: <BsCheck className="tw-w-12 tw-h-12" />,
-          content:
-            'Data-Lorem ipsum dolor lorem lorem lorem lorem lorem llorem lorem llo rem lorem  amet sit amet consectetur adipisicing elit. Omnis, fugit repudiandae? Ipsum porro provident quos doloribus facere rem adipisci molestiae, voluptatem nostrum recusandae accusantium possimus expedita mollitia repellendus labore veritatis..',
-        },
-      ],
-    },
-
     {
       section: 'Steps',
       headings: [
@@ -273,3 +173,106 @@ export const contentPage1 = {
     },
   ],
 };
+
+export const contentHero = [
+  {
+    id:1,
+    imgHero: heroImgOne,
+    icon:'',
+    headings: '¿Cómo funciona?',
+    texts:'Nuestras soluciones hacen más agil tu negocio', 
+    card: [
+    {
+      id:1,
+      info:'Nuestras soluciones hacen más agil tu negocio',
+    },
+    {
+      id:2,
+      info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+    },
+    {
+      id:3,
+      info:'Nuestras soluciones hacen más agil tu negocio',
+    },
+    {
+      id:4,
+      info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+    },
+    {
+      id:5,
+      info:'Nuestras soluciones hacen más agil tu negocio',
+    },
+    {
+      id:6,
+      info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+    },
+  ]
+  },
+  {
+    id:2,
+    imgHero:heroImgTwo,
+    icon:'',
+    headings: 'Comunidad',
+    texts:'Como es nuestra comunidad.', 
+    card: [
+      {
+        id:1,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+      {
+        id:2,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+      {
+        id:3,
+        info:'Nuestras soluciones hacen más agil tu negocio',
+      },
+      {
+        id:4,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+      {
+        id:5,
+        info:'Nuestras soluciones hacen más agil tu negocio',
+      },
+      {
+        id:6,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+    ]
+  },
+  {
+    id:3,
+    imgHero: heroImgThree,
+    icon:'',
+    headings: 'Nosotros',
+    texts:'Quienes somos.', 
+    card: [
+      {
+        id:1,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+      {
+        id:2,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+      {
+        id:3,
+        info:'Nuestras soluciones hacen más agil tu negocio',
+      },
+      {
+        id:4,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+      {
+        id:5,
+        info:'Nuestras soluciones hacen más agil tu negocio',
+      },
+      {
+        id:6,
+        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+      },
+    ]
+  },
+
+]

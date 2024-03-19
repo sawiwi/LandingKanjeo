@@ -1,32 +1,34 @@
 import { useLayoutEffect } from 'react';
 import HelmetHead from '../components/helmet-head';
 import ReactSlick from '../components/react-slick';
-import Section from '../components/section';
-import TitleSection from '../components/title-section';
-import { contentPage1 } from '../data/layout-01';
+// import Section from '../components/section';
+// import TitleSection from '../components/title-section';
+import { contentPage1, contentHero } from '../data/layout-01';
 // import Business from '../components/Process/business';
-import WhywE from '../components/WhyWe/WhyWe';
-import Form from '../components/form/index.jsx';
-import Card01 from '../components/card/card-01';
-import { plansData } from '../constants/plans';
+// import WhywE from '../components/WhyWe/WhyWe';
+// import Form from '../components/form/index.jsx';
+// import Card01 from '../components/card/card-01';
+// import { plansData } from '../constants/plans';
 // import Card02 from '../components/card/card-02';
-import StepsIndex from '../components/ui/steps/StepsIndex';
+// import StepsIndex from '../components/ui/steps/StepsIndex';
 import { Fade, Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
-
+import HeroText from '../components/HeroText/index.jsx';
+import ContactWsp from '../components/buttonContact/index.jsx';
 const Home = () => {
-  const whyWeContent = contentPage1.content.find(
-    (item) => item.section === 'WhyWe'
-  );
+
+  // const whyWeContent = contentPage1.content.find(
+  //   (item) => item.section === 'WhyWe'
+  // );
 
 
-  const _renderedPlans = plansData.map((plan) => (
-    <Card01 key={plan.id} plan={plan} />
-  ));
+  // const _renderedPlans = plansData.map((plan) => (
+  //   <Card01 key={plan.id} plan={plan} />
+  // ));
 
-  const formContent = contentPage1.content.find(
-    (item) => item.section === 'form-area'
-  );
+  // const formContent = contentPage1.content.find(
+  //   (item) => item.section === 'form-area'
+  // );
 
   const steps = contentPage1.content.find((item) => item.section === 'Steps');
 
@@ -56,16 +58,24 @@ const Home = () => {
       />
 
       {/* HERO */}
-      <ReactSlick renderContent={contentPage1} />
+      <div className='tw-grid tw-grid-cols-1 tw-flex-wrap-reverse lg:tw-grid-cols-3'>
+          <div className='tw-col-span-2 xl:tw-col-span-1'>
+            <Fade>
+              <HeroText/>
+            </Fade>
+          </div>
+          <div className='tw-col-span-2'>
+              {/* <ReactSlick renderContent={contentPage1} /> */}
+              <ReactSlick renderContent={contentHero} />
+
+          </div>
+      </div>
+
+      <ContactWsp/>
 
 
       {/* Seccion de Planes */}
-      <Section className="tw-overflow-hidden tw-bg-white" >
-        {/* <img
-          src="https://res.cloudinary.com/dvdb33uyj/image/upload/v1690573530/Projects/qr-service/imgs/Fondo2.webp"
-          alt=""
-          className="tw-absolute tw-w-full tw-left-0 tw-top-0 tw-z-0"
-        /> */}
+      {/* <Section className="tw-overflow-hidden tw-bg-white" >
         <TitleSection
           className="tw-relative tw-z-10"
           subTitleClassName="tw-relative tw-z-10"
@@ -80,20 +90,20 @@ const Home = () => {
             </div>
           </div>
         </Fade>
-      </Section>
+      </Section> */}
 
       {/* Steps CONTENT */}
-      <Section className="tw-overflow-hidden tw-bg-gray-50">
+      {/* <Section className="tw-overflow-hidden tw-bg-gray-50">
         <TitleSection
           title="¿Cómo funciona?"
           subtitle="Nuestras soluciones hacen más agil tu negocio"
           position="center"
         />
         <StepsIndex renderContent={steps} />
-      </Section>
+      </Section> */}
 
       {/* Seccion de Por que nosotros? */}
-      <Section className="tw-overflow-hidden tw-bg-white">
+      {/* <Section className="tw-overflow-hidden tw-bg-white">
         <Reveal
           keyframes={fadeInUp}
           delay={500}
@@ -107,12 +117,12 @@ const Home = () => {
           />
           <WhywE renderContent={whyWeContent} />
         </Reveal>
-      </Section>
+      </Section> */}
 
       {/* Seccion Del Formulario */}
-      <Section className="tw-overflow-hidden tw-bg-gray-50">
+      {/* <Section className="tw-overflow-hidden tw-bg-gray-50">
         <Form renderContent={formContent} />
-      </Section>
+      </Section> */}
     </>
   );
 };

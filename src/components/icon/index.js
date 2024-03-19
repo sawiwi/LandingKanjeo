@@ -4,7 +4,7 @@ import { IoClose } from 'react-icons/io5';
 import { MdOutlineArrowDropDown } from 'react-icons/md';
 import { BsCheckLg, BsCheckCircleFill, BsFillHandThumbsUpFill, Bs1CircleFill ,Bs2Circle, Bs3CircleFill,Bs4Circle } from 'react-icons/bs';
 import { HiArrowUp } from 'react-icons/hi';
-import { AiFillSafetyCertificate } from 'react-icons/ai';
+import { AiFillSafetyCertificate, AiOutlineWhatsApp } from 'react-icons/ai';
 import { GrSecure } from 'react-icons/gr';
 
 // MANUEL icons
@@ -33,6 +33,7 @@ export {
   BsCheck,
   FaTruckMoving,
   AiFillSafetyCertificate,
+  AiOutlineWhatsApp,
   GrSecure,
   BsCheckCircleFill,
   AiOutlineDatabase,
