@@ -4,7 +4,7 @@
 const DataBanner = () =>{
     return(
         <>
-        <div className="tw-bg-secondary/80 2xl:tw-ml-3 tw-w-full lg:tw-h-[35%] 2xl:tw-h-[20%]">
+        <div className="tw-bg-secondary/80 tw-w-full lg:tw-h-[35%] 2xl:tw-h-[25%] 2xl:tw-mt-56" >
             <div className="tw-px-2 tw-mx-4 lg:tw-py-5 2xl:tw-py-10">
                     <ul className="tw-flex tw-justify-between tw-gap-3">
                         <li className="tw-block tw-text-center">
