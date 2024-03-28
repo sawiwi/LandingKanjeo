@@ -31,6 +31,13 @@ const Contact = () => {
                 </a>
                 . Todos los derechos reservados.
               </span>
+              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-pb-1 tw-rounded ">
+                Diseñado y creado por {' '}
+                <a href="https://bidata.cl/" target="_blank" rel='noreferrer' className="hover:tw-underline">
+                 Bidata
+                </a>
+              </span>
+
           </div>    
         </div>
         <div className='tw-col-span-2'>

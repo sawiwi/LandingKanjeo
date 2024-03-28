@@ -156,7 +156,7 @@ const ContactForm = () => {
                       />
                       <label
                         htmlFor="name"
-                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-4 tw-text-secondary-light tw-text-md peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-secondary/80 peer-focus:tw-text-lg"
+                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-secondary-light tw-text-md peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-secondary/80 peer-focus:tw-text-lg"
                       >
                         Ingresa tu Nombre o Empresa
                       </label>
@@ -174,7 +174,7 @@ const ContactForm = () => {
                       />
                       <label
                         htmlFor="email"
-                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-4 tw-text-secondary-light tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-secondary/80 peer-focus:tw-text-lg"
+                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-secondary-light tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-secondary/80 peer-focus:tw-text-lg"
                       >
                         Correo electrónico
                       </label>

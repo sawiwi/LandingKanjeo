@@ -1,34 +1,12 @@
 import { useLayoutEffect } from 'react';
 import HelmetHead from '../components/helmet-head';
 import ReactSlick from '../components/react-slick';
-// import Section from '../components/section';
-// import TitleSection from '../components/title-section';
 import { contentPage1, contentHero } from '../data/layout-01';
-// import Business from '../components/Process/business';
-// import WhywE from '../components/WhyWe/WhyWe';
-// import Form from '../components/form/index.jsx';
-// import Card01 from '../components/card/card-01';
-// import { plansData } from '../constants/plans';
-// import Card02 from '../components/card/card-02';
-// import StepsIndex from '../components/ui/steps/StepsIndex';
 import { Fade, Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
 import HeroText from '../components/HeroText/index.jsx';
 import ContactWsp from '../components/buttonContact/index.jsx';
 const Home = () => {
-
-  // const whyWeContent = contentPage1.content.find(
-  //   (item) => item.section === 'WhyWe'
-  // );
-
-
-  // const _renderedPlans = plansData.map((plan) => (
-  //   <Card01 key={plan.id} plan={plan} />
-  // ));
-
-  // const formContent = contentPage1.content.find(
-  //   (item) => item.section === 'form-area'
-  // );
 
   const steps = contentPage1.content.find((item) => item.section === 'Steps');
 
@@ -58,16 +36,15 @@ const Home = () => {
       />
 
       {/* HERO */}
-      <div className='tw-grid tw-grid-cols-1 tw-flex-wrap-reverse lg:tw-grid-cols-3'>
-          <div className='tw-col-span-2 xl:tw-col-span-1'>
+      <div className='tw-grid tw-grid-cols-1 tw-flex-wrap-reverse lg:tw-grid-cols-2 xl:tw-grid-cols-3'>
+          <div className='tw-col-span-1 xl:tw-col-span-1'>
             <Fade>
               <HeroText/>
             </Fade>
           </div>
-          <div className='tw-col-span-2'>
+          <div className='tw-col-span-1 xl:tw-col-span-2'>
               {/* <ReactSlick renderContent={contentPage1} /> */}
               <ReactSlick renderContent={contentHero} />
-
           </div>
       </div>
 

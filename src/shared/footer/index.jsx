@@ -85,10 +85,16 @@ const Footer = () => {
               <hr className="tw-my-6 sm:tw-mx-auto lg:tw-my-3" />
               <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-p-3 tw-rounded ">
                 © {getCurrentYear()}{' '}
-                <a href="/" className="hover:tw-underline">
+                <a href="/" className="tw-underline">
                 YoKanjeo
                 </a>
                 . Todos los derechos reservados.
+              </span>
+              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-pb-1 tw-rounded ">
+                Diseñado y creado por {' '}
+                <a href="https://bidata.cl/" target="_blank" rel='noreferrer' className="tw-underline">
+                 Bidata
+                </a>
               </span>
 
 

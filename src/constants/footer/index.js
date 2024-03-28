@@ -52,27 +52,17 @@ export const footerNavigation = [
   },
   {
     id: 2,
-    name: 'Servicios',
-    href: '/servicios',
-  },
-  {
-    id: 2,
     name: 'Cómo funciona',
     href: '/como-funciona',
   },
   {
     id: 3,
-    name: 'Nosotros',
-    href: '/nosotros',
+    name: 'Comunidad',
+    href: '/comunidad',
   },
   {
     id: 4,
-    name: 'FAQ',
-    href: '/faq',
-  },
-  {
-    id: 5,
-    name: 'Contacto',
-    href: '/contacto',
+    name: 'Nosotros',
+    href: '/nosotros',
   },
 ];
