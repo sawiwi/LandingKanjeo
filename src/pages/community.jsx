@@ -1,0 +1,74 @@
+import Section from '../components/section';
+import {Reveal } from 'react-awesome-reveal';
+import { keyframes } from '@emotion/react';
+import ReactSlickCommunity from '../components/react-slick-community';
+import { contentSlickCommunity, contentFirstCardCommunity,contentSecondCardCommunity, contentThirtyCardCommunity } from '../data/community';
+import CardCommunity from '../components/cardCommunity';
+import CardCommunityThree from '../components/cardCommunity/cardThree';
+import CardCommunityFour from '../components/cardCommunity/cardFour';
+
+const Community = () =>{
+
+    const fadeInUp = keyframes`
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(80px);
+        transform: translateY(80px);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }`;
+    return(
+        <>
+        <div className='tw-relative tw-h-[90vh] tw-w-full '>
+            <Section className="tw-bg-secondary tw-h-[65%]">
+                    <h2 className='tw-my-12 tw-mt-16 tw-text-5xl tw-text-white'>Comunidad YoKanejo</h2>
+                    <Reveal
+                        keyframes={fadeInUp}
+                        delay={300}
+                        duration={800}
+                        triggerOnce={true}
+                        >
+                        <ReactSlickCommunity renderContent={contentSlickCommunity} />
+                    </Reveal> 
+            </Section>
+        </div>
+        <Section className="tw-bg-gray-50 tw-h-full lg:tw-h-[90vh] 2xl:tw-h-[60vh]">
+            <h2 className='tw-text-5xl tw-font-[900] tw-w-[60%]'>GRAN COMUNIDAD, PARTICIPA, INTERCAMBIA, CRECE</h2>
+            <small className='tw-text-secondary tw-font-medium'> KANJES & COMUNIDADES</small>
+                    <Reveal
+                        keyframes={fadeInUp}
+                        delay={600}
+                        duration={800}
+                        triggerOnce={true}
+                        >
+                        <CardCommunity renderContent={contentFirstCardCommunity}/>
+                    </Reveal> 
+        </Section>
+        <Section className="tw-bg-gray-100 tw-h-full lg:tw-h-[60vh] 2xl:tw-h-[50vh]">
+                    <Reveal
+                        keyframes={fadeInUp}
+                        delay={900}
+                        duration={800}
+                        triggerOnce={true}
+                        >
+                        <CardCommunityThree renderContent={contentSecondCardCommunity}/>
+                    </Reveal> 
+        </Section>
+        <Section className="tw-bg-gray-50 tw-h-full lg:tw-h-[60vh] 2xl:tw-h-[50vh]">
+                    <Reveal
+                        keyframes={fadeInUp}
+                        delay={900}
+                        duration={800}
+                        triggerOnce={true}
+                        >
+                        <CardCommunityFour renderContent={contentThirtyCardCommunity}/>
+                    </Reveal> 
+        </Section>
+        </>
+    )
+}
+
+export default Community;

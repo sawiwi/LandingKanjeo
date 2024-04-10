@@ -6,12 +6,6 @@ export const navigationData = [
     name: 'Inicio',
     href: '/',
   },
-  // {
-  //   id: 2,
-  //   name: 'Servicios',
-  //   href: '/servicios',  
-  //   // href: '#servicios',  
-  // },
   {
     id: 3,
     name: 'Cómo funciona',
@@ -29,11 +23,6 @@ export const navigationData = [
     name: 'Nosotros',
     href: '/nosotros',  
   },
-  // {
-  //   id: 6,
-  //   name: 'FAQ',
-  //   href: '/faq',
-  // },
   {
     id: 6,
     name: 'Mi cuenta',

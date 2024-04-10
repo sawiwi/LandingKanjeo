@@ -1,14 +1,6 @@
 import {
-  AiOutlineDatabase,
-  TbReportSearch,
-  TfiSignal,
-  BsCheck,
   BsCheck2Circle,
-  FiUsers,
-
 } from '../../components/icon';
-
-
 
 import heroImgOne from '../../assets/img/Hero/hero1.webp';
 import heroImgTwo from '../../assets/img/Hero/hero2.webp';

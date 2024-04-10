@@ -1,9 +1,10 @@
 import Home from '../pages';
 import About from '../pages/about';
-import Faq from '../pages/faq';
-import ServicesSect from '../pages/services';
+// import Faq from '../pages/faq';
+// import ServicesSect from '../pages/services';
 import How from '../pages/howWork';
 import Contact from '../pages/contact';
+import Community from '../pages/community';
 
 export const navigationRoutes = [
   {
@@ -12,12 +13,12 @@ export const navigationRoutes = [
     path: '/',
     element: <Home />,
   },
-  {
-    id: 2,
-    name: 'Servicios',
-    path: '/servicios',
-    element: <ServicesSect />,
-  },
+  // {
+  //   id: 2,
+  //   name: 'Servicios',
+  //   path: '/servicios',
+  //   element: <ServicesSect />,
+  // },
   {
     id: 3,
     name: 'Cómo funciona',
@@ -36,11 +37,17 @@ export const navigationRoutes = [
     path: '/contacto',
     element: <Contact />,
   },
+  // {
+  //   id: 6,
+  //   name: 'FAQ',
+  //   path: '/faq',
+  //   element: <Faq />,
+  // },
   {
-    id: 6,
-    name: 'FAQ',
-    path: '/faq',
-    element: <Faq />,
-  },
+    id:7,
+    name : 'Comunidad',
+    path: '/comunidad',
+    element:<Community/>
+  }
 
 ];
