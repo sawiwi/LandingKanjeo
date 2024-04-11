@@ -36,7 +36,7 @@ return(
       <TitleSection
         className='lg:tw-mt-20'
         title={whyWeContent.headings[0].content}
-        subtitle="Data-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure culpa inventore dicta voluptatum fuga,"
+        subtitle="Nuestra empresa nació de la visión de transformar la experiencia de intercambio de propiedades, haciéndola más accesible y eficiente para todos los involucrados. Surgió de la pasión por conectar a corredores e potenciales interesados en un proceso justo y transparente."
         position="center"
       />
       <WhywE renderContent={whyWeContent} />

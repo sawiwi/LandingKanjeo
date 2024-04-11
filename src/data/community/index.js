@@ -49,7 +49,7 @@ export const contentSlickCommunity = [
       imgCard:CardImgTwo,
       subheading:'Canjes y más',
       headings: 'Portal de propiedades',
-      texts:'Portal acorde tus necesidades', 
+      texts:'Portal inmobiliario acorde a tus necesidades', 
     },
   ]
 
@@ -59,7 +59,7 @@ export const contentSlickCommunity = [
       imgCard: CardImgFive,
       subheading:'Nuevas oportunidades',
       headings: 'Oportunidad de clientes',
-      texts:'Encuentra nuevas oportunidades de cliente', 
+      texts:'Encuentra nuevas oportunidades de clientes', 
     },
     {
       id:2,
