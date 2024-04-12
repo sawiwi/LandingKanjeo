@@ -139,20 +139,10 @@ export const contentPage1 = {
           content: 'Nosotros',
         },
       ],
-
-      // subText: [
-      //   {
-      //     id: 1,
-      //     content:
-      //       'Data-Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure culpa inventore dicta voluptatum fuga, cumque voluptate harum quae? Voluptate quod dignissimos voluptas atque et reprehenderit nihil asperiores architecto fugit exercitationem?.',
-      //   },
-      // ],
-
       card: [
         {
           id: 1,
           title: 'Compromiso',
- 
           img:compromiso,
           content:
             'Comprometidos a construir y apoyar una comunidad vibrante de propietarios, potenciales clientes y corredores, donde puedan beneficiarse mutuamente y compartir conocimientos',
@@ -160,8 +150,7 @@ export const contentPage1 = {
 
         {
           id: 2,
-          title: 'Equipo',
-    
+          title: 'Equipo',  
           img:equipo,
           content:
             'Cada miembro aporta una amplia experiencia y un compromiso inquebrantable con la misión de nuestra empresa',
@@ -170,7 +159,6 @@ export const contentPage1 = {
         {
           id: 3,
           title: 'Valores',
- 
           img:valores,
           content:
             'Nos guiamos por la transparencia, la integridad y la excelencia en el servicio al cliente.',
@@ -178,7 +166,6 @@ export const contentPage1 = {
         {
           id: 4,
           title: 'Innovación',
- 
           img:innovacion,
           content:
             'Tecnología de vanguardia para proporciona herramientas avanzadas para la búsqueda, comparación y negociación de propiedades.',
@@ -186,7 +173,6 @@ export const contentPage1 = {
         {
           id: 5,
           title: 'Impacto Social',
- 
           img:impactSocial,
           content:
             'Promovemos la equidad en el acceso a la vivienda y apoyar el desarrollo sostenible en nuestras comunidades.',
@@ -246,6 +232,12 @@ export const contentHero = [
       info:'Evalua tu experiencia y proporcionar comentarios sobre los corredores involucrados.',
       smallInfo:'Ayudando a mantener la calidad de la comunidad y a mejorar continuamente la plataforma.'
     },
+    {
+      id:10,
+      info:'Participa en la comunidad de canjes de propiedades y corredores, registrate en nuestra página web. ',
+      smallInfo:'Se solicita información básica como nombre, correo electrónico y contraseña para crear una cuenta.',
+      href:'/como-funciona'
+    },
   ]
   },
   {
@@ -285,6 +277,13 @@ export const contentHero = [
         info:'Producto y carácteristicas ',
         smallInfo:'Revisa nuestro producto, carácteristicas y funciones',
       },
+      {
+        id:10,
+        info:'Corredores asociados',
+        smallInfo:'Encuentra socios similares.',
+        href:'/comunidad'
+
+      },
     ]
   },
   {
@@ -296,29 +295,45 @@ export const contentHero = [
     card: [
       {
         id:1,
-        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+        info:'Compromiso',
+        smallInfo:'Comprometidos a construir y apoyar una comunidad vibrante de propietarios, potenciales clientes y corredores, donde puedan beneficiarse mutuamente y compartir conocimientos'
       },
       {
         id:2,
-        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+        info:'Equipo',
+        smallInfo:'Cada miembro aporta una amplia experiencia y un compromiso inquebrantable con la misión de nuestra empresa'
+
       },
       {
         id:3,
-        info:'Nuestras soluciones hacen más agil tu negocio',
+        info:'Valores',
+        smallInfo:'Nos guiamos por la transparencia, la integridad y la excelencia en el servicio al cliente..'
       },
       {
         id:4,
-        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+        info:'Innovación',
+        smallInfo:'Tecnología de vanguardia para proporciona herramientas avanzadas para la búsqueda, comparación y negociación de propiedades.'
+
       },
       {
         id:5,
-        info:'Nuestras soluciones hacen más agil tu negocio',
+        info:'Impacto social',
+        smallInfo:'Promovemos la equidad en el acceso a la vivienda y apoyar el desarrollo sostenible en nuestras comunidades.'
+
       },
       {
         id:6,
-        info:'Data-Lorem ipsum dolor, sit amet consectetur adipisicing ',
+        info:'Colaboración',
+        smallInfo:'Buscamos oportunidades para colaborar con organizaciones que compartan nuestros valores y objetivos.'
       },
-    ]
+      {
+        id:10,
+        info:'Compromiso',
+        smallInfo:'Comprometidos a construir y apoyar una comunidad vibrante de propietarios, potenciales clientes y corredores, donde puedan beneficiarse mutuamente y compartir conocimientos',
+        href:'/nosotros'
+
+      },
+    ],
   },
 
 ]
