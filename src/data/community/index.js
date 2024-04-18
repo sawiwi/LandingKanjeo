@@ -10,6 +10,7 @@ import CardImgFour from '../../assets/img/Comunidad/politicas&seguridad.webp';
 import CardImgFive from '../../assets/img/Comunidad/oportunidades.webp';
 import CardImgSix from '../../assets/img/Comunidad/comoUsar.webp';
 import CardImgSeven from '../../assets/img/Comunidad/product.webp';
+// import { HiRefresh } from 'react-icons/hi';
 
 export const contentSlickCommunity = [
     {
@@ -43,6 +44,7 @@ export const contentSlickCommunity = [
       subheading:'Asociate y más',
       headings: 'Corredores asociados',
       texts:'Encuentra socios similares aquí', 
+      href:'/portal-corredores'
     },
     {
       id:2,
@@ -93,3 +95,78 @@ export const contentSlickCommunity = [
       texts:'Revisar nuestro producto, carácteristicas y funciones', 
     },
   ]
+
+  export const  Realtors = [
+    {
+      id:1,
+      // img:'',
+      realtor:'admin',
+      email:'admin@yokanjeo.com',
+      cantProp:'21',
+      contacto:'934453273'
+    },
+    {
+      id:2,
+      // img:'',
+      realtor:'corr',
+      email:'corr@gmail.com',
+      cantProp:'2',
+      contacto:'934453374'
+
+    },
+    {
+      id:3,
+      // img:'',
+      realtor:'corredor',
+      email:'corredor@outlook.cl',
+      cantProp:'13',
+      contacto:'934453174'
+
+    },
+    {
+      id:4,
+      // img:'',
+      realtor:'axel',
+      email:'axela@gmail.com',
+      cantProp:'17',
+      contacto:'934453574'
+
+    },
+    {
+      id:5,
+      // img:'',
+      realtor:'axel',
+      email:'ax@gmail.com',
+      cantProp:'7',
+      contacto:'934452374'
+
+    },
+    {
+      id:6,
+      // img:'',
+      realtor:'Tiro al blanco',
+      email:'axl@gmail.com',
+      cantProp:'27',
+      contacto:'934455374'
+
+    },
+    {
+      id:7,
+      // img:'',
+      realtor:'Tiro al blanco',
+      email:'axel@gmail.com',
+      cantProp:'15',
+      contacto:'934451374'
+
+    },
+    {
+      id:8,
+      // img:'',
+      realtor:'Tiro al blanco',
+      email:'axel@gmail.com',
+      cantProp:'7',
+      contacto:'934459874'
+
+    },
+
+];

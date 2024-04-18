@@ -5,6 +5,7 @@ import About from '../pages/about';
 import How from '../pages/howWork';
 import Contact from '../pages/contact';
 import Community from '../pages/community';
+import PortalRealtor from '../pages/portalRealtors';
 
 export const navigationRoutes = [
   {
@@ -13,12 +14,7 @@ export const navigationRoutes = [
     path: '/',
     element: <Home />,
   },
-  // {
-  //   id: 2,
-  //   name: 'Servicios',
-  //   path: '/servicios',
-  //   element: <ServicesSect />,
-  // },
+
   {
     id: 3,
     name: 'Cómo funciona',
@@ -37,17 +33,17 @@ export const navigationRoutes = [
     path: '/contacto',
     element: <Contact />,
   },
-  // {
-  //   id: 6,
-  //   name: 'FAQ',
-  //   path: '/faq',
-  //   element: <Faq />,
-  // },
   {
     id:7,
     name : 'Comunidad',
     path: '/comunidad',
     element:<Community/>
-  }
+  },
+  {
+    id:8,
+    name : 'Portal Corredores',
+    path: '/portal-corredores',
+    element:<PortalRealtor/>
+  },
 
 ];
