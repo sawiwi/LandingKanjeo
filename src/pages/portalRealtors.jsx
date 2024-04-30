@@ -4,28 +4,17 @@ import { keyframes } from '@emotion/react';
 import TitleSection from "../components/title-section";
 import TableRealtors from "../components/portalTable";
 import { Realtors } from "../data/community";
+import MapsRealtor from "../components/mapRealtors";
 
 
 const columns = [
-    // {
-    //     header:"Retrato",
-    //     accessorKey: "img"
-    // },
     {
         header:"Corredor",
         accessorKey: "realtor"
     },
     {
-        header:"E-mail",
-        accessorKey: "email"
-    },
-    {
-        header:"Cantidad de propiedades",
-        accessorKey: "cantProp"
-    },
-    {
-        header:"Contactar",
-        accessorKey: "contacto"
+        header:"Ubicación",
+        accessorKey: "ubi"
     },
 ]
 
@@ -59,7 +48,15 @@ const PortalRealtor = () =>{
             position="center"
         />
 
-        <TableRealtors columnsData={columns} dataRealtor={Realtors} />
+        <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 tw-justify-center tw-gap-2 tw-mt-4">
+            <div>
+            <TableRealtors columnsData={columns} dataRealtor={Realtors} />
+            </div>
+            <div className="mt-20">
+            <MapsRealtor/>
+            </div>
+        </div>
+
         
         
         </Reveal>

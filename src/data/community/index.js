@@ -101,72 +101,70 @@ export const contentSlickCommunity = [
       id:1,
       // img:'',
       realtor:'admin',
-      email:'admin@yokanjeo.com',
-      cantProp:'21',
-      contacto:'934453273'
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.38926870500395,
+      latitude: -33.141351410073764,
+
     },
     {
       id:2,
       // img:'',
       realtor:'corr',
-      email:'corr@gmail.com',
-      cantProp:'2',
-      contacto:'934453374'
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.28926870500395,
+      latitude: -33.441351410073764,
+
 
     },
     {
       id:3,
       // img:'',
       realtor:'corredor',
-      email:'corredor@outlook.cl',
-      cantProp:'13',
-      contacto:'934453174'
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.88926870500395,
+      latitude: -33.741351410073764,
 
     },
     {
       id:4,
       // img:'',
       realtor:'axel',
-      email:'axela@gmail.com',
-      cantProp:'17',
-      contacto:'934453574'
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.28926870500395,
+      latitude: -33.541351410073764,
 
     },
     {
       id:5,
       // img:'',
       realtor:'axel',
-      email:'ax@gmail.com',
-      cantProp:'7',
-      contacto:'934452374'
-
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.98926870500395,
+      latitude: -33.641351410073764,
     },
     {
       id:6,
       // img:'',
       realtor:'Tiro al blanco',
-      email:'axl@gmail.com',
-      cantProp:'27',
-      contacto:'934455374'
-
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.48926870500395,
+      latitude: -32.441351410073724,
     },
     {
       id:7,
       // img:'',
       realtor:'Tiro al blanco',
-      email:'axel@gmail.com',
-      cantProp:'15',
-      contacto:'934451374'
-
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.38926870500395,
+      latitude: -32.241351410073764,
     },
     {
       id:8,
       // img:'',
       realtor:'Tiro al blanco',
-      email:'axel@gmail.com',
-      cantProp:'7',
-      contacto:'934459874'
-
+      ubi:'Av. Siempre viva 312, Región Metropolitana',
+      longitude:-70.68926870500395,
+      latitude: -33.241351410073764,
     },
 
 ];
