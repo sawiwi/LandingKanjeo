@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import Map, { Marker, Popup, NavigationControl, GeolocateControl, FullscreenControl } from 'react-map-gl';
 // import { TbMapPinStar } from "react-icons/tb";
-import MarkerIcon from '../../assets/img/map/marker.png';
+import MarkerIcon from '../../assets/img/map/agente-de-bienes-raices.png';
 import { Realtors } from '../../data/community';
 
 
@@ -62,6 +62,7 @@ const MapsRealtor = () => {
                       <img
                         title='marker-icon'
                         src={MarkerIcon}
+                        className='hover:tw-scale-105 tw-duration-200'
                         alt="marker"
                         height={45}
                         width={45}
@@ -93,12 +94,15 @@ const MapsRealtor = () => {
                           >
                                 <div className="max-w-sm bg-white">
                                     <div>
-                                        <p className="mb-1 font-normal text-gray-700 dark:text-gray-700">
-                                            <b>Región:</b> {item.realtor ?? 'No cuenta con Corredor'}
-                                        </p>
-                                        <p className="mb-1 font-normal text-gray-700 dark:text-gray-500">
+                                      <a href="/perfil-corredor" 
+                                          className="tw-mb-1 tw-font-normal tw-text-sm tw-text-gray-700 dark:tw-text-gray-500 tw-underline-offset-1 tw-duration-150"
+                                        >
+                                         <b>Nombre:</b> {item.realtor}
+                                         <p className="tw-mb-1 tw-font-normal tw-text-gray-700 dark:tw-text-gray-500">
                                             <b>Comuna:</b> {item?.ubi ?? 'No cuenta con ubicación'}
                                         </p>
+                                        </a>
+                                       
                                     </div>
                                 </div>
                           

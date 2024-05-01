@@ -10,7 +10,16 @@ import MapsRealtor from "../components/mapRealtors";
 const columns = [
     {
         header:"Corredor",
-        accessorKey: "realtor"
+        accessorKey: "realtor",
+        cell: (cellProps: any) => (
+            <div className="">
+                <a href="/perfil-corredor" 
+                className="tw-font-semibold tw-cursor-pointer tw-duration-200"
+                >
+              {cellProps.row.original.realtor}
+            </a>
+          </div>
+        )
     },
     {
         header:"Ubicación",

@@ -6,6 +6,7 @@ import How from '../pages/howWork';
 import Contact from '../pages/contact';
 import Community from '../pages/community';
 import PortalRealtor from '../pages/portalRealtors';
+import ProfileRealtor from '../components/profileRealtor';
 
 export const navigationRoutes = [
   {
@@ -44,6 +45,13 @@ export const navigationRoutes = [
     name : 'Portal Corredores',
     path: '/portal-corredores',
     element:<PortalRealtor/>
+  },
+
+  {
+    id:10,
+    name : 'Perfil-corredor',
+    path: '/perfil-corredor',
+    element:<ProfileRealtor/>
   },
 
 ];
