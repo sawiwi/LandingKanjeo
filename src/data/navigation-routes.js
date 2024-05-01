@@ -7,6 +7,9 @@ import Contact from '../pages/contact';
 import Community from '../pages/community';
 import PortalRealtor from '../pages/portalRealtors';
 import ProfileRealtor from '../components/profileRealtor';
+import PoliticaCookies from '../components/Politicas/politicasCookies';
+import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
+
 
 export const navigationRoutes = [
   {
@@ -49,9 +52,21 @@ export const navigationRoutes = [
 
   {
     id:10,
-    name : 'Perfil-corredor',
+    name : 'Perfil Corredor',
     path: '/perfil-corredor',
     element:<ProfileRealtor/>
+  },
+  {
+    id:11,
+    name :'Politicas de Cookies',
+    path: '/politicas-de-cookies',
+    element:<PoliticaCookies/>
+  },
+  {
+    id:12,
+    name : 'Politicas de Privacidad',
+    path: '/politicas-de-privacidad',
+    element:<PoliticaPrivacidad/>
   },
 
 ];

@@ -60,22 +60,28 @@ export const contentSlickCommunity = [
       id:1,
       imgCard: CardImgFive,
       subheading:'Nuevas oportunidades',
-      headings: 'Oportunidad de clientes',
-      texts:'Encuentra nuevas oportunidades de clientes', 
+      headings: {first:'Oportunidad de clientes', second:''},
+      texts:'Encuentra nuevas oportunidades de clientes',
+      href:'' ,
+      href2:'' 
     },
     {
       id:2,
       imgCard:CardImgThree,
       subheading:'Servicios y más',
-      headings: 'Servicios Externos',
-      texts:'Conoce todos los servicios que tenemos.', 
+      headings: {first:'Servicios Externos', second:''},
+      texts:'Conoce todos los servicios que tenemos.',
+      href:'',
+      href2:'' 
     },
     {
       id:3,
       imgCard:CardImgFour,
       subheading:'Politicas y más',
-      headings: 'Politicas y Seguridad',
+      headings: {first:'Politicas y', second:'Cookies'},
       texts:'Actualizaciones importantes', 
+      href:'/politicas-de-privacidad' ,
+      href2:'/politicas-de-cookies' 
     },
   ]
 
