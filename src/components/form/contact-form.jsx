@@ -86,27 +86,15 @@ const ContactForm = () => {
     }
 
     try {
+      // const response = await ContactFormServices.sendContactFormUser(
+      //   formData?.name,
+      //   formData?.email,
+      //   `${formData?.name} Quiere registrarse en Yokanjeo`,
+      //   'fabians@bidata.cl'
+      // );
       setLoading(true);
-      const response = await ContactFormServices.sendContactFormUser(
-        formData?.name,
-        formData?.email,
-        `${formData?.name} Quiere registrarse en Yokanjeo`,
-        'fabians@bidata.cl'
-      );
-
-      const apiResponse = await RegisterNewUser.postNewUser(formData)
-
-
-      if(response?.success === 'false'){
-        showToastErrorMsg(
-          'Se necesita activación de email del administrador/a'
-        );
-        setLoading(false);
-        resetForm();
-        return;
-      }
-
-      if (response?.success === true && (apiResponse?.status === 'created' || apiResponse?.status === 'ok' || apiResponse?.status === 201 )) {
+      const response = await RegisterNewUser.postNewUser(formData)
+      if (response?.status === 200 || response?.statusText === 'created' || response?.status === 201 ) {
         showToastSuccessMsg(
           'Solicitud enviada con exito! revisa tu cuenta de correo porfavor'
         );
@@ -142,7 +130,7 @@ const ContactForm = () => {
             </div>
             <Fade direction="up" triggerOnce={true}>
               <div className='tw-flex tw-justify-center'>
-                <form  onSubmit={onFormSubmit} name='FormSubmit' className='tw-relative tw-shadow-xl tw-shadow-secondary/40  tw-w-[95%] xl:tw-w-[45%] 2xl:tw-w-[40%] tw-h-[350px]  tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-8 tw-p-4 tw-rounded-md '>
+                <form  onSubmit={onFormSubmit} className='tw-relative tw-shadow-xl tw-shadow-secondary/40  tw-w-[95%] xl:tw-w-[45%] 2xl:tw-w-[40%] tw-h-[350px]  tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-8 tw-p-4 tw-rounded-md '>
                     <div className="tw-relative tw-mb-2 tw-mt-10">
                       <input
                         autoComplete="off"
@@ -190,7 +178,6 @@ const ContactForm = () => {
                   {errorMsg.fieldsRequired && (
                     <Alert message={errorMsg.fieldsRequired} />
                   )}
-
                   {errorMsg.serverError && (
                     <Alert message={errorMsg.serverError} />
                   )}
