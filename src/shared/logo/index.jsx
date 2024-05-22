@@ -20,7 +20,7 @@ const Logo = () => {
         className="tw-relative tw-object-cover tw-block tw-cursor-pointer tw-w-[60px] tw-h-[60px] sm:tw-w-[65px] sm:tw-h-[65px] md:tw-w-[65px] md:tw-h-[65px]"
       /> */}
       <span className="tw-text-2xl lg:tw-block tw-pl-2 tw-font-extrabold lg:tw-text-4xl tw-text-secondary">
-        Yokanjeo
+        ProCanje
       </span>
     </Link>
   );
