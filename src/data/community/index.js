@@ -52,6 +52,8 @@ export const contentSlickCommunity = [
       subheading:'Canjes y más',
       headings: 'Portal de propiedades',
       texts:'Portal inmobiliario acorde a tus necesidades', 
+      href:'/'
+
     },
   ]
 
@@ -71,7 +73,7 @@ export const contentSlickCommunity = [
       subheading:'Servicios y más',
       headings: {first:'Servicios Externos', second:''},
       texts:'Conoce todos los servicios que tenemos.',
-      href:'',
+      href:'/servicios-externos',
       href2:'' 
     },
     {

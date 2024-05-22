@@ -9,7 +9,8 @@ import PortalRealtor from '../pages/portalRealtors';
 import ProfileRealtor from '../components/profileRealtor';
 import PoliticaCookies from '../components/Politicas/politicasCookies';
 import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
-
+import ExternalServices from '../pages/externalServices';
+import ListExtServices from '../pages/ListExternalService/listExtService';
 
 export const navigationRoutes = [
   {
@@ -49,7 +50,12 @@ export const navigationRoutes = [
     path: '/portal-corredores',
     element:<PortalRealtor/>
   },
-
+  {
+    id:9,
+    name : 'Servicios Externos',
+    path: '/servicios-externos',
+    element:<ExternalServices/>
+  },
   {
     id:10,
     name : 'Perfil Corredor',
@@ -67,6 +73,12 @@ export const navigationRoutes = [
     name : 'Politicas de Privacidad',
     path: '/politicas-de-privacidad',
     element:<PoliticaPrivacidad/>
+  },
+  {
+    id:13,
+    name : 'Listado de servicos',
+    path: '/servicios-externos/listado-servicios',
+    element:<ListExtServices/>
   },
 
 ];

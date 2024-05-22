@@ -13,6 +13,7 @@ import { TbReportSearch } from 'react-icons/tb';
 import { TfiSignal } from 'react-icons/tfi';
 import { BsCheck2Circle } from 'react-icons/bs';
 import { FiUsers } from 'react-icons/fi';
+import {FaTruckRampBox } from 'react-icons/fa6'
 
 // NICOLAS icons
 import {
@@ -24,6 +25,8 @@ import {
   BsYoutube,
   BsLinkedin,
 } from 'react-icons/bs';
+
+import { GiTvRemote, GiThreeKeys, GiRingingAlarm   } from "react-icons/gi";
 
 export {
   IoClose,
@@ -52,5 +55,9 @@ export {
   Bs1CircleFill ,
   Bs2Circle,
   Bs3CircleFill, 
-  Bs4Circle
+  Bs4Circle,
+  GiTvRemote,
+  GiThreeKeys,
+  FaTruckRampBox,
+  GiRingingAlarm 
 };
