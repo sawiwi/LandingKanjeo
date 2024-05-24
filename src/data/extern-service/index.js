@@ -7,8 +7,6 @@ import imgServices5 from '../../assets/img/perfil/perfil.png'
 import { GiTvRemote, GiThreeKeys, GiRingingAlarm ,FaTruckRampBox } from '../../components/icon/index'
 
 
-
-
 export const RubroServData = [
     {
         id:1,

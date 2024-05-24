@@ -1,19 +1,29 @@
 import Section from "../../components/section";
 import TitleSection from "../../components/title-section";
-
+import { externHero } from "../../data/extern-service/heroData";
+import ReactSlickExtServ from "../../components/react-slick/slickExterServ";
+import GridExtServ from "./gridExtServ"
 
 const ListExtServices = () =>{
     return(
-        <Section>
-            <TitleSection 
-               className="lg:tw-mt-20"
-               title="Listado de Servicios Externos"
-               subtitle="Los mejores Servicos de este rubro"
-               position="center"/>
-        <div className="tw-flex tw-flex-col xl:tw-grid xl:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-2 tw-mt-4 tw-w-full ">
-            
-        </div>
-        </Section>
+        <>
+            <div className="tw-flex tw-flex-col xl:tw-grid 2xl:tw-grid-cols-1 tw-mt-7 tw-w-full ">
+                <div className='tw-col-span-1'>
+                    <ReactSlickExtServ renderContent={externHero} />
+                </div>
+            </div>
+            <Section>  
+                <TitleSection
+                    className='tw-mt-2'
+                    title="Listado de servicios externos"
+                    subtitle="Encuentra al corredor que más se adapate a tus necesidades"
+                    position="center"
+                />
+                <GridExtServ />
+
+            </Section>
+        </>   
+        
     )
 }
 

@@ -86,7 +86,7 @@ const Footer = () => {
               <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-p-3 tw-rounded ">
                 © {getCurrentYear()}{' '}
                 <a href="/" className="tw-underline">
-                YoKanjeo
+                  ProCanje
                 </a>
                 . Todos los derechos reservados.
               </span>
