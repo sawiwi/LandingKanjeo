@@ -3,6 +3,7 @@ import TitleSection from "../../components/title-section";
 import { externHero } from "../../data/extern-service/heroData";
 import ReactSlickExtServ from "../../components/react-slick/slickExterServ";
 import GridExtServ from "./gridExtServ"
+import BannerExtServ from "./bannerExtSer";
 
 const ListExtServices = () =>{
     return(
@@ -20,6 +21,7 @@ const ListExtServices = () =>{
                     position="center"
                 />
                 <GridExtServ />
+                <BannerExtServ />
 
             </Section>
         </>   

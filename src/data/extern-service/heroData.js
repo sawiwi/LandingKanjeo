@@ -80,4 +80,19 @@ export const listServExt = [
         urlWeb:''
     },
 
+];
+
+export const bannerExtServ = [
+    {
+        id: 1,
+        img:'',
+        name:'',
+        urlWeb:''
+    },
+    {
+        id: 2,
+        img:'',
+        name:'',
+        urlWeb:''
+    },
 ]

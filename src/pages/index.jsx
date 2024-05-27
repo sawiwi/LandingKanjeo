@@ -31,8 +31,8 @@ const Home = () => {
       {/* HEAD PAGE */}
       <HelmetHead
         titlePage="Inicio"
-        contentPage="Sistema de Kanje, para que puedas gestionar tus propiedades a la vez que intercambias con otros corredores"
-        keywords="Sistema de Kanje, Gestion de propiedades, Automatización de Procesos compra y venta, Seguimiento de propiedade, Herramienta de Análisis de Datos de Kanje, Gestión Eficiente de Kanje"
+        contentPage="Sistema de canje, para que puedas gestionar tus propiedades a la vez que intercambias con otros corredores"
+        keywords="Sistema de canje, Gestion de propiedades, Automatización de Procesos compra y venta, Seguimiento de propiedades, Herramienta de Análisis de Datos de Canje, Gestión Eficiente de Canje"
       />
 
       {/* HERO */}

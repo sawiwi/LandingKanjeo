@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-// import Logo from '../logo';
+import Logo from '../../assets/img/logo/procanje-lg.png';
 import {
   footerSMediaNavigation,
   footerNavigation,
@@ -16,14 +16,14 @@ const Footer = () => {
               <div className='tw-col-span-1 tw-py-3'>
                 <div className="tw-flex  tw-justify-center tw-flex-grow tw-items-center tw-space-x-3  lg:tw-space-x-10 tw-mt-5 ">
                     <Link to="/" className="tw-flex tw-items-center">
-                    {/* <img
-                      src={`/images/logo/${getPathnameLogo(pathname)}`}
-                      alt="qrservice-logo"
-                      className="tw-relative tw-object-cover tw-block tw-cursor-pointer tw-w-[60px] tw-h-[60px] sm:tw-w-[65px] sm:tw-h-[65px] md:tw-w-[65px] md:tw-h-[65px]"
-                    /> */}
-                    <span className="tw-text-5xl lg:tw-block tw-py-3 tw-font-extrabold lg:tw-text-6xl tw-text-primary hover:tw-scale-105 tw-duration-200">
+                    <img
+                      src={Logo}
+                      alt="procanje-logo"
+                      className="tw-relative tw-object-cover tw-block tw-cursor-pointer tw-w-56 tw-h-full sm:tw-w-60 sm:tw-h-full md:tw-w-80 md:tw-h-full"
+                    />
+                    {/* <span className="tw-text-5xl lg:tw-block tw-py-3 tw-font-extrabold lg:tw-text-6xl tw-text-primary hover:tw-scale-105 tw-duration-200">
                       ProCanje
-                    </span>
+                    </span> */}
                   </Link>
                 </div>
                 <p className="tw-text-white tw-text-lg tw-title-font tw-font-thin  tw-text-center tw-mb-3 tw-tracking-wider">
