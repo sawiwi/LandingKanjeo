@@ -24,7 +24,7 @@ const Community = () =>{
         <>
         <div className='tw-relative tw-h-[90vh] tw-w-full '>
             <Section className="tw-bg-secondary tw-h-[65%]">
-                    <h2 className='tw-my-12 tw-mt-16 tw-text-5xl tw-text-white'>Comunidad YoKanejo</h2>
+                    <h2 className='tw-my-12 tw-mt-16 tw-text-5xl tw-text-white'>Comunidad ProCanje</h2>
                     <Reveal
                         keyframes={fadeInUp}
                         delay={300}
@@ -37,7 +37,7 @@ const Community = () =>{
         </div>
         <Section className="tw-bg-gray-50 tw-h-full lg:tw-h-[90vh] 2xl:tw-h-[60vh]">
             <h2 className='tw-text-5xl tw-font-[900] tw-w-[60%]'>GRAN COMUNIDAD, PARTICIPA, INTERCAMBIA, CRECE</h2>
-            <small className='tw-text-secondary tw-font-medium'> KANJES & COMUNIDADES</small>
+            <small className='tw-text-secondary tw-font-medium'> CANJES & COMUNIDADES</small>
                 {/* card corredores asociados, canjes */}
                     <Reveal
                         keyframes={fadeInUp}

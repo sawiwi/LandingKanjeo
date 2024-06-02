@@ -5,29 +5,44 @@ import TitleSection from "../components/title-section";
 import TableRealtors from "../components/portalTable";
 import { Realtors } from "../data/community";
 import MapsRealtor from "../components/mapRealtors";
+import { useState } from "react";
+import Modal from "../components/modal/Modal";
+import ResumeProfile from "../components/profileRealtor/resumeProfile";
 
 
-const columns = [
-    {
-        header:"Corredor",
-        accessorKey: "realtor",
-        cell: (cellProps: any) => (
-            <div className="">
-                <a href="/perfil-corredor" 
-                className="tw-font-semibold tw-cursor-pointer tw-duration-200"
-                >
-              {cellProps.row.original.realtor}
-            </a>
-          </div>
-        )
-    },
-    {
-        header:"Ubicación",
-        accessorKey: "ubi"
-    },
-]
+
 
 const PortalRealtor = () =>{
+    const [openDetail, setOpenDetail] = useState(false);
+
+    const columns = [
+        {
+            header:"Corredor",
+            accessorKey: "realtor",
+            cell: (cellProps: any) => (
+                <div className="">      
+                    <button 
+                    className="tw-font-semibold tw-cursor-pointer tw-duration-200"
+                    onClick={()=> setOpenDetail(true)}
+                    >
+                  {cellProps.row.original.realtor}
+                </button>
+              </div>
+            )
+        },
+        {
+            header:"País",
+            accessorKey: "country"
+        },
+        {
+            header:"Región",
+            accessorKey: "region"
+        },
+        {
+            header:"Comuna",
+            accessorKey: "commune"
+        },
+    ]
 
 
     const fadeInUp = keyframes`
@@ -61,8 +76,16 @@ const PortalRealtor = () =>{
             <div>
             <TableRealtors columnsData={columns} dataRealtor={Realtors} />
             </div>
-            <div className="mt-20">
-            <MapsRealtor/>
+            <div className="mt-20">                      
+                <Modal open={openDetail} onClose={() => setOpenDetail(false)}>
+                    <div className='xl:tw-w-[35vw] '>
+                        <h2 className="tw-text-2xl tw-text-center">Resumen ficha</h2>
+                        <div className='tw-p-2 tw-w-full tw-overflow-y-auto tw-h-[70vh] '>
+                            <ResumeProfile/>
+                        </div>
+                    </div>
+                </Modal>
+            {/* <MapsRealtor/> */}
             </div>
         </div>
 
