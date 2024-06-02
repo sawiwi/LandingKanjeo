@@ -8,6 +8,7 @@ import MapsRealtor from "../components/mapRealtors";
 import { useState } from "react";
 import Modal from "../components/modal/Modal";
 import ResumeProfile from "../components/profileRealtor/resumeProfile";
+import { FaRegUserCircle } from "react-icons/fa";
 
 
 
@@ -58,41 +59,41 @@ const PortalRealtor = () =>{
     }`;
 
     return(
-        <Section className="tw-overflow-hidden tw-bg-white">
-        <Reveal
-          keyframes={fadeInUp}
-          delay={500}
-          duration={800}
-          triggerOnce={true}
-        >
-        <TitleSection
-            className='lg:tw-mt-20'
-            title="Corredores asociados"
-            subtitle="Encuentra al corredor que más se adapate a tus necesidades"
-            position="center"
-        />
+        <div className="tw-overflow-hidden tw-bg-white tw-relative tw-px-4 sm:tw-px-8 lg:tw-px-24 tw-py-16 lg:tw-py-12 xl:tw-py-8 tw-my-16 lg:tw-my-8 xl:tw-my-6">
+            <Reveal
+            keyframes={fadeInUp}
+            delay={500}
+            duration={800}
+            triggerOnce={true}
+            >
+            <TitleSection
+                className='lg:tw-mt-20'
+                title="Corredores asociados"
+                subtitle="Encuentra al corredor que más se adapate a tus necesidades"
+                position="center"
+            />
 
-        <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 tw-justify-center tw-gap-2 tw-mt-4">
-            <div>
-            <TableRealtors columnsData={columns} dataRealtor={Realtors} />
-            </div>
-            <div className="mt-20">                      
-                <Modal open={openDetail} onClose={() => setOpenDetail(false)}>
-                    <div className='xl:tw-w-[35vw] '>
-                        <h2 className="tw-text-2xl tw-text-center">Resumen ficha</h2>
-                        <div className='tw-p-2 tw-w-full tw-overflow-y-auto tw-h-[70vh] '>
-                            <ResumeProfile/>
+            <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2  tw-gap-6 2xl:tw-gap-2 tw-mt-4">
+                <div>
+                <TableRealtors columnsData={columns} dataRealtor={Realtors} />
+                </div>
+                <div className="tw-relative tw-mt-20 ">
+                    <div className="tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[440px] tw-rounded-full  tw-shadow-inner tw-p-6">
+                        <FaRegUserCircle className="tw-text-gray-400  tw-text-8xl"/>
+                    </div>                      
+                    <Modal open={openDetail} onClose={() => setOpenDetail(false)}>
+                        <div className='2xl:tw-w-[35vw] tw-mt-6 sm:tw-mt-0'>
+                            <h2 className="tw-text-2xl tw-text-center">Resumen ficha</h2>
+                            <div className='tw-p-2 tw-w-full tw-overflow-y-auto tw-h-full md:tw-h-[70vh] tw-my-4 p-3'>
+                                <ResumeProfile/>
+                            </div>
                         </div>
-                    </div>
-                </Modal>
-            {/* <MapsRealtor/> */}
+                    </Modal>
+                {/* <MapsRealtor/> */}
+                </div>
             </div>
-        </div>
-
-        
-        
-        </Reveal>
-      </Section>
+            </Reveal>
+      </div>
     )
 }
 

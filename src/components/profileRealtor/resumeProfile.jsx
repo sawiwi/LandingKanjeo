@@ -10,7 +10,7 @@ const ResumeProfile = () =>{
         <>
             <div className="tw-overflow-hidden">
                     <div className="tw-grid tw-grid-col tw-grid-cols-1 tw-gap-4 tw-text-gray-500">
-                        <div className='tw-relative tw-h-96 lg:tw-h-full tw-w-full tw-rounded-md tw-p-2 tw-px-3'>
+                        <div className='tw-relative tw-h-full lg:tw-h-full tw-w-full tw-rounded-md tw-p-2 tw-px-3'>
                             <img src={imgBanner} className='tw-w-full tw-h-52 tw-object-cover tw-rounded-md' alt='bannerImg' />
                             <img src={imgProfile} alt='profileImg' className='tw-absolute tw-top-32 tw-border-4 tw-border-gray-100 tw-left-10 tw-rounded-full tw-h-36 tw-w-36 tw-shadow-lg' />                            
                             <div className='tw-mx-3 tw-grid tw-grid-flow-col tw-gap-2'>
