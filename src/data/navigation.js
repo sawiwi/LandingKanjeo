@@ -26,6 +26,6 @@ export const navigationData = [
   {
     id: 6,
     name: 'Mi cuenta',
-    href: 'https://keysoft.app/sign-in',
+    href: 'https://procanje.app/sign-in',
   },
 ];

@@ -13,7 +13,7 @@ const HeroText = () =>{
             podras forjar excelentes relaciones con colegas del mundo del corretaje.</p>
             <div className="tw-mt-8 tw-flex tw-justify-center">
               <Button
-                href={'https://keysoft.app/sign-up'}
+                href={'https://procanje.app/sign-in'}
                 className="tw-bg-secondary hover:tw-bg-secondary-light tw-shadow-md tw-text-md lg:tw-text-lg tw-tracking-wider tw-font-thin lg:tw-font-light"
               >
                 Unirse

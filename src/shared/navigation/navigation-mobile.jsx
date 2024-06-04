@@ -13,7 +13,7 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
         {item.children?.map((i, index) => (
           <Disclosure key={i.href + index} as="li">
             <a href={i.href}
-              target={i.href === 'https://keysoft.app/sign-in' ? '_blank' : ''}
+              target={i.href === 'https://procanje.app/sign-in' ? '_blank' : ''}
               className="tw-flex tw-px-4 tw-py-2.5 tw-text-secondary-light tw-text-sm tw-font-medium tw-rounded-lg hover:tw-bg-gray-100 tw-mt-[2px]"
               rel="noreferrer">
               <span
@@ -52,7 +52,7 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
           to={{
             pathname: item.href || undefined,
           }}
-          target={item.href === 'https://keysoft.app/sign-in' ? '_blank' : ''}
+          target={item.href === 'https://procanje.app/sign-in' ? '_blank' : ''}
           rel='noreferrer'
         >
           <span
