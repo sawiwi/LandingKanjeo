@@ -6,6 +6,7 @@ import How from '../pages/howWork';
 import Contact from '../pages/contact';
 import Community from '../pages/community';
 import PortalRealtor from '../pages/portalRealtors';
+import PortalProperty from '../pages/portalProperties';
 import ProfileRealtor from '../components/profileRealtor';
 import PoliticaCookies from '../components/Politicas/politicasCookies';
 import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
@@ -79,6 +80,12 @@ export const navigationRoutes = [
     name : 'Listado de servicos',
     path: '/servicios-externos/listado-servicios',
     element:<ListExtServices/>
+  },
+  {
+    id:14,
+    name : 'Portal Propiedades',
+    path: '/portal-propiedades',
+    element:<PortalProperty/>
   },
 
 ];

@@ -52,7 +52,7 @@ export const contentSlickCommunity = [
       subheading:'Canjes y más',
       headings: 'Portal de propiedades',
       texts:'Portal inmobiliario acorde a tus necesidades', 
-      href:'/'
+      href:'/portal-propiedades'
 
     },
   ]
@@ -92,13 +92,13 @@ export const contentSlickCommunity = [
       id:1,
       imgCard: CardImgSix,
       subheading:'Cómo usar',
-      headings: 'Cómo usar YoKanjeo App',
+      headings: 'Cómo usar ProCanje App',
       texts:'Deseas obtener un tutorial para la aplicación', 
     },
     {
       id:2,
       imgCard:CardImgSeven,
-      subheading:'Produto y más',
+      subheading:'Producto y más',
       headings: 'Producto y carácteristicas',
       texts:'Revisar nuestro producto, carácteristicas y funciones', 
     },
