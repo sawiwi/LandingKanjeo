@@ -8,8 +8,8 @@ import BannerExtServ from "./bannerExtSer";
 const ListExtServices = () =>{
     return(
         <>
-            <div className="tw-flex tw-flex-col xl:tw-grid 2xl:tw-grid-cols-1 tw-mt-7 tw-w-full ">
-                <div className='tw-col-span-1'>
+            <div className="tw-flex tw-flex-col tw-mt-7 tw-w-full ">
+                <div className=''>
                     <ReactSlickExtServ renderContent={externHero} />
                 </div>
             </div>

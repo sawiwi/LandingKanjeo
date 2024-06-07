@@ -37,8 +37,8 @@ const ReactSlick = ({ renderContent }) => {
             </p>
             <div className="tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 lg:tw-mt-4 2xl:tw-mt-4 tw-gap-4 2xl:tw-gap-6">
               <div className='tw-block md:tw-hidden lg:tw-col-span-1 tw-mt-10 lg:tw-mt-12 2xl:tw-mt-16'>
-                <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
-                    <h5 className='tw-mt-2 tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-lg'>{item.card[6].info}</h5>
+                <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
+                    <h5 className='tw-mt-2 tw-opacity-100 2xl:tw-font-bold tw-text-sm lg:tw-text-base 2xl:tw-text-lg'>{item.card[6].info}</h5>
                     <small className=''>{item.card[6].smallInfo}</small>
                     <Button
                       href={item.card[6].href}
@@ -50,31 +50,31 @@ const ReactSlick = ({ renderContent }) => {
               </div>
 
               <div className='tw-hidden md:tw-block lg:tw-col-span-1 lg:tw-mt-12 2xl:tw-mt-16'>
-                <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
+                <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
                     <h5 className='tw-mt-2 tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-lg'>{item.card[0].info}</h5>
                     <small className=''>{item.card[0].smallInfo}</small>
                 </article>
-                <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
+                <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
                     <h5 className=' tw-mt-2  tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-lg'>{item.card[1].info}</h5>
                     <small className=''>{item.card[1].smallInfo}</small>
                 </article>
               </div>
               <div className='tw-hidden md:tw-block lg:tw-col-span-1'>
-                <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2  2xl:tw-mb-4  tw-p-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
+                <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
                     <h5 className=' tw-mt-2 tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-lg'>{item.card[2].info}</h5>
                     <small className=''>{item.card[2].smallInfo}</small>
                 </article>
-                <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4  tw-p-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
+                <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
                     <h5 className=' tw-mt-2 tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-lg'>{item.card[3].info}</h5>
                     <small className=''>{item.card[3].smallInfo}</small>
                 </article>
               </div>
               <div className='tw-hidden md:tw-block lg:tw-col-span-1 lg:tw-mt-12 2xl:tw-mt-16 '>
-                <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
+                <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
                     <h5 className=' tw-mt-2 tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-lg'>{item.card[4].info}</h5>
                     <small className=''>{item.card[4].smallInfo}</small>
                 </article>
-                <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
+                <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 lg:tw-h-32 lg:tw-w-full 2xl:tw-h-52 2xl:tw-w-full tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-white tw-duration-200 tw-rounded-md'>
                     <h5 className=' tw-mt-2 tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-lg'>{item.card[5].info}</h5>
                     <small className=''>{item.card[5].smallInfo}</small>
                 </article>

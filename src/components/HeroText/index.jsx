@@ -12,12 +12,14 @@ const HeroText = () =>{
             <p className='tw-text-lg 2xl:tw-text-xl tw-font-medium'>Participa y crea tu propia comunidad, donde
             podras forjar excelentes relaciones con colegas del mundo del corretaje.</p>
             <div className="tw-mt-8 tw-flex tw-justify-center">
-              <Button
+              <a
+                target='_blank'
+                rel='noreferrer'
                 href={'https://procanje.app/sign-in'}
-                className="tw-bg-secondary hover:tw-bg-secondary-light tw-shadow-md tw-text-md lg:tw-text-lg tw-tracking-wider tw-font-thin lg:tw-font-light"
+                className="tw-bg-secondary hover:tw-bg-secondary-light tw-p-2 tw-px-3 tw-rounded-md tw-text-gray-50 tw-shadow-md tw-text-md lg:tw-text-lg tw-tracking-wider tw-font-thin lg:tw-font-light"
               >
                 Unirse
-              </Button>
+              </a>
             </div>
         </div>
         <DataBanner/>
