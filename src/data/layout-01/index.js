@@ -14,6 +14,15 @@ import valores from '../../assets/img/about/valores.webp'
 import colaboracion from '../../assets/img/about/colaboracion.webp'
 import impactSocial from '../../assets/img/about/impact-social.webp'
 
+import { LuPackageSearch } from "react-icons/lu";
+import { MdSecurity, MdOutlineRealEstateAgent, MdOutlineConnectWithoutContact   } from "react-icons/md";
+import { AiOutlineUsergroupAdd } from "react-icons/ai";
+import { FaHouseLaptop, FaEarListen  } from "react-icons/fa6";
+import { FaBoxes, FaHandsHelping, FaRegLightbulb, FaMedal, FaTools } from "react-icons/fa";
+import { TiGroup } from "react-icons/ti";
+import { TbClockCheck , TbHomeSearch } from "react-icons/tb";
+import { BiSolidUserPlus } from "react-icons/bi";
+import { GiStarsStack } from "react-icons/gi";
 
 export const contentPage1 = {
   name: 'home',
@@ -195,45 +204,52 @@ export const contentHero = [
   {
     id:1,
     imgHero: heroImgOne,
-    icon:'',
+    icon:<BiSolidUserPlus />,
     headings: '¿Cómo funciona?',
     texts:'Nuestras soluciones hacen más agil tu negocio', 
     card: [
     {
       id:1,
+      icon:<BiSolidUserPlus />,
       info:'Participa en la comunidad de canjes de propiedades y corredores, registrate en nuestra página web. ',
       smallInfo:'Se solicita información básica como nombre, correo electrónico y contraseña para crear una cuenta.'
     },
     {
       id:2,
+      icon:<TbHomeSearch  />,
       info:'Explora las propiedades disponibles para el intercambio.',
       smallInfo:'Pueden filtrar las propiedades según sus preferencias, como ubicación, tipo de propiedad, tamaño, etc.'
 
     },
     {
       id:3,
+      icon:<MdOutlineRealEstateAgent />,
       info:'Intercambia tus propiedades, publica detalles de las mismas en la plataforma.',
       smallInfo:'Agregar fotos, descripciones detalladas y cualquier requisito específico que tengan para el canje.'
 
     },
     {
       id:4,
+      icon:<MdOutlineConnectWithoutContact  />,
       info:'Conectate con corredores que participan en la comunidad.',
       smallInfo:'Envia mensajes directos o programa reuniones para discutir sus necesidades y objetivos de intercambio de propiedades.'
 
     },
     {
       id:5,
+      icon:<FaTools  />,
       info:'Herramientas para la comunicación y la negociación entre ambas partes.',
       smallInfo:'Los usuarios pueden coordinar los detalles del canje, como inspecciones de la propiedad, trámites legales, etc.'
     },
     {
       id:6,
+      icon:<GiStarsStack />,
       info:'Evalua tu experiencia y proporcionar comentarios sobre los corredores involucrados.',
       smallInfo:'Ayudando a mantener la calidad de la comunidad y a mejorar continuamente la plataforma.'
     },
     {
       id:10,
+      icon:<BiSolidUserPlus />,
       info:'Participa en la comunidad de canjes de propiedades y corredores, registrate en nuestra página web. ',
       smallInfo:'Se solicita información básica como nombre, correo electrónico y contraseña para crear una cuenta.',
       href:'/como-funciona'
@@ -249,36 +265,43 @@ export const contentHero = [
     card: [
       {
         id:1,
+        icon:<LuPackageSearch/>,
         info:'Corredores asociados',
         smallInfo:'Encuentra socios similares.',
       },
       {
         id:2,
+        icon:<FaHouseLaptop/>,
         info:'Portal de propiedades',
         smallInfo:'Portal inmobiliario acorde a tus necesidades',
       },
       {
         id:3,
+        icon:<AiOutlineUsergroupAdd/>,
         info:'Oportunidad de clientes',
         smallInfo:'Encuentra nuevas oportunidades de clientes ',
       },
       {
         id:4,
+        icon:<LuPackageSearch/>,
         info:'Servicios Externos',
         smallInfo:'Conoce todos los servicios que tenemos',
       },
       {
         id:5,
+        icon:<MdSecurity/>,
         info:'Politicas y Seguridad',
         smallInfo:'Actualizaciones importantes sobre las politicas de seguridad',
       },
       {
         id:6,
+        icon:<FaBoxes/>,
         info:'Producto y carácteristicas ',
         smallInfo:'Revisa nuestro producto, carácteristicas y funciones',
       },
       {
         id:10,
+        icon:<LuPackageSearch/>,
         info:'Corredores asociados',
         smallInfo:'Encuentra socios similares.',
         href:'/comunidad'
@@ -295,39 +318,46 @@ export const contentHero = [
     card: [
       {
         id:1,
+        icon:<TbClockCheck/>,
         info:'Compromiso',
         smallInfo:'Comprometidos a construir y apoyar una comunidad vibrante de propietarios, potenciales clientes y corredores, donde puedan beneficiarse mutuamente y compartir conocimientos'
       },
       {
         id:2,
+        icon:<TiGroup/>,
         info:'Equipo',
         smallInfo:'Cada miembro aporta una amplia experiencia y un compromiso inquebrantable con la misión de nuestra empresa'
 
       },
       {
         id:3,
+        icon:<FaMedal />,
         info:'Valores',
         smallInfo:'Nos guiamos por la transparencia, la integridad y la excelencia en el servicio al cliente..'
       },
       {
         id:4,
+        icon:<FaRegLightbulb />,
         info:'Innovación',
         smallInfo:'Tecnología de vanguardia para proporciona herramientas avanzadas para la búsqueda, comparación y negociación de propiedades.'
 
       },
       {
         id:5,
+        icon:<FaEarListen />,
         info:'Impacto social',
         smallInfo:'Promovemos la equidad en el acceso a la vivienda y apoyar el desarrollo sostenible en nuestras comunidades.'
 
       },
       {
         id:6,
+        icon:<FaHandsHelping/>,
         info:'Colaboración',
         smallInfo:'Buscamos oportunidades para colaborar con organizaciones que compartan nuestros valores y objetivos.'
       },
       {
         id:10,
+        icon:<TbClockCheck/>,
         info:'Compromiso',
         smallInfo:'Comprometidos a construir y apoyar una comunidad vibrante de propietarios, potenciales clientes y corredores, donde puedan beneficiarse mutuamente y compartir conocimientos',
         href:'/nosotros'
