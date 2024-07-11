@@ -14,17 +14,22 @@ export const navigationData = [
   },
   {
     id: 4,
+    name: 'Portal Propiedades',
+    href: '/portal-propiedades',  
+  },
+  {
+    id: 5,
     name: 'Comunidad',
     href: '/comunidad',  
     // href: '#como-funciona',  
   },
   {
-    id: 5,
+    id: 6,
     name: 'Nosotros',
     href: '/nosotros',  
   },
   {
-    id: 6,
+    id: 7,
     name: 'Mi cuenta',
     href: 'https://procanje.app/sign-in',
   },
