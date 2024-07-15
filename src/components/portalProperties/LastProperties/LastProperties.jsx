@@ -211,8 +211,7 @@ const LastProperties = () => {
                                     <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                             <span>Estacionamiento</span>
                                             <small>Si</small>
-                                    </li>
-                                    
+                                    </li>                                 
                                 </ul>
                                 <div className="tw-mx-4 tw-mb-2 tw-mt-8 tw-flex tw-flex-row tw-justify-between tw-items-center">
                                     <p className="tw-font-medium">Metropolitana, Providencia</p>
@@ -223,7 +222,6 @@ const LastProperties = () => {
                                 </div>
                             </div>
                         </article>
-  
                     </div>
                     {/* PAGINACION */}
                     <div className="tw-flex tw-flex-row tw-justify-center tw-gap-3 tw-m-2 tw-my-10 2xl:tw-mx-32">
