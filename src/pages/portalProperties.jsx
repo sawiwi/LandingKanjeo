@@ -21,6 +21,8 @@ import bannerImg from '../assets/img/Comunidad/corredores.webp'
 import LastProperties from "../components/portalProperties/LastProperties/LastProperties";
 import FilterRegionsProperties from "../components/portalProperties/PropertiesRegion/RegionProperties";
 
+// import PropertiesProvider from "../context/properties/PropertiesProvider";
+
 
 
 const PortalProperty = () =>{

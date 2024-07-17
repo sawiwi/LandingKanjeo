@@ -9,7 +9,7 @@ import { FaBed, FaBath, FaKitchenSet } from "react-icons/fa6";
 import { PiSortDescendingBold } from "react-icons/pi";
 import { IoIosArrowDown } from "react-icons/io";
 
-const DetailsProperty = () =>{
+const DetailsProperty = ({property}) =>{
     return(
         <>
             <div className="tw-w-full tw-justify-center">
@@ -35,7 +35,7 @@ const DetailsProperty = () =>{
                                             </div> 
                                     </div>
                                     <h6 className="tw-font-medium tw-text-lg tw-text-center">
-                                        Titulo de propiedad
+                                        {property?.propertyTitle}
                                     </h6>
                                     <p className="tw-text-base tw-text-center">
                                         Descripcion de propiedad
