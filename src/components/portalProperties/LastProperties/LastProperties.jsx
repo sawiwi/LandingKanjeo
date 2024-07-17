@@ -116,7 +116,7 @@ const LastProperties = () => {
                                     <div className="tw-mb-2 tw-relative">
                                         <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
                                         <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
-                                            {item.typeOfPropertyId}
+                                            {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay descripción' }
                                         </small>
                                         <small className="tw-absolute tw-top-8 tw-left-1 tw-p-[0.18rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-7 tw-duration-200">
                                             {item.typeOfOperationId}
@@ -131,15 +131,15 @@ const LastProperties = () => {
                                         <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 tw-gap-2 tw-justify-between">
                                             <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                     <span>Baños</span>
-                                                    <small>{item?.characteristics?.bathrooms}</small>
+                                                    <small>{item.characteristics.bathrooms || '0'}</small>
                                             </li>
                                             <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                     <span>Dormitorio(s)</span>
-                                                    <small>{item?.characteristics?.bedrooms}</small>
+                                                    <small>{item.characteristics.bedrooms || '0'}</small>
                                             </li>
                                             <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                     <span>Mts cuadrados</span>
-                                                    <small>{item?.characteristics?.surface | '0'}</small>
+                                                    <small>{item.characteristics.surface || '0'}</small>
                                             </li>
                                             <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                     <span>Estacionamiento</span>
