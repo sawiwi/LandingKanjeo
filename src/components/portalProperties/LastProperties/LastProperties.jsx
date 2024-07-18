@@ -33,6 +33,13 @@ const LastProperties = () => {
         valueUf,
     } = contextData;
 
+    const [filters, setFilters] = useState({
+        typeOfProperty: '',
+        typeOfOperation:'',
+        region: '',
+        commune: '',
+    })
+
     const onOpenContact = async (id) =>{
         const property = await PropertiesServices.getProperty(id);
         setSelectedProperty(property)
@@ -84,53 +91,178 @@ const LastProperties = () => {
 
     };
 
+    const operationType = [
+        {
+            value: '' , label: 'Selecciona...'
+        },
+        {
+            value: '1' , label: 'Venta'
+        },
+        {
+            value: '2' , label: 'Arriendo'
+        },
+        {
+            value: '3' , label: 'Arriendo Temporal'
+        },
+    ]
+    const propertyType = [
+        {
+            value: '' , label: 'Selecciona...'
+        },
+        {
+            value: '1' , label: 'Casa'
+        },
+        {
+            value: '2' , label: 'Departamento'
+        },
+        {
+            value: '3' , label: 'Parcela'
+        },
+        {
+            value: '4' , label: 'Bodega'
+        },
+        {
+            value: '5' , label: 'Oficina'
+        },
+        {
+            value: '6' , label: 'Estacionamiento'
+        },
+    ];
+
+    const regionType = [
+        {
+            value:'' , label:'Selecciona...'
+        },
+        {
+            value:'1' , label:'Region 1'
+        },
+        {
+            value:'2' , label:'Region 2'
+        },  
+    ];
+
+    const communeType = [
+        {
+            value:'' , label:'Selecciona...'
+        },
+        {
+            value:'1' , label:'Comuna 1'
+        },
+        {
+            value:'2' , label:'Comuna 2'
+        },  
+    ];
+    
+    const handleFiltersChange = (e) =>{
+        setFilters({
+            ...filters,
+            [e.target.id] : e.target.value
+        })
+    }
+
+    const applyFilters = () => {
+        let filteredProp = allProperties;
+
+        if (filters.typeOfProperty) {
+            filteredProp = filteredProp.filter(property => property?.typeOfPropertyId === filters.typeOfProperty);
+        }
+        if (filters.typeOfOperation) {
+            filteredProp = filteredProp.filter(property => property?.typeOfOperationId === filters.typeOfOperation);
+        }
+        if (filters.region) {
+            filteredProp = filteredProp.filter(property => property?.address.state.name.includes(filters.region));
+        }
+        if (filters.commune) {
+            filteredProp = filteredProp.filter(property => property?.address.city.name.includes(filters.commune));
+        }
+
+        setProperties(filteredProp);
+    }
+
+
+
 
     return(
         <>
             {/* FILTROS AVANZADOS */}
-              <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-between tw-items-center md:tw-mx-36 2xl:tw-mx-96 tw-gap-2 tw-mt-10 tw-w-full md:tw-w-96">
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
-                            <label className="tw-font-semibold tw-mb-1" for="typeProperty">Tipo de propiedad</label>
-                            <input
+              <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-between tw-items-center md:tw-mx-8 2xl:tw-mx-3 tw-gap-2 tw-mt-10 tw-w-full">
+                        <div className="tw-grid tw-w-full md:tw-w-[90%] 2xl:tw-w-[40%] tw-mb-1 tw-mx-4 md:tw-mx-0">
+                            <label className="tw-font-semibold tw-mb-1" for="typeOfProperty">Tipo de propiedad</label>
+                            <select id="typeOfProperty" className="tw-cursor-pointer tw-rounded-md tw-p-2 tw-border-2 placeholder:tw-text-gray-400" 
+                            value={filters.typeOfProperty}
+                            onChange={handleFiltersChange}
+                            >
+                                {propertyType.map(option => (
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                            {/* <input
                             type="text"
                             id="typeProperty"
                             className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
                             placeholder="Casa"
 
-                            ></input>
+                            ></input> */}
                         </div>
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
-                            <label className="tw-font-semibold tw-mb-1" for="typeOperation">Tipo de operación</label>
-                            <input
+                        <div className="tw-grid tw-w-full md:tw-w-[90%] 2xl:tw-w-[40%] tw-mb-1 tw-mx-4 md:tw-mx-0">
+                            <label className="tw-font-semibold tw-mb-1" for="typeOfOperation">Tipo de operación</label>
+                            <select id="typeOfOperation" 
+                            className="tw-cursor-pointer tw-rounded-md tw-p-2 tw-border-2 placeholder:tw-text-gray-400" 
+                            value={filters.typeOfOperation}
+                            onChange={handleFiltersChange}
+                            >
+                                {operationType.map(option => (
+                                    <option className="tw-cursor-pointer" key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                            {/* <input
                             type="text"
                             id="typeOperation"
                             className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
                             placeholder="Venta"
 
-                            ></input>
+                            ></input> */}
                         </div>
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
+                        <div className="tw-grid tw-w-full md:tw-w-[90%] 2xl:tw-w-[40%] tw-mb-1 tw-mx-4 md:tw-mx-0">
                             <label className="tw-font-semibold tw-mb-1" for="region">Región</label>
-                            <input
+                            <select id="region" 
+                            className="tw-cursor-pointer tw-rounded-md tw-p-2 tw-border-2 placeholder:tw-text-gray-400 tw-w-full" 
+                            value={filters.region}
+                            onChange={handleFiltersChange}
+                            >
+                                {regionType.map(option => (
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                            {/* <input
                             type="text"
                             id="region"
                             className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
                             placeholder="Metropolitana"
-
-                            ></input>
+                            ></input> */}
                         </div>
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
+                        <div className="tw-grid tw-w-full md:tw-w-[90%] 2xl:tw-w-[40%] tw-mb-1 tw-mx-4 md:tw-mx-0 ">
                             <label className="tw-font-semibold tw-mb-1" for="commune">Comuna</label>
-                            <input
+                            <select 
+                            id="commune" 
+                            className="tw-cursor-pointer tw-rounded-md tw-p-2 tw-border-2 placeholder:tw-text-gray-400 tw-w-full" 
+                            value={filters.commune}
+                            onChange={handleFiltersChange}
+                            >
+                                {communeType.map(option => (
+                                    <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                            </select>
+                            {/* <input
                             type="text"
                             id="commune"
                             className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
                             placeholder="Las Condes"
 
-                            ></input>
+                            ></input> */}
                         </div>
                         <div className="tw-grid tw-mb-1 tw-m-1">
-                            <button className="tw-p-2 tw-px-4 tw-mt-5 tw-bg-secondary tw-text-gray-50 tw-rounded-md tw-drop-shadow-md tw-font-semibold">Buscar</button>
+                            <button onClick={applyFilters} className="tw-p-2 tw-px-4 tw-mt-5 tw-bg-secondary tw-text-gray-50 tw-rounded-md tw-drop-shadow-md tw-font-semibold">Filtrar</button>
                         </div>
                 </div>
                     {/* UTLIMAS PROPIEDAD EN CANJE */}
