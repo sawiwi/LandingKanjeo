@@ -5,7 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Fade } from 'react-awesome-reveal';
 import { useState } from 'react';
 
-const ContactRealtor = () =>{
+const ContactRealtor = ({property}) =>{
   const [loading, setLoading] = useState(false);
 
   const onFormSubmit = async (e) => {
@@ -16,32 +16,17 @@ const ContactRealtor = () =>{
     return(
         <>
         <div className="tw-w-full tw-justify-center">
-                    <h3 className="tw-text-xl tw-text-center tw-font-semibold">
-                        Contacta
-                    </h3>
+            <h3 className="tw-text-2xl tw-text-center tw-font-semibold tw-mb-3">
+                Contacta
+            </h3>
             <div className="tw-p-2 tw-px-3">
                 <Fade direction="up" triggerOnce={true}>
+                <div className='tw-grid tw-text-center'>
+                        <p>Corredor: <b>{property?.user.name || 'No se encontró nombre'} {property?.user.lastName || 'No se encontró apellido'}</b> </p>
+                        <p>Email: <b>{property?.user.session.email || 'No se encontró email'}</b></p>
+                    </div>
                 <div className='tw-flex tw-justify-center tw-mx-24'>
                     <form  onSubmit={onFormSubmit} className='tw-w-full'>
-                        <div className="tw-relative tw-mb-2 tw-mt-4">
-                            <input
-                                disabled
-                                autoComplete="off"
-                                id="realtor"
-                                name="realtor"
-                                type="text"
-                                value={''}
-                                onChange={()=> console.log('nombre')}
-                                className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                placeholder="Corredor 1"
-                            />
-                            <label
-                                htmlFor="realtor"
-                                className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-gray-800 tw-text-md peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-800/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-gray-800/80 peer-focus:tw-text-lg"
-                            >
-                               Contactaras con el Corredor
-                            </label>
-                        </div>
                         <div className="tw-relative tw-mb-2 tw-mt-8">
                             <input
                                 autoComplete="off"
@@ -51,7 +36,7 @@ const ContactRealtor = () =>{
                                 value={''}
                                 onChange={()=> console.log('nombre')}
                                 className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                placeholder="Ingresa tu nombre personal o empresa"
+                                placeholder="Ingresa tu nombre"
                             />
                             <label
                                 htmlFor="name"

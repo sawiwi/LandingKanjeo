@@ -8,7 +8,7 @@ const ModalLastProperties = ({data}) => {
         <>
             <div className="tw-flex tw-flex-col md:tw-flex-row tw-p-1 tw-px-3">
                 <DetailsProperty property={data}/>
-                <ContactRealtor/>
+                <ContactRealtor property={data}/>
             </div>
         
         </>
