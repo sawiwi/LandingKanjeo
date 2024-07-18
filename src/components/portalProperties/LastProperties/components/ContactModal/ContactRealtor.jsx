@@ -102,7 +102,7 @@ const ContactRealtor = () =>{
                                 id="description"
                                 name="description"
                                 type="text"
-                                rows={2}
+                                rows={3}
                                 value={''}
                                 onChange={()=> console.log('descripcion')}
                                 className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"

@@ -8,14 +8,6 @@ import { MdOutlinePersonSearch } from "react-icons/md";
 import { IoGridOutline } from "react-icons/io5";
 import { TbLayoutList } from "react-icons/tb";
 
-// import imgCasaUno from '../assets/img/Hero/casa1.webp'
-// import imgCasaTwo from '../assets/img/Hero/casa2.webp'
-// import imgCasaThree from '../assets/img/Hero/casa3.webp'
-
-// import imgSantiago from '../assets/img/region/santiago.webp'
-// import imgValparaiso from '../assets/img/region/valparaiso.webp'
-// import imgLaSerena from '../assets/img/region/laSerena.webp'
-// import imgIquique from '../assets/img/region/iquique.webp'
 
 import bannerImg from '../assets/img/Comunidad/corredores.webp'
 import LastProperties from "../components/portalProperties/LastProperties/LastProperties";
@@ -49,7 +41,7 @@ const PortalProperty = () =>{
                 <TitleSection
                     className='lg:tw-mt-20'
                     title="Portal de propiedades"
-                    subtitle="Encuentra las propiedades en canjes"
+                    subtitle="Encuentra las propiedades publicadas"
                     position="center"
                 />
                 {/* FILTROS AVANZADOS */}

@@ -1,18 +1,63 @@
-import { TbAirConditioning} from "react-icons/tb";
+import { TbAirConditioning, TbHomeShield } from "react-icons/tb";
 import { BiSolidCarGarage } from "react-icons/bi";
-import { FaRulerCombined, FaPencilRuler, FaParking  } from "react-icons/fa";
-import { FaBed, FaBath, FaKitchenSet } from "react-icons/fa6";
+import { FaRulerCombined, FaPencilRuler, FaParking, FaSwimmingPool  } from "react-icons/fa";
+import { FaBed, FaBath, FaKitchenSet, FaMapLocationDot } from "react-icons/fa6";
 import { PiSortDescendingBold } from "react-icons/pi";
+import { GiBarbecue } from "react-icons/gi";
+import { FiSunset } from "react-icons/fi";
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
-import { useState } from 'react';
+import { MdOutlineElevator } from 'react-icons/md'
+import { CgGym } from "react-icons/cg";
+
+import { PropertiesContext } from "../../../../../context/properties/PropertiesContext";
+import { useState, useContext } from 'react';
+
+import { 
+    parseToCLPCurrency, 
+    parseToDecimal, 
+    ufToClp, 
+    clpToUf2 } from "../../../../../utils/truncateExchange";
 
 const DetailsProperty = ({property}) =>{
     const [moreView,  setMoreVie] = useState(false);
-
+    const { contextData } = useContext(PropertiesContext);
+    const {
+        valueUf,
+    } = contextData;
 
     const toggleViewMore  = async () => {
         setMoreVie(!moreView)
     }
+
+    const formatPrice = (currencyId, propertyPrice) => {
+        let ufValue = propertyPrice;
+        let clpValue = propertyPrice;
+
+        if(valueUf && valueUf.Valor){
+            // const valueIntUf = valueUf.Valor.replace(/\./g, '').replace(',', '.');
+            const valueIntUf = parseFloat(valueUf.Valor.replace(/\./g, '').replace(',', '.'))
+
+            if(currencyId === 'UF'){
+                clpValue = ufToClp(propertyPrice, valueIntUf);
+            }
+            if(currencyId === 'CLP'){
+                ufValue = clpToUf2(propertyPrice, valueIntUf)
+            }
+        }
+        else{
+            clpValue = 0;
+            ufValue = 0;
+        }
+        return (
+            <div>
+                <p className="tw-grid">
+                    <b>{parseToDecimal(ufValue)} UF</b>{parseToCLPCurrency(clpValue)} CLP
+                </p>
+            </div>
+
+        )
+
+    };
 
     return(
         <>
@@ -42,15 +87,16 @@ const DetailsProperty = ({property}) =>{
                                             </div> 
                                     </div>
                                     <h6 className="tw-font-medium tw-text-lg tw-text-center">
-                                        {property?.propertyTitle}
+                                        {property?.propertyTitle || 'No cuenta con Titulo'}
                                     </h6>
-                                    <p className="tw-text-base tw-text-center">
-                                        {property?.propertyDescription}
+                                    <p className="tw-text-base tw-text-center tw-mb-2">
+                                        {property?.propertyDescription || 'No cuenta con una descripción'}
                                     </p>
                                     <div className="tw-text-center tw-flex tw-justify-between tw-mt-2 tw-mb-2 tw-gap-2 tw-mx-28">
-                                        <p className="tw-grid"><span>Tipo de operación </span>{property?.typeOfOperationId}</p>
-                                        <p className="tw-grid"><span>Tipo de inmueble </span>{property?.typeOfPropertyId}</p>
-                                        <p className="tw-grid"><span>3000 UF</span>12.000.000 CLP</p>
+                                        <p className="tw-grid"><b>Tipo de operación </b>{property?.typeOfOperationId}</p>
+                                        <p className="tw-grid"><b>Tipo de inmueble </b>{property?.typeOfPropertyId}</p>
+                                        {formatPrice(property?.currencyId, property?.propertyPrice)}
+                                        {/* <p className="tw-grid"><span>3000 UF</span>12.000.000 CLP</p> */}
                                     </div>  
                                     <div> 
                                         <h3 className="tw-text-center tw-text-lg">Características</h3>
@@ -109,7 +155,7 @@ const DetailsProperty = ({property}) =>{
                                                         <span>
                                                             Cocina:
                                                         </span>
-                                                        <p>{property?.characteristics.typeOfKitchen ? property?.characteristics.typeOfKitchen : '0'}</p>
+                                                        <p>{property?.characteristics.typeOfKitchen ? property?.characteristics.typeOfKitchen : 'No'}</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -120,7 +166,7 @@ const DetailsProperty = ({property}) =>{
                                                         <span>
                                                             Calefacción:
                                                         </span>
-                                                        <p>{property?.characteristics.typeOfHeating  ? property?.characteristics.typeOfHeating  : '0'}</p>
+                                                        <p>{property?.characteristics.typeOfHeating ? property?.characteristics.typeOfHeating  : '0'}</p>
                                                     </div>
                                                 </li>
                                                 <li className="tw-mb-2">
@@ -129,7 +175,7 @@ const DetailsProperty = ({property}) =>{
                                                         <span>
                                                             Estacionamiento:
                                                         </span>
-                                                        <p>{property?.characteristics.hasParking  ? property?.characteristics.hasParking  : 'No'}</p>
+                                                        <p>{property?.characteristics.hasParking ? property?.characteristics.hasParking  : 'No'}</p>
                                                     </div>
                                                 </li>
                                                 <li className="tw-mb-2">
@@ -138,7 +184,7 @@ const DetailsProperty = ({property}) =>{
                                                         <span>
                                                             Garage(s):
                                                         </span>
-                                                        <p>{property?.characteristics?.hasGarage  ? property?.characteristics?.hasGarage  : 'No'}</p>
+                                                        <p>{property?.characteristics?.hasGarage ? property?.characteristics?.hasGarage : 'No'}</p>
                                                     </div>
                                                 </li>
                                             </ul>
@@ -156,7 +202,7 @@ const DetailsProperty = ({property}) =>{
                                                         <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start tw-text-gray-700">
                                                                     <li className="tw-mb-2">
                                                                         <div className="tw-flex tw-gap-2 tw-items-center">
-                                                                            <FaRulerCombined />
+                                                                            <MdOutlineElevator  />
                                                                             <span>
                                                                                 Elevador:
                                                                             </span>
@@ -165,7 +211,7 @@ const DetailsProperty = ({property}) =>{
                                                                     </li>
                                                                     <li className="tw-mb-2">
                                                                         <div className="tw-flex tw-gap-2 tw-items-center">
-                                                                            <FaPencilRuler />
+                                                                            <CgGym />
                                                                             <span>
                                                                                 Gimnasio:
                                                                             </span>
@@ -174,7 +220,7 @@ const DetailsProperty = ({property}) =>{
                                                                     </li>
                                                                     <li className="tw-mb-2">
                                                                         <div className="tw-flex tw-gap-2 tw-items-center">
-                                                                            <PiSortDescendingBold/>
+                                                                            <FaSwimmingPool />
                                                                             <span>
                                                                                 Piscina:
                                                                             </span>
@@ -183,7 +229,7 @@ const DetailsProperty = ({property}) =>{
                                                                     </li>
                                                                     <li className="tw-mb-2">
                                                                           <div className="tw-flex tw-gap-2 tw-items-center">
-                                                                              <FaRulerCombined />
+                                                                              <FiSunset />
                                                                               <span>
                                                                                   Terraza:
                                                                               </span>
@@ -194,7 +240,7 @@ const DetailsProperty = ({property}) =>{
                                                         <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start tw-text-gray-700">
                                                                     <li className="tw-mb-2">
                                                                           <div className="tw-flex tw-gap-2 tw-items-center">
-                                                                              <FaPencilRuler />
+                                                                              <GiBarbecue />
                                                                               <span>
                                                                                   Quincho:
                                                                               </span>
@@ -203,7 +249,7 @@ const DetailsProperty = ({property}) =>{
                                                                     </li>
                                                                     <li className="tw-mb-2">
                                                                           <div className="tw-flex tw-gap-2 tw-items-center">
-                                                                              <PiSortDescendingBold/>
+                                                                              <FaMapLocationDot />
                                                                               <span>
                                                                                   Condominio:
                                                                               </span>
@@ -212,7 +258,7 @@ const DetailsProperty = ({property}) =>{
                                                                       </li>
                                                                       <li className="tw-mb-2">
                                                                           <div className="tw-flex tw-gap-2 tw-items-center">
-                                                                              <FaPencilRuler />
+                                                                              <TbHomeShield   />
                                                                               <span>
                                                                                   Tipo seguridad:
                                                                               </span>

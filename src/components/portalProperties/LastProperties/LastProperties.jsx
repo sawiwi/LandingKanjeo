@@ -47,6 +47,44 @@ const LastProperties = () => {
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
     };
+
+    const formatPrice = (currencyId, propertyPrice) => {
+        let ufValue = propertyPrice;
+        let clpValue = propertyPrice;
+
+        if(valueUf && valueUf.Valor){
+            // const valueIntUf = valueUf.Valor.replace(/\./g, '').replace(',', '.');
+            const valueIntUf = parseFloat(valueUf.Valor.replace(/\./g, '').replace(',', '.'))
+
+            if(currencyId === 'UF'){
+                clpValue = ufToClp(propertyPrice, valueIntUf);
+            }
+            if(currencyId === 'CLP'){
+                ufValue = clpToUf2(propertyPrice, valueIntUf)
+            }
+        }
+        else{
+            clpValue = 0;
+            ufValue = 0;
+        }
+        return (
+            <div>
+                 <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
+                    <p className="xl:tw-text-xl">
+                        <b>{parseToDecimal(ufValue)} UF</b>
+                    </p>
+                   
+                    <p className="xl:tw-text-xl">
+                        <b>{parseToCLPCurrency(clpValue)}.-</b>
+                    </p>
+                </div>
+            </div>
+
+        )
+
+    };
+
+
     return(
         <>
             {/* FILTROS AVANZADOS */}
@@ -117,10 +155,10 @@ const LastProperties = () => {
                     </div>
                     {
                         view === 'grid' ? (
-                            <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-6 2xl:tw-gap-2 tw-mt-4 tw-mb-4 tw-mx-3 2xl:tw-mx-32">
+                            <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-6 2xl:tw-gap-2 tw-mt-4 tw-mb-4 tw-mx-1 xl:tw-mx-12 2xl:tw-mx-32 tw-w-full xl:tw-w-[90%] 2xl:tw-w-[85%]">
                             {properties.slice(0, 3).map((item) => {
                                 return(
-                                    <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-full 2xl:tw-h-[400px] tw-w-full tw-p-2 tw-group">
+                                    <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[400px] 2xl:tw-h-full md:tw-w-full tw-p-2 tw-group xl:tw-overflow-hidden 2xl:tw-p-1">
                                         <div className="tw-mb-2 tw-relative">
                                              <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
                                             <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
@@ -132,25 +170,30 @@ const LastProperties = () => {
                                         </div>
                                         <div className="tw-mx-2">
                                         <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>
-                                        <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                                <p><b>$ 20.000.000</b></p>
-                                                <p><b>UF 3.200</b></p>
-                                        </div>
-                                            <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 tw-gap-2 tw-justify-between">
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
-                                                        <span>Baños</span>
+                                        {/* <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center"> */}
+                                                {/* <p><b>$ 20.000.000</b></p>
+                                                <p><b>UF 3.200</b></p> */}
+                                        {formatPrice(item?.currencyId, item?.propertyPrice)}
+                                        {/* </div> */}
+                                            <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 xl:tw-mx-12 tw-gap-2 tw-justify-between">
+                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                        {/* <span>Baño(s)</span> */}   
+                                                        <FaBath />
                                                         <small>{item.characteristics.bathrooms || '0'}</small>
                                                 </li>
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
-                                                        <span>Dormitorio(s)</span>
+                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                        {/* <span>Dormitorio(s)</span> */}
+                                                        <FaBed/>
                                                         <small>{item.characteristics.bedrooms || '0'}</small>
                                                 </li>
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
-                                                        <span>Mts cuadrados</span>
-                                                        <small>{item.characteristics.surface || '0'}</small>
+                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                        {/* <span>Mts cuadrados</span> */}
+                                                        <FaRulerCombined />
+                                                        <small>{item.characteristics.surface || '0'}mts</small>
                                                 </li>
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
-                                                        <span>Estacionamiento</span>
+                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                        {/* <span>Estacionamiento(s)</span> */}
+                                                        <FaParking />
                                                         <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
                                                 </li>
                                             </ul>
@@ -184,11 +227,12 @@ const LastProperties = () => {
                                         </div>
                                         <div className="tw-mx-2 md:tw-mx-12 tw-w-full">
                                             <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 90)}</h2>
-                                            <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                            {formatPrice(item?.currencyId, item?.propertyPrice)}
+                                            {/* <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
                                                     <p><b>$ 20.000.000</b></p>
                                                     <p><b>UF 3.200</b></p>
-                                            </div>
-                                            <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 tw-gap-2 tw-justify-between">
+                                            </div> */}
+                                            <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 xl:tw-mx-10 tw-gap-2 tw-justify-between">
                                                 <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                         <span>Baños</span>
                                                         <small>{item.characteristics.bathrooms || '0'}</small>
@@ -199,7 +243,7 @@ const LastProperties = () => {
                                                 </li>
                                                 <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                         <span>Mts cuadrados</span>
-                                                        <small>{item.characteristics.surface || '0'}</small>
+                                                        <small>{item.characteristics.surface || '0'} mts</small>
                                                 </li>
                                                 <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                         <span>Estacionamiento</span>

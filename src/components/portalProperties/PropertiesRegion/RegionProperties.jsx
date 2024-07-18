@@ -11,6 +11,7 @@ import { useState, useContext } from 'react'
 import ModalLastProperties from '../LastProperties/components/ModalLastProperties'
 import { PropertiesContext } from "../../../context/properties/PropertiesContext";
 import PropertiesServices from '../../../services/portal-properties/PropertiesServices'
+import { parseToCLPCurrency, clpToUf, clpToUf2, ufToClp, parseToDecimal } from '../../../utils/truncateExchange'
 
 
 const FilterRegionsProperties = () =>{
@@ -43,10 +44,45 @@ const FilterRegionsProperties = () =>{
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
     };
 
+    const formatPrice = (currencyId, propertyPrice) => {
+        let ufValue = propertyPrice;
+        let clpValue = propertyPrice;
+
+        if(valueUf && valueUf.Valor){
+            // const valueIntUf = valueUf.Valor.replace(/\./g, '').replace(',', '.');
+            const valueIntUf = parseFloat(valueUf.Valor.replace(/\./g, '').replace(',', '.'))
+
+            if(currencyId === 'UF'){
+                clpValue = ufToClp(propertyPrice, valueIntUf);
+            }
+            if(currencyId === 'CLP'){
+                ufValue = clpToUf2(propertyPrice, valueIntUf)
+            }
+        }
+        else{
+            clpValue = 0;
+            ufValue = 0;
+        }
+
+        return (
+            <div>
+                <div className="tw-flex tw-gap-2 tw-items-center">
+                    <p>DESDE {' '}
+                        <b>{parseToDecimal(ufValue)} UF</b>
+                    {/* {' '}/{' '}
+                    <b>{parseToCLPCurrency(clpValue)}</b> */}
+                    </p>
+                </div>
+            </div>
+
+        )
+
+    };
+
     return(
         <>
             <div className="tw-flex tw-justify-center tw-my-10 md:tw-mt-14 tw-mx-2 2xl:tw-mx-32">
-                        <h2 className="tw-text-gray-700 tw-text-2xl tw-text-center md:tw-text-start md:tw-text-2xl tw-font-medium">Regiones donde más se hacen canjes</h2>
+                    <h2 className="tw-text-gray-700 tw-text-2xl tw-text-center md:tw-text-start md:tw-text-2xl tw-font-medium">Regiones donde más se hacen canjes</h2>
                     </div>
                     <div className="tw-grid tw-grid-cols-2 xl:tw-flex xl:tw-flex-row xl:tw-justify-center tw-mt-8 tw-my-6 tw-mb-8 tw-mx-8 md:tw-mx-32 tw-h-full md:tw-h-40 tw-gap-6"> 
                         <div>
@@ -86,18 +122,19 @@ const FilterRegionsProperties = () =>{
                                     <article 
                                     key={item.id}
                                     onClick={() => onOpenContact(item.id)}
-                                    className="tw-cursor-pointer tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[360px] tw-w-full tw-p-2 tw-group tw-overflow-hidden">
+                                    className="tw-cursor-pointer tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[380px] tw-w-full tw-p-2 tw-group tw-overflow-hidden">
                                         <div className="tw-mb-2 tw-relative">
                                             <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-64 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
                                         </div>
                                         <div className="">
-                                        <h2 className="tw-font-semibold tw-text-center tw-text-xl">{truncate(item?.propertyTitle, 30)}</h2>
-                                        <div className="md:tw-mx-4 tw-mt-2 tw-flex tw-flex-row tw-justify-between tw-items-center">
+                                        <h2 className="tw-font-semibold tw-text-center tw-text-xl xl:tw-text-lg">{truncate(item?.propertyTitle, 30)}</h2>
+                                        <div className="md:tw-mx-4 tw-mt-2 tw-flex tw-flex-row tw-justify-between tw-items-center tw-mb-2 xl:tw-text-md">
                                             <div className="tw-mx-4 tw-flex">
                                                 <p className="tw-font-semibold">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                             </div>
                                             <div className="tw-flex tw-gap-2 tw-items-center">
-                                                <p>DESDE <b>3.200 UF</b></p>
+                                                {/* <p>DESDE <b>3.200 UF</b></p> */}
+                                                {formatPrice(item?.currencyId, item?.propertyPrice)}
                                             </div>
                                         </div>
                                         </div>
