@@ -19,14 +19,14 @@ import {
     clpToUf2 } from "../../../../../utils/truncateExchange";
 
 const DetailsProperty = ({property}) =>{
-    const [moreView,  setMoreVie] = useState(false);
+    const [moreView,  setMoreView] = useState(false);
     const { contextData } = useContext(PropertiesContext);
     const {
         valueUf,
     } = contextData;
 
     const toggleViewMore  = async () => {
-        setMoreVie(!moreView)
+        setMoreView(!moreView)
     }
 
     const formatPrice = (currencyId, propertyPrice) => {
