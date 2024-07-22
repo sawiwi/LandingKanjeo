@@ -15,13 +15,16 @@ import 'slick-carousel/slick/slick-theme.css';
 //mapbox
 import "mapbox-gl/dist/mapbox-gl.css";
 import PropertiesProvider from './context/properties/PropertiesProvider';
+import UsersProvider from './context/realtors/UsersProvider';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <PropertiesProvider>
-        <App />
+        <UsersProvider>
+          <App />
+        </UsersProvider>
       </PropertiesProvider>
     </BrowserRouter>
   </React.StrictMode>

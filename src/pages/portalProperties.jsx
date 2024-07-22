@@ -33,10 +33,10 @@ const PortalProperty = () =>{
         <>
             <div className="tw-overflow-hidden tw-bg-white tw-relative tw-px-4 sm:tw-px-8 lg:tw-px-24 tw-py-16 lg:tw-py-12 xl:tw-py-8 tw-my-16 lg:tw-my-8 xl:tw-my-6">
                 <Reveal
-                keyframes={fadeInUp}
-                delay={500}
-                duration={800}
-                triggerOnce={true}
+                    keyframes={fadeInUp}
+                    delay={500}
+                    duration={800}
+                    triggerOnce={true}
                 >
                 <TitleSection
                     className='lg:tw-mt-20'

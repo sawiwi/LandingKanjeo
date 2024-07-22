@@ -1,6 +1,6 @@
 import { useReactTable , flexRender, getCoreRowModel, getSortedRowModel, getFilteredRowModel, getPaginationRowModel} from "@tanstack/react-table";
 import { useState } from "react";
-import '../../assets/css/components/table/table.css';
+import '../../../assets/css/components/table/table.css';
 import { FaArrowLeft , FaArrowRight } from "react-icons/fa";
 
 

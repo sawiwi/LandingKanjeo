@@ -7,7 +7,7 @@ import Contact from '../pages/contact';
 import Community from '../pages/community';
 import PortalRealtor from '../pages/portalRealtors';
 import PortalProperty from '../pages/portalProperties';
-import ProfileRealtor from '../components/profileRealtor';
+import ProfileRealtor from '../components/portalUsers/profileRealtor';
 import PoliticaCookies from '../components/Politicas/politicasCookies';
 import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
 import ExternalServices from '../pages/externalServices';

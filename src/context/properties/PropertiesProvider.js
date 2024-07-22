@@ -19,7 +19,6 @@ const PropertiesProvider = ({ children }) => {
 
   const [valueUf, setValueUf] = useState('');
 
-  const { pathname } = useLocation();
 
   const handleSortChange = (event) => {
     setSortOrder(event.target.value);

@@ -24,7 +24,7 @@ const PropertiesServices = {
         const response =  await api.get(
             `properties-portal?page=${currentPage}&limit=${limit}&statusId=${statusId}`
         );
-        console.log('data', response.data)
+        // console.log('data', response.data)
         return { data: response.data.data, meta: response.data.meta}
     },
 }

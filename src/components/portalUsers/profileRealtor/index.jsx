@@ -1,9 +1,9 @@
-import Section from '../section';
+import Section from '../../section';
 import {Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
 
-import imgProfile from '../../assets/img/perfil/perfil.png'
-import imgBanner from '../../assets/img/perfil/banner.jpg'
+import imgProfile from '../../../assets/img/perfil/perfil.png'
+import imgBanner from '../../../assets/img/perfil/banner.jpg'
 
 const ProfileRealtor = () => {
 
