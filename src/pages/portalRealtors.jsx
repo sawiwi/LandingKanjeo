@@ -114,17 +114,20 @@ const PortalRealtor = () =>{
                 <div>
                 <TableRealtors columnsData={columns} dataRealtor={users} />
                 </div>
-                <div className="tw-relative tw-mt-20 ">
-                    <div className="tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[440px] tw-text-secondary-light tw-animate-pulse tw-rounded-full  tw-shadow-inner tw-p-6">
-                        <FaRegUserCircle className="tw-text-gray-400  tw-text-8xl xl:tw-text-[160px]"/>
-                    </div>                      
+                <div className="tw-relative tw-mt-20">
+                    <div className="tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[440px] ">
+                        <FaRegUserCircle className="tw-text-secondary-light tw-animate-pulse tw-text-8xl xl:tw-text-[200px] tw-rounded-full tw-shadow-inner tw-p-6"/>
+                        <p className="tw-text-gray-500">Selecciona a un corredor de la lista</p>
+                    </div>  
+                
                     <ModalRealtor open={openDetail} onClose={() => setOpenDetail(false)}>
-                        <div className='2xl:tw-w-full tw-mt-6 sm:tw-mt-0'>
+                        <div className='2xl:tw-w-full tw-mt-6 sm:tw-mt-2'>
                             <h2 className="tw-font-semibold tw-text-3xl tw-text-center">Resumen ficha</h2>
-                            <div className='tw-p-2 tw-w-full tw-overflow-y-auto tw-h-full md:tw-h-[70vh] tw-my-4 p-3'>
+                            <div className='tw-p-2 tw-w-full tw-overflow-y-auto tw-h-full md:tw-h-[70vh] xl:tw-h-full tw-my-4 p-3'>
                                 {selectedUser ? <ResumeProfile dataRealtor={selectedUser}/> : 
-                                <div className="tw-text-secondary-light tw-animate-pulse tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[330px] tw-rounded-full tw-shadow-inner tw-p-6">
-                                    <FaRegUserCircle className=" tw-text-8xl xl:tw-text-[160px]"/>
+                                <div className="tw-text-gray-400 tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[300px] ">
+                                    <FaRegUserCircle className="tw-animate-pulse  tw-text-8xl xl:tw-text-[250px] tw-rounded-full tw-shadow-inner tw-p-6"/>
+                                    <p className="tw-text-gray-500">Selecciona a un corredor de la lista</p>
                                 </div> 
                                 }
                             </div>
