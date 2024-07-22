@@ -20,6 +20,8 @@ import Modal from "../../modal/Modal";
 import ModalLastProperties from "./components/ModalLastProperties";
 import { PropertiesContext } from "../../../context/properties/PropertiesContext";
 import PropertiesServices from '../../../services/portal-properties/PropertiesServices'
+import NotFoundProp from "../../../assets/img/portal-prop/arquitectura.png"
+
 
 const LastProperties = () => {
     const [contactOpen, setContactOpen] = useState(false);
@@ -183,7 +185,18 @@ const LastProperties = () => {
                                 return(
                                     <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[400px] 2xl:tw-h-full md:tw-w-full tw-p-2 tw-group xl:tw-overflow-hidden 2xl:tw-p-1">
                                         <div className="tw-mb-2 tw-relative">
-                                             <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
+                                            {item.images[0] ? <img 
+                                                            src={item.images[0]} 
+                                                            alt="img-casa" 
+                                                            className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                                            /> : 
+                                                        <img 
+                                                        src={NotFoundProp} 
+                                                        alt="img-casa-not-found" 
+                                                        className="tw-h-48 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                        />
+                                            }
+                                             
                                             <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                                                 {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                             </small>
@@ -246,7 +259,18 @@ const LastProperties = () => {
                                             >
                                                 <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[400px] 2xl:tw-h-full md:tw-w-full tw-p-2 tw-group xl:tw-overflow-hidden 2xl:tw-p-1">
                                                     <div className="tw-mb-2 tw-relative">
-                                                        <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
+                                                        {item.images[0] ? <img 
+                                                                src={item.images[0]} 
+                                                                alt="img-casa" 
+                                                                className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                                                /> : 
+                                                            <img 
+                                                            src={NotFoundProp} 
+                                                            alt="img-casa-not-found" 
+                                                            className="tw-h-48 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                            />
+                                                        }
+                                                        {/* <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" /> */}
                                                         <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                                                             {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                                         </small>
@@ -312,7 +336,17 @@ const LastProperties = () => {
                                 return(
                                     <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col md:tw-flex-row tw-border-2 tw-h-full md:tw-h-full 2xl:tw-h-[220px] tw-w-full tw-p-2 tw-group">
                                         <div className="tw-mb-2 tw-relative">
-                                             <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
+                                                {item.images[0] ? <img 
+                                                            src={item.images[0]} 
+                                                            alt="img-casa" 
+                                                            className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200" 
+                                                            /> : 
+                                                        <img 
+                                                            src={NotFoundProp} 
+                                                            alt="img-casa-not-found" 
+                                                            className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 " 
+                                                         />
+                                                }
                                             <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                                                 {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                             </small>
@@ -323,10 +357,6 @@ const LastProperties = () => {
                                         <div className="tw-mx-2 md:tw-mx-12 tw-w-full">
                                             <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 90)}</h2>
                                             {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                            {/* <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                                    <p><b>$ 20.000.000</b></p>
-                                                    <p><b>UF 3.200</b></p>
-                                            </div> */}
                                             <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 xl:tw-mx-10 tw-gap-2 tw-justify-between">
                                                 <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                         <span>Baños</span>
@@ -370,7 +400,17 @@ const LastProperties = () => {
                                                 >
                                                 <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col md:tw-flex-row tw-border-2 tw-h-full md:tw-h-full 2xl:tw-h-[220px] tw-w-full tw-p-2 tw-group">
                                                     <div className="tw-mb-2 tw-relative">
-                                                        <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" loading="lazy" className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
+                                                        {item.images[0] ? <img 
+                                                                    src={item.images[0]} 
+                                                                    alt="img-casa" 
+                                                                    className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200" 
+                                                                    /> : 
+                                                                <img 
+                                                                src={NotFoundProp} 
+                                                                alt="img-casa-not-found" 
+                                                                className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 " 
+                                                                />
+                                                        }
                                                         <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                                                             {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                                         </small>
@@ -380,11 +420,7 @@ const LastProperties = () => {
                                                     </div>
                                                     <div className="tw-mx-2 md:tw-mx-12 tw-w-full">
                                                         <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 90)}</h2>
-                                                        {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                                        {/* <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                                                <p><b>$ 20.000.000</b></p>
-                                                                <p><b>UF 3.200</b></p>
-                                                        </div> */}
+                                                        {formatPrice(item?.currencyId, item?.propertyPrice)}                                      
                                                         <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 xl:tw-mx-10 tw-gap-2 tw-justify-between">
                                                             <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                                     <span>Baños</span>
@@ -405,12 +441,12 @@ const LastProperties = () => {
                                                         </ul>
                                                         <div className="tw-mx-4 tw-mb-2 tw-mt-8 tw-flex tw-flex-row tw-justify-between tw-items-center">
                                                             <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
-                                                            <button 
-                                                            // onClick={onOpenContact} 
-                                                            onClick={() => onOpenContact(item.id)} 
-                
-                                                            className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
-                                                            >Contactar</button>
+                                                            <button                                                           
+                                                                onClick={() => onOpenContact(item.id)}                
+                                                                className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
+                                                            >
+                                                                Contactar
+                                                            </button>
                                                         </div>
                                                     </div>
                                                 </article>

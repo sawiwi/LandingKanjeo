@@ -14,6 +14,7 @@ import { PropertiesContext } from "../../../context/properties/PropertiesContext
 import PropertiesServices from '../../../services/portal-properties/PropertiesServices'
 import { parseToCLPCurrency, clpToUf, clpToUf2, ufToClp, parseToDecimal } from '../../../utils/truncateExchange'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import NotFoundProp from "../../../assets/img/portal-prop/arquitectura.png"
 
 
 const FilterRegionsProperties = () =>{
@@ -69,11 +70,9 @@ const FilterRegionsProperties = () =>{
     
             return (
                 <div>
-                    <div className="tw-flex tw-gap-2 tw-items-center">
+                    <div className="tw-flex tw-gap-2 tw-items-center tw-text-center">
                         <p>DESDE {' '}
                             <b>{parseToDecimal(ufValue)} UF</b>
-                        {/* {' '}/{' '}
-                        <b>{parseToCLPCurrency(clpValue)}</b> */}
                         </p>
                     </div>
                 </div>
@@ -159,15 +158,25 @@ const FilterRegionsProperties = () =>{
                         className="tw-cursor-pointer tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[380px] tw-w-full tw-p-2 tw-group tw-overflow-hidden"
                     >
                         <div className="tw-mb-2 tw-relative">
-                            <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg'} loading='lazy' alt="img-casa" className="tw-h-64 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" />
+                                            {item.images[0] ? <img 
+                                                    src={item.images[0]} 
+                                                    alt="img-casa" 
+                                                    className="tw-h-64 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                                    /> : 
+                                                    <img 
+                                                        src={NotFoundProp} 
+                                                        alt="img-casa-not-found" 
+                                                        className="tw-h-56 tw-w-full tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-my-3" 
+                                                    />
+                                            }
                         </div>
                         <div>
                             <h2 className="tw-font-semibold tw-text-center tw-text-xl xl:tw-text-lg">{truncate(item?.propertyTitle, 30)}</h2>
                             <div className="md:tw-mx-4 tw-mt-2 tw-flex tw-flex-row tw-justify-between tw-items-center tw-mb-2 xl:tw-text-md">
-                                <div className="tw-mx-4 tw-flex">
+                                <div className="tw-mx-4 tw-flex xl:tw-w-[60%]">
                                     <p className="tw-font-semibold">{item.address.state.name || 'No se encontró región'}, {item.address.city.name || 'No se encontró comuna'}</p>
                                 </div>
-                                <div className="tw-flex tw-gap-2 tw-items-center">
+                                <div className="tw-flex tw-gap-2 tw-items-center xl:tw-w-[40%] tw-text-center">
                                     {formatPrice(item?.currencyId, item?.propertyPrice)}
                                 </div>
                             </div>
