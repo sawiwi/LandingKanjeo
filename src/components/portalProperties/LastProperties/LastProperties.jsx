@@ -188,7 +188,7 @@ const LastProperties = () => {
                                                         <img 
                                                         src={NotFoundProp} 
                                                         alt="img-casa-not-found" 
-                                                        className="tw-h-48 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                        className="tw-h-44 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
                                                         />
                                             }
                                              
@@ -201,11 +201,9 @@ const LastProperties = () => {
                                         </div>
                                         <div className="tw-mx-2">
                                         <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>
-                                        {/* <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center"> */}
-                                                {/* <p><b>$ 20.000.000</b></p>
-                                                <p><b>UF 3.200</b></p> */}
+                                       
                                         {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                        {/* </div> */}
+                                        
                                             <ul className="tw-flex tw-flex-row sm:tw-flex-row tw-mx-4 xl:tw-mx-12 tw-gap-2 tw-justify-between">
                                                 <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                         {/* <span>Baño(s)</span> */}   
@@ -213,17 +211,14 @@ const LastProperties = () => {
                                                         <small>{item.characteristics.bathrooms || '0'}</small>
                                                 </li>
                                                 <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
-                                                        {/* <span>Dormitorio(s)</span> */}
                                                         <FaBed/>
                                                         <small>{item.characteristics.bedrooms || '0'}</small>
                                                 </li>
                                                 <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
-                                                        {/* <span>Mts cuadrados</span> */}
                                                         <FaRulerCombined />
                                                         <small>{item.characteristics.surface || '0'}mts</small>
                                                 </li>
                                                 <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
-                                                        {/* <span>Estacionamiento(s)</span> */}
                                                         <FaParking />
                                                         <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
                                                 </li>
@@ -262,10 +257,9 @@ const LastProperties = () => {
                                                             <img 
                                                             src={NotFoundProp} 
                                                             alt="img-casa-not-found" 
-                                                            className="tw-h-48 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                            className="tw-h-44 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-2 xl:tw-mx-36" 
                                                             />
                                                         }
-                                                        {/* <img src={item.images[0] ? item.images[0] : 'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg' } alt="img-casa" className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" /> */}
                                                         <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                                                             {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                                         </small>
@@ -275,11 +269,9 @@ const LastProperties = () => {
                                                     </div>
                                                     <div className="tw-mx-2">
                                                     <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>
-                                                    {/* <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center"> */}
-                                                            {/* <p><b>$ 20.000.000</b></p>
-                                                            <p><b>UF 3.200</b></p> */}
+                                        
                                                     {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                                    {/* </div> */}
+                                                
                                                         <ul className="tw-flex tw-flex-row sm:tw-flex-row tw-mx-4 xl:tw-mx-12 tw-gap-2 tw-justify-between">
                                                             <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                                     {/* <span>Baño(s)</span> */}   

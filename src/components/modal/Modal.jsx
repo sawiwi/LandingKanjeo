@@ -1,8 +1,7 @@
 const Modal = ({open, onClose, children }) =>{
     return (
-     
       <div
-      className={`tw-fixed tw-inset-0 tw-z-50 xl:tw-py-12 tw-flex tw-justify-center tw-items-center tw-transition-colors ${open ? "tw-visible tw-bg-black/50  tw-z-50 tw-rounded-lg" : "tw-invisible"}`} 
+      className={`tw-fixed tw-inset-0 tw-z-50 xl:tw-py-10 2xl:tw-py-6 tw-flex tw-justify-center tw-items-center tw-transition-colors ${open ? "tw-visible tw-bg-black/50 2xl:tw-h-full tw-z-50 tw-rounded-lg" : "tw-invisible"}`} 
       // className={`tw-fixed tw-inset-0 tw-z-50 sm:tw-relative sm:tw-flex sm:tw-justify-center sm:tw-items-center tw-w-full tw-transition-colors ${open ? "tw-visible tw-bg-black/60 tw-h-full sm:tw-bg-transparent tw-rounded-xl sm:tw-rounded-none xl:tw-h-full " : "tw-invisible"}`} 
       onClick={onClose}>
         {/* Modal */}

@@ -63,11 +63,11 @@ const DetailsProperty = ({property}) =>{
     return(
         <>
             <div className="tw-w-full tw-justify-center">
-                    <h3 className="tw-text-xl 2:tw-text-2xl tw-text-center tw-font-semibold">
+                    <h3 className="tw-text-xl 2xl:tw-text-2xl tw-text-center tw-font-semibold">
                         Detalles de propiedad
                     </h3>
-                    <div className="tw-p-2 tw-px-3">
-                                    <div className="tw-flex md:tw-flex-row tw-justify-center tw-mt-2 tw-my-2 tw-mx-32 tw-h-[100px] tw-gap-6"> 
+                    <div className=" tw-p-2 tw-px-3">
+                                    <div className="tw-flex md:tw-flex-row tw-justify-center tw-mt-2 tw-my-4 tw-mb-12 2xl:tw-mb-4 tw-mx-32 tw-h-[110px] 2xl:tw-h-[100px] tw-gap-6"> 
                                             <div>
                                                 <div className="tw-h-20 tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
                                                     {/* <img src={'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg'} loading='lazy' className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/> */}
@@ -90,10 +90,10 @@ const DetailsProperty = ({property}) =>{
                                     <h6 className="tw-font-medium tw-text-lg tw-text-center">
                                         {property?.propertyTitle || 'No cuenta con Titulo'}
                                     </h6>
-                                    <p className="tw-text-base tw-text-center tw-mb-2">
+                                    <p className="tw-text-base tw-text-center tw-my-3 2xl:tw-mb-2 ">
                                         {property?.propertyDescription || 'No cuenta con una descripción'}
                                     </p>
-                                    <div className="tw-text-center tw-flex tw-justify-between tw-mt-2 tw-mb-2 tw-gap-2 tw-mx-28">
+                                    <div className="tw-text-center tw-flex tw-justify-between tw-mt-2 tw-mb-4 2xl:tw-mb-2 tw-gap-2 tw-mx-28">
                                         <p className="tw-grid"><b>Tipo de operación </b>{property?.typeOfOperationId}</p>
                                         <p className="tw-grid"><b>Tipo de inmueble </b>{property?.typeOfPropertyId}</p>
                                         {formatPrice(property?.currencyId, property?.propertyPrice)}
@@ -101,7 +101,7 @@ const DetailsProperty = ({property}) =>{
                                     </div>  
                                     <div> 
                                         <h3 className="tw-text-center tw-text-lg">Características</h3>
-                                        <div className="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-8 md:tw-mt-3 md:tw-mx-12">
+                                        <div className="tw-flex tw-flex-col md:tw-flex-row tw-gap-10 2xl:tw-gap-8 md:tw-mt-3 tw-mx-52 2xl:tw-mx-12">
                                             <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start">
                                                 <li className="tw-mb-2">
                                                     <div className="tw-flex tw-gap-2 tw-items-center">
@@ -190,7 +190,7 @@ const DetailsProperty = ({property}) =>{
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="md:tw-mx-12 tw-my-2 tw-gap-1">
+                                        <div className="tw-mx-52 2xl:tw-mx-12 tw-my-2 tw-gap-1 ">
                                             <span  
                                             onClick={toggleViewMore}
                                             className='tw-flex tw-items-center tw-mb-3 tw-text-secondary-light hover:tw-text-secondary tw-duration-150 tw-cursor-pointer'>
@@ -275,7 +275,7 @@ const DetailsProperty = ({property}) =>{
                                     </div>
                                     <div>
                                         <h3 className="tw-text-center tw-text-lg">Observaciones</h3>
-                                        <div className="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-8 md:tw-mt-3 md:tw-mx-16">
+                                        <div className="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-8 md:tw-mt-3 tw-mx-40 2xl:tw-mx-16">
                                             {property?.observations ? property?.observations : 'No cuenta con observaciones'}
                                         </div>
                                     </div>

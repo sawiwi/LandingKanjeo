@@ -51,7 +51,7 @@ const PortalProperty = () =>{
      
                 {/* BANNER */}
                 <div>
-                    <div className="tw-hidden sm:tw-visible sm:tw-flex tw-mt-12 tw-my-6 2xl:tw-mx-32 tw-shadow-md tw-h-40 tw-relative">
+                    <div className="tw-hidden sm:tw-visible sm:tw-flex tw-mt-12 2xl:tw-mt-20 tw-my-6 2xl:tw-mx-32 tw-shadow-md tw-h-40 tw-relative">
                         <img src={bannerImg} alt="" className="tw-absolute -tw-z-30 md:tw-left-[44.1rem] 2xl:tw-left-[45.4rem] tw-object-cover md:tw-h-40 md:tw-w-[39%] 2xl:tw-h-full 2xl:tw-w-[50%]"/>
                         <div className=" tw-flex tw-flex-col tw-bg-secondary tw-rounded-e-full tw-text-gray-50 tw-shadow-md tw-text-center tw-p-2 tw-py-6 tw-w-[70%]">
                             <small>Para saber más sobre corredores</small>
