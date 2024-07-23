@@ -16,7 +16,7 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 
 const PortalRealtor = () =>{
-    const [openDetail, setOpenDetail] = useState(true);
+    const [openDetail, setOpenDetail] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const {
         users,
@@ -122,11 +122,11 @@ const PortalRealtor = () =>{
                 
                     <ModalRealtor open={openDetail} onClose={() => setOpenDetail(false)}>
                         <div className='2xl:tw-w-full tw-mt-6 sm:tw-mt-2'>
-                            <h2 className="tw-font-semibold tw-text-3xl tw-text-center">Resumen ficha</h2>
-                            <div className='tw-p-2 tw-w-full tw-overflow-y-auto tw-h-full md:tw-h-[70vh] xl:tw-h-full tw-my-4 p-3'>
+                            {/* <h2 className="tw-font-semibold tw-text-3xl tw-text-center">Resumen ficha</h2> */}
+                            <div className='lg:tw-p-2 tw-w-full tw-overflow-y-auto tw-h-full md:tw-h-[70vh] xl:tw-h-full tw-my-2'>
                                 {selectedUser ? <ResumeProfile dataRealtor={selectedUser}/> : 
                                 <div className="tw-text-gray-400 tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[300px] ">
-                                    <FaRegUserCircle className="tw-animate-pulse  tw-text-8xl xl:tw-text-[250px] tw-rounded-full tw-shadow-inner tw-p-6"/>
+                                    <FaRegUserCircle className="tw-animate-pulse tw-text-8xl xl:tw-text-[250px] tw-rounded-full tw-shadow-inner tw-p-6"/>
                                     <p className="tw-text-gray-500">Selecciona a un corredor de la lista</p>
                                 </div> 
                                 }

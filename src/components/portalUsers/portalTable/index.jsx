@@ -75,11 +75,11 @@ function TableRealtors({columnsData, dataRealtor}){
             </div>
           <div>
             <div className="tw-flex tw-justify-between tw-items-center">
-                <div className="tw-flex tw-text-gray-600">
-                    <p>Corredores encontrados: </p>{' '}<span>10</span>
+                <div className="tw-flex tw-items-center tw-text-gray-600">
+                    <p>Corredores encontrados:</p>{''}<span>10</span>
                 </div>
 
-                <select className="tw-bg-transparent tw-cursor-pointer tw-w-36 lg:tw-w-36 tw-h-10 tw-px-2 tw-my-2 tw-border tw-rounded-md"
+                <select className="tw-bg-transparent tw-cursor-pointer tw-w-14 lg:tw-w-36 tw-h-10 tw-px-1.5 lg:tw-px-2 tw-my-2 tw-border tw-rounded-md"
                 value={table.getState().pagination.pageSize}
                 onChange={e => {
                     table.setPageSize(Number(e.target.value))
@@ -87,7 +87,7 @@ function TableRealtors({columnsData, dataRealtor}){
                 >
                 {[5, 10, 15].map(pageSize => (
                     <option className="tw-cursor-pointer after:tw-border-none focus:tw-border-none select:tw-border-none" key={pageSize} value={pageSize}>
-                   {pageSize} por página 
+                   {pageSize}  por página 
                     </option>
                 ))}
                 </select>
