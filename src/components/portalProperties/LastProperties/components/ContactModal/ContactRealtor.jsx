@@ -18,20 +18,52 @@ const ContactRealtor = ({property}) =>{
     message: ""
   });
 
+  const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
+
   const handleInputChange = (e) => {
     const inputData = { ...formData, [e.target.name]: e.target.value };
     setFormData(inputData);
   };
 
+  const handleInpChange = (e) => {
+    const { name, value } = e.target;
+  
+    if (name === "phone" && !phoneRegex.test(value)) {
+      setErrorMsg({
+        ...errorMsg,
+        phone: 'Número de teléfono inválido',
+      });
+    } else {
+      setErrorMsg({
+        ...errorMsg,
+        phone: '',
+      });
+    }
+
+    setFormData({
+        ...formData,
+        [name]: value,
+      });
+    };
+
+    const handlePhraseClick = (phrase) => {
+        setFormData({
+          ...formData,
+          message: phrase
+        });
+      };
+
   const [errorMsg, setErrorMsg] = useState({
     fieldsRequired: '',
     serverError: '',
+    phone: '',
   });
+
 
     /* ToastMessage : Success */
     const showToastSuccessMsg = (msg) => {
         toast.success(msg, {
-          position: 'bottom-center',
+          position: 'top-center',
           autoClose: 2500,
           hideProgressBar: false,
           closeOnClick: true,
@@ -45,7 +77,7 @@ const ContactRealtor = ({property}) =>{
       /* ToastMessage : Error */
       const showToastErrorMsg = (msg) => {
         toast.error(msg, {
-          position: 'bottom-center',
+          position: 'top-center',
           autoClose: 2500,
           hideProgressBar: false,
           closeOnClick: true,
@@ -58,7 +90,7 @@ const ContactRealtor = ({property}) =>{
 
   const onFormSubmit = async (e) => {
     e.preventDefault();
-    if(Object.values(formData).includes('')){
+    if(Object.values(formData).includes('') || errorMsg.phone){
         setErrorMsg({
             fieldsRequired:'Todos los campos son requeridos'
         });
@@ -69,14 +101,12 @@ const ContactRealtor = ({property}) =>{
         }, 3000);
         return;
     }
-    console.log('formData', formData)
     try {
         setLoading(true);
-        const response = await ContactApiFormServices.contactForm(formData)
-            console.log('formData on try', formData)
+        const response = await ContactApiFormServices.contactForm(formData);
 
-        if (response?.success === 200 || response?.success === 'true'){
-            showToastErrorMsg(
+        if (response?.status === 200 ||  response?.status === 201 ||  response?.status === true ){
+            showToastSuccessMsg(
                 'Formulario enviado con exito!'
             )
             setLoading(false);
@@ -84,6 +114,7 @@ const ContactRealtor = ({property}) =>{
             setErrorMsg({
                 allFieldRequierd: '',
                 serverEmailError: '',
+                phone:'',
             });
         }else {
             showToastErrorMsg(
@@ -127,7 +158,13 @@ const ContactRealtor = ({property}) =>{
                 <div className='tw-flex tw-justify-center tw-mx-24'>
                     <form onSubmit={onFormSubmit} className='tw-w-full'>
                         <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
-                            <div className="tw-relative tw-mb-2 tw-mt-8 tw-w-full">
+                            <div className="tw-relative tw-mb-2 tw-mt-6 tw-w-full">
+                                <label
+                                    htmlFor="name"
+                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                >
+                                    Nombre
+                                </label>
                                 <input
                                     autoComplete="off"
                                     id="name"
@@ -135,17 +172,19 @@ const ContactRealtor = ({property}) =>{
                                     type="text"
                                     value={formData?.name}
                                     onChange={handleInputChange}
-                                    className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
+                                    // className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                     placeholder="Ingresa tu nombre"
                                 />
-                                <label
-                                    htmlFor="name"
-                                    className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-gray-800 tw-text-md peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-800/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-gray-800/80 peer-focus:tw-text-lg"
-                                >
-                                    Ingresa tu Nombre
-                                </label>
+                          
                             </div>
-                            <div className="tw-relative tw-mb-2 tw-mt-8 tw-w-full">
+                            <div className="tw-relative tw-mb-2 tw-mt-6 tw-w-full">
+                                <label
+                                    htmlFor="lastName"
+                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                >
+                                    Apellido
+                                </label>
                                 <input
                                     autoComplete="off"
                                     id="lastName"
@@ -153,19 +192,21 @@ const ContactRealtor = ({property}) =>{
                                     type="text"
                                     value={formData?.lastName}
                                     onChange={handleInputChange}
-                                    className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
+                                    // className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                     placeholder="Ingresa tu apellido"
                                 />
-                                <label
-                                    htmlFor="lastName"
-                                    className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-gray-800 tw-text-md peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-800/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-gray-800/80 peer-focus:tw-text-lg"
-                                >
-                                    Ingresa tu Apellido
-                                </label>
-                        </div>
+                           
+                            </div>
                         </div>
                         <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
-                            <div className="tw-relative tw-mb-4 tw-mt-8 tw-w-full">
+                            <div className="tw-relative tw-mb-4 tw-mt-2 tw-w-full">
+                                <label
+                                    htmlFor="email"
+                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                >
+                                    Correo
+                                </label>
                                 <input
                                     autoComplete="off"
                                     id="mail"
@@ -173,36 +214,40 @@ const ContactRealtor = ({property}) =>{
                                     type="email"
                                     value={formData?.mail}
                                     onChange={handleInputChange}
-                                    className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
+                                    // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                     placeholder="Correo electrónico"
                                 />
-                                <label
-                                    htmlFor="mail"
-                                    className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-gray-800 tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-800/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-gray-800/80 peer-focus:tw-text-lg"
-                                >
-                                    Correo electrónico
-                                </label>
+                         
                             </div>
-                            <div className="tw-relative tw-mb-4 tw-mt-8 tw-w-full">
+                            <div className="tw-relative tw-mb-4 tw-mt-2 tw-w-full">
+                                <label
+                                    htmlFor="phone"
+                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                >
+                                    N° Contacto
+                                </label>
                                 <input
                                     autoComplete="off"
                                     id="phone"
                                     name="phone"
                                     type="tel"
                                     value={formData?.phone}
-                                    onChange={handleInputChange}
-                                    className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                    placeholder="9 823 233 23"
+                                    onChange={handleInpChange}
+                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
+                                    // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    placeholder="56 912323221"
                                 />
-                                <label
-                                    htmlFor="phone"
-                                    className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-gray-800 tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-800/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-gray-800/80 peer-focus:tw-text-lg"
-                                >
-                                    N° Contacto
-                                </label>
+                      
                             </div>
                         </div>
-                        <div className="tw-relative tw-mb-4 tw-mt-8">
+                        <div className="tw-relative tw-mb-4 tw-mt-2">
+                            <label
+                                htmlFor="subject"
+                                className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                            >
+                                Asunto
+                            </label>
                             <input
                                 autoComplete="off"
                                 id="subject"
@@ -210,17 +255,19 @@ const ContactRealtor = ({property}) =>{
                                 type="text"
                                 value={formData?.subject}
                                 onChange={handleInputChange}
-                                className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
+                                // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                 placeholder="Asunto"
                             />
-                            <label
-                                htmlFor="subject"
-                                className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-gray-800 tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-800/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-gray-800/80 peer-focus:tw-text-lg"
-                            >
-                                Asunto
-                            </label>
+                  
                         </div>
-                        <div className="tw-relative tw-mb-4 tw-mt-8">
+                        <div className="tw-relative tw-mb-4 tw-mt-2">
+                            <label
+                                htmlFor="message"
+                                className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                            >
+                                Descripción
+                            </label>
                             <textarea
                                 autoComplete="off"
                                 id="message"
@@ -228,18 +275,34 @@ const ContactRealtor = ({property}) =>{
                                 type="text"
                                 rows={3}
                                 value={formData?.message}
+                                className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
                                 onChange={handleInputChange}
-                                className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                placeholder="Describe"
+                                // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                placeholder="Ingresa una breve descripción de tu interes en esta propiedad"
                             />
-                            <label
-                                htmlFor="message"
-                                className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-gray-800 tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-gray-800/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-gray-800/80 peer-focus:tw-text-lg"
-                            >
-                                Descripción
-                            </label>
+
+                            <div className='tw-flex tw-flex-row tw-gap-2'>
+                                <button
+                                type='button' 
+                                onClick={() => handlePhraseClick('Me interesa esta propiedad, quisiera saber más por favor!')}
+                                className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
+                                    Me interesa esta propiedad, quisiera saber más por favor!
+                                </button>
+                                <button 
+                                type='button' 
+                                onClick={() => handlePhraseClick('Quisiera saber más sobre esta propiedad por favor!')}
+                                className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
+                                     Quisiera saber más sobre esta propiedad por favor!
+                                </button>
+                                <button 
+                                type='button' 
+                                onClick={() => handlePhraseClick('Estoy interesado, necesito más detalles por favor!')}
+                                className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
+                                    Estoy interesado, necesito más detalles por favor!
+                                </button>
+                            </div>
                         </div>
-                        <div className="tw-relative tw-my-3 tw-mt-8">
+                        <div className="tw-relative tw-my-3 tw-mt-2">
                             <Button
                             type="submit"
                             className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-md tw-px-12 tw-py-2 tw-w-full"
@@ -252,6 +315,9 @@ const ContactRealtor = ({property}) =>{
                         )}
                         {errorMsg.serverError && (
                             <Alert message={errorMsg.serverError} />
+                        )}
+                        {errorMsg.phone && (
+                            <Alert message={errorMsg.phone} />
                         )}
                     </form>
                 </div>

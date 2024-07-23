@@ -31,11 +31,6 @@ const LastProperties = () => {
     const { contextData } = useContext(PropertiesContext);
     const {
         properties,
-        setProperties,
-        allProperties,
-        setAllProperties,
-        page,
-        setPage,
         valueUf,
     } = contextData;
 
