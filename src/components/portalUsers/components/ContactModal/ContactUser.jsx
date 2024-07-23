@@ -278,27 +278,27 @@ const ContactUser = ({dataUser}) =>{
                                 className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
                                 onChange={handleInputChange}
                                 // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                placeholder="Ingresa una breve descripción de tu interes en esta propiedad"
+                                placeholder="Ingresa o elige una breve descripción para contactar"
                             />
 
                             <div className='tw-flex tw-flex-row tw-gap-2'>
                                 <button
                                 type='button' 
-                                onClick={() => handlePhraseClick('Me interesa esta propiedad, quisiera saber más por favor!')}
+                                onClick={() => handlePhraseClick('Muy buenas, necesito asesoría sobre arriendo / venta')}
                                 className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
-                                    Me interesa esta propiedad, quisiera saber más por favor!
+                                    Muy buenas, necesito asesoría sobre arriendo / venta
                                 </button>
                                 <button 
                                 type='button' 
-                                onClick={() => handlePhraseClick('Quisiera saber más sobre esta propiedad por favor!')}
+                                onClick={() => handlePhraseClick('Quisiera saber más sobre arriendo!')}
                                 className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
-                                     Quisiera saber más sobre esta propiedad por favor!
+                                     Quisiera saber más sobre arriendo!
                                 </button>
                                 <button 
                                 type='button' 
-                                onClick={() => handlePhraseClick('Estoy interesado, necesito más detalles por favor!')}
+                                onClick={() => handlePhraseClick('Estoy interesado en una asesoria, necesito vender rápido.')}
                                 className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
-                                    Estoy interesado, necesito más detalles por favor!
+                                    Estoy interesado en una asesoria, necesito vender rápido.
                                 </button>
                             </div>
                         </div>
