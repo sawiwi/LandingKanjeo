@@ -95,7 +95,7 @@ export const contentSlickCommunity = [
       subheading:'Cómo usar',
       headings: 'Cómo usar ProCanje App',
       texts:'Deseas obtener un tutorial para la aplicación',
-      href:'', 
+      href:'/como-usar', 
     },
     {
       id:2,
@@ -105,6 +105,17 @@ export const contentSlickCommunity = [
       texts:'Revisar nuestro producto, carácteristicas y funciones',
       href:'', 
     },
+  ]
+
+  export const videoData = [
+    {
+      id:1,
+      imgVideo:'',
+      subheading:'Sigue los pasos de',
+      headings:'Cómo Funciona Procanje',
+      texts:'Funcionamiento completo de nuestra aplicación de corretaje y canjes de propiedad.',
+      href:'https://www.youtube.com/watch?v=ZqX36VwzvhY&feature=youtu.be'
+    }
   ]
 
   export const  Realtors = [

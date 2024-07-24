@@ -12,6 +12,8 @@ import PoliticaCookies from '../components/Politicas/politicasCookies';
 import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
 import ExternalServices from '../pages/externalServices';
 import ListExtServices from '../pages/ListExternalService/listExtService';
+import HowUse from '../components/howUse/HowUse';
+
 
 export const navigationRoutes = [
   {
@@ -86,6 +88,12 @@ export const navigationRoutes = [
     name : 'Portal Propiedades',
     path: '/portal-propiedades',
     element:<PortalProperty/>
+  },
+  {
+    id:15,
+    name:'Cómo Usar ProCanje',
+    path:'/como-usar',
+    element: <HowUse />
   },
 
 ];
