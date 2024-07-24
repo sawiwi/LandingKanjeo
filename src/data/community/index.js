@@ -73,8 +73,9 @@ export const contentSlickCommunity = [
       subheading:'Servicios y más',
       headings: {first:'Servicios Externos', second:''},
       texts:'Conoce todos los servicios que tenemos.',
-      href:'/servicios-externos',
+      href:'',
       href2:'' 
+      // href:'/servicios-externos',
     },
     {
       id:3,
@@ -93,14 +94,16 @@ export const contentSlickCommunity = [
       imgCard: CardImgSix,
       subheading:'Cómo usar',
       headings: 'Cómo usar ProCanje App',
-      texts:'Deseas obtener un tutorial para la aplicación', 
+      texts:'Deseas obtener un tutorial para la aplicación',
+      href:'', 
     },
     {
       id:2,
       imgCard:CardImgSeven,
       subheading:'Producto y más',
       headings: 'Producto y carácteristicas',
-      texts:'Revisar nuestro producto, carácteristicas y funciones', 
+      texts:'Revisar nuestro producto, carácteristicas y funciones',
+      href:'', 
     },
   ]
 
