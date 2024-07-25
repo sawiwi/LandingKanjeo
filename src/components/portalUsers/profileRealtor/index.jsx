@@ -93,13 +93,13 @@ const ProfileRealtor = () => {
                         </div>
                         <div className='tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2'>
                                 <div className='tw-col-span-2'>
-                                    <div className='tw-shadow-lg tw-bg-white tw-h-56 xl:tw-h-56 tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
+                                    <div className='tw-shadow-lg tw-bg-white tw-h-56 md:tw-h-64 2xl:tw-h-56 tw-w-full tw-rounded-md tw-p-4 tw-px-5 tw-overflow-hidden'>
                                         <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Sobre Mi</h3>
                                         <p className=''>{user?.about || 'No cuenta con una descripción'}</p>    
                                     </div>
                                 </div>
                                 <div className='tw-col-span-1'>
-                                    <div className='tw-shadow-lg tw-bg-white tw-h-56 xl:tw-h-56 tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
+                                    <div className='tw-shadow-lg tw-bg-white tw-h-56 md:tw-h-64 2xl:tw-h-56 tw-w-full tw-rounded-md md:tw-py-2 tw-px-5 tw-overflow-hidden'>
                                         <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Dónde Trabajo</h3>
                                         <ul className='tw-flex tw-flex-col tw-gap-2'>
                                             <li className='mb-2'> 
