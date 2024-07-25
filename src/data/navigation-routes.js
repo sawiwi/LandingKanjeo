@@ -62,7 +62,7 @@ export const navigationRoutes = [
   {
     id:10,
     name : 'Perfil Corredor',
-    path: '/perfil-corredor',
+    path: '/perfil-corredor/:id',
     element:<ProfileRealtor/>
   },
   {
