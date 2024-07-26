@@ -10,10 +10,18 @@ import notApprove from '../../../assets/img/perfil/precaucion.png'
 import { useParams } from 'react-router-dom';
 import UsersServices from '../../../services/portal-users/UsersServices';
 import { useEffect, useState } from 'react';
+import ModalProfile from '../../modal/ModalContactProfile';
+import ContactProfile from '../components/ContactProfile/ContactProfile';
 
 const ProfileRealtor = () => {
     const {id} = useParams();
     const [user, setUser] = useState();
+    const [openContact, setOpenContact] = useState(false);
+
+
+    const handleOpenContact = () => {
+        setOpenContact(true);
+    };
 
     useEffect(() => {
         const getRealtor = async () => {
@@ -74,8 +82,16 @@ const ProfileRealtor = () => {
                                             <li className='mb-1'> 
                                                 <strong>Correo:</strong>{' '}<span>{user?.session.email || 'Sin correo'}</span>    
                                             </li>
-                                            <li className='mb-1'> 
-                                                <strong>Página web:</strong>{' '}<span>{user?.webPage || 'No cuenta con página web'}</span>    
+                                            <li className='mb-1'>
+                                                {user?.webPage ? <>
+                                                    <strong>Página web:</strong>{' '}<a href={'https://'+user?.webPage} target='_blank' rel='noreferrer' alt="" className='' >
+                                                        <span>{user?.webPage}</span>
+                                                    </a> 
+                                                </>      
+                                                : <>
+                                                            <strong>Página web:</strong>{' '}<span>{user?.webPage || 'No cuenta con página web'}</span>
+                                                        </> }
+                                            
                                             </li>
                                         </ul>
                                 </div>
@@ -88,6 +104,13 @@ const ProfileRealtor = () => {
                                                 <strong>Cantidad clientes</strong>{' '}<p>{user?.totalCustomerCount || '0'}</p>    
                                             </li>
                                         </ul>
+                                        <div className='tw-flex tw-justify-end tw-mt-2 2xl:tw-mt-6 2xl:tw-mr-6'>
+                                            <button  
+                                                onClick={()=> handleOpenContact()}
+                                                className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
+                                                Contactar
+                                            </button>
+                                        </div>
                                 </div>                    
                             </div>
                         </div>
@@ -120,12 +143,18 @@ const ProfileRealtor = () => {
 
                         </div>
                         <div className='tw-shadow-lg tw-bg-white tw-h-96 tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
-                                <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Actividad Reciente</h3>
-                                <p className=''>{user?.resumeFile || 'No cuenta con actividades realizadas recientemente...'}</p>     
+                            <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Actividad Reciente</h3>
+                            <p className=''>{user?.resumeFile || 'No cuenta con actividades realizadas recientemente...'}</p>     
                         </div>
     
                     </div>
                 </Reveal>
+
+                <ModalProfile open={openContact} onClose={() => setOpenContact(false)}>
+                    <div className='tw-mt-6 sm:tw-mt-2'>
+                       <ContactProfile dataUser={user}/>
+                    </div>
+                </ModalProfile>
             </Section>
         </>
     )

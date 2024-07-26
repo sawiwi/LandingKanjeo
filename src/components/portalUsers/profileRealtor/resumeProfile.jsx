@@ -72,7 +72,14 @@ const ResumeProfile = ({dataRealtor}) =>{
                                                 <strong>Correo:</strong>{' '}<span>{dataRealtor?.session.email ? dataRealtor?.session.email : 'Sin correo'}</span>    
                                             </li>
                                             <li className='mb-1'> 
-                                                <strong>Página web:</strong>{' '}<span>{dataRealtor?.webPage ? dataRealtor?.webPage : 'No cuenta con página web'}</span>    
+                                                {dataRealtor?.webPage ? <>
+                                                    <strong>Página web:</strong>{' '}<a href={'https://'+dataRealtor.webPage} alt="" className='' target='_blank' rel='noreferrer' >
+                                                        <span>{dataRealtor?.webPage}</span>
+                                                    </a> 
+                                                </>      
+                                                : <>
+                                                   <strong>Página web:</strong>{' '}<span>{dataRealtor?.webPage || 'No cuenta con página web'}</span>
+                                                </> }
                                             </li>
                                         </ul>
                                 </div>
