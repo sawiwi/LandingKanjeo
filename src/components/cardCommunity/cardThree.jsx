@@ -3,7 +3,7 @@
 const CardCommunityThree = ({renderContent}) =>{
     return(
         <>
-        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-3 ">
+        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 xl:tw-grid-cols-2 tw-gap-3 ">
             {renderContent.length !== 0 ? renderContent.map((item) => (
                 <div key={item.id} className="tw-col-span-1 ">
                     <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-gap-2 lg:tw-h-48 tw-mb-2 2xl:tw-mb-2 tw-p-4 tw-cursor-pointer hover:tw-text-secondary tw-duration-200'>

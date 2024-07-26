@@ -283,7 +283,7 @@ const ContactProfile = ({dataUser}) =>{
                                 placeholder="Ingresa o elige una breve descripción para contactar"
                             />
 
-                            <div className='tw-flex tw-flex-row tw-gap-2'>
+                            <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
                                 <button
                                 type='button' 
                                 onClick={() => handlePhraseClick('Muy buenas, necesito asesoría sobre arriendo / venta')}

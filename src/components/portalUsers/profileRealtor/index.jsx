@@ -48,7 +48,7 @@ const ProfileRealtor = () => {
     }`;
     return(
         <>
-            <Section className="tw-overflow-hidden xl:tw-w-[100vw]">
+            <Section className="tw-overflow-hidden tw-w-full xl:tw-w-[100vw]">
                 <Reveal
                     keyframes={fadeInUp}
                     delay={500}
@@ -56,8 +56,8 @@ const ProfileRealtor = () => {
                     triggerOnce={true}
                 >
                     {!user ? <p>Cargando Corredor...</p> : ''}
-                    <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-4 tw-mt-10 tw-mx-16 tw-text-gray-500">
-                        <div className='tw-relative tw-shadow-lg tw-bg-white tw-h-96 lg:tw-h-[460px] tw-w-full tw-rounded-md tw-mt-6 tw-p-2 tw-px-3'>
+                    <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-4 tw-mt-10 md:tw-mx-16 tw-text-gray-500">
+                        <div className='tw-relative tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 lg:tw-h-[460px] tw-w-full tw-rounded-md tw-mt-6 tw-mb-2 tw-p-2 tw-px-3'>
                             <img src={imgBanner} className='tw-w-full tw-h-52 tw-object-cover tw-rounded-md' alt='bannerImg' />
 
                             <img src={imgProfile} alt='profileImg' className='tw-absolute tw-top-32 tw-border-4 tw-border-gray-100 tw-left-10 tw-rounded-full tw-h-36 tw-w-36 tw-shadow-lg' />
@@ -71,8 +71,8 @@ const ProfileRealtor = () => {
                                     // title='Cuenta por confirmar' />
                                     }
                          
-                            <div className='tw-mx-3 tw-grid tw-grid-flow-col tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2'>
-                                <div className='tw-col-span-2'>
+                            <div className='tw-mx-3 tw-flex tw-flex-col md:tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2'>
+                                <div className='md:tw-col-span-2'>
                                     <h5 className='tw-text-3xl tw-text-gray-600 tw-mt-16'>{user?.name || 'No hay nombre'} {user?.lastName || 'No hay apellido'}</h5>
                                     <small className=''>Igniero comercial / {user?.session.rol.name || 'Corredor'} de inmuebles</small>
                                         <ul className='tw-flex tw-flex-col tw-gap-2 tw-text-base tw-mt-2'>
@@ -89,14 +89,14 @@ const ProfileRealtor = () => {
                                                     </a> 
                                                 </>      
                                                 : <>
-                                                            <strong>Página web:</strong>{' '}<span>{user?.webPage || 'No cuenta con página web'}</span>
-                                                        </> }
+                                                     <strong>Página web:</strong>{' '}<span>{user?.webPage || 'No cuenta con página web'}</span>
+                                                </> }
                                             
                                             </li>
                                         </ul>
                                 </div>
-                                <div className='tw-col-span-1'>
-                                        <ul className='tw-flex tw-flex-row tw-gap-2 tw-text-base md:tw-text-lg 2xl:tw-text-xl tw-mt-24 tw-text-center'>
+                                <div className='md:tw-col-span-1'>
+                                        <ul className='tw-flex tw-flex-row tw-gap-2 tw-text-base md:tw-text-lg 2xl:tw-text-xl tw-mt-4 md:tw-mt-24 tw-text-center'>
                                             <li className='tw-mb-1 tw-px-6'> 
                                                 <strong>Cantidad propiedades</strong>{' '}<p>{user?.activePropertyCount || '0'}</p>    
                                             </li>
@@ -114,14 +114,14 @@ const ProfileRealtor = () => {
                                 </div>                    
                             </div>
                         </div>
-                        <div className='tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2'>
-                                <div className='tw-col-span-2'>
+                        <div className='tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2 tw-h-full'>
+                                <div className='tw-col-span-2 tw-mb-2'>
                                     <div className='tw-shadow-lg tw-bg-white tw-h-56 md:tw-h-64 2xl:tw-h-56 tw-w-full tw-rounded-md tw-p-4 tw-px-5 tw-overflow-hidden'>
                                         <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Sobre Mi</h3>
                                         <p className=''>{user?.about || 'No cuenta con una descripción'}</p>    
                                     </div>
                                 </div>
-                                <div className='tw-col-span-1'>
+                                <div className='tw-col-span-1 tw-mb-2'>
                                     <div className='tw-shadow-lg tw-bg-white tw-h-56 md:tw-h-64 2xl:tw-h-56 tw-w-full tw-rounded-md md:tw-py-2 tw-px-5 tw-overflow-hidden'>
                                         <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Dónde Trabajo</h3>
                                         <ul className='tw-flex tw-flex-col tw-gap-2'>
@@ -140,9 +140,8 @@ const ProfileRealtor = () => {
                                         </ul>
                                     </div>  
                                 </div>
-
                         </div>
-                        <div className='tw-shadow-lg tw-bg-white tw-h-96 tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
+                        <div className='tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
                             <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Actividad Reciente</h3>
                             <p className=''>{user?.resumeFile || 'No cuenta con actividades realizadas recientemente...'}</p>     
                         </div>

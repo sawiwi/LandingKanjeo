@@ -18,7 +18,8 @@ const ContactRealtor = ({property}) =>{
     message: ""
   });
 
-  const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
+//   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
+    const phoneRegex = /^(0?9\d{8})$/;
 
   const handleInputChange = (e) => {
     const inputData = { ...formData, [e.target.name]: e.target.value };
@@ -31,7 +32,7 @@ const ContactRealtor = ({property}) =>{
     if (name === "phone" && !phoneRegex.test(value)) {
       setErrorMsg({
         ...errorMsg,
-        phone: 'Número de teléfono inválido',
+        phone: 'Error al ingresar número de celular, debe comenzar con 9 acompañado de 8 digitos',
       });
     } else {
       setErrorMsg({
@@ -229,6 +230,7 @@ const ContactRealtor = ({property}) =>{
                                 </label>
                                 <input
                                     autoComplete="off"
+                                    maxLength={9}
                                     id="phone"
                                     name="phone"
                                     type="tel"
@@ -236,7 +238,7 @@ const ContactRealtor = ({property}) =>{
                                     onChange={handleInpChange}
                                     className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
                                     // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                    placeholder="56 912323221"
+                                    placeholder="912323221"
                                 />
                       
                             </div>
@@ -281,7 +283,7 @@ const ContactRealtor = ({property}) =>{
                                 placeholder="Ingresa una breve descripción de tu interes en esta propiedad"
                             />
 
-                            <div className='tw-flex tw-flex-row tw-gap-2'>
+                            <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
                                 <button
                                 type='button' 
                                 onClick={() => handlePhraseClick('Me interesa esta propiedad, quisiera saber más por favor!')}

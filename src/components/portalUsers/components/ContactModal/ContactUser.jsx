@@ -18,7 +18,8 @@ const ContactUser = ({dataUser}) =>{
     message: ""
   });
 
-  const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
+//   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
+  const phoneRegex = /^(0?9\d{8})$/;
 
   const handleInputChange = (e) => {
     const inputData = { ...formData, [e.target.name]: e.target.value };
@@ -27,11 +28,11 @@ const ContactUser = ({dataUser}) =>{
 
   const handleInpChange = (e) => {
     const { name, value } = e.target;
-  
+
     if (name === "phone" && !phoneRegex.test(value)) {
       setErrorMsg({
         ...errorMsg,
-        phone: 'Número de teléfono inválido',
+        phone: 'Error al ingresar número de celular, debe comenzar con 9 acompañado de 8 digitos',
       });
     } else {
       setErrorMsg({
@@ -73,7 +74,7 @@ const ContactUser = ({dataUser}) =>{
           theme: 'light',
         });
       };
-    
+
       /* ToastMessage : Error */
       const showToastErrorMsg = (msg) => {
         toast.error(msg, {
@@ -176,7 +177,7 @@ const ContactUser = ({dataUser}) =>{
                                     // className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                     placeholder="Ingresa tu nombre"
                                 />
-                          
+
                             </div>
                             <div className="tw-relative tw-mb-2 tw-mt-6 tw-w-full">
                                 <label
@@ -196,7 +197,7 @@ const ContactUser = ({dataUser}) =>{
                                     // className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                     placeholder="Ingresa tu apellido"
                                 />
-                           
+
                             </div>
                         </div>
                         <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
@@ -218,7 +219,7 @@ const ContactUser = ({dataUser}) =>{
                                     // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                     placeholder="Correo electrónico"
                                 />
-                         
+
                             </div>
                             <div className="tw-relative tw-mb-4 tw-mt-2 tw-w-full">
                                 <label
@@ -229,6 +230,7 @@ const ContactUser = ({dataUser}) =>{
                                 </label>
                                 <input
                                     autoComplete="off"
+                                    maxLength={9}
                                     id="phone"
                                     name="phone"
                                     type="tel"
@@ -236,9 +238,9 @@ const ContactUser = ({dataUser}) =>{
                                     onChange={handleInpChange}
                                     className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
                                     // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                    placeholder="56 912323221"
+                                    placeholder="912323221"
                                 />
-                      
+
                             </div>
                         </div>
                         <div className="tw-relative tw-mb-4 tw-mt-2">
@@ -259,7 +261,7 @@ const ContactUser = ({dataUser}) =>{
                                 // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
                                 placeholder="Asunto"
                             />
-                  
+
                         </div>
                         <div className="tw-relative tw-mb-4 tw-mt-2">
                             <label
@@ -281,21 +283,21 @@ const ContactUser = ({dataUser}) =>{
                                 placeholder="Ingresa o elige una breve descripción para contactar"
                             />
 
-                            <div className='tw-flex tw-flex-row tw-gap-2'>
+                            <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
                                 <button
-                                type='button' 
+                                type='button'
                                 onClick={() => handlePhraseClick('Muy buenas, necesito asesoría sobre arriendo / venta')}
                                 className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
                                     Muy buenas, necesito asesoría sobre arriendo / venta
                                 </button>
-                                <button 
-                                type='button' 
+                                <button
+                                type='button'
                                 onClick={() => handlePhraseClick('Quisiera saber más sobre arriendo!')}
                                 className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
                                      Quisiera saber más sobre arriendo!
                                 </button>
-                                <button 
-                                type='button' 
+                                <button
+                                type='button'
                                 onClick={() => handlePhraseClick('Estoy interesado en una asesoria, necesito vender rápido.')}
                                 className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
                                     Estoy interesado en una asesoria, necesito vender rápido.

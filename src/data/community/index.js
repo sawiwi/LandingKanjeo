@@ -58,15 +58,15 @@ export const contentSlickCommunity = [
   ]
 
   export const contentSecondCardCommunity = [
-    {
-      id:1,
-      imgCard: CardImgFive,
-      subheading:'Nuevas oportunidades',
-      headings: {first:'Oportunidad de clientes', second:''},
-      texts:'Encuentra nuevas oportunidades de clientes',
-      href:'' ,
-      href2:'' 
-    },
+    // {
+    //   id:1,
+    //   imgCard: CardImgFive,
+    //   subheading:'Nuevas oportunidades',
+    //   headings: {first:'Oportunidad de clientes', second:''},
+    //   texts:'Encuentra nuevas oportunidades de clientes',
+    //   href:'' ,
+    //   href2:'' 
+    // },
     {
       id:2,
       imgCard:CardImgThree,
