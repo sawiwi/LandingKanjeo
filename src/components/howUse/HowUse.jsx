@@ -20,23 +20,22 @@ const HowUse = () => {
                         <article className='tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-2 lg:tw-h-48 tw-mb-2 2xl:tw-mb-4 tw-mt-6 tw-cursor-pointer hover:tw-text-secondary tw-duration-200'>
                                 <a href={item.href} target="_blank" rel="noreferrer" alt="" className="tw-w-full tw-object-cover tw-object-right tw-h-56 xl:tw-h-80 tw-rounded-xl hover:tw-scale-105 tw-duration-500">
                                     {/* <img src={item.imgCard} alt="" loading="lazy" className="tw-object-cover tw-object-right tw-w-full tw-h-56 xl:tw-h-80 tw-rounded-xl hover:tw-scale-105 tw-duration-500" /> */}
-                                    <iframe width="670" 
+                                    {/* <iframe width="670" 
                                     height="385" 
                                     src="https://www.youtube.com/embed/hjLuu0ysbcQ?autoplay=1;si=UEJV13BuOEMqF9QL&amp;start=2" 
                                     title="YouTube video player" 
                                     frameborder="0" 
                                     allow="accelerometer; autoplay; clipboard-write; gyroscope; web-share" 
-                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                    {/* <iframe 
+                                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> */}
+                                    <iframe 
                                     width="670" 
-                                    height="385"
-                                    src="https://www.youtube.com/embed/ZqX36VwzvhY?autoplay=1;si=bzYxzlXdcKwzwNAU&amp;start=2" 
+                                    height="385" 
+                                    src="https://www.youtube.com/embed/fBgui97XU7w?autoplay=1;si=KXZq4GOp2TyF6X-J;start=2" 
                                     title="YouTube video player" 
                                     frameborder="0" 
-                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                     referrerpolicy="strict-origin-when-cross-origin" 
-                                    allowfullscreen>
-                                    </iframe> */}
+                                    allowfullscreen></iframe>
                              
                                 <div className="tw-block tw-mt-4 xl:tw-mt-2">
                                     <small className="tw-mt-2 lg:tw-mt-4 tw-text-secondary">{item.subheading}</small>
