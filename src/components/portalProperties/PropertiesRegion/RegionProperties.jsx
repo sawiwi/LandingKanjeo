@@ -191,7 +191,7 @@ const FilterRegionsProperties = () =>{
 
     return(
         <>
-            <div className="tw-flex tw-justify-center tw-my-10 md:tw-mt-14 tw-mx-2 2xl:tw-mx-32">
+            <div className="tw-flex tw-justify-center tw-my-6 sm:tw-my-10 tw-mt-16 md:tw-mt-14 tw-mx-2 2xl:tw-mx-32">
                     <h2 className="tw-text-gray-700 tw-text-2xl tw-text-center md:tw-text-start md:tw-text-2xl tw-font-medium">Regiones donde más se hacen canjes</h2>
                     </div>
                     <div className="tw-grid tw-grid-cols-2 xl:tw-flex xl:tw-flex-row xl:tw-justify-center tw-mt-8 tw-my-6 tw-mb-8 tw-mx-8 md:tw-mx-32 tw-h-full md:tw-h-40 tw-gap-6"> 

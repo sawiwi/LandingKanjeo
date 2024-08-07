@@ -50,15 +50,15 @@ const PortalProperty = () =>{
                 </div>
      
                 {/* BANNER */}
-                <div>
-                    <div className="tw-hidden sm:tw-visible sm:tw-flex tw-mt-12 2xl:tw-mt-20 tw-my-6 2xl:tw-mx-32 tw-shadow-md tw-h-40 tw-relative">
-                        <img src={bannerImg} alt="" className="tw-absolute -tw-z-30 md:tw-left-[44.1rem] 2xl:tw-left-[45.4rem] tw-object-cover md:tw-h-40 md:tw-w-[39%] 2xl:tw-h-full 2xl:tw-w-[50%]"/>
-                        <div className=" tw-flex tw-flex-col tw-bg-secondary tw-rounded-e-full tw-text-gray-50 tw-shadow-md tw-text-center tw-p-2 tw-py-6 tw-w-[70%]">
+                <div className="tw-bg-gray-800/50 sm:tw-bg-transparent tw-h-80">
+                    <div className="tw-visible tw-flex tw-flex-col sm:tw-flex-row  tw-mb-10 sm:tw-mt-12 2xl:tw-mt-20 tw-my-6 2xl:tw-mx-32 tw-shadow-md tw-h-40 tw-relative">
+                        <img src={bannerImg} alt="" className="tw-absolute  -tw-z-30 md:tw-left-[44.1rem] 2xl:tw-left-[45.4rem] tw-object-cover md:tw-h-40 tw-h-80 md:tw-w-[39%] 2xl:tw-h-full 2xl:tw-w-[50%]"/>
+                        <div className="tw-flex tw-flex-col sm:tw-bg-secondary tw-rounded-e-full tw-text-gray-50 tw-shadow-md tw-text-center sm:tw-p-2 tw-py-6 tw-w-full sm:tw-w-[70%]">
                             <small>Para saber más sobre corredores</small>
                             <h4 className="tw-text-3xl">Busca y contacta con excelente corredores</h4>
                             <small className="tw-font-semibold tw-text-lg">Aquí es donde encontrarás verdaderos profesionales</small>
                         </div>
-                        <div className=" tw-w-[30%] ">
+                        <div className="tw-w-full tw-justify-center sm:tw-w-[30%]">
                             <div className="tw-flex tw-justify-center md:tw-mt-8 2xl:tw-mt-7">
                                 <a href="/portal-corredores" target="_blank" rel="noreferrel" className="tw-flex tw-items-center tw-gap-2 tw-bg-secondary tw-text-gray-50 tw-rounded-md tw-p-2 tw-px-4 tw-mt-10 tw-border tw-border-secondary hover:tw-bg-gray-50 hover:tw-text-secondary hover:tw-border-secondary tw-duration-150">Buscar Corredores <MdOutlinePersonSearch/></a>
                             </div>

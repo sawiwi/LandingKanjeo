@@ -188,7 +188,7 @@ const LastProperties = () => {
                                                         <img 
                                                         src={NotFoundProp} 
                                                         alt="img-casa-not-found" 
-                                                        className="tw-h-44 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                        className="tw-h-48 tw-w-full tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
                                                         />
                                             }
                                              
@@ -252,12 +252,12 @@ const LastProperties = () => {
                                                         {item.images[0] ? <img 
                                                                 src={item.images[0]} 
                                                                 alt="img-casa" 
-                                                                className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                                                className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
                                                                 /> : 
                                                             <img 
                                                             src={NotFoundProp} 
                                                             alt="img-casa-not-found" 
-                                                            className="tw-h-44 tw-w-52 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-2 xl:tw-mx-36" 
+                                                            className="tw-h-48 tw-w-full tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-2 xl:tw-mx-36" 
                                                             />
                                                         }
                                                         <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">

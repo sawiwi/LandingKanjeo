@@ -156,10 +156,10 @@ const ContactRealtor = ({property}) =>{
                         <p>Corredor: <b>{property?.user.name || 'No se encontró nombre'} {property?.user.lastName || 'No se encontró apellido'}</b> </p>
                         <p>Email: <b>{property?.user.session.email || 'No se encontró email'}</b></p>
                     </div>
-                <div className='tw-flex tw-justify-center tw-mx-24'>
+                <div className='tw-flex tw-justify-center sm:tw-mx-24'>
                     <form onSubmit={onFormSubmit} className='tw-w-full'>
                         <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
-                            <div className="tw-relative tw-mb-2 tw-mt-6 tw-w-full">
+                            <div className="tw-relative tw-mb-2 tw-mt-4 sm:tw-mt-6 tw-w-full">
                                 <label
                                     htmlFor="name"
                                     className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
@@ -179,7 +179,7 @@ const ContactRealtor = ({property}) =>{
                                 />
                           
                             </div>
-                            <div className="tw-relative tw-mb-2 tw-mt-6 tw-w-full">
+                            <div className="tw-relative tw-mb-2 tw-mt-2 sm:tw-mt-6 tw-w-full">
                                 <label
                                     htmlFor="lastName"
                                     className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
@@ -201,7 +201,7 @@ const ContactRealtor = ({property}) =>{
                             </div>
                         </div>
                         <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
-                            <div className="tw-relative tw-mb-4 tw-mt-2 tw-w-full">
+                            <div className="tw-relative tw-mb-4 tw-mt-2 sm:tw-mt-6 tw-w-full">
                                 <label
                                     htmlFor="email"
                                     className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
@@ -221,7 +221,7 @@ const ContactRealtor = ({property}) =>{
                                 />
                          
                             </div>
-                            <div className="tw-relative tw-mb-4 tw-mt-2 tw-w-full">
+                            <div className="tw-relative tw-mb-4 tw-mt-2 sm:tw-mt-6 tw-w-full">
                                 <label
                                     htmlFor="phone"
                                     className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
@@ -243,7 +243,7 @@ const ContactRealtor = ({property}) =>{
                       
                             </div>
                         </div>
-                        <div className="tw-relative tw-mb-4 tw-mt-2">
+                        <div className="tw-relative tw-mb-4 tw-mt-2 sm:tw-mt-6">
                             <label
                                 htmlFor="subject"
                                 className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
