@@ -126,16 +126,16 @@ const ProfileRealtor = () => {
                                         <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Dónde Trabajo</h3>
                                         <ul className='tw-flex tw-flex-col tw-gap-2'>
                                             <li className='mb-2'> 
-                                                <strong>País:</strong>{' '}<span>{user?.addressId || 'Chile'}</span>    
+                                                <strong>País:</strong>{' '}<span>{user?.address?.country.name || 'Chile'}</span>    
                                             </li>
                                             <li className='mb-2'> 
-                                                <strong>Región:</strong>{' '}<span>{user?.addressId || 'No encontramos Región'}</span>    
+                                                <strong>Región:</strong>{' '}<span>{user?.address?.internalDbCity.name || 'No encontramos Región'}</span>    
                                             </li>
                                             <li className='mb-2'> 
-                                                <strong>Comuna:</strong>{' '}<span>{user?.addressId || 'No encontramos Comuna'}</span>    
+                                                <strong>Comuna:</strong>{' '}<span>{user?.address?.internalDbState.name || 'No encontramos Comuna'}</span>    
                                             </li>
                                             <li className='mb-2'> 
-                                                <strong>Dirección:</strong>{' '}<span>{user?.addressId || 'No encontramos dirección'}</span>    
+                                                <strong>Dirección:</strong>{' '}<span>{user?.address?.street || 'No encontramos dirección'}</span>    
                                             </li>
                                         </ul>
                                     </div>  
