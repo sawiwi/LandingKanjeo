@@ -14,7 +14,6 @@ import { FaRegUserCircle } from "react-icons/fa";
 
 
 
-
 const PortalRealtor = () =>{
     const [openDetail, setOpenDetail] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -112,7 +111,9 @@ const PortalRealtor = () =>{
 
             <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2  tw-gap-6 2xl:tw-gap-2 tw-mt-4">
                 <div>
-                <TableRealtors columnsData={columns} dataRealtor={users} />
+                <TableRealtors 
+                  columnsData={columns} 
+                  dataRealtor={users} />
                 </div>
                 <div className="tw-relative tw-mt-20">
                     <div className="tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[440px] ">
