@@ -8,6 +8,9 @@ import { MdOutlinePersonSearch } from "react-icons/md";
 import { IoGridOutline } from "react-icons/io5";
 import { TbLayoutList } from "react-icons/tb";
 
+import { SelectsContext } from "../context/selects/SelectsContext";
+import SelectsProvider from "../context/selects/SelectsProvider";
+import { useContext } from "react";
 
 import bannerImg from '../assets/img/Comunidad/corredores.webp'
 import LastProperties from "../components/portalProperties/LastProperties/LastProperties";
@@ -18,6 +21,18 @@ import FilterRegionsProperties from "../components/portalProperties/PropertiesRe
 
 
 const PortalProperty = () =>{
+    const {contextData} = useContext(SelectsContext);
+    const {      
+        regions,
+        communes,
+        stateId,
+        setStateId,
+        operationType,
+        typeOfProperty,
+        selectedSelects,
+        setSelectedSelects,
+    } = contextData;
+
     const fadeInUp = keyframes`
     0% {
         opacity: 0;
@@ -44,13 +59,24 @@ const PortalProperty = () =>{
                     subtitle="Encuentra las propiedades publicadas"
                     position="center"
                 />
-                {/* FILTROS AVANZADOS */}
+                
                 <div>
-                    <LastProperties/>
+                    <SelectsProvider>
+                        <LastProperties
+                            regions={regions}
+                            communes={communes}
+                            stateId={stateId}
+                            setStateId={setStateId}
+                            operationType={operationType} 
+                            typeOfProperty={typeOfProperty}
+                            selectedSelects={selectedSelects} 
+                            setSelectedSelects={setSelectedSelects}
+                            />
+                    </SelectsProvider>
                 </div>
      
                 {/* BANNER */}
-                <div className="tw-bg-gray-800/50 sm:tw-bg-transparent tw-h-80">
+                <div className="tw-bg-gray-800/50 sm:tw-bg-transparent tw-h-80 xl:tw-h-72 2xl:tw-h-60">
                     <div className="tw-visible tw-flex tw-flex-col sm:tw-flex-row  tw-mb-10 sm:tw-mt-12 2xl:tw-mt-20 tw-my-6 2xl:tw-mx-32 tw-shadow-md tw-h-40 tw-relative">
                         <img src={bannerImg} alt="" className="tw-absolute  -tw-z-30 md:tw-left-[44.1rem] 2xl:tw-left-[45.4rem] tw-object-cover md:tw-h-40 tw-h-80 md:tw-w-[39%] 2xl:tw-h-full 2xl:tw-w-[50%]"/>
                         <div className="tw-flex tw-flex-col sm:tw-bg-secondary tw-rounded-e-full tw-text-gray-50 tw-shadow-md tw-text-center sm:tw-p-2 tw-py-6 tw-w-full sm:tw-w-[70%]">
@@ -66,7 +92,7 @@ const PortalProperty = () =>{
                     </div>
                 </div>
            
-                {/* FILTROS REGION */}
+                {/* FILTROS REGION */} 
                 <div>
                     <FilterRegionsProperties/>
                 </div>
