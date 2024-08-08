@@ -14,7 +14,8 @@ const ContactRealtor = ({property}) =>{
     to: property?.user.session.email,
     phone: "",
     mail: "",
-    subject: "",
+    subject: property?.propertyTitle,
+    // subject: "",
     message: ""
   });
 
@@ -139,7 +140,7 @@ const ContactRealtor = ({property}) =>{
         to: property?.user.session.email,
         phone: "",
         mail: "",
-        subject: "",
+        subject: property?.propertyTitle,
         message: "",
     })
   }
@@ -252,14 +253,14 @@ const ContactRealtor = ({property}) =>{
                             </label>
                             <input
                                 autoComplete="off"
+                                disabled
                                 id="subject"
                                 name="subject"
                                 type="text"
                                 value={formData?.subject}
                                 onChange={handleInputChange}
                                 className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
-                                // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
-                                placeholder="Asunto"
+                              
                             />
                   
                         </div>

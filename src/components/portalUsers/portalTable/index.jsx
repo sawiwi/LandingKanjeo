@@ -94,7 +94,7 @@ function TableRealtors({columnsData, dataRealtor}){
             </div>
 
             
-            <div className="tw-overflow-x-auto">
+            <div className="tw-overflow-x-auto tw-h-full 2xl:tw-h-[72vh]">
             <table>
                 <thead>
                     {
