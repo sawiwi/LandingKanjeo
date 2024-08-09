@@ -10,7 +10,7 @@ const CardCommunityFour = ({renderContent}) =>{
                             </a>
                             <div className="tw-block">
                                 <small className="tw-mt-2 lg:tw-mt-4 tw-text-secondary">{item.subheading}</small>
-                                <h5 className='tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base 2xl:tw-text-xl'>{item.headings}</h5>
+                                <h5 className='tw-opacity-100 2xl:tw-font-bold tw-text-md lg:tw-text-base xl:tw-text-xl 2xl:tw-text-2xl'>{item.headings}</h5>
                                 <p className=''>{item.texts}</p>
                             </div>        
                     </article>

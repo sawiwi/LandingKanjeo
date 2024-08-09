@@ -53,7 +53,6 @@ export const contentSlickCommunity = [
       headings: 'Portal de propiedades',
       texts:'Portal inmobiliario acorde a tus necesidades', 
       href:'/portal-propiedades'
-
     },
   ]
 
@@ -81,7 +80,7 @@ export const contentSlickCommunity = [
       id:3,
       imgCard:CardImgFour,
       subheading:'Politicas y más',
-      headings: {first:'Politicas y', second:'Cookies'},
+      headings: {first:'Politicas', second:'Cookies'},
       texts:'Actualizaciones importantes', 
       href:'/politicas-de-privacidad' ,
       href2:'/politicas-de-cookies' 

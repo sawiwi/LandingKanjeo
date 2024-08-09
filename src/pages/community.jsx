@@ -36,7 +36,7 @@ const Community = () =>{
             </Section>
         </div>
         <Section className="tw-bg-gray-50 tw-h-full lg:tw-h-[90vh] 2xl:tw-h-[60vh]">
-            <h2 className='tw-text-5xl tw-font-[900] tw-w-[60%]'>GRAN COMUNIDAD, PARTICIPA, INTERCAMBIA, CRECE</h2>
+            <h2 className='tw-text-5xl tw-font-[900] tw-w-[60%] xl:tw-w-[75%] 2xl:tw-w-[65%]'>GRAN COMUNIDAD, PARTICIPA, INTERCAMBIA, CRECE</h2>
             <small className='tw-text-secondary tw-font-medium'> CANJES & COMUNIDADES</small>
                 {/* card corredores asociados, canjes */}
                     <Reveal
@@ -60,8 +60,7 @@ const Community = () =>{
                     </Reveal> 
         </Section>
         <Section className="tw-bg-gray-50 tw-h-full lg:tw-h-[60vh] 2xl:tw-h-[50vh]">
-                {/* cards como usar, productos */}
-                    
+                {/* cards como usar, productos */}                   
                     <Reveal
                         keyframes={fadeInUp}
                         delay={900}
