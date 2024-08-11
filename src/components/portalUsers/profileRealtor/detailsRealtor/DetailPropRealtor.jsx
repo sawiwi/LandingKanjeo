@@ -71,7 +71,7 @@ const DetailCantProps = ({onClose, data}) => {
                 <img
                   src={NotFoundProp}
                   alt="img-casa-not-found"
-                  className="tw-h-40 xl:tw-h-36 tw-w-full tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 2xl:tw-mx-36"
+                  className="tw-h-40 xl:tw-h-36 tw-w-full tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 2xl:tw-mx-2"
                 />
                 <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                   {property?.typeOfPropertyId || ''}
@@ -90,7 +90,7 @@ const DetailCantProps = ({onClose, data}) => {
           ))
         ) : (
           <div className="tw-shadow-lg tw-flex tw-flex-row tw-border-2 tw-h-full md:tw-h-60 xl:tw-h-full 2xl:tw-h-full md:tw-w-full tw-p-2  xl:tw-overflow-hidden 2xl:tw-p-1">
-            <div className="tw-mx-36 tw-text-center">
+            <div className="tw-mx-36 2xl:tw-mx-10 tw-text-center">
               No cuenta con propiedades activas
             </div>
           </div>
