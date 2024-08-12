@@ -15,7 +15,8 @@ const ContactUser = ({dataUser}) =>{
     phone: "",
     mail: "",
     subject: "",
-    message: ""
+    message: "",
+    title: "Portal de Corredores"
   });
 
 //   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
@@ -141,6 +142,7 @@ const ContactUser = ({dataUser}) =>{
         mail: "",
         subject: "",
         message: "",
+        title: "Portal de Corredores"
     })
   }
 

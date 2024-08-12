@@ -12,11 +12,12 @@ const ContactRealtor = ({property}) =>{
     name: "",
     lastName: "",
     to: property?.user.session.email,
+    // to: 'fabians@bidata.cl',
     phone: "",
     mail: "",
     subject: property?.propertyTitle,
-    // subject: "",
-    message: ""
+    message: "",
+    title: "Portal de Propiedades"
   });
 
 //   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
@@ -142,6 +143,7 @@ const ContactRealtor = ({property}) =>{
         mail: "",
         subject: property?.propertyTitle,
         message: "",
+        title: "Portal Propiedades"
     })
   }
 
