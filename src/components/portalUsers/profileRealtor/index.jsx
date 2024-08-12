@@ -3,7 +3,10 @@ import {Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
 
 import imgProfile from '../../../assets/img/perfil/perfil.png'
-import imgBanner from '../../../assets/img/perfil/banner.jpg'
+import imgBanner from '../../../assets/img/perfil/banner.webp'
+import imgBanner2 from '../../../assets/img/perfil/banner2.webp'
+import imgBanner3 from '../../../assets/img/perfil/banner3.webp'
+import imgBanner4 from '../../../assets/img/perfil/banner4.webp'
 import approve from '../../../assets/img/perfil/aprobar.png'
 import notApprove from '../../../assets/img/perfil/precaucion.png'
 
@@ -14,6 +17,7 @@ import ModalProfile from '../../modal/ModalContactProfile';
 import ContactProfile from '../components/ContactProfile/ContactProfile';
 import DetailPropsRealtor from './detailsRealtor/DetailPropRealtor';
 import DetailRealtors from './detailsRealtor/DetailCantRealtor';
+import RecentActivities from './detailsRealtor/RecentActivities';
 const ProfileRealtor = () => {
     const {id} = useParams();
     const [user, setUser] = useState();
@@ -36,6 +40,15 @@ const ProfileRealtor = () => {
         setOpenCantProp(false);
         console.log('Corredor abierto');
     }
+
+    const bannerImg = [imgBanner, imgBanner2, imgBanner3, imgBanner4];
+    const [backgroundBanner, setBackgroundBanner] = useState('');
+
+    useEffect(() => {
+        const randomBanner = bannerImg[Math.floor(Math.random() * bannerImg.length)];
+        setBackgroundBanner(randomBanner)
+
+    }, [bannerImg])
 
     useEffect(() => {
         const getRealtor = async () => {
@@ -84,7 +97,7 @@ const ProfileRealtor = () => {
                     {!user ? <p>Cargando Corredor...</p> : ''}
                     <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-4 tw-mt-10 md:tw-mx-16 tw-text-gray-500">
                         <div className='tw-relative tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 lg:tw-h-[460px] tw-w-full tw-rounded-md tw-mt-6 xl:tw-mt-3 tw-mb-2 xl:tw-mb-1 tw-p-2 tw-px-3'>
-                            <img src={imgBanner} className='tw-w-full tw-h-52 tw-object-cover tw-rounded-md' alt='bannerImg' />
+                            <img src={backgroundBanner} className='tw-w-full tw-h-52 tw-object-cover tw-object-center tw-rounded-md' alt='bannerImg' />
 
                             <img src={imgProfile} alt='profileImg' className='tw-absolute tw-top-32 tw-border-4 tw-border-gray-100 tw-left-10 tw-rounded-full tw-h-36 tw-w-36 tw-shadow-lg' />
                             {user?.session.accountConfirmed === true ? 
@@ -198,7 +211,7 @@ const ProfileRealtor = () => {
                         </div>
                         <div className='tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
                             <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Actividad Reciente</h3>
-                            <p className=''>{user?.resumeFile || 'No cuenta con actividades realizadas recientemente...'}</p>     
+                            <RecentActivities data={user} />
                         </div>
     
                     </div>

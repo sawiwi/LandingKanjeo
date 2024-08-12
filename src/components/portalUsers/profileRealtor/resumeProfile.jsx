@@ -1,14 +1,17 @@
 
 // import imgProfile from '../../../assets/img/perfil/perfil.png'
 import imgProfile from '../../../assets/img/perfil/perfil.png'
-import imgBanner from '../../../assets/img/perfil/banner.jpg'
+import imgBanner from '../../../assets/img/perfil/banner.webp'
+import imgBanner2 from '../../../assets/img/perfil/banner2.webp'
+import imgBanner3 from '../../../assets/img/perfil/banner3.webp'
+import imgBanner4 from '../../../assets/img/perfil/banner4.webp'
 import approve from '../../../assets/img/perfil/aprobar.png'
 
 import {Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
 
 import { IoIosArrowForward } from "react-icons/io";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ModalContact from '../../modal/ModalContact';
 import ContactUser from '../components/ContactModal/ContactUser';
 
@@ -16,6 +19,17 @@ import ContactUser from '../components/ContactModal/ContactUser';
 const ResumeProfile = ({dataRealtor}) =>{
     const [openContact, setOpenContact] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+
+
+    const bannerImg = [imgBanner, imgBanner2, imgBanner3, imgBanner4];
+    const [backgroundBanner, setBackgroundBanner] = useState('');
+
+    useEffect(() => {
+        const randomBanner = bannerImg[Math.floor(Math.random() * bannerImg.length)];
+        setBackgroundBanner(randomBanner)
+
+    }, [bannerImg])
+
 
     if (!dataRealtor) return null;
 
@@ -36,6 +50,8 @@ const ResumeProfile = ({dataRealtor}) =>{
         -webkit-transform: translateY(0);
         transform: translateY(0);
     }`;
+
+    
     return(
         <>
             <Reveal
@@ -48,7 +64,7 @@ const ResumeProfile = ({dataRealtor}) =>{
                     <h2 className="tw-font-semibold tw-text-3xl tw-text-center">Resumen ficha</h2>
                     <div className="tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-1 tw-gap-4 tw-text-gray-500">
                         <div className='tw-relative tw-h-full lg:tw-h-full tw-w-full tw-rounded-md tw-p-2 tw-px-3'>
-                            <img src={imgBanner} className='tw-w-full tw-h-52 tw-object-cover tw-rounded-md' alt='bannerImg' />
+                            <img src={backgroundBanner} className='tw-w-full tw-h-52 tw-object-cover tw-rounded-md' alt='bannerImg' />
                             <img src={imgProfile} alt='profileImg' 
                             className='tw-absolute tw-top-32 tw-border-4 tw-border-gray-100 tw-left-10 tw-rounded-full tw-h-36 tw-w-36 tw-shadow-lg' />                            
                             {dataRealtor?.session.accountConfirmed === true ? 
