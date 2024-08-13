@@ -34,7 +34,8 @@ const ExternalServices = () =>{
 
                 />
                 <div className="tw-flex tw-flex-col xl:tw-grid xl:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-2 tw-mt-4 tw-w-full ">
-                    {services.length !== 0 ? services.map((service) => (
+                    
+                    {services.length > 0 ? services.map((service) => (
                         <article key={service.id} className="tw-relative tw-shadow-md tw-rounded-md tw-p-2 tw-h-auto tw-w-full xl:tw-w-[95%] hover:tw-scale-105 tw-duration-150">
                             <div className="tw-flex tw-flex-col md:tw-flex-row tw-gap-3 tw-items-center tw-my-2 ">
                                 <img src={service.category.image || ''} 
