@@ -72,9 +72,8 @@ export const contentSlickCommunity = [
       subheading:'Servicios y más',
       headings: {first:'Servicios Externos', second:''},
       texts:'Conoce todos los servicios que tenemos.',
-      href:'',
+      href:'/servicios-externos',
       href2:'' 
-      // href:'/servicios-externos',
     },
     {
       id:3,
