@@ -95,7 +95,7 @@ const ProfileRealtor = () => {
                     triggerOnce={true}
                 >
                     {!user ? <p>Cargando Corredor...</p> : ''}
-                    <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-4 tw-mt-10 md:tw-mx-16 tw-text-gray-500">
+                    <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-4 sm:tw-mt-10 md:tw-mx-16 tw-text-gray-500">
                         <div className='tw-relative tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 lg:tw-h-[460px] tw-w-full tw-rounded-md tw-mt-6 xl:tw-mt-3 tw-mb-2 xl:tw-mb-1 tw-p-2 tw-px-3'>
                             <img src={backgroundBanner} className='tw-w-full tw-h-52 tw-object-cover tw-object-center tw-rounded-md' alt='bannerImg' />
 
