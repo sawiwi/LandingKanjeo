@@ -4,17 +4,17 @@ const RecentActivities = ({data}) =>{
     const propertiesOfRealt = data?.properties || [];
     const customerOfRealt = data?.customers || [];
     
-    // const sortedProperties = propertiesOfRealt.sort((a ,b) => {
-    //     return new Date(b.updatedAt) - new Date(a.updatedAt);
-    // })
+    const sortedProperties = propertiesOfRealt.sort((a ,b) => {
+        return new Date(b.updatedAt) - new Date(a.updatedAt);
+    })
 
     // const sortedCustomer = customerOfRealt.sort((a ,b) => {
     //     return new Date(b.updatedAt) - new Date(a.updatedAt);
     // });
 
-    const combinedArray = [...propertiesOfRealt, ...customerOfRealt].sort((a, b) => {
-        return new Date(b.updatedAt) - new Date(a.updatedAt);
-    });
+    // const combinedArray = [...propertiesOfRealt, ...customerOfRealt].sort((a, b) => {
+    //     return new Date(b.updatedAt) - new Date(a.updatedAt);
+    // });
 
 
     return(
@@ -22,7 +22,7 @@ const RecentActivities = ({data}) =>{
             {/* <div className="tw-w-[20%]"></div> */}
             <div className="tw-w-[95%] tw-p-2">
                     {
-                        combinedArray.length > 0 ? combinedArray.slice(0, 8).map(item => (
+                        sortedProperties.length > 0 ? sortedProperties.slice(0, 8).map(item => (
                             <ul key={item.id} className="tw-list-item">
                                 <li className="tw-relative tw-text-sm tw-text-[15px] sm:tw-text-md tw-mb-4 md:tw-mb-2 tw-m-1 tw-flex tw-flex-row tw-items-center tw-gap-3">
                                     <div className="">
@@ -31,10 +31,10 @@ const RecentActivities = ({data}) =>{
                                     <div className="tw-absolute tw-w-2 tw-h-44 tw-top-28 tw-left-2 xl:tw-h-12 xl:tw-left-[7px] xl:tw-top-12 xl:tw-w-1 tw-text-secondary-light tw-bg-secondary-light"></div>
                                     <div className="">
                                         <h5 className="">
-                                            {item?.propertyTitle ? "Propiedad:" : "Cliente:"}
-                                            <span> {item?.propertyTitle || item?.name + item?.lastName || ''}</span>
-                                            {/* Propiedad:
-                                            <span> {item?.propertyTitle || ''}</span>  */}
+                                            {/* {item?.propertyTitle ? "Propiedad:" : "Cliente:"}
+                                            <span> {item?.propertyTitle || item?.name + item?.lastName || ''}</span> */}
+                                            Propiedad:
+                                            <span> {item?.propertyTitle || ''}</span> 
                                         </h5>
                                         <div>
                                         <span className=''>
