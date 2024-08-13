@@ -68,24 +68,31 @@ const DetailsProperty = ({property}) =>{
                     </h3>
                     <div className=" tw-p-2 sm:tw-px-3">
                                     <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-center tw-mt-2 tw-my-4 tw-mb-12 2xl:tw-mb-4 tw-mx-14 sm:tw-mx-2 tw-w-full sm:tw-h-[110px] 2xl:tw-h-[100px] sm:tw-gap-6"> 
-                                            <div>
-                                                <div className="tw-h-32 tw-w-32 sm:tw-h-20 sm:tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
-                                                    {/* <img src={'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg'} loading='lazy' className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/> */}
-                                                    <img src={property?.images[0] ? property?.images[0] : NotFoundProp} loading='lazy' className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 tw-mx-10 sm:tw-mx-0 hover:tw-scale-105 hover:sm:tw-shadow-xl tw-duration-150" alt=""/>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="tw-h-32 tw-w-32 sm:tw-h-20 sm:tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
-                                                    {/* <img src={'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg'} loading='lazy' className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3  hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/> */}
-                                                    <img src={property?.images[1] ? property?.images[1] : NotFoundProp} loading='lazy' className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 tw-mx-10 sm:tw-mx-0  hover:tw-scale-105 hover:sm:tw-shadow-xl tw-duration-150" alt=""/>
-                                                </div>
-                                            </div>
-                                            <div>
-                                                <div className="tw-h-32 tw-w-32 sm:tw-h-20 sm:tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
-                                                    {/* <img src={'https://res.cloudinary.com/dbrhjc4o5/image/upload/v1681933697/unne-media/errors/not-found-img_pp5xj7.jpg'} loading='lazy' className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/> */}
-                                                    <img src={property?.images[2] ? property?.images[2] : NotFoundProp} loading='lazy' className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 tw-mx-10 sm:tw-mx-0 hover:tw-scale-105 hover:sm:tw-shadow-xl tw-duration-150" alt=""/>
-                                                </div>
-                                            </div> 
+                                        {property.images.length > 0 ? (
+                                                    property.images.slice(0,3).map((img) => (
+                                                        <div key={img.id}>
+                                                            <div className="tw-h-32 tw-w-32 sm:tw-h-20 sm:tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
+                                                                <img 
+                                                                src={img?.path || NotFoundProp} 
+                                                                alt={`img-${img.id}`} 
+                                                                loading='lazy' 
+                                                                className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 tw-mx-10 sm:tw-mx-0 hover:tw-scale-105 hover:sm:tw-shadow-xl tw-duration-150" />
+                                                            </div>
+                                                        </div>
+                                                
+                                                    ))
+                                                ): (
+                                                    <div>
+                                                        <div className="tw-h-32 tw-w-32 sm:tw-h-20 sm:tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
+                                                            <img 
+                                                            src={NotFoundProp} 
+                                                            alt="img-propiedad"
+                                                            loading='lazy' 
+                                                            className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 tw-mx-10 sm:tw-mx-0 hover:tw-scale-105 hover:sm:tw-shadow-xl tw-duration-150"/>
+                                                        </div>
+                                                    </div>
+                                                )
+                                            }
                                     </div>
                                     <h6 className="tw-font-medium tw-text-xl sm:tw-text-lg tw-text-center">
                                         {property?.propertyTitle || 'No cuenta con Titulo'}
@@ -97,7 +104,6 @@ const DetailsProperty = ({property}) =>{
                                         <p className="tw-grid"><b>Tipo de operación </b>{property?.typeOfOperationId}</p>
                                         <p className="tw-grid"><b>Tipo de inmueble </b>{property?.typeOfPropertyId}</p>
                                         {formatPrice(property?.currencyId, property?.propertyPrice)}
-                                        {/* <p className="tw-grid"><span>3000 UF</span>12.000.000 CLP</p> */}
                                     </div>  
                                     <div> 
                                         <h3 className="tw-text-center tw-text-lg">Características</h3>

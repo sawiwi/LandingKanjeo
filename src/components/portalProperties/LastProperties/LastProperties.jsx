@@ -258,19 +258,26 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                             <>
                                 <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-6 2xl:tw-gap-2 tw-mt-4 tw-mb-4 tw-mx-1 xl:tw-mx-12 2xl:tw-mx-32 tw-w-full xl:tw-w-[90%] 2xl:tw-w-[85%]">
                                 {filteredProperties.length > 0 ? filteredProperties.slice(0, 3).map((item) => {
+                                    // console.log('image' , item.images[0].path)
                                     return(
                                         <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[400px] 2xl:tw-h-full md:tw-w-full tw-p-2 tw-group xl:tw-overflow-hidden 2xl:tw-p-1">
                                             <div className="tw-mb-2 tw-relative">
-                                                {item.images[0] ? <img 
-                                                                src={item.images[0]} 
-                                                                alt="img-casa" 
-                                                                className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
-                                                                /> : 
-                                                            <img 
-                                                            src={NotFoundProp} 
-                                                            alt="img-casa-not-found" 
-                                                            className="tw-h-48 xl:tw-h-44 tw-w-full xl:tw-w-44 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
-                                                            />
+                                                {item.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path) ? (
+                                                        <img 
+                                                        key={item.images[0].id}
+                                                        src={item.images[0].path || NotFoundProp} 
+                                                        alt={`img-${item.images[0].id}`} 
+                                                        className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                                        />
+                                                    // console.log('image' , item.images[0].path)
+                                                   
+                                                ) :(
+                                                    <img 
+                                                        src={NotFoundProp} 
+                                                        alt="img-casa-not-found" 
+                                                        className="tw-h-48 xl:tw-h-44 tw-w-full xl:tw-w-44 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                    />
+                                                    )                                            
                                                 }
                                                 
                                                 <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">

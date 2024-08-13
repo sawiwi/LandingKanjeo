@@ -158,17 +158,22 @@ const FilterRegionsProperties = () =>{
                         className="tw-cursor-pointer tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[380px] tw-w-full tw-p-2 tw-group tw-overflow-hidden"
                     >
                         <div className="tw-mb-2 tw-relative">
-                                            {item.images[0] ? <img 
-                                                    src={item.images[0]} 
-                                                    alt="img-casa" 
-                                                    className="tw-h-64 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
-                                                    /> : 
-                                                    <img 
-                                                        src={NotFoundProp} 
-                                                        alt="img-casa-not-found" 
-                                                        className="tw-h-56 tw-w-full tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-my-3" 
-                                                    />
-                                            }
+                            {item.images.length > 0 &&  /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path)  ? (
+                                <img 
+                                key={item.images[0].id}
+                                src={item.images[0].path || NotFoundProp} 
+                                alt={`img-${item.images[0].id}`} 
+                                className="tw-h-64 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                /> 
+                            ): (
+                                <img 
+                                    src={NotFoundProp} 
+                                    alt="img-casa-not-found" 
+                                    className="tw-h-56 tw-w-full tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-my-3" 
+                                />
+                            )
+                                       
+                            }
                         </div>
                         <div>
                             <h2 className="tw-font-semibold tw-text-center tw-text-xl xl:tw-text-lg">{truncate(item?.propertyTitle, 30)}</h2>
