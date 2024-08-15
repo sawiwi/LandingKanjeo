@@ -11,7 +11,7 @@ import ProfileRealtor from '../components/portalUsers/profileRealtor';
 import PoliticaCookies from '../components/Politicas/politicasCookies';
 import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
 import ExternalServices from '../pages/externalServices';
-import ListExtServices from '../pages/ListExternalService/listExtService';
+import ListExtServices from '../components/ListExternalService/listExtService';
 import HowUse from '../components/howUse/HowUse';
 
 
@@ -80,7 +80,8 @@ export const navigationRoutes = [
   {
     id:13,
     name : 'Listado de servicos',
-    path: '/servicios-externos/listado-servicios',
+    // path: '/servicios-externos/listado-servicios',
+    path: '/servicios-externos/listado-servicios/:id',
     element:<ListExtServices/>
   },
   {
