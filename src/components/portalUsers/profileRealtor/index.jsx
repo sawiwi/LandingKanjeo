@@ -136,18 +136,18 @@ const ProfileRealtor = () => {
                                 </div>
                                 <div className='md:tw-col-span-1'>
                                         <ul className='tw-flex tw-flex-row tw-gap-2 tw-text-base md:tw-text-lg 2xl:tw-text-xl tw-mt-4 md:tw-mt-24 tw-text-center'>
-                                            <li className='tw-mb-1 tw-px-6'> 
+                                            <li className='tw-mb-1 tw-px-6 hover:tw-scale-105 tw-duration-200'> 
                                                 <button className='' onClick={openDetailProp}>
                                                     <strong>Cantidad propiedades</strong>{' '}<p>{user?.activePropertyCount || '0'}</p>    
                                                 </button>
                                             </li>
                                           
                                             <li className='tw-mb-1'> 
-                                                <button className='' 
+                                                <p className='' 
                                                 // onClick={openDetailRealtor}
                                                 >
                                                     <strong>Cantidad clientes</strong>{' '}<p>{user?.totalCustomerCount || '0'}</p>    
-                                                </button>
+                                                </p>
                                             </li>
                                         </ul>
                                         <div className='tw-flex tw-justify-end tw-mt-2 2xl:tw-mt-6 2xl:tw-mr-6'>
