@@ -14,7 +14,7 @@ const GridExtServ = ({dataServ}) => {
     };
 
     return(
-        <div className="tw-flex tw-flex-col md:tw-grid-cols-3 2xl:tw-grid-cols-4 tw-gap-4 tw-mt-12">
+        <div className="tw-relative tw-flex tw-flex-col md:tw-grid-cols-3 2xl:tw-grid-cols-4 tw-gap-4 tw-mt-12">
             {dataServ.length !== 0 ? dataServ.map((item)=>(
 
                 <article key={item.id}
@@ -45,10 +45,8 @@ const GridExtServ = ({dataServ}) => {
                         </div>   
                     ) : ('')
                 }
-            <ModalExternServices open={openResume} onClose={() => setOpenResume(false)}>
-                <div>
+            <ModalExternServices open={openResume} onClose={() => setOpenResume(false)}>           
                     <ResumeServices data={dataServ} />
-                </div>
             </ModalExternServices>
         </div>
     )
