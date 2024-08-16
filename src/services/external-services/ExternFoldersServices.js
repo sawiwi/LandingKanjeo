@@ -21,7 +21,7 @@ const ExternalFolders = {
 
     getExternServiceFolderId : async (id) => {
         const response = await api.get(`web-external-services/folders/${id}?`);
-        return response.data.data;
+        return response.data;
     },
     
 };
