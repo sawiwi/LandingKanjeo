@@ -13,8 +13,7 @@ const CardCommunityThree = ({renderContent}) =>{
                                     <small className="tw-mt-2 lg:tw-mt-4 tw-text-secondary">{item.subheading}</small>
                                     <h5 className='tw-opacity-100 xl:tw-font-bold tw-text-md lg:tw-text-base xl:tw-text-xl 2xl:tw-text-2xl'>
                                         <a className="hover:tw-underline hover:tw-underline-offset-2 tw-duration-150" href={item?.href}>{item.headings?.first}</a> 
-                                        {' y '}
-                                        <a className=" hover:tw-underline hover:tw-underline-offset-2 tw-duration-150" href={item?.href2}>{item.headings?.second || ''}</a>
+                                        <a className=" hover:tw-underline hover:tw-underline-offset-2 tw-duration-150" href={item?.href2}>{item.headings?.second || ''} </a>
                                     </h5>
                                     <p className=''>{item.texts}</p>
                                 </div>         

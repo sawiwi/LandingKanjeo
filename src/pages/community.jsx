@@ -22,9 +22,9 @@ const Community = () =>{
     }`;
     return(
         <>
-        <div className='tw-relative tw-h-[90vh] tw-w-full '>
-            <Section className="tw-bg-secondary tw-h-[65%]">
-                    <h2 className='tw-my-12 tw-mt-16 tw-text-5xl tw-text-white'>Comunidad ProCanje</h2>
+        <div className='tw-relative tw-h-[90vh] xl:tw-h-[80vh] 2xl:tw-h-[65vh] tw-w-full'>
+            <Section className="tw-bg-secondary tw-h-[65%] xl:tw-h-[70%] 2xl:tw-h-[65%]">
+                    <h2 className='tw-my-12 xl:tw-my-6 tw-mt-16 xl:tw-mt-12 tw-text-5xl tw-text-white'>Comunidad ProCanje</h2>
                     <Reveal
                         keyframes={fadeInUp}
                         delay={300}

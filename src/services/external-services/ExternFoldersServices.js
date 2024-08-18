@@ -5,8 +5,7 @@ const ExternalFolders = {
     ) => {
         const response = await api.get(`web-external-services/folders/categories?`);
         return {
-            data: response.data.data,
-            meta: response.data.meta,
+            data: response.data,
         };
     },
 

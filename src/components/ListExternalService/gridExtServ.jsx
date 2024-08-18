@@ -16,7 +16,6 @@ const GridExtServ = ({dataServ}) => {
     return(
         <div className="tw-relative tw-flex tw-flex-col md:tw-grid-cols-3 2xl:tw-grid-cols-4 tw-gap-4 tw-mt-12">
             {dataServ.length !== 0 ? dataServ.map((item)=>(
-
                 <article key={item.id}
                 onClick={() => handleOpenResume()} 
                 className="tw-flex tw-flex-col tw-justify-center tw-w-full tw-p-2 tw-relative">

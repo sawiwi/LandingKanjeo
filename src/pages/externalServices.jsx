@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 
 const ExternalServices = () =>{
     const [folders, setFolders] = useState([]);
+    const [categories, setCategories] = useState([]);
+    const [selectedCategory, setSelectedCategory] = useState("");
     const navigate = useNavigate();
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
@@ -19,6 +21,29 @@ const ExternalServices = () =>{
             setFolders(data);
         };
         servData();
+    }, []);
+
+    const handleSelectChange = (e) => {
+        setSelectedCategory(e.target.value);
+        // const {name, value} = e.target;
+        // setCategories((prev) => ({...prev, [name]: value}));
+    };
+
+    const filteredFolders = selectedCategory
+    ? folders.filter(folder => folder.category.name === selectedCategory)
+    : folders;
+
+    useEffect(() => {
+        const servCategory = async () => {
+            try {
+                const {data} = await ExternalFolders.getExternServiceCategories();
+                setCategories(data);
+               
+            } catch (error) {
+                console.error("Error fetching categories:", error);
+            }
+        };
+        servCategory();
     }, []);
     
     const handleViewService = (id) => {
@@ -32,11 +57,28 @@ const ExternalServices = () =>{
                     title="Servicios Externos"
                     subtitle="Encuentra el servicios que más necesites."
                     position="center"
-
                 />
+                {/* Seleccionar x categoria */}
+                <div className="tw-mb-4 tw-my-3 tw-w-96">
+                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
+                            <label className="tw-font-semibold tw-mb-1 tw-w-full" for="typeProperty">Categoria</label>
+                            <select
+                                id="typeCategory"
+                                name="typeCategory"
+                                value={categories.name}
+                                onChange={handleSelectChange}
+                                className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
+                            >
+                                <option value="">Seleccione una categoria</option>
+                                {categories.map((type) => (
+                                    <option key={type.id} value={type.name}>{type.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                </div>
                 <div className="tw-flex tw-flex-col xl:tw-grid xl:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-2 tw-mt-4 tw-w-full ">
-                    {folders.length !== 0 ? folders.map((service) => (
-                        <article key={service.id} className="tw-relative tw-shadow-md tw-rounded-md tw-p-2 tw-h-auto tw-w-full xl:tw-w-[95%] hover:tw-scale-105 tw-duration-150">
+                    {filteredFolders.length !== 0 ? filteredFolders.map((service) => (
+                        <article key={service.id} className="tw-relative tw-bg- tw-shadow-md tw-rounded-md tw-p-2 tw-h-auto tw-w-full xl:tw-w-[95%] hover:tw-scale-105 tw-duration-150">
                             <div className="tw-flex tw-flex-col md:tw-flex-row tw-gap-3 tw-items-center tw-my-2 ">
                                 <img src={service.category.image || ''} 
                                     alt="imagen de servicio" 
