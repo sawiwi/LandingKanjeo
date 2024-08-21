@@ -4,7 +4,7 @@ import { company, paginationTopLimit } from '../../constants/consts/company';
 const PropertiesServices = {
   getProperties: async () => {
     const response = await api.get(
-      `properties-portal?`
+      `properties-portal?limit=${paginationTopLimit.limit}`
     //   `properties-portal?page=${currentPage}&limit=${limit}`
     );
     return {
@@ -27,6 +27,14 @@ const PropertiesServices = {
     );
     return response.data;
   },
+
+
+  getStatesExchange: async () =>{
+    const response = await api.get(
+      `properties-portal/states/metadata?`
+    );
+    return response
+  }
 
   // getPropertyByIdCode: async (url) => {
   //   const response = await api.get(`${url}`);
