@@ -18,8 +18,6 @@ import imgAysen from '../../../assets/img/region/aysen.webp'
 import imgPtaArenas from '../../../assets/img/region/punta-arenas.webp'
 
 
-
-
 import {Reveal} from "react-awesome-reveal";
 import { keyframes } from '@emotion/react';
 
@@ -40,10 +38,7 @@ const FilterRegionsProperties = () =>{
     const [selectedProperty, setSelectedProperty] = useState(null);
     const { contextData } = useContext(PropertiesContext);
     const {
-        properties,
-        setProperties,
-        allProperties,
-        setAllProperties,
+        propertiesInExchange,
         page,
         setPage,
         valueUf,
@@ -104,7 +99,7 @@ const FilterRegionsProperties = () =>{
         if(moreProp){
             setRangeProp([0, 3]);
         }else{
-            setRangeProp([0 ,properties.length])
+            setRangeProp([0 ,propertiesInExchange.length])
         }
         setMoreProp(!moreProp)
     };
@@ -119,8 +114,8 @@ const FilterRegionsProperties = () =>{
             ];
         } else {
             newRange = [
-                Math.min(rangeProp[0] + upRange, properties.length - 1),
-                Math.min(rangeProp[1] + upRange, properties.length)
+                Math.min(rangeProp[0] + upRange, propertiesInExchange.length - 1),
+                Math.min(rangeProp[1] + upRange, propertiesInExchange.length)
             ];
         }
         setRangeProp(newRange);
@@ -240,8 +235,14 @@ const FilterRegionsProperties = () =>{
     };
 
     const filteredProperties = selectedRegion
-    ? properties.filter(property => property.address.state.name === selectedRegion)
-    : properties;
+    ? propertiesInExchange.filter(property => property.address.state.name === selectedRegion)
+    : propertiesInExchange;
+
+
+
+
+    console.log('propiedades sin filtradas', propertiesInExchange)
+    console.log('propiedades filtradas', filteredProperties)
 
     const fadeInUp = keyframes`
     0% {
@@ -269,8 +270,8 @@ const FilterRegionsProperties = () =>{
             </button>
             <button 
                 onClick={() => toggleMoreNext('down')}
-                className={`tw-p-2 tw-px-3 tw-rounded-full tw-border ${rangeProp[1] >= properties.length ? 'tw-opacity-25' : 'hover:tw-bg-secondary-light hover:tw-text-white tw-duration-200'}`}
-                disabled={rangeProp[1] >= properties.length}
+                className={`tw-p-2 tw-px-3 tw-rounded-full tw-border ${rangeProp[1] >= propertiesInExchange.length ? 'tw-opacity-25' : 'hover:tw-bg-secondary-light hover:tw-text-white tw-duration-200'}`}
+                disabled={rangeProp[1] >= propertiesInExchange.length}
             >
                 <FaArrowDown />
             </button>

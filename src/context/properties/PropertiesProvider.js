@@ -8,6 +8,7 @@ import { paginationTopLimit } from '../../constants/consts/company';
 
 const PropertiesProvider = ({ children }) => {
   const [properties, setProperties] = useState([]);
+  const [propertiesInExchange, setPropertiesInExchange] = useState([]);
   const [allProperties, setAllProperties] = useState([]);
   const [propertyId, setPropertyId] = useState('');
   const [page, setPage] = useState(1);
@@ -35,8 +36,7 @@ const PropertiesProvider = ({ children }) => {
   });
 
   const getProperties = async (
-    // currentPage,
-    // limit = paginationTopLimit.limit
+      // limit = paginationTopLimit.limit
   ) => {
     try {
       setNotFoundMsg('');
@@ -44,12 +44,29 @@ const PropertiesProvider = ({ children }) => {
       const { data, meta } =
         await PropertiesServices.getProperties();
       setProperties(data)
-        // pathname === '/portal-propiedades'
-        //   ? data
-        //   : pathname === '/portal-propiedades'
-      // );
-      // setHighlightedProperties(data);
-      // setTotalItems(meta.totalItems);
+      setTotalItems(meta.totalItems);
+      // setTotalPages(Math.ceil(meta.totalItems / limit)); // + 0.5
+      setNotFoundMsg(
+        data.length === 0
+          ? 'Lo sentimos, tu busqueda no coincide con nuestros registros'
+          : ''
+      );
+      setIsLoading(false);
+    } catch (error) {
+      console.log('Bad server request', error);
+    }
+  };
+
+  const getPropertiesExchange = async (
+    // limit = paginationTopLimit.limit
+  ) => {
+    try {
+      setNotFoundMsg('');
+      setIsLoading(true);
+      const { data, meta } =
+        await PropertiesServices.getPropertiesExchange();
+      setPropertiesInExchange(data)
+      setTotalItems(meta.totalItems);
       // setTotalPages(Math.ceil(meta.totalItems / limit)); // + 0.5
       setNotFoundMsg(
         data.length === 0
@@ -85,11 +102,13 @@ const PropertiesProvider = ({ children }) => {
 
   const handlePageChange = (newPage) => {
     setProperties([]);
+    setPropertiesInExchange([])
     setPage(newPage);
   };
 
   useEffect(() => {
     getProperties(page);
+    getPropertiesExchange(page);
   }, [page]);
 
   return (
@@ -105,6 +124,8 @@ const PropertiesProvider = ({ children }) => {
           // setPropertiesToShow,
           // propertiesInMap,
           setProperties,
+          propertiesInExchange,
+          setPropertiesInExchange,
           page,
           totalPages,
           totalItems,
