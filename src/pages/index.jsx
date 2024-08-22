@@ -6,8 +6,9 @@ import { Fade, Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
 import HeroText from '../components/HeroText/index.jsx';
 import ContactWsp from '../components/buttonContact/index.jsx';
-const Home = () => {
+import DataBanner from '../components/BannerHero/DataBanner.jsx';
 
+const Home = () => {
   const steps = contentPage1.content.find((item) => item.section === 'Steps');
 
   const fadeInUp = keyframes`
@@ -34,19 +35,31 @@ const Home = () => {
         contentPage="Sistema de canje, para que puedas gestionar tus propiedades a la vez que intercambias con otros corredores"
         keywords="Sistema de canje, Gestion de propiedades, Automatización de Procesos compra y venta, Seguimiento de propiedades, Herramienta de Análisis de Datos de Canje, Gestión Eficiente de Canje"
       />
+      {/* NEW HERO */}
+
+      <div className=' tw-z-50 tw-bg-gray-100'>
+        <div className='tw-relative'>
+          <ReactSlick renderContent={contentHero} />     
+        </div>
+        {/* <div className=''>
+          <Fade>
+            <HeroText/>
+          </Fade>
+        </div> */}
+      </div>
 
       {/* HERO */}
-      <div className='tw-grid tw-grid-cols-1 tw-flex-wrap-reverse lg:tw-grid-cols-2 xl:tw-grid-cols-3'>
+      {/* <div className='tw-grid tw-grid-cols-1 tw-flex-wrap-reverse lg:tw-grid-cols-2 xl:tw-grid-cols-3'>
           <div className='tw-col-span-1 xl:tw-col-span-1'>
             <Fade>
               <HeroText/>
             </Fade>
           </div>
           <div className='tw-col-span-1 xl:tw-col-span-2'>
-              {/* <ReactSlick renderContent={contentPage1} /> */}
+              {/* <ReactSlick renderContent={contentPage1} /> 
               <ReactSlick renderContent={contentHero} />
           </div>
-      </div>
+      </div> */}
 
       <ContactWsp/>
     </>

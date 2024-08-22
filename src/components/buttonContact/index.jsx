@@ -21,9 +21,9 @@ const ContactWsp = () => {
   const hoverEffect = `hover:tw-scale-105`;
   const buttonAnimate = `tw-animate-heart`;
   return (
-    <div className="tw-select-none">  
+    <div className="tw-select-none tw-group">  
       {isOpen && (
-          <div className='tw-fixed tw-bottom-9 tw-right-24 tw-rounded-md tw-w-[190px]  lg:tw-w-[200px] 2xl:tw-w-[220px] tw-h-[50px] lg:tw-h-[50px] 2xl:tw-h-[50px] tw-bg-white tw-drop-shadow-lg tw-shadow-black tw-z-30 tw-flex tw-justify-center tw-items-center hover:tw-cursor-pointer tw-transition-all '>
+          <div className='tw-fixed tw-bottom-9 tw-right-24 tw-rounded-md tw-w-[190px]  lg:tw-w-[200px] 2xl:tw-w-[220px] tw-h-[50px] lg:tw-h-[50px] 2xl:tw-h-[50px] tw-bg-white tw-opacity-30 group-hover:tw-opacity-100 tw-duration-300 tw-drop-shadow-lg tw-shadow-black tw-z-30 tw-flex tw-justify-center tw-items-center hover:tw-cursor-pointer tw-transition-all '>
             <a href={whatsappBusinessLink}
                 target='_blank'
                 rel="noopener noreferrer"
@@ -35,7 +35,7 @@ const ContactWsp = () => {
       )}
    
       <div
-        className={`tw-fixed tw-bottom-8 tw-right-8 tw-rounded-full tw-w-[60px] tw-h-[60px] tw-bg-secondary tw-drop-shadow-lg tw-shadow-black tw-z-30 tw-flex tw-justify-center tw-items-center hover:tw-cursor-pointer tw-transition-all ${hoverEffect} ${buttonAnimate}`}
+        className={`tw-fixed tw-bottom-8 tw-right-8 tw-rounded-full tw-w-[60px] tw-h-[60px] tw-bg-green-500  tw-drop-shadow-lg tw-shadow-black tw-z-30 tw-flex tw-justify-center tw-items-center hover:tw-cursor-pointer tw-transition-all ${hoverEffect} ${buttonAnimate}`}
         onClick={handleClick}
       >
         <div

@@ -211,7 +211,7 @@ export const contentHero = [
     {
       id:1,
       icon:<BiSolidUserPlus />,
-      info:'Participa en la comunidad de canjes de propiedades y corredores, registrate en nuestra página web. ',
+      info:'Registrate y participa en la comunidad de canjes de propiedades. ',
       smallInfo:'Se solicita información básica como nombre, correo electrónico y contraseña para crear una cuenta.'
     },
     {
@@ -250,7 +250,7 @@ export const contentHero = [
     {
       id:10,
       icon:<BiSolidUserPlus />,
-      info:'Participa en la comunidad de canjes de propiedades y corredores, registrate en nuestra página web. ',
+      info:'Registrate y participa en la comunidad de canjes de propiedades y corredores.',
       smallInfo:'Se solicita información básica como nombre, correo electrónico y contraseña para crear una cuenta.',
       href:'/como-funciona'
     },
@@ -261,7 +261,7 @@ export const contentHero = [
     imgHero:heroImgTwo,
     icon:'',
     headings: 'Comunidad',
-    texts:'Como es nuestra comunidad.', 
+    texts:'Cómo es nuestra comunidad.', 
     card: [
       {
         id:1,
@@ -314,7 +314,7 @@ export const contentHero = [
     imgHero: heroImgThree,
     icon:'',
     headings: 'Nosotros',
-    texts:'Quienes somos.', 
+    texts:'Quiénes somos.', 
     card: [
       {
         id:1,
