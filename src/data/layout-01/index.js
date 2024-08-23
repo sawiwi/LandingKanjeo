@@ -205,6 +205,7 @@ export const contentHero = [
     id:1,
     imgHero: heroImgOne,
     icon:<BiSolidUserPlus />,
+    urlVideo:'https://youtu.be/fBgui97XU7w?si=qpOxv4L1Or3BsIF5',
     headings: '¿Cómo funciona?',
     texts:'Nuestras soluciones hacen más agil tu negocio', 
     card: [
@@ -260,6 +261,7 @@ export const contentHero = [
     id:2,
     imgHero:heroImgTwo,
     icon:'',
+    urlVideo:'https://youtu.be/fBgui97XU7w?si=qpOxv4L1Or3BsIF5',
     headings: 'Comunidad',
     texts:'Cómo es nuestra comunidad.', 
     card: [
@@ -313,6 +315,7 @@ export const contentHero = [
     id:3,
     imgHero: heroImgThree,
     icon:'',
+    urlVideo:'https://youtu.be/fBgui97XU7w?si=qpOxv4L1Or3BsIF5',
     headings: 'Nosotros',
     texts:'Quiénes somos.', 
     card: [

@@ -24,14 +24,17 @@ const ReactSlick = ({ renderContent }) => {
   return (
     <Slider {...settings} className="tw-relative tw-w-96">
       {renderContent.length !== 0 ? renderContent.map((item) => (
-        <div key={item.id} className="tw-relative xl:tw-h-[100vh]">
+        <div key={item.id} className="tw-relative tw-h-[85vh] xl:tw-h-[100vh]">
           <img
             src={item.imgHero}
             alt="hero"
-            className="tw-bg-cover tw-object-top tw-mx-auto tw-h-[70%] xl:tw-h-[75%] tw-w-full tw-object-cover tw-bg-gray-50"
+            className="tw-bg-cover tw-object-top tw-mx-auto tw-h-[80%] sm:tw-h-[30%] xl:tw-h-[75%] tw-w-full tw-object-cover tw-bg-gray-50"
           />
-            <div key={item.id} className="tw-absolute tw-z-50 xl:tw-bottom-20 2xl:tw-bottom-32 tw-left-56 tw-text-center tw-flex tw-flex-col tw-w-[90%] md:tw-w-[70%] lg:tw-w-[70%] 2xl:tw-w-[80%] tw-mx-auto tw-justify-center tw-items-center tw-z-100 ">             
-                <button
+           <div key={item.id} className="tw-absolute tw-top-40 tw-left-8 sm:tw-left-0 sm:tw-inset-48 tw-z-50 xl:tw-bottom-20 2xl:tw-bottom-32 xl:tw-left-56 tw-text-center xl:tw-hidden tw-w-[90%] md:tw-w-[70%] lg:tw-w-[70%] 2xl:tw-w-[80%] tw-mx-auto tw-justify-center tw-items-center tw-z-100 ">             
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href={item.urlVideo}
                   className="tw-group/button tw-relative tw-inline-flex tw-items-center tw-justify-center tw-overflow-hidden tw-rounded-full tw-bg-secondary/50 hover:tw-bg-secondary tw-backdrop-blur-lg tw-px-4 tw-py-4 tw-text-base tw-font-semibold tw-text-white tw-transition-all tw-duration-500 tw-ease-in-out hover:tw-scale-110 hover:tw-shadow-xl hover:tw-shadow-secondary-light tw-border tw-border-secondary"
                   >
                   <span className="tw-text-2xl tw-font-semibold"><CiPlay1/></span>
@@ -40,7 +43,7 @@ const ReactSlick = ({ renderContent }) => {
                   >
                     <div className="tw-relative tw-h-full tw-w-10"></div>
                   </div>
-                </button>
+                </a>
               <h1 className="tw-text-white lg:tw-mt-4 2xl:tw-mt-8 tw-opacity-100 tw-font-bold tw-text-3xl 2xl:tw-text-4xl ">
                 {item.headings}
               </h1>
@@ -61,6 +64,42 @@ const ReactSlick = ({ renderContent }) => {
                   >
                   </div>
                 </a>
+            </div>
+          {/* APARECE CUANDO SUPERA EL TAMAÑO DE PANTALLA ARRIBA DE LOS XL */}
+          <div key={item.id} className="tw-hidden xl:tw-absolute tw-z-50 xl:tw-bottom-20 2xl:tw-bottom-32 xl:tw-left-56 tw-text-center xl:tw-flex  xl:tw-flex-col tw-w-[90%] md:tw-w-[70%] lg:tw-w-[70%] 2xl:tw-w-[80%] tw-mx-auto tw-justify-center tw-items-center tw-z-100 ">             
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href={item.urlVideo}
+                  className="tw-group/button tw-relative tw-inline-flex tw-items-center tw-justify-center tw-overflow-hidden tw-rounded-full tw-bg-secondary/50 hover:tw-bg-secondary tw-backdrop-blur-lg tw-px-4 tw-py-4 tw-text-base tw-font-semibold tw-text-white tw-transition-all tw-duration-500 tw-ease-in-out hover:tw-scale-110 hover:tw-shadow-xl hover:tw-shadow-secondary-light tw-border tw-border-secondary"
+                  >
+                  <span className="tw-text-2xl tw-font-semibold"><CiPlay1/></span>
+                  <div
+                    className="tw-absolute tw-inset-0 tw-flex tw-h-full tw-w-full tw-justify-center [transform:tw-skew(-13deg)_translateX(-100%)] tw-group-hover/button:tw-duration-1000 tw-group-hover/button:tw-[transform:skew(-13deg)_translateX(100%)]"
+                  >
+                    <div className="tw-relative tw-h-full tw-w-10"></div>
+                  </div>
+                </a>
+              <h1 className="tw-text-white lg:tw-mt-4 2xl:tw-mt-8 tw-opacity-100 tw-font-bold tw-text-3xl 2xl:tw-text-4xl ">
+                {item.headings}
+              </h1>
+              <p className="tw-text-white tw-opacity-100 tw-font-light tw-text-md md:tw-text-xl tw-mt-2 tw-mb-2">
+                {item.texts}
+              </p>
+              <a   
+                  target='_blank'
+                  rel='noreferrer'
+                  href={'https://procanje.app/sign-in'}
+                  className="2xl:tw-my-4 tw-group/button tw-relative tw-inline-flex tw-items-center tw-justify-center tw-overflow-hidden tw-rounded-md tw-bg-secondary-light tw-backdrop-blur-lg tw-px-6 tw-py-2 tw-text-base tw-text-white tw-transition-all tw-duration-500 tw-ease-in-out hover:tw-scale-110 hover:tw-shadow-xl hover:tw-shadow-secondary-light tw-border tw-border-secondary"
+                  >
+                  <span className="tw-text-lg">
+                      Unirse
+                  </span>
+                  <div
+                    className="tw-absolute tw-inset-0 tw-flex tw-h-full tw-w-full tw-justify-center [transform:tw-skew(-13deg)_translateX(-100%)] tw-group-hover/button:tw-duration-1000 tw-group-hover/button:tw-[transform:skew(-13deg)_translateX(100%)]"
+                  >
+                  </div>
+              </a>
               <div className="tw-flex tw-flex-row lg:tw-mt-2 2xl:tw-mt-4 tw-gap-4 2xl:tw-gap-6">
                 <div className='tw-flex tw-flex-row tw-gap-5 lg:tw-col-span-1 xl:tw-col-span-2 2xl:tw-col-span-1 lg:tw-mt-12 2xl:tw-mt-16'>
                   <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 tw-text-secondary lg:tw-h-44 lg:tw-w-[190px] 2xl:tw-h-48 2xl:tw-w-[240px] tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-gray-50 tw-duration-200 tw-rounded-md'>
@@ -89,11 +128,11 @@ const ReactSlick = ({ renderContent }) => {
                   </article>
                 </div>
               </div>
-            </div>
+          </div>
     
           <DataBanner/>
 
-          <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full md:tw-h-[75%] xl:tw-h-[75%] 2xl:tw-h-[75%] tw-bg-black tw-opacity-60"></div>
+          <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full sm:tw-h-[92.5%] xl:tw-h-[75%] 2xl:tw-h-[75%] tw-bg-black tw-opacity-60"></div>
         </div>
       )): ''}
     </Slider>
