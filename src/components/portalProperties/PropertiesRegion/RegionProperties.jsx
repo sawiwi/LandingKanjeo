@@ -147,26 +147,14 @@ const FilterRegionsProperties = () =>{
         switch (region) {
             case 'Arica y Parinacota':
             case 'Arica':
-                // responseImg = 
-                // {   img: imgArica,
-                //     name:'Arica'
-                // };
                 responseImg = imgArica
 
                 break;
             case 'Tarapacá':
-                // responseImg =  {   
-                //     img: imgTarapaca,
-                //     name:'Tarapacá'
-                // };
                 responseImg = imgTarapaca
 
                 break;
             case 'Antofagasta':
-                // responseImg =  {   
-                //     img: imgAntofagasta,
-                //     name:'Antofagasta'
-                // };
                 responseImg = imgAntofagasta
 
                 break;
@@ -177,10 +165,6 @@ const FilterRegionsProperties = () =>{
                 responseImg = imgAtacama;
                 break;
             case 'Coquimbo':
-                // responseImg =  {   
-                //     img: imgCoquimbo,
-                //     name:'Coquimbo'
-                // };
                 responseImg = imgCoquimbo
                 break;
             case 'La Serena':
@@ -191,10 +175,6 @@ const FilterRegionsProperties = () =>{
                 break;
             case 'Metropolitana de Santiago':
             case 'Santiago':
-                // responseImg =  {   
-                //     img: imgSantiago,
-                //     name:'Santiago'
-                // };
                 responseImg = imgSantiago
                 break;
             case 'Rancagua':
@@ -238,12 +218,6 @@ const FilterRegionsProperties = () =>{
     ? propertiesInExchange.filter(property => property.address.state.name === selectedRegion)
     : propertiesInExchange;
 
-
-
-
-    console.log('propiedades sin filtradas', propertiesInExchange)
-    console.log('propiedades filtradas', filteredProperties)
-
     const fadeInUp = keyframes`
     0% {
         opacity: 0;
@@ -277,8 +251,6 @@ const FilterRegionsProperties = () =>{
             </button>
         </div>
     );
-
-    console.log('propiedades filtradas', filteredProperties)
 
     const renderProperties = () => (
         <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-6 2xl:tw-gap-2 tw-mt-2 tw-my-3 tw-mx-3 2xl:tw-mx-32">
@@ -352,24 +324,6 @@ const FilterRegionsProperties = () =>{
                             <div className="tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-36 2xl:tw-w-36 tw-my-5 tw-text-center">
                            <small className="tw-font-semibold tw-text-lg tw-mb-5 tw-text-gray-600">{region}</small>
                                 <img src={responseImg} className="tw-object-cover tw-cursor-pointer tw-rounded-full tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-36 2xl:tw-w-36 tw-my-5 tw-text-center">
-                                <small className="tw-font-semibold tw-text-lg tw-mb-5 tw-text-gray-600">{region}</small>
-                                <img src={responseImg} className="tw-object-cover tw-cursor-pointer tw-rounded-full tw-h-full tw-w-full tw-my-3  hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/>
-                            </div>
-                        </div>
-                        <div>
-                            <div className="tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-36 2xl:tw-w-36 tw-my-5 tw-text-center">
-                                <small className="tw-font-semibold tw-text-lg tw-mb-5 tw-text-gray-600">La Serena</small>
-                                <img src={responseImg} className="tw-object-cover tw-cursor-pointer tw-rounded-full tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/>
-                            </div>
-                        </div>
-                        <div>
-                        <div className="tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-36 2xl:tw-w-36 tw-my-5 tw-text-center">  
-                                <small className="tw-font-semibold tw-text-lg tw-mb-5 tw-text-gray-600">Iquique</small>
-                                <img src={imgIquique} className="tw-object-cover tw-cursor-pointer tw-rounded-full tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/>
                             </div>
                         </div> */}
                     

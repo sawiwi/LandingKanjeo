@@ -20,6 +20,7 @@ const ResumeProfile = ({dataRealtor}) =>{
     const [openContact, setOpenContact] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
 
+    
 
     const bannerImg = [imgBanner, imgBanner2, imgBanner3, imgBanner4];
     const [backgroundBanner, setBackgroundBanner] = useState('');
@@ -97,6 +98,17 @@ const ResumeProfile = ({dataRealtor}) =>{
                                                    <strong>Página web:</strong>{' '}<span>{dataRealtor?.webPage || 'No cuenta con página web'}</span>
                                                 </> }
                                             </li>
+                                            <li className='mb-1'> 
+                                                {dataRealtor?.externalLink ? <>
+                                                    <strong>Propiedad en portal:</strong>{' '}<a href={'https://'+dataRealtor.externalLink} alt="" className='' target='_blank' rel='noreferrer' >
+                                                        <span>{dataRealtor?.externalLink}</span>
+                                                    </a> 
+                                                </>      
+                                                : <>
+                                                   <strong>Propiedad en portal:</strong>{' '}<span>{dataRealtor?.externalLink || 'No cuenta con propiedad en portal'}</span>
+                                                </> }
+                                            </li>
+                                            
                                         </ul>
                                 </div>
                                 <div className='tw-w-full md:tw-w-[48%]'>

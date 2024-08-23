@@ -96,7 +96,7 @@ const ProfileRealtor = () => {
                 >
                     {!user ? <p>Cargando Corredor...</p> : ''}
                     <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-4 sm:tw-mt-10 md:tw-mx-16 tw-text-gray-500">
-                        <div className='tw-relative tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 lg:tw-h-[460px] tw-w-full tw-rounded-md tw-mt-6 xl:tw-mt-3 tw-mb-2 xl:tw-mb-1 tw-p-2 tw-px-3'>
+                        <div className='tw-relative tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 lg:tw-h-[460px] 2xl:tw-h-[480px] tw-w-full tw-rounded-md tw-mt-6 xl:tw-mt-3 tw-mb-2 2xl:tw-mb-0 tw-p-2 tw-px-3'>
                             <img src={backgroundBanner} className='tw-w-full tw-h-52 tw-object-cover tw-object-center tw-rounded-md' alt='bannerImg' />
 
                             <img src={imgProfile} alt='profileImg' className='tw-absolute tw-top-32 tw-border-4 tw-border-gray-100 tw-left-10 tw-rounded-full tw-h-36 tw-w-36 tw-shadow-lg' />
@@ -113,7 +113,7 @@ const ProfileRealtor = () => {
                             <div className='tw-mx-3 tw-flex tw-flex-col md:tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2'>
                                 <div className='md:tw-col-span-2'>
                                     <h5 className='tw-text-3xl tw-text-gray-600 tw-mt-16'>{user?.name || 'No hay nombre'} {user?.lastName || 'No hay apellido'}</h5>
-                                    <small className=''>Igniero comercial / {user?.session.rol.name || 'Corredor'} de inmuebles</small>
+                                    <small className=''>Ingeniero comercial / {user?.session.rol.name || 'Corredor'} de inmuebles</small>
                                         <ul className='tw-flex tw-flex-col tw-gap-2 tw-text-base tw-mt-2'>
                                             <li className='mb-1'> 
                                                 <strong>Teléfono:</strong>{' '}<span>{user?.phone || 'Sin número'}</span>    
@@ -130,7 +130,16 @@ const ProfileRealtor = () => {
                                                 : <>
                                                      <strong>Página web:</strong>{' '}<span>{user?.webPage || 'No cuenta con página web'}</span>
                                                 </> }
-                                            
+                                            </li>
+                                            <li className='mb-1'>
+                                                {user?.externalLink ? <>
+                                                    <strong>Propiedad en portal:</strong>{' '}<a href={'https://'+user?.externalLink} target='_blank' rel='noreferrer' alt="" className='' >
+                                                        <span>{user?.externalLink}</span>
+                                                    </a> 
+                                                </>      
+                                                : <>
+                                                     <strong>Propiedad en portal:</strong>{' '}<span>{user?.externalLink || 'No cuenta con Propiedad en portal'}</span>
+                                                </> }
                                             </li>
                                         </ul>
                                 </div>
@@ -182,7 +191,7 @@ const ProfileRealtor = () => {
                                 <DetailRealtors data={user} onClose={() => setOpenCantRealtor(false)} /> 
                             </Reveal>: ''
                         } */}
-                        <div className='tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2 tw-h-full tw-mt-6'>
+                        <div className='tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2 tw-h-full tw-mt-6 xl:tw-mt-1'>
                                 <div className='tw-col-span-2 tw-mb-2'>
                                     <div className='tw-shadow-lg tw-bg-white tw-h-56 md:tw-h-64 2xl:tw-h-56 tw-w-full tw-rounded-md tw-p-4 tw-px-5 tw-overflow-hidden'>
                                         <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Sobre Mi</h3>
