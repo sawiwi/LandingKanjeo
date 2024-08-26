@@ -21,6 +21,7 @@ import imgPtaArenas from '../../../assets/img/region/punta-arenas.webp'
 import {Reveal} from "react-awesome-reveal";
 import { keyframes } from '@emotion/react';
 
+import { MdCancel } from "react-icons/md";
 import Modal from '../../modal/Modal'
 import { useState, useContext, useEffect } from 'react'
 import ModalLastProperties from '../LastProperties/components/ModalLastProperties'
@@ -118,6 +119,11 @@ const FilterRegionsProperties = () =>{
                 Math.min(rangeProp[1] + upRange, propertiesInExchange.length)
             ];
         }
+
+        if (newRange[1] > rangeProp[1]) {
+            newRange[1] = Math.min(newRange[0] + upRange, propertiesInExchange.length);
+        }
+
         setRangeProp(newRange);
     };
 
@@ -214,6 +220,12 @@ const FilterRegionsProperties = () =>{
         setSelectedRegion(region);
     };
 
+    const handleRegionReset = (region) => {
+        if(selectedRegion === region){
+            setSelectedRegion(null)
+        }
+    }
+
     const filteredProperties = selectedRegion
     ? propertiesInExchange.filter(property => property.address.state.name === selectedRegion)
     : propertiesInExchange;
@@ -308,25 +320,27 @@ const FilterRegionsProperties = () =>{
             </div>     
                     <div className="tw-grid tw-grid-cols-2 xl:tw-flex xl:tw-flex-row xl:tw-justify-center tw-mt-8 tw-my-6 tw-mb-8 tw-mx-8 md:tw-mx-32 tw-h-full md:tw-h-40 tw-gap-6 xl:tw-gap-12"> 
                         {regionImgs.map((item, idx) => (
-                            <div key={idx}>
-                                    <div className="tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-40 2xl:tw-w-40 tw-my-5 tw-text-center">
+                            <div key={idx} className=''>
+                                    <div className="tw-relative tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-40 2xl:tw-w-40 tw-my-5 tw-text-center">
                                         <small className="tw-font-semibold tw-text-lg tw-mb-5 tw-text-gray-600">{item.region}</small>
                                             <img onClick={() => handleRegionClick(item.region)} 
                                             src={item.img} 
                                             className="tw-object-cover tw-cursor-pointer tw-rounded-full tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" 
                                             alt={`img-${item.region}`}/>
+                                            {
+                                                selectedRegion === item.region  && ( <div
+                                                onClick={() => handleRegionReset(item.region)} 
+                                                className='tw-absolute tw-top-12 tw-right-0 tw-cursor-pointer tw-bg-white tw-text-gray-700 tw-text-3xl tw-rounded-full tw-z-50'>
+                                                    <MdCancel />
+                                                </div>
+                                            )}
+                                        
                                     </div>
+                              
                             </div>
                             )
                         )}
-                    </div>
-                        {/* <div>
-                            <div className="tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-36 2xl:tw-w-36 tw-my-5 tw-text-center">
-                           <small className="tw-font-semibold tw-text-lg tw-mb-5 tw-text-gray-600">{region}</small>
-                                <img src={responseImg} className="tw-object-cover tw-cursor-pointer tw-rounded-full tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" alt=""/>
-                            </div>
-                        </div> */}
-                    
+                    </div>                    
                     <div className="tw-flex sm:tw-justify-start tw-mt-16  tw-items-center tw-mx-3 2xl:tw-mx-32">
                         <div className="tw-flex tw-gap-2 tw-my-2">
                             <p className="tw-text-gray-500">

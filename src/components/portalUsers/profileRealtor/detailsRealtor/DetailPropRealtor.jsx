@@ -15,7 +15,7 @@ const DetailCantProps = ({onClose, data}) => {
       valueUf,
   } = contextData;
     const propertiesOfRealt = data?.properties || [];
-    const activeProperties = propertiesOfRealt.filter(property => property.isActive);
+    const activeProperties = propertiesOfRealt.filter(property => property.propertyStatus.name === 'Activa');
 
 
         //limitare los caracteres y poniendo ... en su lugar si es demasiado largo
@@ -90,11 +90,6 @@ const DetailCantProps = ({onClose, data}) => {
                                                     />
                                                     )                                            
                                                 }
-                  {/* <img
-                    src={NotFoundProp}
-                    alt="img-casa-not-found"
-                    className="tw-h-40 xl:tw-h-36 tw-w-full tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 2xl:tw-mx-2"
-                  /> */}
                   <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                     {property?.typeOfPropertyId || ''}
                   </small>
@@ -102,11 +97,22 @@ const DetailCantProps = ({onClose, data}) => {
                     {property?.typeOfOperationId || ''}
                   </small>
                 </div>
+                {
+                  property.externalLink !== null && (
+                    <div className="tw-mx-2 tw-flex tw-justify-center tw-gap-2 tw-text-sm tw-text-gray-500 tw-font-light tw-cursor-pointer">
+                      <a href={property.externalLink} target="_blank" rel="noreferrer">
+                        Url en portal publicada: {property?.externalLink || 'no tiene'}
+                      </a>
+                  </div> 
+                  )  
+                }
+       
                 <div className="tw-mx-2">
                   {formatPrice(property?.currencyId, property?.propertyPrice.d)}
                   <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(property.propertyTitle, 40)}</h2>
                   <p className="tw-text-center tw-text-sm">{truncate(property?.propertyDescription, 100)}</p>              
                 </div>
+              
 
               </article>
               </>

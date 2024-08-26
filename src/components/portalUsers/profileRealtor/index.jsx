@@ -33,12 +33,10 @@ const ProfileRealtor = () => {
     const openDetailProp = () =>{
         setOpenCantProp(true);
         setOpenCantRealtor(false);
-        console.log('Propiedad abierto');
     }
     const openDetailRealtor = () =>{
         setOpenCantRealtor(true);
         setOpenCantProp(false);
-        console.log('Corredor abierto');
     }
 
     const bannerImg = [imgBanner, imgBanner2, imgBanner3, imgBanner4];
@@ -131,7 +129,7 @@ const ProfileRealtor = () => {
                                                      <strong>Página web:</strong>{' '}<span>{user?.webPage || 'No cuenta con página web'}</span>
                                                 </> }
                                             </li>
-                                            <li className='mb-1'>
+                                            {/* <li className='mb-1'>
                                                 {user?.externalLink ? <>
                                                     <strong>Propiedad en portal:</strong>{' '}<a href={'https://'+user?.externalLink} target='_blank' rel='noreferrer' alt="" className='' >
                                                         <span>{user?.externalLink}</span>
@@ -140,7 +138,7 @@ const ProfileRealtor = () => {
                                                 : <>
                                                      <strong>Propiedad en portal:</strong>{' '}<span>{user?.externalLink || 'No cuenta con Propiedad en portal'}</span>
                                                 </> }
-                                            </li>
+                                            </li> */}
                                         </ul>
                                 </div>
                                 <div className='md:tw-col-span-1'>

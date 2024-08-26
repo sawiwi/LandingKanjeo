@@ -30,6 +30,12 @@ const DetailsProperty = ({property}) =>{
         setMoreView(!moreView)
     }
 
+
+        //limitare los caracteres y poniendo ... en su lugar si es demasiado largo
+    const truncate = (str, n) => {
+        return str?.length > n ? str.substr(0, n - 1) + '...' : str;
+    };
+
     const formatPrice = (currencyId, propertyPrice) => {
         let ufValue = propertyPrice;
         let clpValue = propertyPrice;
@@ -94,13 +100,23 @@ const DetailsProperty = ({property}) =>{
                                                 )
                                             }
                                     </div>
+                                    {
+                                        property.externalLink !== null && (
+                                        <div className="tw-mx-2 tw-flex tw-justify-center tw-gap-2 tw-text-sm tw-text-gray-500 tw-font-light tw-cursor-pointer">
+                                            <a href={property.externalLink} target="_blank" rel="noreferrer">
+                                                Url en portal publicada: {property?.externalLink || 'no tiene'}
+                                            </a>
+                                        </div> 
+                                        )
+                                    }
+                
                                     <h6 className="tw-font-medium tw-text-xl sm:tw-text-lg tw-text-center">
                                         {property?.propertyTitle || 'No cuenta con Titulo'}
                                     </h6>
                                     <p className="tw-text-base tw-text-center tw-my-3 2xl:tw-mb-2 ">
-                                        {property?.propertyDescription || 'No cuenta con una descripción'}
+                                        {truncate(property?.propertyDescription, 210 || 'No cuenta con una descripción')}
                                     </p>
-                                    <div className="text-start tw-flex tw-flex-col sm:tw-text-center sm:tw-flex sm:tw-justify-between tw-mt-2 tw-mb-4 2xl:tw-mb-2 tw-gap-2 sm:tw-mx-28">
+                                    <div className="text-start tw-flex tw-flex-col xl:tw-flex-row sm:tw-text-center sm:tw-flex sm:tw-justify-between tw-mt-2 tw-mb-4 2xl:tw-mb-2 tw-gap-2 sm:tw-mx-28">
                                         <p className="tw-grid"><b>Tipo de operación </b>{property?.typeOfOperationId}</p>
                                         <p className="tw-grid"><b>Tipo de inmueble </b>{property?.typeOfPropertyId}</p>
                                         {formatPrice(property?.currencyId, property?.propertyPrice)}

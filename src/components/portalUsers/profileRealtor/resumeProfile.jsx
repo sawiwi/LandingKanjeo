@@ -98,7 +98,7 @@ const ResumeProfile = ({dataRealtor}) =>{
                                                    <strong>Página web:</strong>{' '}<span>{dataRealtor?.webPage || 'No cuenta con página web'}</span>
                                                 </> }
                                             </li>
-                                            <li className='mb-1'> 
+                                            {/* <li className='mb-1'> 
                                                 {dataRealtor?.externalLink ? <>
                                                     <strong>Propiedad en portal:</strong>{' '}<a href={'https://'+dataRealtor.externalLink} alt="" className='' target='_blank' rel='noreferrer' >
                                                         <span>{dataRealtor?.externalLink}</span>
@@ -107,8 +107,7 @@ const ResumeProfile = ({dataRealtor}) =>{
                                                 : <>
                                                    <strong>Propiedad en portal:</strong>{' '}<span>{dataRealtor?.externalLink || 'No cuenta con propiedad en portal'}</span>
                                                 </> }
-                                            </li>
-                                            
+                                            </li> */}
                                         </ul>
                                 </div>
                                 <div className='tw-w-full md:tw-w-[48%]'>

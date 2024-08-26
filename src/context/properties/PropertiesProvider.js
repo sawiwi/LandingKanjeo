@@ -17,6 +17,7 @@ const PropertiesProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [notFoundMsg, setNotFoundMsg] = useState('');
   const [sortOrder, setSortOrder] = useState('');
+  const [limit, setLimit] = useState(paginationTopLimit.limit)
 
   const [valueUf, setValueUf] = useState('');
 
@@ -36,7 +37,6 @@ const PropertiesProvider = ({ children }) => {
   });
 
   const getProperties = async (
-      // limit = paginationTopLimit.limit
   ) => {
     try {
       setNotFoundMsg('');
@@ -59,6 +59,7 @@ const PropertiesProvider = ({ children }) => {
 
   const getPropertiesExchange = async (
     // limit = paginationTopLimit.limit
+    limit
   ) => {
     try {
       setNotFoundMsg('');
@@ -67,6 +68,7 @@ const PropertiesProvider = ({ children }) => {
         await PropertiesServices.getPropertiesExchange();
       setPropertiesInExchange(data)
       setTotalItems(meta.totalItems);
+      setLimit(limit)
       // setTotalPages(Math.ceil(meta.totalItems / limit)); // + 0.5
       setNotFoundMsg(
         data.length === 0
@@ -140,6 +142,8 @@ const PropertiesProvider = ({ children }) => {
           sortOrder,
           setSortOrder,
           valueUf,
+          limit, 
+          setLimit
         },
       }}
     >
