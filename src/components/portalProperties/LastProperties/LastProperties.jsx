@@ -35,15 +35,31 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
         properties,
         valueUf,
     } = contextData;
-  const [filteredProperties, setFilteredProperties] = useState([]);
+    const [filteredProperties, setFilteredProperties] = useState([]);
+//  const [countOpenContact, setCountOpenContact] = useState(0);
+    const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
 
+    const onOpenContact = async (id, title) =>{
+        //Contador de clix cuado abre el contacto de propiedades 
+        // setCountOpenContact(countOpenContact + 1);
 
+        //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
+        const clicked = clicDataOpenContact.find(item => item.id === id);
+        if (clicked) {
+            setClicDataOpenContact(clicDataOpenContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicDataOpenContact([...clicDataOpenContact, {id, title, clicks: 1}]);
+        }
 
-    const onOpenContact = async (id) =>{
         const property = await PropertiesServices.getProperty(id);
         setSelectedProperty(property)
         setContactOpen(true)
     }
+
+    // console.log('contador', countOpenContact)
+    // console.log('contador data', clicDataOpenContact)
 
     const onCloseContact = () =>{
         setContactOpen(false)
@@ -161,7 +177,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     return(
         <>
             {/* FILTROS AVANZADOS */}
-              <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-between tw-items-center md:tw-mx-36 2xl:tw-mx-96 tw-gap-2 tw-mt-10 tw-w-full md:tw-w-96">
+                <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-between tw-items-center md:tw-mx-36 2xl:tw-mx-96 tw-gap-2 tw-mt-10 tw-w-full md:tw-w-96">
                         <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
                             <label className="tw-font-semibold tw-mb-1 tw-w-full" for="typeProperty">Tipo de propiedad</label>
                             <select
@@ -287,8 +303,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                 </small>
                                             </div>
                                             <div className="tw-mx-2">
-                                            <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>
-                                        
+                                            <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>                                      
                                             {formatPrice(item?.currencyId, item?.propertyPrice)}
                                             
                                                 <ul className="tw-flex tw-flex-row sm:tw-flex-row tw-mx-4 xl:tw-mx-12 tw-gap-2 tw-justify-between">
@@ -314,7 +329,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                     <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                     <button 
                                                     // onClick={onOpenContact} 
-                                                    onClick={() => onOpenContact(item.id)} 
+                                                    onClick={() => onOpenContact(item.id, item.propertyTitle)} 
         
                                                     className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
                                                     >Contactar</button>
@@ -367,10 +382,8 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                             </small>
                                                         </div>
                                                         <div className="tw-mx-2">
-                                                        <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>
-                                            
-                                                        {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                                    
+                                                        <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>                                          
+                                                            {formatPrice(item?.currencyId, item?.propertyPrice)}                                       
                                                             <ul className="tw-flex tw-flex-row sm:tw-flex-row tw-mx-4 xl:tw-mx-12 tw-gap-2 tw-justify-between">
                                                                 <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
                                                                         {/* <span>Baño(s)</span> */}   
@@ -397,7 +410,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                                 <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                                 <button 
                                                                 // onClick={onOpenContact} 
-                                                                onClick={() => onOpenContact(item.id)} 
+                                                                onClick={() => onOpenContact(item.id, item.propertyTitle)} 
                     
                                                                 className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
                                                                 >Contactar</button>
@@ -440,17 +453,6 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                     />
                                                     )                                            
                                                 }
-                                                {/* {item.images[0] ? <img 
-                                                            src={item.images[0]} 
-                                                            alt="img-casa" 
-                                                            className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200" 
-                                                            /> : 
-                                                        <img 
-                                                            src={NotFoundProp} 
-                                                            alt="img-casa-not-found" 
-                                                            className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 " 
-                                                         />
-                                                } */}
                                             <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
                                                 {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                             </small>
@@ -483,7 +485,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                 <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                 <button 
                                                 // onClick={onOpenContact} 
-                                                onClick={() => onOpenContact(item.id)} 
+                                                onClick={() => onOpenContact(item.id, item.propertyTitle)} 
     
                                                 className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
                                                 >Contactar</button>
@@ -550,7 +552,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                         <div className="tw-mx-4 tw-mb-2 tw-mt-8 tw-flex tw-flex-row tw-justify-between tw-items-center">
                                                             <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                             <button                                                           
-                                                                onClick={() => onOpenContact(item.id)}                
+                                                                onClick={() => onOpenContact(item.id, item.propertyTitle)}                
                                                                 className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
                                                             >
                                                                 Contactar

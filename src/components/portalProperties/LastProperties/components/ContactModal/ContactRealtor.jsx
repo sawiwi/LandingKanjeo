@@ -11,14 +11,15 @@ const ContactRealtor = ({property}) =>{
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
-    to: property?.user.session.email,
-    // to: 'fabians@bidata.cl',
+    // to: property?.user.session.email,
+    to: 'fabians@bidata.cl',
     phone: "",
     mail: "",
     subject: property?.propertyTitle,
     message: "",
     title: "Portal de Propiedades"
   });
+  const [clicDataSendContact, setClicDataSendContact] = useState([]);
 
 //   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
     const phoneRegex = /^(0?9\d{8})$/;
@@ -28,7 +29,7 @@ const ContactRealtor = ({property}) =>{
     setFormData(inputData);
   };
 
-  const handleInpChange = (e) => {
+    const handleInpChange = (e) => {
     const { name, value } = e.target;
   
     if (name === "phone" && !phoneRegex.test(value)) {
@@ -47,7 +48,7 @@ const ContactRealtor = ({property}) =>{
         ...formData,
         [name]: value,
       });
-    };
+        };
 
     const handlePhraseClick = (phrase) => {
         setFormData({
@@ -56,17 +57,27 @@ const ContactRealtor = ({property}) =>{
         });
       };
 
+    const handleCounterClicSend = async (id, title) => {
+        const clicked = clicDataSendContact.find(item => item.id === id);
+        if (clicked) {
+            setClicDataSendContact(clicDataSendContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicDataSendContact([...clicDataSendContact, {id, title, clicks: 1}]);
+        }
+    };
+
   const [errorMsg, setErrorMsg] = useState({
     fieldsRequired: '',
     serverError: '',
     phone: '',
   });
 
-
     /* ToastMessage : Success */
     const showToastSuccessMsg = (msg) => {
         toast.success(msg, {
-          position: 'top-center',
+          position: 'bottom-center',
           autoClose: 2500,
           hideProgressBar: false,
           closeOnClick: true,
@@ -80,7 +91,7 @@ const ContactRealtor = ({property}) =>{
       /* ToastMessage : Error */
       const showToastErrorMsg = (msg) => {
         toast.error(msg, {
-          position: 'top-center',
+          position: 'bottom-center',
           autoClose: 2500,
           hideProgressBar: false,
           closeOnClick: true,
@@ -111,7 +122,7 @@ const ContactRealtor = ({property}) =>{
         if (response?.status === 200 ||  response?.status === 201 ||  response?.status === true ){
             showToastSuccessMsg(
                 'Formulario enviado con exito!'
-            )
+            );
             setLoading(false);
             resetForm();
             setErrorMsg({
@@ -307,7 +318,9 @@ const ContactRealtor = ({property}) =>{
                                 </button>
                             </div>
                         </div>
-                        <div className="tw-relative tw-my-3 tw-mt-2">
+                        <div className="tw-relative tw-my-3 tw-mt-2"
+                            onClick={() => handleCounterClicSend(property.id, property.propertyTitle)}
+                        >
                             <Button
                             type="submit"
                             className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-md tw-px-12 tw-py-2 tw-w-full"

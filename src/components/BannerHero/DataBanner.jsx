@@ -9,7 +9,7 @@ const DataBanner = () =>{
                     <ul className="tw-flex tw-justify-between tw-gap-3 xl:tw-mt-14 2xl:tw-mt-20">
                         <li className="tw-block tw-text-center">
                             <p className="tw-text-xl lg:tw-text-2xl 2xl:tw-text-4xl tw-font-semibold tw-text-gray-100">Marca N°1</p>
-                            <small className="tw-text-md lg:tw-text-base 2xl:tw-text-xl tw-font-medium tw-text-gray-100">En Kanje de propiedades</small>
+                            <small className="tw-text-md lg:tw-text-base 2xl:tw-text-xl tw-font-medium tw-text-gray-100">En Canje de propiedades</small>
                         </li>
                         <li className="tw-block tw-text-center">
                             <p className="tw-text-xl lg:tw-text-2xl 2xl:tw-text-4xl tw-font-semibold tw-text-gray-100">Contamos con</p>
@@ -17,7 +17,7 @@ const DataBanner = () =>{
                         </li>
                         <li className="tw-block tw-text-center">
                             <p className="tw-text-xl lg:tw-text-2xl 2xl:tw-text-4xl  tw-font-semibold tw-text-gray-100">Más de 500</p>
-                            <small className="tw-text-md lg:tw-text-base 2xl:tw-text-xl tw-font-medium tw-text-gray-100">Kanjes por dia realizados</small>
+                            <small className="tw-text-md lg:tw-text-base 2xl:tw-text-xl tw-font-medium tw-text-gray-100">Canjes por semana realizados</small>
                         </li>
                     </ul>
             </div>
