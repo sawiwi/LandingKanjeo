@@ -11,14 +11,14 @@ export const footerSMediaNavigation = [
     name: 'Facebook',
     href: 'https://www.facebook.com/',
     icon: <BsFacebook />,
-    color: 'tw-text-custom-facebook',
+    color: 'text-custom-facebook',
   },
   {
     id: 2,
     name: 'Instagram',
     href: 'https://www.instagram.com/procanje?igsh=MWN1aDl5d3g5ejQ1ZA==',
     icon: <BsInstagram />,
-    color: 'tw-text-custom-facebook',
+    color: 'text-custom-facebook',
   },
   // {
   //   id: 3,
@@ -26,21 +26,21 @@ export const footerSMediaNavigation = [
   //   href: 'https://twitter.com/',
   //   icon: '',
   //   iconImg: '/images/footer/logo-x.png',
-  //   color: 'tw-text-custom-facebook',
+  //   color: 'text-custom-facebook',
   // },
   {
     id: 4,
     name: 'Youtube',
     href: 'https://www.youtube.com/',
     icon: <BsYoutube />,
-    color: 'tw-text-custom-facebook',
+    color: 'text-custom-facebook',
   },
   {
     id: 5,
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/',
     icon: <BsLinkedin />,
-    color: 'tw-text-custom-facebook',
+    color: 'text-custom-facebook',
   },
 ];
 

@@ -111,7 +111,7 @@ const ProfileRealtor = () => {
     }`;
     return(
         <>
-            <Section className="tw-overflow-hidden tw-w-full xl:tw-w-[100vw]">
+            <Section className="overflow-hidden w-full xl:w-[100vw]">
                 <Reveal
                     keyframes={fadeInUp}
                     delay={500}
@@ -119,26 +119,26 @@ const ProfileRealtor = () => {
                     triggerOnce={true}
                 >
                     {!user ? <p>Cargando Corredor...</p> : ''}
-                    <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-4 sm:tw-mt-10 md:tw-mx-16 tw-text-gray-500">
-                        <div className='tw-relative tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 lg:tw-h-[460px] 2xl:tw-h-[480px] tw-w-full tw-rounded-md tw-mt-6 xl:tw-mt-3 tw-mb-2 2xl:tw-mb-0 tw-p-2 tw-px-3'>
-                            <img src={backgroundBanner} className='tw-w-full tw-h-52 tw-object-cover tw-object-center tw-rounded-md' alt='bannerImg' />
+                    <div className="grid grid-row grid-cols-1 gap-4 sm:mt-10 md:mx-16 text-gray-500">
+                        <div className='relative shadow-lg bg-white h-full md:h-96 lg:h-[460px] 2xl:h-[480px] w-full rounded-md mt-6 xl:mt-3 mb-2 2xl:mb-0 p-2 px-3'>
+                            <img src={backgroundBanner} className='w-full h-52 object-cover object-center rounded-md' alt='bannerImg' />
 
-                            <img src={imgProfile} alt='profileImg' className='tw-absolute tw-top-32 tw-border-4 tw-border-gray-100 tw-left-10 tw-rounded-full tw-h-36 tw-w-36 tw-shadow-lg' />
+                            <img src={imgProfile} alt='profileImg' className='absolute top-32 border-4 border-gray-100 left-10 rounded-full h-36 w-36 shadow-lg' />
                             {user?.session.accountConfirmed === true ? 
                                     <img src={approve} alt='ticket confirmado' 
-                                        className='tw-absolute tw-top-56 tw-left-36 tw-h-10 tw-w-10 hover:tw-scale-110 tw-duration-150'
+                                        className='absolute top-56 left-36 h-10 w-10 hover:scale-110 duration-150'
                                         title='Cuenta confirmada'/> : 
                                         ''
                                     // <img src={notApprove} alt='por confirmar'  
-                                    // className='tw-absolute tw-top-56 tw-left-36 tw-h-11 tw-w-11 hover:tw-scale-110 tw-duration-150'
+                                    // className='absolute top-56 left-36 h-11 w-11 hover:scale-110 duration-150'
                                     // title='Cuenta por confirmar' />
                                     }
                          
-                            <div className='tw-mx-3 tw-flex tw-flex-col md:tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2'>
-                                <div className='md:tw-col-span-2'>
-                                    <h5 className='tw-text-3xl tw-text-gray-600 tw-mt-16'>{user?.name || 'No hay nombre'} {user?.lastName || 'No hay apellido'}</h5>
+                            <div className='mx-3 flex flex-col md:grid grid-cols-1 lg:grid-cols-3 gap-2'>
+                                <div className='md:col-span-2'>
+                                    <h5 className='text-3xl text-gray-600 mt-16'>{user?.name || 'No hay nombre'} {user?.lastName || 'No hay apellido'}</h5>
                                     <small className=''>Ingeniero comercial / {user?.session.rol.name || 'Corredor'} de inmuebles</small>
-                                        <ul className='tw-flex tw-flex-col tw-gap-2 tw-text-base tw-mt-2'>
+                                        <ul className='flex flex-col gap-2 text-base mt-2'>
                                             <li className='mb-1'> 
                                                 <strong>Teléfono:</strong>{' '}<span>{user?.phone || 'Sin número'}</span>    
                                             </li>
@@ -167,15 +167,15 @@ const ProfileRealtor = () => {
                                             </li> */}
                                         </ul>
                                 </div>
-                                <div className='md:tw-col-span-1'>
-                                        <ul className='tw-flex tw-flex-row tw-gap-2 tw-text-base md:tw-text-lg 2xl:tw-text-xl tw-mt-4 md:tw-mt-24 tw-text-center'>
-                                            <li className='tw-mb-1 tw-px-6 hover:tw-scale-105 tw-duration-200'> 
+                                <div className='md:col-span-1'>
+                                        <ul className='flex flex-row gap-2 text-base md:text-lg 2xl:text-xl mt-4 md:mt-24 text-center'>
+                                            <li className='mb-1 px-6 hover:scale-105 duration-200'> 
                                                 <button className='' onClick={openDetailProp}>
                                                     <strong>Cantidad propiedades</strong>{' '}<p>{user?.activePropertyCount || '0'}</p>    
                                                 </button>
                                             </li>
                                           
-                                            <li className='tw-mb-1'> 
+                                            <li className='mb-1'> 
                                                 <p className='' 
                                                 // onClick={openDetailRealtor}
                                                 >
@@ -183,10 +183,10 @@ const ProfileRealtor = () => {
                                                 </p>
                                             </li>
                                         </ul>
-                                        <div className='tw-flex tw-justify-end tw-mt-2 2xl:tw-mt-6 2xl:tw-mr-6'>
+                                        <div className='flex justify-end mt-2 2xl:mt-6 2xl:mr-6'>
                                             <button  
                                                 onClick={()=> handleOpenContact(id)}
-                                                className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
+                                                className='flex items-center hover-group bg-secondary-light hover:bg-secondary duration-200 text-white p-2 rounded-lg'>
                                                 Contactar
                                             </button>
                                         </div>
@@ -215,17 +215,17 @@ const ProfileRealtor = () => {
                                 <DetailRealtors data={user} onClose={() => setOpenCantRealtor(false)} /> 
                             </Reveal>: ''
                         } */}
-                        <div className='tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-2 tw-h-full tw-mt-6 xl:tw-mt-1'>
-                                <div className='tw-col-span-2 tw-mb-2'>
-                                    <div className='tw-shadow-lg tw-bg-white tw-h-56 md:tw-h-64 2xl:tw-h-56 tw-w-full tw-rounded-md tw-p-4 tw-px-5 tw-overflow-hidden'>
-                                        <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Sobre Mi</h3>
+                        <div className='grid grid-cols-1 lg:grid-cols-3 gap-2 h-full mt-6 xl:mt-1'>
+                                <div className='col-span-2 mb-2'>
+                                    <div className='shadow-lg bg-white h-56 md:h-64 2xl:h-56 w-full rounded-md p-4 px-5 overflow-hidden'>
+                                        <h3 className='mb-2 text-xl text-gray-600'>Sobre Mi</h3>
                                         <p className=''>{user?.about || 'No cuenta con una descripción'}</p>    
                                     </div>
                                 </div>
-                                <div className='tw-col-span-1 tw-mb-2'>
-                                    <div className='tw-shadow-lg tw-bg-white tw-h-56 md:tw-h-64 2xl:tw-h-56 tw-w-full tw-rounded-md md:tw-py-2 tw-px-5 tw-overflow-hidden'>
-                                        <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Dónde Trabajo</h3>
-                                        <ul className='tw-flex tw-flex-col tw-gap-2'>
+                                <div className='col-span-1 mb-2'>
+                                    <div className='shadow-lg bg-white h-56 md:h-64 2xl:h-56 w-full rounded-md md:py-2 px-5 overflow-hidden'>
+                                        <h3 className='mb-2 text-xl text-gray-600'>Dónde Trabajo</h3>
+                                        <ul className='flex flex-col gap-2'>
                                             <li className='mb-2'> 
                                                 <strong>País:</strong>{' '}<span>{user?.address?.country.name || 'Chile'}</span>    
                                             </li>
@@ -242,8 +242,8 @@ const ProfileRealtor = () => {
                                     </div>  
                                 </div>
                         </div>
-                        <div className='tw-shadow-lg tw-bg-white tw-h-full md:tw-h-96 tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
-                            <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Actividad Reciente</h3>
+                        <div className='shadow-lg bg-white h-full md:h-96 w-full rounded-md p-4 px-5'>
+                            <h3 className='mb-2 text-xl text-gray-600'>Actividad Reciente</h3>
                             <RecentActivities data={user} />
                         </div>
     
@@ -251,7 +251,7 @@ const ProfileRealtor = () => {
                 </Reveal>
 
                 <ModalProfile open={openContact} onClose={() => setOpenContact(false)}>
-                    <div className='tw-mt-6 sm:tw-mt-2'>
+                    <div className='mt-6 sm:mt-2'>
                        <ContactProfile dataUser={user}/>
                     </div>
                 </ModalProfile>

@@ -62,7 +62,7 @@ const MapsRealtor = () => {
                       <img
                         title='marker-icon'
                         src={MarkerIcon}
-                        className='hover:tw-scale-105 tw-duration-200'
+                        className='hover:scale-105 duration-200'
                         alt="marker"
                         height={45}
                         width={45}
@@ -95,10 +95,10 @@ const MapsRealtor = () => {
                                 <div className="max-w-sm bg-white">
                                     <div>
                                       <a href="/perfil-corredor" 
-                                          className="tw-mb-1 tw-font-normal tw-text-sm tw-text-gray-700 dark:tw-text-gray-500 tw-underline-offset-1 tw-duration-150"
+                                          className="mb-1 font-normal text-sm text-gray-700 dark:text-gray-500 underline-offset-1 duration-150"
                                         >
                                          <b>Nombre:</b> {item.realtor}
-                                         <p className="tw-mb-1 tw-font-normal tw-text-gray-700 dark:tw-text-gray-500">
+                                         <p className="mb-1 font-normal text-gray-700 dark:text-gray-500">
                                             <b>Comuna:</b> {item?.ubi ?? 'No cuenta con ubicación'}
                                         </p>
                                         </a>

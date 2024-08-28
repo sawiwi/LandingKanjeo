@@ -5,30 +5,30 @@ import {BsCheck,MdOutlineArrowDropDown} from '../../icon/index.js'
 
 const listBox = ({selected,setSelected,plans}) => {
   return (
-    <div className="tw-my-7 tw-relative">
+    <div className="my-7 relative">
       <Listbox value={selected} onChange={setSelected}>
-        <div className="tw-relative tw-mt-1">
-          <Listbox.Button className="tw-relative tw-w-full tw-cursor-default tw-rounded-full tw-border tw-bg-white tw-py-2 tw-pl-4 tw-pr-10 tw-text-left tw-shadow focus:tw-outline-none focus-visible:tw-border-indigo-500 focus-visible:tw-ring-2 focus-visible:tw-ring-white focus-visible:tw-ring-opacity-75 focus-visible:tw-ring-offset-2 focus-visible:tw-ring-offset-orange-300 sm:tw-text-sm">
-            <span className="tw-block tw-truncate">{selected.name}</span>
-            <span className="tw-pointer-events-none tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-2">
+        <div className="relative mt-1">
+          <Listbox.Button className="relative w-full cursor-default rounded-full border bg-white py-2 pl-4 pr-10 text-left shadow focus:outline-none focus-visible:border-indigo-500 focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2 focus-visible:ring-offset-orange-300 sm:text-sm">
+            <span className="block truncate">{selected.name}</span>
+            <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
               <MdOutlineArrowDropDown
-                className="tw-h-5 tw-w-5 tw-text-primary"
+                className="h-5 w-5 text-primary"
                 aria-hidden="true"
               />
             </span>
           </Listbox.Button>
           <Transition
             as={Fragment}
-            leave="tw-transition tw-ease-in tw-duration-100"
-            leaveFrom="tw-opacity-100"
-            leaveTo="tw-opacity-0"
+            leave="transition ease-in duration-100"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
           >
-            <Listbox.Options className="tw-absolute tw-mt-1 tw-max-h-60 tw-w-full tw-overflow-auto tw-rounded-md tw-bg-white tw-py-1 tw-text-base tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none sm:tw-text-sm">
+            <Listbox.Options className="absolute mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
               {plans.map((element, elementIdx) => (
                 <Listbox.Option
                   key={elementIdx}
                   className={({ active }) =>
-                    `tw-relative tw-cursor-default tw-select-none tw-py-2 tw-pl-10 tw-pr-4 ${active ? 'tw-bg-primary-light/20 tw-text-amber-900' : 'tw-text-gray-900'
+                    `relative cursor-default select-none py-2 pl-10 pr-4 ${active ? 'bg-primary-light/20 text-amber-900' : 'text-gray-900'
                     }`
                   }
                   value={element}
@@ -36,14 +36,14 @@ const listBox = ({selected,setSelected,plans}) => {
                   {({ selected }) => (
                     <>
                       <span
-                        className={`tw-block tw-truncate ${selected ? 'tw-font-medium' : 'tw-font-normal'
+                        className={`block truncate ${selected ? 'font-medium' : 'font-normal'
                           }`}
                       >
                         {element.name}
                       </span>
                       {selected ? (
-                        <span className="tw-absolute tw-inset-y-0 tw-left-0 tw-flex tw-items-center tw-pl-3 tw-text-primary-light">
-                          <BsCheck className="tw-h-5 tw-w-5" aria-hidden="true" />
+                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-primary-light">
+                          <BsCheck className="h-5 w-5" aria-hidden="true" />
                         </span>
                       ) : null}
                     </>

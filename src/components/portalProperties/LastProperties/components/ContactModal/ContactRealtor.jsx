@@ -162,23 +162,23 @@ const ContactRealtor = ({property}) =>{
 
     return(
         <>
-        <div className="tw-w-full tw-justify-center">
-            <h3 className="tw-text-2xl tw-text-center tw-font-semibold tw-mb-3">
+        <div className="w-full justify-center">
+            <h3 className="text-2xl text-center font-semibold mb-3">
                 Contacta
             </h3>
-            <div className="tw-p-2 tw-px-3">
+            <div className="p-2 px-3">
                 <Fade direction="up" triggerOnce={true}>
-                <div className='tw-grid tw-text-center'>
+                <div className='grid text-center'>
                         <p>Corredor: <b>{property?.user.name || 'No se encontró nombre'} {property?.user.lastName || 'No se encontró apellido'}</b> </p>
                         <p>Email: <b>{property?.user.session.email || 'No se encontró email'}</b></p>
                     </div>
-                <div className='tw-flex tw-justify-center sm:tw-mx-24'>
-                    <form onSubmit={onFormSubmit} className='tw-w-full'>
-                        <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
-                            <div className="tw-relative tw-mb-2 tw-mt-4 sm:tw-mt-6 tw-w-full">
+                <div className='flex justify-center sm:mx-24'>
+                    <form onSubmit={onFormSubmit} className='w-full'>
+                        <div className='flex flex-col md:flex-row gap-2'>
+                            <div className="relative mb-2 mt-4 sm:mt-6 w-full">
                                 <label
                                     htmlFor="name"
-                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                    className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
                                 >
                                     Nombre
                                 </label>
@@ -189,16 +189,16 @@ const ContactRealtor = ({property}) =>{
                                     type="text"
                                     value={formData?.name}
                                     onChange={handleInputChange}
-                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
-                                    // className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    className="h-10 w-full border text-gray-800/70 text-gray-800 rounded-md p-2 text-sm"
+                                    // className="peer placeholder-transparent h-10 w-full border text-gray-800/70 rounded-md pl-2 text-gray-800 focus:outline-none focus:borer-rose-600 text-sm"
                                     placeholder="Ingresa tu nombre"
                                 />
                           
                             </div>
-                            <div className="tw-relative tw-mb-2 tw-mt-2 sm:tw-mt-6 tw-w-full">
+                            <div className="relative mb-2 mt-2 sm:mt-6 w-full">
                                 <label
                                     htmlFor="lastName"
-                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                    className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
                                 >
                                     Apellido
                                 </label>
@@ -209,18 +209,18 @@ const ContactRealtor = ({property}) =>{
                                     type="text"
                                     value={formData?.lastName}
                                     onChange={handleInputChange}
-                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
-                                    // className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-rounded-md tw-pl-2 tw-text-gray-800 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    className="h-10 w-full border text-gray-800/70 text-gray-800 rounded-md p-2 text-sm"
+                                    // className="peer placeholder-transparent h-10 w-full border text-gray-800/70 rounded-md pl-2 text-gray-800 focus:outline-none focus:borer-rose-600 text-sm"
                                     placeholder="Ingresa tu apellido"
                                 />
                            
                             </div>
                         </div>
-                        <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
-                            <div className="tw-relative tw-mb-4 tw-mt-2 sm:tw-mt-6 tw-w-full">
+                        <div className='flex flex-col md:flex-row gap-2'>
+                            <div className="relative mb-4 mt-2 sm:mt-6 w-full">
                                 <label
                                     htmlFor="email"
-                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                    className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
                                 >
                                     Correo
                                 </label>
@@ -231,16 +231,16 @@ const ContactRealtor = ({property}) =>{
                                     type="email"
                                     value={formData?.mail}
                                     onChange={handleInputChange}
-                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
-                                    // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    className="h-10 w-full border text-gray-800/70 text-gray-800 rounded-md p-2 text-sm"
+                                    // className="peer placeholder-white h-10 w-full border text-gray-800/70 text-gray-800 rounded-md pl-2 focus:outline-none focus:borer-rose-600 text-sm"
                                     placeholder="Correo electrónico"
                                 />
                          
                             </div>
-                            <div className="tw-relative tw-mb-4 tw-mt-2 sm:tw-mt-6 tw-w-full">
+                            <div className="relative mb-4 mt-2 sm:mt-6 w-full">
                                 <label
                                     htmlFor="phone"
-                                    className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                    className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
                                 >
                                     N° Contacto
                                 </label>
@@ -252,17 +252,17 @@ const ContactRealtor = ({property}) =>{
                                     type="tel"
                                     value={formData?.phone}
                                     onChange={handleInpChange}
-                                    className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
-                                    // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                    className="h-10 w-full border text-gray-800/70 text-gray-800 rounded-md p-2 text-sm"
+                                    // className="peer placeholder-white h-10 w-full border text-gray-800/70 text-gray-800 rounded-md pl-2 focus:outline-none focus:borer-rose-600 text-sm"
                                     placeholder="912323221"
                                 />
                       
                             </div>
                         </div>
-                        <div className="tw-relative tw-mb-4 tw-mt-2 sm:tw-mt-6">
+                        <div className="relative mb-4 mt-2 sm:mt-6">
                             <label
                                 htmlFor="subject"
-                                className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
                             >
                                 Asunto
                             </label>
@@ -274,15 +274,15 @@ const ContactRealtor = ({property}) =>{
                                 type="text"
                                 value={formData?.subject}
                                 onChange={handleInputChange}
-                                className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
+                                className="h-10 w-full border text-gray-800/70 text-gray-800 rounded-md p-2 text-sm"
                               
                             />
                   
                         </div>
-                        <div className="tw-relative tw-mb-4 tw-mt-2">
+                        <div className="relative mb-4 mt-2">
                             <label
                                 htmlFor="message"
-                                className="tw-text-gray-800 tw-text-base tw-font-semibold xl:tw-mb-2 tw-transition-all tw-duration-300"
+                                className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
                             >
                                 Descripción
                             </label>
@@ -293,39 +293,39 @@ const ContactRealtor = ({property}) =>{
                                 type="text"
                                 rows={3}
                                 value={formData?.message}
-                                className="tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-p-2 tw-text-sm"
+                                className="h-10 w-full border text-gray-800/70 text-gray-800 rounded-md p-2 text-sm"
                                 onChange={handleInputChange}
-                                // className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-text-gray-800/70 tw-text-gray-800 tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                                // className="peer placeholder-white h-10 w-full border text-gray-800/70 text-gray-800 rounded-md pl-2 focus:outline-none focus:borer-rose-600 text-sm"
                                 placeholder="Ingresa una breve descripción de tu interes en esta propiedad"
                             />
 
-                            <div className='tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
+                            <div className='flex flex-col md:flex-row gap-2'>
                                 <button
                                 type='button' 
                                 onClick={() => handlePhraseClick('Me interesa esta propiedad, quisiera saber más por favor!')}
-                                className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
+                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
                                     Me interesa esta propiedad, quisiera saber más por favor!
                                 </button>
                                 <button 
                                 type='button' 
                                 onClick={() => handlePhraseClick('Quisiera saber más sobre esta propiedad por favor!')}
-                                className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
+                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
                                      Quisiera saber más sobre esta propiedad por favor!
                                 </button>
                                 <button 
                                 type='button' 
                                 onClick={() => handlePhraseClick('Estoy interesado, necesito más detalles por favor!')}
-                                className='tw-border tw-border-spacing-1 tw-border-gray-500 tw-p-2 tw-bg-transparent hover:tw-shadow-lg tw-duration-200 tw-rounded-lg tw-text-sm tw-text-gray-600'>
+                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
                                     Estoy interesado, necesito más detalles por favor!
                                 </button>
                             </div>
                         </div>
-                        <div className="tw-relative tw-my-3 tw-mt-2"
+                        <div className="relative my-3 mt-2"
                             onClick={() => handleCounterClicSend(property.id, property.propertyTitle)}
                         >
                             <Button
                             type="submit"
-                            className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-md tw-px-12 tw-py-2 tw-w-full"
+                            className="bg-secondary hover:bg-secondary-light text-primary rounded-md px-12 py-2 w-full"
                             >
                             {loading ? 'Enviando...' : 'Enviar'}
                             </Button>

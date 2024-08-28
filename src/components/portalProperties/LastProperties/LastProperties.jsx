@@ -57,7 +57,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     }
 
     // console.log('contador', countOpenContact)
-    console.log('contador data', clicDataOpenContact)
+    // console.log('contador data', clicDataOpenContact)
 
     const onCloseContact = () =>{
         setContactOpen(false)
@@ -105,12 +105,12 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
         }
         return (
             <div>
-                 <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                    <p className="xl:tw-text-xl">
+                 <div className="mx-4 mb-2 my-3 flex flex-row justify-between items-center">
+                    <p className="xl:text-xl">
                         <b>{parseToDecimal(ufValue)} UF</b>
                     </p>
                    
-                    <p className="xl:tw-text-xl">
+                    <p className="xl:text-xl">
                         <b>{parseToCLPCurrency(clpValue)}.-</b>
                     </p>
                 </div>
@@ -175,15 +175,15 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     return(
         <>
             {/* FILTROS AVANZADOS */}
-                <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-between tw-items-center md:tw-mx-36 2xl:tw-mx-96 tw-gap-2 tw-mt-10 tw-w-full md:tw-w-96">
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
-                            <label className="tw-font-semibold tw-mb-1 tw-w-full" for="typeProperty">Tipo de propiedad</label>
+                <div className="flex flex-col md:flex-row justify-between items-center md:mx-36 2xl:mx-96 gap-2 mt-10 w-full md:w-96">
+                        <div className="grid w-full mb-1 mx-4 md:mx-0">
+                            <label className="font-semibold mb-1 w-full" for="typeProperty">Tipo de propiedad</label>
                             <select
                                 id="typeOfProperty"
                                 name="typeOfProperty"
                                 value={selectedSelects.typeOfProperty}
                                 onChange={handleSelectChange}
-                                className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
+                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
                             >
                                 <option value="">Seleccione un tipo</option>
                                 {typeOfProperty.map((type) => (
@@ -191,14 +191,14 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                 ))}
                             </select>
                         </div>
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0 ">
-                            <label className="tw-font-semibold tw-mb-1 tw-w-full" for="operationType">Tipo de operación</label>
+                        <div className="grid w-full mb-1 mx-4 md:mx-0 ">
+                            <label className="font-semibold mb-1 w-full" for="operationType">Tipo de operación</label>
                             <select
                                 id="operationType"
                                 name="operationType"
                                 value={selectedSelects.operationType}
                                 onChange={handleSelectChange}
-                                className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
+                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
                             >
                                 <option value="">Seleccione una operación</option>
                                 {operationType.map((op) => (
@@ -206,14 +206,14 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                 ))}
                             </select>
                         </div>
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
-                            <label className="tw-font-semibold tw-mb-1 tw-w-full" for="region">Región</label>
+                        <div className="grid w-full mb-1 mx-4 md:mx-0">
+                            <label className="font-semibold mb-1 w-full" for="region">Región</label>
                             <select
                                 id="region"
                                 name="region"
                                 value={selectedSelects.region}
                                 onChange={handleSelectChange}
-                                className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
+                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
                             >
                                 <option value="">Seleccione una Región</option>
                                 {regions.map((region) => (
@@ -222,14 +222,14 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                             </select>
   
                         </div>
-                        <div className="tw-grid tw-w-full tw-mb-1 tw-mx-4 md:tw-mx-0">
-                            <label className="tw-font-semibold tw-mb-1 tw-w-full" for="commune">Comuna</label>
+                        <div className="grid w-full mb-1 mx-4 md:mx-0">
+                            <label className="font-semibold mb-1 w-full" for="commune">Comuna</label>
                             <select
                                 id="commune"
                                 name="commune"
                                 value={selectedSelects.commune}
                                 onChange={handleSelectChange}
-                                className="tw-rounded-md placeholder:tw-text-gray-400 tw-p-2 tw-border-2"
+                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
                             >
                                 <option value="">Seleccione una Comuna</option>
                                 {communes.map((commune) => (
@@ -237,32 +237,32 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                 ))}
                             </select>
                         </div>
-                        {/* <div className="tw-grid tw-mb-1 tw-m-1">
+                        {/* <div className="grid mb-1 m-1">
                             <button 
                             onClick={handleSearch}
                             type="button"
-                            className="tw-p-2 tw-px-4 tw-mt-5 tw-bg-secondary tw-text-gray-50 tw-rounded-md tw-drop-shadow-md tw-font-semibold">Buscar</button>
+                            className="p-2 px-4 mt-5 bg-secondary text-gray-50 rounded-md drop-shadow-md font-semibold">Buscar</button>
                         </div> */}
                 </div>
                     {/* UTLIMAS PROPIEDAD EN CANJE */}
-                    <div className="tw-flex tw-flex-row tw-justify-between tw-items-center tw-mx-2 2xl:tw-mx-32">
-                        <div className="tw-flex tw-gap-3 tw-text-sm tw-my-3">
-                            <p className="tw-text-gray-500">Últimas propiedades subidas</p>
-                            <span onClick={toggleMoreProp} className="tw-font-light tw-cursor-pointer">
+                    <div className="flex flex-row justify-between items-center mx-2 2xl:mx-32">
+                        <div className="flex gap-3 text-sm my-3">
+                            <p className="text-gray-500">Últimas propiedades subidas</p>
+                            <span onClick={toggleMoreProp} className="font-light cursor-pointer">
                                 {moreProp ? 'Ver menos' : 'Ver más'}
                             </span>
                         </div>
-                        <ul className="tw-flex tw-gap-3">
-                            <li className="hover:tw-scale-110 tw-duration-200 tw-cursor-pointer">
+                        <ul className="flex gap-3">
+                            <li className="hover:scale-110 duration-200 cursor-pointer">
                                 <button onClick={() => setView('grid')}
-                                className="hover:tw-font-semibold tw-duration-200 tw-rounded-lg tw-shadow-2xl tw-bg-gray-200 tw-h-8 tw-w-8 tw-p-1 tw-px-2">
-                                    <IoGridOutline className="tw-text-gray-600 tw-text-lg"/>
+                                className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                    <IoGridOutline className="text-gray-600 text-lg"/>
                                 </button>
                             </li>
-                            <li className="hover:tw-scale-110 tw-duration-200 tw-cursor-pointer">
+                            <li className="hover:scale-110 duration-200 cursor-pointer">
                                 <button onClick={() => setView('list')}
-                                className="hover:tw-font-semibold tw-duration-200 tw-rounded-lg tw-shadow-2xl tw-bg-gray-200 tw-h-8 tw-w-8 tw-p-1 tw-px-2">
-                                    <TbLayoutList className="tw-text-gray-600 tw-text-lg"/>
+                                className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                    <TbLayoutList className="text-gray-600 text-lg"/>
                                 </button>
                             </li>                
                         </ul>
@@ -270,18 +270,18 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                     {
                         view === 'grid' ? (
                             <>
-                                <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-6 2xl:tw-gap-2 tw-mt-4 tw-mb-4 tw-mx-1 xl:tw-mx-12 2xl:tw-mx-32 tw-w-full xl:tw-w-[90%] 2xl:tw-w-[85%]">
+                                <div className="grid grid-row grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-2 mt-4 mb-4 mx-1 xl:mx-12 2xl:mx-32 w-full xl:w-[90%] 2xl:w-[85%]">
                                 {filteredProperties.length > 0 ? filteredProperties.slice(0, 3).map((item) => {
                                     // console.log('image' , item.images[0].path)
                                     return(
-                                        <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[400px] 2xl:tw-h-full md:tw-w-full tw-p-2 tw-group xl:tw-overflow-hidden 2xl:tw-p-1">
-                                            <div className="tw-mb-2 tw-relative">
+                                        <article key={item?.id} className="shadow-lg flex flex-col border-2 h-full md:h-[400px] 2xl:h-full md:w-full p-2 group xl:overflow-hidden 2xl:p-1">
+                                            <div className="mb-2 relative">
                                                 {item.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path) ? (
                                                         <img 
                                                         key={item.images[0].id}
                                                         src={item.images[0].path || NotFoundProp} 
                                                         alt={`img-${item.images[0].id}`} 
-                                                        className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                                        className="h-44 w-full object-cover rounded-md group-hover:-translate-y-2 duration-200 shadow-md" 
                                                         />
                                                     // console.log('image' , item.images[0].path)
                                                    
@@ -289,47 +289,47 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                     <img 
                                                         src={NotFoundProp} 
                                                         alt="img-casa-not-found" 
-                                                        className="tw-h-48 xl:tw-h-44 tw-w-full xl:tw-w-44 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                        className="h-48 xl:h-44 w-full xl:w-44 object-scale-down group-hover:-translate-y-2 duration-200 p-4 xl:mx-36" 
                                                     />
                                                     )                                            
                                                 }                                     
-                                                <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
+                                                <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
                                                     {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                                 </small>
-                                                <small className="tw-absolute tw-top-8 tw-left-1 tw-p-[0.18rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-7 tw-duration-200">
+                                                <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
                                                     {item.typeOfOperationId}
                                                 </small>
                                             </div>
-                                            <div className="tw-mx-2">
-                                            <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>                                      
+                                            <div className="mx-2">
+                                            <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 40)}</h2>                                      
                                             {formatPrice(item?.currencyId, item?.propertyPrice)}
                                             
-                                                <ul className="tw-flex tw-flex-row sm:tw-flex-row tw-mx-4 xl:tw-mx-12 tw-gap-2 tw-justify-between">
-                                                    <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                <ul className="flex flex-row sm:flex-row mx-4 xl:mx-12 gap-2 justify-between">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                             {/* <span>Baño(s)</span> */}   
                                                             <FaBath />
                                                             <small>{item.characteristics.bathrooms || '0'}</small>
                                                     </li>
-                                                    <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                             <FaBed/>
                                                             <small>{item.characteristics.bedrooms || '0'}</small>
                                                     </li>
-                                                    <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                             <FaRulerCombined />
                                                             <small>{item.characteristics.surface || '0'}mts</small>
                                                     </li>
-                                                    <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                             <FaParking />
                                                             <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
                                                     </li>
                                                 </ul>
-                                                <div className="tw-mx-4 tw-mb-2 tw-mt-8 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                                    <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
+                                                <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
+                                                    <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                     <button 
                                                     // onClick={onOpenContact} 
                                                     onClick={() => onOpenContact(item.id, item.propertyTitle)} 
         
-                                                    className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
+                                                    className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
                                                     >Contactar</button>
                                                 </div>
                                             </div>
@@ -337,8 +337,8 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                 
                                     )
                                 }) : (
-                                    <div className="tw-w-full tw-text-center tw-my-3 xl:tw-mx-80 2xl:tw-mx-96">
-                                        <small className="tw-font-semibold tw-text-center tw-text-lg">
+                                    <div className="w-full text-center my-3 xl:mx-80 2xl:mx-96">
+                                        <small className="font-semibold text-center text-lg">
                                             No se encuantran propiedades
                                         </small>
                                     </div>
@@ -354,63 +354,63 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                     duration={600}
                                                     triggerOnce={true}
                                                 >
-                                                    <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[400px] 2xl:tw-h-full md:tw-w-full tw-p-2 tw-group xl:tw-overflow-hidden 2xl:tw-p-1">
-                                                        <div className="tw-mb-2 tw-relative">
+                                                    <article key={item?.id} className="shadow-lg flex flex-col border-2 h-full md:h-[400px] 2xl:h-full md:w-full p-2 group xl:overflow-hidden 2xl:p-1">
+                                                        <div className="mb-2 relative">
                                                         {item.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path) ? (
                                                         <img 
                                                             key={item.images[0].id}
                                                             src={item.images[0].path || NotFoundProp} 
                                                             alt={`img-${item.images[0].id}`} 
-                                                            className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                                            className="h-44 w-full object-cover rounded-md group-hover:-translate-y-2 duration-200 shadow-md" 
                                                             />
                                                                                                        
                                                             ) :(
                                                                 <img 
                                                                     src={NotFoundProp} 
                                                                     alt="img-casa-not-found" 
-                                                                    className="tw-h-48 xl:tw-h-44 tw-w-full xl:tw-w-44 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                                                    className="h-48 xl:h-44 w-full xl:w-44 object-scale-down group-hover:-translate-y-2 duration-200 p-4 xl:mx-36" 
                                                                 />
                                                                 )                                            
                                                             }
-                                                            <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
+                                                            <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
                                                                 {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                                             </small>
-                                                            <small className="tw-absolute tw-top-8 tw-left-1 tw-p-[0.18rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-7 tw-duration-200">
+                                                            <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
                                                                 {item.typeOfOperationId}
                                                             </small>
                                                         </div>
-                                                        <div className="tw-mx-2">
-                                                        <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 40)}</h2>                                          
+                                                        <div className="mx-2">
+                                                        <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 40)}</h2>                                          
                                                             {formatPrice(item?.currencyId, item?.propertyPrice)}                                       
-                                                            <ul className="tw-flex tw-flex-row sm:tw-flex-row tw-mx-4 xl:tw-mx-12 tw-gap-2 tw-justify-between">
-                                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                            <ul className="flex flex-row sm:flex-row mx-4 xl:mx-12 gap-2 justify-between">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                                         {/* <span>Baño(s)</span> */}   
                                                                         <FaBath />
                                                                         <small>{item.characteristics.bathrooms || '0'}</small>
                                                                 </li>
-                                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                                         {/* <span>Dormitorio(s)</span> */}
                                                                         <FaBed/>
                                                                         <small>{item.characteristics.bedrooms || '0'}</small>
                                                                 </li>
-                                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                                         {/* <span>Mts cuadrados</span> */}
                                                                         <FaRulerCombined />
                                                                         <small>{item.characteristics.surface || '0'}mts</small>
                                                                 </li>
-                                                                <li className="tw-flex tw-justify-center tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                                         {/* <span>Estacionamiento(s)</span> */}
                                                                         <FaParking />
                                                                         <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
                                                                 </li>
                                                             </ul>
-                                                            <div className="tw-mx-4 tw-mb-2 tw-mt-8 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                                                <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
+                                                            <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
+                                                                <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                                 <button 
                                                                 // onClick={onOpenContact} 
                                                                 onClick={() => onOpenContact(item.id, item.propertyTitle)} 
                     
-                                                                className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
+                                                                className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
                                                                 >Contactar</button>
                                                             </div>
                                                         </div>
@@ -421,69 +421,69 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                     )
                                 }                
                                 </div>
-                                <div className="tw-flex tw-gap-3 tw-text-base tw-my-3 xl:tw-mt-8 tw-mx-1 xl:tw-mx-12 2xl:tw-mx-32 tw-w-full xl:tw-w-[90%] 2xl:tw-w-[85%]">
-                                    <p className="tw-text-gray-500">Últimas {!moreProp ? filteredProperties.slice(0, 3).length > 0 ? filteredProperties.slice(0, 3).length : '0' :  filteredProperties.slice(0, 6).length > 0 ? filteredProperties.slice(0,6).length : '0'} propiedades </p>
-                                    <span onClick={toggleMoreProp} className="tw-font-light tw-cursor-pointer">
+                                <div className="flex gap-3 text-base my-3 xl:mt-8 mx-1 xl:mx-12 2xl:mx-32 w-full xl:w-[90%] 2xl:w-[85%]">
+                                    <p className="text-gray-500">Últimas {!moreProp ? filteredProperties.slice(0, 3).length > 0 ? filteredProperties.slice(0, 3).length : '0' :  filteredProperties.slice(0, 6).length > 0 ? filteredProperties.slice(0,6).length : '0'} propiedades </p>
+                                    <span onClick={toggleMoreProp} className="font-light cursor-pointer">
                                         {moreProp ? 'Ver menos' : 'Ver más'}
                                     </span>
                                 </div>
                             </>
                         ) : (
-                            <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-gap-6 2xl:tw-gap-2 tw-mt-4 tw-mb-4 tw-mx-3 2xl:tw-mx-32">
+                            <div className="grid grid-row grid-cols-1 gap-6 2xl:gap-2 mt-4 mb-4 mx-3 2xl:mx-32">
                             {filteredProperties.slice(0, 3).map((item) => {
                                 return(
-                                    <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col md:tw-flex-row tw-border-2 tw-h-full md:tw-h-full 2xl:tw-h-[220px] tw-w-full tw-p-2 tw-group">
-                                        <div className="tw-mb-2 tw-relative">
+                                    <article key={item?.id} className="shadow-lg flex flex-col md:flex-row border-2 h-full md:h-full 2xl:h-[220px] w-full p-2 group">
+                                        <div className="mb-2 relative">
                                                 {item.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path) ? (
                                                         <img 
                                                         key={item.images[0].id}
                                                         src={item.images[0].path || NotFoundProp} 
                                                         alt={`img-${item.images[0].id}`} 
-                                                        className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200" 
+                                                        className="h-48 w-full xl:w-96 object-cover rounded-md group-hover:-translate-y-2 duration-200" 
                                                         />
                                                 ) :(
                                                     <img 
                                                         src={NotFoundProp} 
                                                         alt="img-casa-not-found" 
-                                                        className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 " 
+                                                        className="h-48 w-full xl:w-96 object-scale-down rounded-md group-hover:-translate-y-2 duration-200 " 
                                                     />
                                                     )                                            
                                                 }
-                                            <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
+                                            <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
                                                 {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                             </small>
-                                            <small className="tw-absolute tw-top-8 tw-left-1 tw-p-[0.18rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-7 tw-duration-200">
+                                            <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
                                                 {item.typeOfOperationId}
                                             </small>
                                         </div>
-                                        <div className="tw-mx-2 md:tw-mx-12 tw-w-full">
-                                            <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 90)}</h2>
+                                        <div className="mx-2 md:mx-12 w-full">
+                                            <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 90)}</h2>
                                             {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                            <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 xl:tw-mx-10 tw-gap-2 tw-justify-between">
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                            <ul className="flex flex-col sm:flex-row mx-4 xl:mx-10 gap-2 justify-between">
+                                                <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                         <span>Baños</span>
                                                         <small>{item.characteristics.bathrooms || '0'}</small>
                                                 </li>
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                         <span>Dormitorio(s)</span>
                                                         <small>{item.characteristics.bedrooms || '0'}</small>
                                                 </li>
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                         <span>Mts cuadrados</span>
                                                         <small>{item.characteristics.surface || '0'} mts</small>
                                                 </li>
-                                                <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                         <span>Estacionamiento</span>
                                                         <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
                                                 </li>
                                             </ul>
-                                            <div className="tw-mx-4 tw-mb-2 tw-mt-8 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                                <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
+                                            <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
+                                                <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                 <button 
                                                 // onClick={onOpenContact} 
                                                 onClick={() => onOpenContact(item.id, item.propertyTitle)} 
     
-                                                className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
+                                                className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
                                                 >Contactar</button>
                                             </div>
                                         </div>
@@ -500,56 +500,56 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                 duration={600}
                                                 triggerOnce={true}
                                                 >
-                                                <article key={item?.id} className="tw-shadow-lg tw-flex tw-flex-col md:tw-flex-row tw-border-2 tw-h-full md:tw-h-full 2xl:tw-h-[220px] tw-w-full tw-p-2 tw-group">
-                                                    <div className="tw-mb-2 tw-relative">
+                                                <article key={item?.id} className="shadow-lg flex flex-col md:flex-row border-2 h-full md:h-full 2xl:h-[220px] w-full p-2 group">
+                                                    <div className="mb-2 relative">
                                                     {item.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path) ? (
                                                         <img 
                                                             key={item.images[0].id}
                                                             src={item.images[0].path || NotFoundProp} 
                                                             alt={`img-${item.images[0].id}`} 
-                                                            className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200" 
+                                                            className="h-48 w-full xl:w-96 object-cover rounded-md group-hover:-translate-y-2 duration-200" 
                                                             />
                                                         ) :(
                                                             <img 
                                                                 src={NotFoundProp} 
                                                                 alt="img-casa-not-found" 
-                                                                className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 " 
+                                                                className="h-48 w-full xl:w-96 object-scale-down rounded-md group-hover:-translate-y-2 duration-200 " 
                                                             />
                                                             )                                            
                                                         }
-                                                        <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
+                                                        <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
                                                             {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
                                                         </small>
-                                                        <small className="tw-absolute tw-top-8 tw-left-1 tw-p-[0.18rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-7 tw-duration-200">
+                                                        <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
                                                             {item.typeOfOperationId}
                                                         </small>
                                                     </div>
-                                                    <div className="tw-mx-2 md:tw-mx-12 tw-w-full">
-                                                        <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(item.propertyTitle, 90)}</h2>
+                                                    <div className="mx-2 md:mx-12 w-full">
+                                                        <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 90)}</h2>
                                                         {formatPrice(item?.currencyId, item?.propertyPrice)}                                      
-                                                        <ul className="tw-flex tw-flex-col sm:tw-flex-row tw-mx-4 xl:tw-mx-10 tw-gap-2 tw-justify-between">
-                                                            <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                        <ul className="flex flex-col sm:flex-row mx-4 xl:mx-10 gap-2 justify-between">
+                                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                                     <span>Baños</span>
                                                                     <small>{item.characteristics.bathrooms || '0'}</small>
                                                             </li>
-                                                            <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                                     <span>Dormitorio(s)</span>
                                                                     <small>{item.characteristics.bedrooms || '0'}</small>
                                                             </li>
-                                                            <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                                     <span>Mts cuadrados</span>
                                                                     <small>{item.characteristics.surface || '0'} mts</small>
                                                             </li>
-                                                            <li className="tw-flex tw-justify-start tw-items-center tw-gap-2 sm:tw-text-center sm:tw-grid ">
+                                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
                                                                     <span>Estacionamiento</span>
                                                                     <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
                                                             </li>
                                                         </ul>
-                                                        <div className="tw-mx-4 tw-mb-2 tw-mt-8 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                                                            <p className="tw-font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
+                                                        <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
+                                                            <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                             <button                                                           
                                                                 onClick={() => onOpenContact(item.id, item.propertyTitle)}                
-                                                                className="tw-p-2 tw-px-3 tw-bg-secondary hover:tw-bg-secondary-light tw-duration-200 tw-text-white tw-rounded-full"
+                                                                className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
                                                             >
                                                                 Contactar
                                                             </button>
@@ -561,16 +561,16 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                     })
                                 )
                             }
-                            <div className="tw-flex tw-gap-3 tw-text-base tw-my-3">
-                                <p className="tw-text-gray-500">Últimas {!moreProp ? filteredProperties.slice(0, 3).length > 0 ? filteredProperties.slice(0, 3).length : '0' :  filteredProperties.slice(0, 6).length > 0 ? filteredProperties.slice(0,6).length : '0'} propiedades </p>
-                                <span onClick={toggleMoreProp} className="tw-font-light tw-cursor-pointer">
+                            <div className="flex gap-3 text-base my-3">
+                                <p className="text-gray-500">Últimas {!moreProp ? filteredProperties.slice(0, 3).length > 0 ? filteredProperties.slice(0, 3).length : '0' :  filteredProperties.slice(0, 6).length > 0 ? filteredProperties.slice(0,6).length : '0'} propiedades </p>
+                                <span onClick={toggleMoreProp} className="font-light cursor-pointer">
                                     {moreProp ? 'Ver menos' : 'Ver más'}
                                 </span>
                             </div>
                         </div>
                         )
                     }
-                    <Modal open={contactOpen} onClose={onCloseContact} className="tw-w-[90%] tw-h-full">
+                    <Modal open={contactOpen} onClose={onCloseContact} className="w-[90%] h-full">
                         {selectedProperty && (
                             <ModalLastProperties 
                                 key={selectedProperty.id}

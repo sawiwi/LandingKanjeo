@@ -12,35 +12,35 @@ const MenuBar = () => {
       <Transition appear show={isVisable} as={Fragment}>
         <Dialog
           as="div"
-          className="tw-fixed tw-inset-0 tw-z-50 tw-overflow-y-auto"
+          className="fixed inset-0 z-50 overflow-y-auto"
           onClose={handleCloseMenu}
         >
-          <div className="tw-fixed tw-left-0 tw-top-0 tw-bottom-0 tw-w-full tw-z-max tw-outline-none focus:tw-outline-none">
+          <div className="fixed left-0 top-0 bottom-0 w-full z-max outline-none focus:outline-none">
             <React.Fragment>
               <Transition.Child
                 as={Fragment}
-                enter="tw-transition tw-duration-100 tw-transform"
-                enterFrom="tw-opacity-0 -translate-x-14" //aca
-                enterTo="tw-opacity-100 tw-translate-x-0"
-                leave="tw-transition tw-duration-150 tw-transform"
-                leaveFrom="tw-opacity-100 tw-translate-x-0"
-                leaveTo="tw-opacity-0 -translate-x-14" //aca
+                enter="transition duration-100 transform"
+                enterFrom="opacity-0 -translate-x-14" //aca
+                enterTo="opacity-100 translate-x-0"
+                leave="transition duration-150 transform"
+                leaveFrom="opacity-100 translate-x-0"
+                leaveTo="opacity-0 -translate-x-14" //aca
               >
-                <div className="tw-z-10 tw-relative">
+                <div className="z-10 relative">
                   <NavMobile onClickClose={handleCloseMenu} />
                 </div>
               </Transition.Child>
 
               <Transition.Child
                 as={Fragment}
-                enter="tw-duration-300"
-                enterFrom="tw-opacity-0"
-                enterTo="tw-opacity-100"
-                leave=" tw-duration-200"
-                leaveFrom="tw-opacity-100"
-                leaveTo="tw-opacity-0"
+                enter="duration-300"
+                enterFrom="opacity-0"
+                enterTo="opacity-100"
+                leave=" duration-200"
+                leaveFrom="opacity-100"
+                leaveTo="opacity-0"
               >
-                <Dialog.Overlay className="tw-fixed tw-inset-0 tw-bg-gray-900 tw-bg-opacity-50" />
+                <Dialog.Overlay className="fixed inset-0 bg-gray-900 bg-opacity-50" />
               </Transition.Child>
             </React.Fragment>
           </div>
@@ -53,11 +53,11 @@ const MenuBar = () => {
     <Fragment>
       <button
         onClick={handleOpenMenu}
-        className="tw-pl-2.5 tw-rounded-lg tw-text-gray-700 focus:tw-outline-none tw-flex tw-items-center tw-justify-center"
+        className="pl-2.5 rounded-lg text-gray-700 focus:outline-none flex items-center justify-center"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          className="tw-h-7 tw-w-7"
+          className="h-7 w-7"
           viewBox="0 0 20 20"
           fill="currentColor"
         >

@@ -6,9 +6,9 @@ import { useEffect } from "react";
 const ModalLastProperties = ({data}) => {
     return (
         <>
-            <div className="tw-flex tw-flex-col 2xl:tw-flex-row tw-p-1 tw-px-3">
+            <div className="flex flex-col 2xl:flex-row p-1 px-3">
                 <DetailsProperty property={data}/>
-                {/* <hr className="tw-my-5 tw-w-[400px] tw-text-gray-700 tw-mx-72" /> */}
+                {/* <hr className="my-5 w-[400px] text-gray-700 mx-72" /> */}
                 <ContactRealtor property={data}/>
             </div>
         

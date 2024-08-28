@@ -17,7 +17,7 @@ const PoliticaPrivacidad = () =>{
     }`;
     return(
         <>
-             <Section className="tw-overflow-hidden">
+             <Section className="overflow-hidden">
                 <Reveal
                     keyframes={fadeInUp}
                     delay={500}
@@ -25,13 +25,13 @@ const PoliticaPrivacidad = () =>{
                     triggerOnce={true}
                 >
                 <TitleSection
-                    className='lg:tw-mt-20'
+                    className='lg:mt-20'
                     title="Politicas de Privacidad"
                     subtitle="yokanjeo.com"
                     position="center"
                 />
 
-                <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-justify-center tw-gap-2 tw-mt-4">
+                <div className="grid grid-row grid-cols-1 justify-center gap-2 mt-4">
                     <p>El presente Política de Privacidad establece los términos en que YoKanjeo usa y 
                         protege la información que es proporcionada por sus usuarios al momento de utilizar 
                         su sitio web. Esta compañía está comprometida con la seguridad de los datos de sus usuarios.

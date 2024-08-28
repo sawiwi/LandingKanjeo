@@ -119,19 +119,19 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="tw-h-[100vh] tw-bg-gray-50 tw-py-6 sm:tw-py-10 lg:tw-py-16 tw-flex tw-flex-col tw-justify-start">
-            <div className='tw-mt-28 xl:tw-mt-20 2xl:tw-mt-36 tw-mb-3 lg:tw-mb-2 xl:tw-mb-6'>
-              <h2 className='tw-text-center tw-text-3xl xl:tw-text-4xl 2xl:tw-text-5xl tw-text-secondary'>
+    <div className="h-[100vh] bg-gray-50 py-6 sm:py-10 lg:py-16 flex flex-col justify-start">
+            <div className='mt-28 xl:mt-20 2xl:mt-36 mb-3 lg:mb-2 xl:mb-6'>
+              <h2 className='text-center text-3xl xl:text-4xl 2xl:text-5xl text-secondary'>
                 Crea tu cuenta
               </h2>
-              <small className="tw-text-secondary-light tw-text-md xl:tw-text-lg">
+              <small className="text-secondary-light text-md xl:text-lg">
                 Te enviaremos un email para que puedas registrarte.
               </small>
             </div>
             <Fade direction="up" triggerOnce={true}>
-              <div className='tw-flex tw-justify-center'>
-                <form  onSubmit={onFormSubmit} className='tw-relative tw-shadow-xl tw-shadow-secondary/40  tw-w-[95%] xl:tw-w-[45%] 2xl:tw-w-[40%] tw-h-[350px]  tw-mx-4  lg:tw-mx-16 tw-px-10 tw-py-10 lg:tw-py-8 tw-p-4 tw-rounded-md '>
-                    <div className="tw-relative tw-mb-2 tw-mt-10">
+              <div className='flex justify-center'>
+                <form  onSubmit={onFormSubmit} className='relative shadow-xl shadow-secondary/40  w-[95%] xl:w-[45%] 2xl:w-[40%] h-[350px]  mx-4  lg:mx-16 px-10 py-10 lg:py-8 p-4 rounded-md '>
+                    <div className="relative mb-2 mt-10">
                       <input
                         autoComplete="off"
                         id="name"
@@ -139,17 +139,17 @@ const ContactForm = () => {
                         type="text"
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="tw-peer tw-placeholder-transparent tw-h-10 tw-w-full tw-border tw-border-secondary/70 tw-rounded-md tw-pl-2 tw-text-secondary focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                        className="peer placeholder-transparent h-10 w-full border border-secondary/70 rounded-md pl-2 text-secondary focus:outline-none focus:borer-rose-600 text-sm"
                         placeholder="Ingresa tu nombre personal o empresa"
                       />
                       <label
                         htmlFor="name"
-                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-secondary-light tw-text-md peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-secondary/80 peer-focus:tw-text-lg"
+                        className="absolute pl-2 left-0 -top-6 text-secondary-light text-md peer-placeholder-shown:text-base peer-placeholder-shown:text-secondary/80 peer-placeholder-shown:top-2 transition-all duration-300  peer-focus:-top-7 peer-focus:text-secondary/80 peer-focus:text-lg"
                       >
                         Ingresa tu Nombre o Empresa
                       </label>
                     </div>
-                    <div className="tw-relative tw-mb-10 tw-mt-10">
+                    <div className="relative mb-10 mt-10">
                       <input
                         autoComplete="off"
                         id="email"
@@ -157,20 +157,20 @@ const ContactForm = () => {
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="tw-peer tw-placeholder-white tw-h-10 tw-w-full tw-border tw-border-secondary/70 tw-text-secondary tw-rounded-md tw-pl-2 focus:tw-outline-none focus:tw-borer-rose-600 tw-text-sm"
+                        className="peer placeholder-white h-10 w-full border border-secondary/70 text-secondary rounded-md pl-2 focus:outline-none focus:borer-rose-600 text-sm"
                         placeholder="Correo electrónico"
                       />
                       <label
                         htmlFor="email"
-                        className="tw-absolute tw-pl-2 tw-left-0 tw--top-6 tw-text-secondary-light tw-text-sm peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-text-secondary/80 peer-placeholder-shown:tw-top-2 tw-transition-all tw-duration-300  peer-focus:tw--top-7 peer-focus:tw-text-secondary/80 peer-focus:tw-text-lg"
+                        className="absolute pl-2 left-0 -top-6 text-secondary-light text-sm peer-placeholder-shown:text-base peer-placeholder-shown:text-secondary/80 peer-placeholder-shown:top-2 transition-all duration-300  peer-focus:-top-7 peer-focus:text-secondary/80 peer-focus:text-lg"
                       >
                         Correo electrónico
                       </label>
                     </div>
-                    <div className="tw-relative tw-my-3 tw-mt-10">
+                    <div className="relative my-3 mt-10">
                     <Button
                       type="submit"
-                      className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-md tw-px-12 tw-py-2 tw-w-full"
+                      className="bg-secondary hover:bg-secondary-light text-primary rounded-md px-12 py-2 w-full"
                     >
                       {loading ? 'Enviando...' : 'Enviar'}
                     </Button>

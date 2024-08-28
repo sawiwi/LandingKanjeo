@@ -98,24 +98,24 @@ const ResumeProfile = ({dataRealtor}) =>{
                     duration={800}
                     triggerOnce={true}
                 >
-                <div className="tw-overflow-hidden">
-                    <h2 className="tw-font-semibold tw-text-3xl tw-text-center">Resumen ficha</h2>
-                    <div className="tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-1 tw-gap-4 tw-text-gray-500">
-                        <div className='tw-relative tw-h-full lg:tw-h-full tw-w-full tw-rounded-md tw-p-2 tw-px-3'>
-                            <img src={backgroundBanner} className='tw-w-full tw-h-52 tw-object-cover tw-rounded-md' alt='bannerImg' />
+                <div className="overflow-hidden">
+                    <h2 className="font-semibold text-3xl text-center">Resumen ficha</h2>
+                    <div className="flex flex-col md:grid md:grid-cols-1 gap-4 text-gray-500">
+                        <div className='relative h-full lg:h-full w-full rounded-md p-2 px-3'>
+                            <img src={backgroundBanner} className='w-full h-52 object-cover rounded-md' alt='bannerImg' />
                             <img src={imgProfile} alt='profileImg' 
-                            className='tw-absolute tw-top-32 tw-border-4 tw-border-gray-100 tw-left-10 tw-rounded-full tw-h-36 tw-w-36 tw-shadow-lg' />                            
+                            className='absolute top-32 border-4 border-gray-100 left-10 rounded-full h-36 w-36 shadow-lg' />                            
                             {dataRealtor?.session.accountConfirmed === true ? 
                                     <img src={approve} alt='ticket confirmado' 
-                                        className='tw-absolute tw-top-56 tw-left-36 tw-h-10 tw-w-10 hover:tw-scale-110 tw-duration-150'
+                                        className='absolute top-56 left-36 h-10 w-10 hover:scale-110 duration-150'
                                         title='Cuenta confirmada'/> : 
                                         ''
                             }
-                            <div className='tw-mx-3 tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
-                                <div className='tw-w-full md:tw-w-[52%]'>
-                                    <h5 className='tw-text-3xl tw-text-gray-600 tw-mt-16'>{dataRealtor.name ? dataRealtor.name : 'Cristian'} {dataRealtor.lastName ? dataRealtor.lastName : 'Arevalo'} </h5>
+                            <div className='mx-3 flex flex-col md:flex-row gap-2'>
+                                <div className='w-full md:w-[52%]'>
+                                    <h5 className='text-3xl text-gray-600 mt-16'>{dataRealtor.name ? dataRealtor.name : 'Cristian'} {dataRealtor.lastName ? dataRealtor.lastName : 'Arevalo'} </h5>
                                     <small className=''>Igniero comercial / {dataRealtor?.session.rol?.name ? dataRealtor?.session.rol?.name : 'Corredor' } de inmuebles</small>
-                                        <ul className='tw-flex tw-flex-col tw-gap-2 tw-text-base tw-mt-2'>
+                                        <ul className='flex flex-col gap-2 text-base mt-2'>
                                             <li className='mb-1'> 
                                                 <strong>Teléfono:</strong>{' '}<span>{dataRealtor?.phone ? dataRealtor?.phone : 'Sin número'}</span>    
                                             </li>
@@ -135,33 +135,33 @@ const ResumeProfile = ({dataRealtor}) =>{
                                             </li>
                                         </ul>
                                 </div>
-                                <div className='tw-w-full md:tw-w-[48%]'>
-                                        <ul className='tw-flex tw-flex-row tw-gap-2 tw-text-base xl:tw-text-lg tw-mt-8 md:tw-mt-24 tw-text-center'>
-                                            <li className='tw-mb-1 tw-px-6'> 
+                                <div className='w-full md:w-[48%]'>
+                                        <ul className='flex flex-row gap-2 text-base xl:text-lg mt-8 md:mt-24 text-center'>
+                                            <li className='mb-1 px-6'> 
                                                 <strong>Cantidad propiedades</strong>{' '}<p>{dataRealtor?.activePropertyCount ? dataRealtor.activePropertyCount :'0'}</p>    
                                             </li>
-                                            <li className='tw-mb-1'> 
+                                            <li className='mb-1'> 
                                                 <strong>Cantidad clientes</strong>{' '}<p>{dataRealtor?.totalCustomerCount ? dataRealtor.totalCustomerCount :'0'}</p>    
                                             </li>
                                         </ul>
                                 </div>                    
                             </div>
                         </div>
-                        <div className='tw-grid tw-grid-cols-1 tw-gap-2 tw-px-2'>
-                            <div className='tw-bg-white tw-h-full tw-w-full tw-rounded-md tw-p-4 tw-px-5'>
-                                <h3 className='tw-mb-2 tw-text-xl tw-text-gray-600'>Sobre Mi</h3>
+                        <div className='grid grid-cols-1 gap-2 px-2'>
+                            <div className='bg-white h-full w-full rounded-md p-4 px-5'>
+                                <h3 className='mb-2 text-xl text-gray-600'>Sobre Mi</h3>
                                 <p className=''>{dataRealtor?.about ? dataRealtor?.about : 'Sin descripción'}</p>    
                             </div>
                         </div>
-                        <div className='tw-flex tw-flex-row tw-justify-center md:tw-justify-end tw-px-2 tw-gap-2'>
+                        <div className='flex flex-row justify-center md:justify-end px-2 gap-2'>
                             <button  
                                 onClick={()=> handleOpenContact(selectedUser, dataRealtor.id)}
-                                className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
+                                className='flex items-center hover-group bg-secondary-light hover:bg-secondary duration-200 text-white p-2 rounded-lg'>
                                  Contactar
                             </button>
                             <a onClick={() => onCountoViewProfile(dataRealtor.id)} 
-                                href={`/perfil-corredor/${dataRealtor.id}`} target='_blank' rel='noreferrer' className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
-                                Ver más <IoIosArrowForward className='tw-mx-1 tw-duration-150'/>
+                                href={`/perfil-corredor/${dataRealtor.id}`} target='_blank' rel='noreferrer' className='flex items-center hover-group bg-secondary-light hover:bg-secondary duration-200 text-white p-2 rounded-lg'>
+                                Ver más <IoIosArrowForward className='mx-1 duration-150'/>
                             </a>
                         </div>
                     </div>
@@ -170,7 +170,7 @@ const ResumeProfile = ({dataRealtor}) =>{
             </Reveal>
 
             <ModalContact open={openContact} onClose={() => setOpenContact(false)}>
-                    <div className='2xl:tw-w-full tw-mt-6 sm:tw-mt-2'>
+                    <div className='2xl:w-full mt-6 sm:mt-2'>
                         {dataRealtor ? <ContactUser dataUser={dataRealtor}/> : ''}
                     </div>
             </ModalContact>

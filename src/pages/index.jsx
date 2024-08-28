@@ -37,42 +37,42 @@ const Home = () => {
       />
       {/* NEW HERO */}
 
-      <div className=' tw-z-50 tw-bg-gray-100'>
-        <div className='tw-relative'>
+      <div className=' z-50 bg-gray-100'>
+        <div className='relative'>
           <ReactSlick renderContent={contentHero} />     
         </div>
-        <div className='tw-p-2 sm:tw-hidden'>
+        <div className='p-2 sm:hidden'>
         {contentHero.length !== 0 ? contentHero.map((item) => (
             <>
-              <div className="tw-mx-auto tw-text-center tw-m-2 tw-mt-5">
-                <h2 className='tw-text-xl'>Explora más sobre {item.headings}</h2>
+              <div className="mx-auto text-center m-2 mt-5">
+                <h2 className='text-xl'>Explora más sobre {item.headings}</h2>
                 <small>{item.texts}</small>
               </div> 
-              <div key={item.id} className="tw-flex tw-flex-row tw-mt-2 tw-gap-6 ">
-                  <div className='tw-text-center tw-grid tw-grid-cols-2 tw-gap-5 tw-mt-8'>
-                    <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 tw-text-secondary lg:tw-h-44 lg:tw-w-[190px] 2xl:tw-h-48 2xl:tw-w-[240px] tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-gray-50 tw-duration-200 tw-rounded-md'>
-                        <div className='tw-text-2xl first-letter:my-4 tw-mx-20'>{item.card[0].icon}</div>
-                        <h5 className='tw-opacity-100 tw-font-semibold tw-text-sm'>{item.card[0].info}</h5>
+              <div key={item.id} className="flex flex-row mt-2 gap-6 ">
+                  <div className='text-center grid grid-cols-2 gap-5 mt-8'>
+                    <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                        <div className='text-2xl first-letter:my-4 mx-20'>{item.card[0].icon}</div>
+                        <h5 className='opacity-100 font-semibold text-sm'>{item.card[0].info}</h5>
                     </article>
-                    <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 tw-text-secondary lg:tw-h-44 lg:tw-w-[190px] 2xl:tw-h-48 2xl:tw-w-[240px] tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-gray-50 tw-duration-200 tw-rounded-md'>
-                        <div className='tw-text-2xl my-4 tw-mx-20 '>{item.card[1].icon}</div>
-                        <h5 className='tw-opacity-100 tw-font-bold tw-text-sm '>{item.card[1].info}</h5>
+                    <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                        <div className='text-2xl my-4 mx-20 '>{item.card[1].icon}</div>
+                        <h5 className='opacity-100 font-bold text-sm '>{item.card[1].info}</h5>
                     </article>
-                    <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 tw-text-secondary lg:tw-h-44 lg:tw-w-[190px] 2xl:tw-h-48 2xl:tw-w-[240px] tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-gray-50 tw-duration-200 tw-rounded-md'>              
-                        <div className='tw-text-2xl  my-4 tw-mx-20 '>{item.card[2].icon}</div>
-                        <h5 className='tw-opacity-100 2xl:tw-font-bold tw-text-sm'>{item.card[2].info}</h5>                  
+                    <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>              
+                        <div className='text-2xl  my-4 mx-20 '>{item.card[2].icon}</div>
+                        <h5 className='opacity-100 2xl:font-bold text-sm'>{item.card[2].info}</h5>                  
                     </article>
-                    <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 tw-text-secondary lg:tw-h-44 lg:tw-w-[190px] 2xl:tw-h-48 2xl:tw-w-[240px] tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-gray-50 tw-duration-200 tw-rounded-md'>
-                        <div className='tw-text-2xl my-4 tw-mx-20 '>{item.card[3].icon}</div> 
-                        <h5 className='tw-opacity-100 tw-font-semibold tw-text-sm '>{item.card[3].info}</h5>
+                    <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                        <div className='text-2xl my-4 mx-20 '>{item.card[3].icon}</div> 
+                        <h5 className='opacity-100 font-semibold text-sm '>{item.card[3].info}</h5>
                     </article>
-                    <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 tw-text-secondary lg:tw-h-44 lg:tw-w-[190px] 2xl:tw-h-48 2xl:tw-w-[240px] tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-gray-50 tw-duration-200 tw-rounded-md'>
-                        <div className='tw-text-2xl  my-4 tw-mx-20 '>{item.card[4].icon}</div> 
-                        <h5 className='tw-opacity-100 tw-font-bold tw-text-sm '>{item.card[4].info}</h5>
+                    <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                        <div className='text-2xl  my-4 mx-20 '>{item.card[4].icon}</div> 
+                        <h5 className='opacity-100 font-bold text-sm '>{item.card[4].info}</h5>
                     </article>
-                    <article className='tw-flex tw-flex-wrap tw-flex-row tw-overflow-hidden tw-items-center tw-justify-center tw-gap-2 tw-drop-shadow-xl tw-bg-gray-100 tw-text-secondary lg:tw-h-44 lg:tw-w-[190px] 2xl:tw-h-48 2xl:tw-w-[240px] tw-mb-2 2xl:tw-mb-4 tw-p-2 tw-py-3 hover:tw-scale-110 hover:tw-bg-secondary hover:tw-text-gray-50 tw-duration-200 tw-rounded-md'>
-                        <div className='tw-text-2xl my-4 tw-mx-20'>{item.card[5].icon}</div>
-                        <h5 className='tw-opacity-100 tw-font-bold tw-text-sm'>{item.card[5].info}</h5>
+                    <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                        <div className='text-2xl my-4 mx-20'>{item.card[5].icon}</div>
+                        <h5 className='opacity-100 font-bold text-sm'>{item.card[5].info}</h5>
                     </article>
                   </div>
             </div>
@@ -89,13 +89,13 @@ const Home = () => {
       </div>
 
       {/* HERO */}
-      {/* <div className='tw-grid tw-grid-cols-1 tw-flex-wrap-reverse lg:tw-grid-cols-2 xl:tw-grid-cols-3'>
-          <div className='tw-col-span-1 xl:tw-col-span-1'>
+      {/* <div className='grid grid-cols-1 flex-wrap-reverse lg:grid-cols-2 xl:grid-cols-3'>
+          <div className='col-span-1 xl:col-span-1'>
             <Fade>
               <HeroText/>
             </Fade>
           </div>
-          <div className='tw-col-span-1 xl:tw-col-span-2'>
+          <div className='col-span-1 xl:col-span-2'>
               {/* <ReactSlick renderContent={contentPage1} /> 
               <ReactSlick renderContent={contentHero} />
           </div>

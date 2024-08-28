@@ -14,34 +14,34 @@ const Contact = () => {
         keywords="Sistema de Kanje, Gestion de propiedades, Automatización de Procesos compra y venta, Seguimiento de propiedade, Herramienta de Análisis de Datos de Kanje, Gestión Eficiente de Kanje"
       />
 
-      <div className="tw-grid tw-grid-cols-1 xl:tw-grid-cols-3">
-        <div className='tw-relative tw-col-span-1 tw-hidden md:tw-block tw-bg-secondary tw-z-0'>
-          <div className='xl:tw-absolute 2xl:tw-top-36 2xl:tw-py-10 xl:tw-mt-44  2xl:tw-mt-56 tw-p-5 xl:tw-px-8 2xl:tw-px-20'>
-              <h2 className="tw-text-primary tw-text-4xl lg:text-2xl xl:tw-text-4xl tw-font-semibold tw-mb-3 lg:tw-mb-1 xl:tw-mb-4 tw-text-center">
+      <div className="grid grid-cols-1 xl:grid-cols-3">
+        <div className='relative col-span-1 hidden md:block bg-secondary z-0'>
+          <div className='xl:absolute 2xl:top-36 2xl:py-10 xl:mt-44  2xl:mt-56 p-5 xl:px-8 2xl:px-20'>
+              <h2 className="text-primary text-4xl lg:text-2xl xl:text-4xl font-semibold mb-3 lg:mb-1 xl:mb-4 text-center">
                 YoKanjeo
               </h2>
-              <span className='tw-text-white tw-opacity-100 tw-font-light tw-text-md md:tw-text-md tw-mt-2 md:tw-mt-3 tw-flex tw-justify-center tw-text-center'>Optimiza tu tiempo con el sistema eficiente de corretaje de propiedades. 
+              <span className='text-white opacity-100 font-light text-md md:text-md mt-2 md:mt-3 flex justify-center text-center'>Optimiza tu tiempo con el sistema eficiente de corretaje de propiedades. 
                 Alcanza la máxima rentabilidad con nuestra solución integral.</span>
           </div>
-          <div className='xl:tw-absolute xl:tw-bottom-0 tw-py-1 tw-p-5 xl:tw-px-14 2xl:tw-px-32'>
-              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-p-3 tw-rounded ">
+          <div className='xl:absolute xl:bottom-0 py-1 p-5 xl:px-14 2xl:px-32'>
+              <span className="block text-sm text-white sm:text-center w-full p-3 rounded ">
                 © {getCurrentYear()}{' '}
-                <a href="/" className="hover:tw-underline">
+                <a href="/" className="hover:underline">
                 YoKanjeo
                 </a>
                 . Todos los derechos reservados.
               </span>
-              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-pb-1 tw-rounded ">
+              <span className="block text-sm text-white sm:text-center w-full pb-1 rounded ">
                 Diseñado y creado por {' '}
-                <a href="https://bidata.cl/" target="_blank" rel='noreferrer' className="hover:tw-underline">
+                <a href="https://bidata.cl/" target="_blank" rel='noreferrer' className="hover:underline">
                  Bidata
                 </a>
               </span>
 
           </div>    
         </div>
-        <div className='tw-col-span-2'>
-          <div className=" tw-text-center ">
+        <div className='col-span-2'>
+          <div className=" text-center ">
             <ContactForm />
           </div>
         </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 const Button = ({ href, type, children, className, onClick = () => {} }) => {
   const btnStyles = {
     primary:
-      'tw-text-center tw-rounded-xl tw-text-white tw-px-6 tw-py-3 tw-font-semibold tw-transition tw-ease-in-out',
+      'text-center rounded-xl text-white px-6 py-3 font-semibold transition ease-in-out',
   };
 
   if (!!href) {

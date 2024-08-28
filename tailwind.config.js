@@ -4,7 +4,7 @@ module.exports = {
     './src/components/**/*.{js,jsx,ts,tsx}',
     './src/layout/**/*.{js,jsx,ts,tsx}',
   ],
-  prefix: 'tw-',
+  // prefix: '',
   theme: {
     extend: {
       colors: {
@@ -31,7 +31,7 @@ module.exports = {
           dark: '#1E1E1E',
           medium: '#363636',
           light: '#D1D0D0',
-        }, //tw-text-custom-facebook
+        }, //text-custom-facebook
         custom: {
           instagram: '#f09433',
           facebook: '#3b5998',

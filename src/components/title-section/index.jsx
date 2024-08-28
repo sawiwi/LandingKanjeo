@@ -3,13 +3,13 @@ const TitleSection = ({
   subtitle,
   position = 'center',
   className = '',
-  subTitleClassName = 'tw-text-gray-800',
+  subTitleClassName = 'text-gray-800',
 }) => {
-  const titleClasses = `${className} tw-font-bold tw-text-3xl  xl:tw-text-4xl tw-text-secondary`;
-  const subTitleClasses = `${subTitleClassName} tw-font-normal tw-mt-1 tw-text-md md:tw-text-lg lg:tw-text-lg`;
+  const titleClasses = `${className} font-bold text-3xl  xl:text-4xl text-secondary`;
+  const subTitleClasses = `${subTitleClassName} font-normal mt-1 text-md md:text-lg lg:text-lg`;
 
   return (
-    <div className={`tw-w-full ${'tw-text-' + position}`}>
+    <div className={`w-full ${'text-' + position}`}>
       <h2 className={`${titleClasses}`}>{title}</h2>
       <p className={`${subTitleClasses}`}>{subtitle ? subtitle : null}</p>
     </div>

@@ -9,11 +9,11 @@ const simpleInput = ({
   type,
 }) => {
   return (
-    <div className="tw-my-7 tw-relative">
+    <div className="my-7 relative">
       <input
         className={` ${
-          error ? `tw-border-secondary` : `focus:tw-border-primary-light`
-        } tw-max-h-[40px] tw-mb-1 tw-shadow tw-appearance-none tw-placeholder-transparent tw-border tw-rounded-full tw-w-full tw-py-3 tw-px-4 tw-peer tw-text-secondary tw-leading-tight focus:tw-outline-none focus:tw-shadow-outline`}
+          error ? `border-secondary` : `focus:border-primary-light`
+        } max-h-[40px] mb-1 shadow appearance-none placeholder-transparent border rounded-full w-full py-3 px-4 peer text-secondary leading-tight focus:outline-none focus:shadow-outline`}
         name={id}
         id={id}
         placeholder={placeholder}
@@ -24,22 +24,22 @@ const simpleInput = ({
       />
       <label
         htmlFor={id}
-        className="tw-absolute tw-left-1 tw-top-[-1.6rem] tw-text-secondary/70 tw-font-normal tw-text-base tw-transition-all tw-duration-500
-                peer-placeholder-shown:tw-text-base 
-                peer-placeholder-shown:tw-text-gray-400 
-                peer-placeholder-shown:tw-font-normal
-                peer-placeholder-shown:tw-left-4
-                peer-placeholder-shown:tw-top-2 
-                peer-focus:tw-top-[-1.6rem] 
-                peer-focus:tw-left-1 
-                peer-focus:tw-text-secondary 
-                peer-focus:tw-font-normal
-                hover:tw-cursor-text"
+        className="absolute left-1 top-[-1.6rem] text-secondary/70 font-normal text-base transition-all duration-500
+                peer-placeholder-shown:text-base 
+                peer-placeholder-shown:text-gray-400 
+                peer-placeholder-shown:font-normal
+                peer-placeholder-shown:left-4
+                peer-placeholder-shown:top-2 
+                peer-focus:top-[-1.6rem] 
+                peer-focus:left-1 
+                peer-focus:text-secondary 
+                peer-focus:font-normal
+                hover:cursor-text"
       >
         {placeholder}
       </label>
       {error ? (
-        <p className="tw-text-secondary tw-text-xs tw-italic tw-ml-3">
+        <p className="text-secondary text-xs italic ml-3">
           Completa este campo Obligatorio.
         </p>
       ) : (

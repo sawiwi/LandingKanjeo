@@ -99,15 +99,15 @@ const Faq = () => {
   });
 
   return (
-    <div className="tw-container tw-mt-[120px] md:tw-mt-[140px] tw-w-full tw-flex-col tw-mx-auto tw-h-screen tw-max-h-screen tw-flex tw-justify-center tw-items-center">
+    <div className="container mt-[120px] md:mt-[140px] w-full flex-col mx-auto h-screen max-h-screen flex justify-center items-center">
       {faqData.map((item) => (
         <>
-          <h2 key={item.id} className="tw-text-xl md:tw-text-2xl tw-text-secondary">
+          <h2 key={item.id} className="text-xl md:text-2xl text-secondary">
             {item.title}
           </h2>
         <div
           
-          className="tw-my-5 tw-h-[600px] tw-overflow-y-scroll scrollbar"
+          className="my-5 h-[600px] overflow-y-scroll scrollbar"
         >
           {item.questions.map((q) => (
             <Accordion key={q.id} question={q.question} answer={q.answer} />

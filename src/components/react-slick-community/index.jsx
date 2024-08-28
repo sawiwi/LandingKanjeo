@@ -18,15 +18,15 @@ const ReactSlickCommunity = ({ renderContent }) => {
   };
 
   return (
-    <Slider {...settings} className="tw-relative tw-w-96 ">
+    <Slider {...settings} className="relative w-96 ">
       {renderContent.length !== 0 ? renderContent.map((item) => (
-        <div key={item.id} className="tw-relative ">
+        <div key={item.id} className="relative ">
           <img
             src={item.imgHero}
             alt="hero"
-            className="tw-h-96 xl:tw-h-[60vh] 2xl:tw-h-[50vh] tw-mx-auto tw-w-full tw-object-cover tw-bg-gray-50  tw-rounded-3xl"
+            className="h-96 xl:h-[60vh] 2xl:h-[50vh] mx-auto w-full object-cover bg-gray-50  rounded-3xl"
           />
-          <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-opacity-50  tw-rounded-3xl"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50  rounded-3xl"></div>
         </div>
       )): ''}
     </Slider>

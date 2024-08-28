@@ -2,7 +2,7 @@ import React from 'react'
 
 const sendButton = ({ text = 'Enviar', isLoading = false }) => {
   return (
-    <button className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-font-bold tw-py-2 tw-px-7 tw-rounded-full focus:tw-outline-none focus:tw-shadow-outline tw-transition-all tw-duration-200"
+    <button className="bg-secondary hover:bg-secondary-light text-primary font-bold py-2 px-7 rounded-full focus:outline-none focus:shadow-outline transition-all duration-200"
       type="submit"
       disabled={isLoading}
     >
@@ -10,7 +10,7 @@ const sendButton = ({ text = 'Enviar', isLoading = false }) => {
         <div role="status">
           <svg
             aria-hidden="true"
-            className="tw-inline tw-w-6 tw-h-6 tw-text-white tw-animate-spin tw-fill-black"
+            className="inline w-6 h-6 text-white animate-spin fill-black"
             viewBox="0 0 100 101"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
@@ -24,7 +24,7 @@ const sendButton = ({ text = 'Enviar', isLoading = false }) => {
               fill="currentFill"
             />
           </svg>
-          <span className="tw-sr-only">Cargando...</span>
+          <span className="sr-only">Cargando...</span>
         </div>
       ) : 
       `${text}`

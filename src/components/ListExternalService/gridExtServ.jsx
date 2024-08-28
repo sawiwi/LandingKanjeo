@@ -14,33 +14,33 @@ const GridExtServ = ({dataServ}) => {
     };
 
     return(
-        <div className="tw-relative tw-flex tw-flex-col md:tw-grid-cols-3 2xl:tw-grid-cols-4 tw-gap-4 tw-mt-12">
+        <div className="relative flex flex-col md:grid-cols-3 2xl:grid-cols-4 gap-4 mt-12">
             {dataServ.length !== 0 ? dataServ.map((item)=>(
                 <article key={item.id}
                 onClick={() => handleOpenResume()} 
-                className="tw-flex tw-flex-col tw-justify-center tw-w-full tw-p-2 tw-relative">
-                    <div className="tw-flex tw-flex-col tw-gap-3 tw-items-center tw-my-2 ">
-                        <div className='tw-rounded-full tw-text-sky-800 tw-bg-sky-200 hover:tw-scale-105 hover:tw-shadow-lg tw-duration-300 tw-w-44 tw-h-44 xl:tw-w-40 xl:tw-h-40 tw-p-5 xl:tw-p-6'>
-                            <img src={item?.logo || ''} alt="imagen de servicio" className=" tw-py-3 tw-w-36 tw-h-full xl:tw-w-full  xl:tw-h-full"/>
+                className="flex flex-col justify-center w-full p-2 relative">
+                    <div className="flex flex-col gap-3 items-center my-2 ">
+                        <div className='rounded-full text-sky-800 bg-sky-200 hover:scale-105 hover:shadow-lg duration-300 w-44 h-44 xl:w-40 xl:h-40 p-5 xl:p-6'>
+                            <img src={item?.logo || ''} alt="imagen de servicio" className=" py-3 w-36 h-full xl:w-full  xl:h-full"/>
                         </div>
-                        <div className="tw-h-44 tw-mx-4 tw-text-center">
-                            <h2 className="tw-font-bold tw-text-lg">{item?.name || ''}</h2>
-                            <small className="tw-font-normal">{item?.description || ''}</small>
-                            <div className='tw-my-2'>
-                                <a href={item?.webPage || ''} className="tw-mt-3 tw-font-medium" target="_blank" rel="noreferrer">Ver sitio</a>
+                        <div className="h-44 mx-4 text-center">
+                            <h2 className="font-bold text-lg">{item?.name || ''}</h2>
+                            <small className="font-normal">{item?.description || ''}</small>
+                            <div className='my-2'>
+                                <a href={item?.webPage || ''} className="mt-3 font-medium" target="_blank" rel="noreferrer">Ver sitio</a>
                             </div>
                         </div>
                     </div>
                 </article>
-            )): <div className="tw-flex tw-flex-col tw-justify-end tw-text-center tw-mt-10">
+            )): <div className="flex flex-col justify-end text-center mt-10">
                     <p className="">Lo siento! No hemos encontrado Empresas disponibles</p>
-                    <a className="tw-text-secondary-light" href="/" target="_blank">¿Te gustaria unirte a nosotros?</a>
+                    <a className="text-secondary-light" href="/" target="_blank">¿Te gustaria unirte a nosotros?</a>
                 </div>
             }   
                 {
                     dataServ.length !== 0 ? (
-                        <div className="tw-flex tw-flex-col tw-justify-end tw-text-center tw-mt-10 xl:tw-mt-20">
-                            <a className="tw-text-secondary-light" href="/" target="_blank">¿Te gustaria unirte a nosotros como empresa?</a>
+                        <div className="flex flex-col justify-end text-center mt-10 xl:mt-20">
+                            <a className="text-secondary-light" href="/" target="_blank">¿Te gustaria unirte a nosotros como empresa?</a>
                         </div>   
                     ) : ('')
                 }

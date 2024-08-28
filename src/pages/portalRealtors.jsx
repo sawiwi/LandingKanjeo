@@ -45,7 +45,7 @@ const PortalRealtor = () =>{
             cell: (cellProps) => (
                 <div className="">      
                     <button 
-                    className="tw-font-semibold tw-cursor-pointer tw-duration-200"
+                    className="font-semibold cursor-pointer duration-200"
                     onClick={()=> handleOpenDetail((cellProps.row.original), (cellProps.row.original.id))}
                     >
                       
@@ -105,7 +105,7 @@ const PortalRealtor = () =>{
 
 
     return(
-        <div className="tw-overflow-hidden tw-bg-white tw-relative tw-px-4 sm:tw-px-8 lg:tw-px-24 tw-py-16 lg:tw-py-12 xl:tw-py-8 tw-my-16 lg:tw-my-8 xl:tw-my-6">
+        <div className="overflow-hidden bg-white relative px-4 sm:px-8 lg:px-24 py-16 lg:py-12 xl:py-8 my-16 lg:my-8 xl:my-6">
             <Reveal
             keyframes={fadeInUp}
             delay={500}
@@ -113,32 +113,32 @@ const PortalRealtor = () =>{
             triggerOnce={true}
             >
             <TitleSection
-                className='lg:tw-mt-20'
+                className='lg:mt-20'
                 title="Corredores asociados"
                 subtitle="Encuentra al corredor que más se adapate a tus necesidades"
                 position="center"
             />
 
-            <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2  tw-gap-6 2xl:tw-gap-2 tw-mt-4">
+            <div className="grid grid-row grid-cols-1 lg:grid-cols-2  gap-6 2xl:gap-2 mt-4">
                 <div>
                 <TableRealtors 
                   columnsData={columns} 
                   dataRealtor={users} />
                 </div>
-                <div className="tw-relative tw-mt-20">
-                    <div className="tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[440px] ">
-                        <FaRegUserCircle className="tw-text-secondary-light tw-animate-pulse tw-text-8xl xl:tw-text-[200px] tw-rounded-full tw-shadow-inner tw-p-6"/>
-                        <p className="tw-text-gray-500">Selecciona a un corredor de la lista</p>
+                <div className="relative mt-20">
+                    <div className="hidden sm:block sm:absolute z-10 top-80 xl:left-72 2xl:left-[440px] ">
+                        <FaRegUserCircle className="text-secondary-light animate-pulse text-8xl xl:text-[200px] rounded-full shadow-inner p-6"/>
+                        <p className="text-gray-500">Selecciona a un corredor de la lista</p>
                     </div>  
                 
                     <ModalRealtor open={openDetail} onClose={() => setOpenDetail(false)}>
-                        <div className='2xl:tw-w-full tw-mt-6 sm:tw-mt-2'>
-                            {/* <h2 className="tw-font-semibold tw-text-3xl tw-text-center">Resumen ficha</h2> */}
-                            <div className='lg:tw-p-2 tw-w-full tw-overflow-y-auto tw-h-full md:tw-h-[70vh] xl:tw-h-full tw-my-2'>
+                        <div className='2xl:w-full mt-6 sm:mt-2'>
+                            {/* <h2 className="font-semibold text-3xl text-center">Resumen ficha</h2> */}
+                            <div className='lg:p-2 w-full overflow-y-auto h-full md:h-[70vh] xl:h-full my-2'>
                                 {selectedUser ? <ResumeProfile dataRealtor={selectedUser}/> : 
-                                <div className="tw-text-gray-400 tw-hidden sm:tw-block sm:tw-absolute tw-z-10 tw-top-80 xl:tw-left-72 2xl:tw-left-[300px] ">
-                                    <FaRegUserCircle className="tw-animate-pulse tw-text-8xl xl:tw-text-[250px] tw-rounded-full tw-shadow-inner tw-p-6"/>
-                                    <p className="tw-text-gray-500">Selecciona a un corredor de la lista</p>
+                                <div className="text-gray-400 hidden sm:block sm:absolute z-10 top-80 xl:left-72 2xl:left-[300px] ">
+                                    <FaRegUserCircle className="animate-pulse text-8xl xl:text-[250px] rounded-full shadow-inner p-6"/>
+                                    <p className="text-gray-500">Selecciona a un corredor de la lista</p>
                                 </div> 
                                 }
                             </div>

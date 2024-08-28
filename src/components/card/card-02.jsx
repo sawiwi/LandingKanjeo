@@ -2,22 +2,22 @@ import '../../assets/css/components/map/map-img.css';
 
 const CardSystem = ({ renderContent }) => {
   return (
-    <div className="tw-container tw-px-5 tw-py-12 tw-mx-auto">
-      <div className="tw-text-center tw-mb-5">
-        <div className="tw-flex tw-mt-6 tw-justify-center"></div>
+    <div className="container px-5 py-12 mx-auto">
+      <div className="text-center mb-5">
+        <div className="flex mt-6 justify-center"></div>
       </div>
 
-      <div className="tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-justify-center tw-w-full tw-gap-5">
+      <div className="flex flex-wrap flex-row items-center justify-center w-full gap-5">
         {renderContent.card1.map((e, idx) => (
           <div
             key={idx}
-            className="tw-w-full sm:tw-w-1/2 lg:tw-w-1/3 tw-mb-8 sm:tw-mb-0"
+            className="w-full sm:w-1/2 lg:w-1/3 mb-8 sm:mb-0"
           >
-            <div className="tw-h-[140px] bg-card tw-flex tw-justify-center tw-items-center tw-text-center tw-max-w-xl tw-bg-white tw-rounded-lg tw-overflow-hidden tw-shadow-md">
-              <div className="tw-p-4">
-                <p className="tw-text-xl tw-font-normal tw-text-white">
+            <div className="h-[140px] bg-card flex justify-center items-center text-center max-w-xl bg-white rounded-lg overflow-hidden shadow-md">
+              <div className="p-4">
+                <p className="text-xl font-normal text-white">
                   {e.text}{' '}
-                  <span className="tw-text-white tw-pb-4">{e.resalt}</span>{' '}
+                  <span className="text-white pb-4">{e.resalt}</span>{' '}
                   {e.text1}
                 </p>
               </div>
@@ -26,17 +26,17 @@ const CardSystem = ({ renderContent }) => {
         ))}
       </div>
 
-      <div className="tw-flex tw-m-4 tw-flex-wrap tw-mx-4 tw-mb-10 tw-mt-10 md:tw-space-y-0 md:tw-flex md:space-x-6">
+      <div className="flex m-4 flex-wrap mx-4 mb-10 mt-10 md:space-y-0 md:flex md:space-x-6">
         {renderContent.card2.map((e, idx) => (
           <div
             key={idx}
-            className="tw-w-full md:tw-w-1/3 tw-p-4 tw-flex tw-flex-col tw-text-center tw-items-center"
+            className="w-full md:w-1/3 p-4 flex flex-col text-center items-center"
           >
-            <div className="tw-w-20 tw-h-20 tw-inline-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-primary-light/20  tw-mb-5 tw-flex-shrink-0">
-              <div className="tw-text-white tw-w-10 tw-h-10">{e.icon}</div>
+            <div className="w-20 h-20 inline-flex items-center justify-center rounded-full bg-primary-light/20  mb-5 flex-shrink-0">
+              <div className="text-white w-10 h-10">{e.icon}</div>
             </div>
-            <div className="tw-flex-grow">
-              <h2 className="tw-text-gray-600 tw-text-lg tw-title-font tw-font-medium tw-mb-3">
+            <div className="flex-grow">
+              <h2 className="text-gray-600 text-lg title-font font-medium mb-3">
                 {e.texts}
               </h2>
             </div>

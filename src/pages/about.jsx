@@ -26,7 +26,7 @@ const About = () => {
           transform: translateY(0);
       }`;
 return(
-    <Section className="tw-overflow-hidden tw-bg-white">
+    <Section className="overflow-hidden bg-white">
     <Reveal
       keyframes={fadeInUp}
       delay={500}
@@ -34,7 +34,7 @@ return(
       triggerOnce={true}
     >
       <TitleSection
-        className='lg:tw-mt-20'
+        className='lg:mt-20'
         title={whyWeContent.headings[0].content}
         subtitle="Nuestra empresa nació de la visión de transformar la experiencia de intercambio de propiedades, haciéndola más accesible y eficiente para todos los involucrados. Surgió de la pasión por conectar a corredores e potenciales interesados en un proceso justo y transparente."
         position="center"

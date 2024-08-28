@@ -18,7 +18,7 @@ const PoliticaCookies = () =>{
     }`;
     return(
         <>
-            <Section className="tw-overflow-hidden">
+            <Section className="overflow-hidden">
                 <Reveal
                     keyframes={fadeInUp}
                     delay={500}
@@ -26,13 +26,13 @@ const PoliticaCookies = () =>{
                     triggerOnce={true}
                 >
                 <TitleSection
-                    className='lg:tw-mt-20'
+                    className='lg:mt-20'
                     title="Politicas de Cookies"
                     subtitle="yokanjeo.com"
                     position="center"
                 />
 
-                <div className="tw-grid tw-grid-row tw-grid-cols-1 tw-justify-center tw-gap-2 tw-mt-4">
+                <div className="grid grid-row grid-cols-1 justify-center gap-2 mt-4">
                     <p>
                         El acceso a este Sitio Web puede implicar la utilización de cookies. Las cookies 
                         son pequeñas cantidades de información que se almacenan en el navegador utilizado 

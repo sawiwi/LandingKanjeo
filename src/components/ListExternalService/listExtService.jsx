@@ -24,14 +24,14 @@ const ListExtServices = () =>{
 
     return(
         <>
-            <div className="tw-flex tw-flex-col tw-mt-7 tw-w-full ">
+            <div className="flex flex-col mt-7 w-full ">
                 <div className=''>
                     <ReactSlickExtServ renderContent={externHero} />
                 </div>
             </div>
             <Section>
-                <div className="tw-flex tw-flex-col tw-text-center tw-justify-center">
-                    <h2 className="tw-text-4xl xl:tw-text-5xl tw-mb-2 tw-text-secondary">
+                <div className="flex flex-col text-center justify-center">
+                    <h2 className="text-4xl xl:text-5xl mb-2 text-secondary">
                             Listado de Empresas
                     </h2> 
                     <p>Encuentra la compañia que más se adapate a tus necesidades</p> 

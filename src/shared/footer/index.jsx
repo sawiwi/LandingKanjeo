@@ -8,42 +8,42 @@ import { getCurrentYear } from '../../utils';
 
 const Footer = () => {
   return (
-    <footer className="tw-bg-gray-medium tw-shadow ">
-      <div className="tw-aie tw-sm-12 tw-md-8 tw-lg-12">
-        <div className="tw-gs">
-          <div className="tw-ab">
-            <div className='tw-p-4 tw-grid tw-grid-cols-1 lg:tw-grid-cols-3'>
-              <div className='tw-col-span-1 tw-py-3'>
-                <div className="tw-flex  tw-justify-center tw-flex-grow tw-items-center tw-space-x-3  lg:tw-space-x-10 tw-mt-5 ">
-                    <Link to="/" className="tw-flex tw-items-center">
+    <footer className="bg-gray-medium shadow ">
+      <div className="aie sm-12 md-8 lg-12">
+        <div className="gs">
+          <div className="ab">
+            <div className='p-4 grid grid-cols-1 lg:grid-cols-3'>
+              <div className='col-span-1 py-3'>
+                <div className="flex  justify-center flex-grow items-center space-x-3  lg:space-x-10 mt-5 ">
+                    <Link to="/" className="flex items-center">
                     <img
                       src={Logo}
                       alt="procanje-logo"
-                      className="tw-relative tw-object-cover tw-block tw-cursor-pointer tw-w-56 tw-h-full sm:tw-w-60 sm:tw-h-full md:tw-w-80 md:tw-h-full"
+                      className="relative object-cover block cursor-pointer w-56 h-full sm:w-60 sm:h-full md:w-80 md:h-full"
                     />
-                    {/* <span className="tw-text-5xl lg:tw-block tw-py-3 tw-font-extrabold lg:tw-text-6xl tw-text-primary hover:tw-scale-105 tw-duration-200">
+                    {/* <span className="text-5xl lg:block py-3 font-extrabold lg:text-6xl text-primary hover:scale-105 duration-200">
                       ProCanje
                     </span> */}
                   </Link>
                 </div>
-                <p className="tw-text-white tw-text-lg tw-title-font tw-font-thin  tw-text-center tw-mb-3 tw-tracking-wider">
+                <p className="text-white text-lg title-font font-thin  text-center mb-3 tracking-wider">
                   "Realiza Canjes con nosotros de forma eficiente"
                 </p>
               </div>
-              <div className='tw-col-span-1 tw-py-3 lg:tw-py-12 lg:tw-mx-28'>
-                <div className="tw-flex-shrink-0 tw-flex lg:tw-flex-wrap tw-items-center tw-justify-center tw-text-gray-600 tw-space-x-1 tw-mt-6 tw-mb-5">
-                  <div className="tw-items-center lg:tw-flex  tw-space-x-2 ">
-                    <ul className="tw-flex">
+              <div className='col-span-1 py-3 lg:py-12 lg:mx-28'>
+                <div className="flex-shrink-0 flex lg:flex-wrap items-center justify-center text-gray-600 space-x-1 mt-6 mb-5">
+                  <div className="items-center lg:flex  space-x-2 ">
+                    <ul className="flex">
                       {footerSMediaNavigation.map((item) => (
-                        <li key={item.id} className="tw-mx-2">
+                        <li key={item.id} className="mx-2">
                           <a
                             href={item.href}
                             target="_blank"
                             rel="noreferrer nofollow"
-                            className={`tw-bg-primary hover:tw-bg-gray-200 tw-text-white hover:tw-text-white tw-w-10 tw-h-10  lg:tw-w-11 lg:tw-h-11 hover:tw-scale-105  tw-cursor-pointer tw-rounded-ss-xl tw-rounded-ee-xl tw-duration-150 tw-flex tw-items-center tw-justify-center tw-transform group-hover:tw-scale-110 tw-transition-transform`}
+                            className={`bg-primary hover:bg-gray-200 text-white hover:text-white w-10 h-10  lg:w-11 lg:h-11 hover:scale-105  cursor-pointer rounded-ss-xl rounded-ee-xl duration-150 flex items-center justify-center transform group-hover:scale-110 transition-transform`}
                           >
                             <span
-                              className={`hover:${item.color} tw-text-secondary tw-text-2xl`}
+                              className={`hover:${item.color} text-secondary text-2xl`}
                             >
                               {item.icon === '' ? (
                                 <img
@@ -51,7 +51,7 @@ const Footer = () => {
                                   alt="logo-x"
                                   height="20"
                                   width="20"
-                                  className="tw-text-secondary"
+                                  className="text-secondary"
                                 />
                               ) : (
                                 item.icon
@@ -64,14 +64,14 @@ const Footer = () => {
                   </div>
                 </div>
               </div>
-              <div className='tw-col-span-1 tw-py-3 lg:tw-py-12 '>
-                <div className="tw-flex-shrink-0 tw-flex tw-items-center tw-justify-center tw-text-gray-600 tw-space-x-1 tw-mt-5">
-                  <div className="tw-items-center tw-flex tw-justify-center tw-space-x-2">
-                    <ul className="tw-flex tw-flex-wrap tw-justify-center 2xl:tw-flex lg:tw-items-center lg:tw-space-x-3 tw-relative">
+              <div className='col-span-1 py-3 lg:py-12 '>
+                <div className="flex-shrink-0 flex items-center justify-center text-gray-600 space-x-1 mt-5">
+                  <div className="items-center flex justify-center space-x-2">
+                    <ul className="flex flex-wrap justify-center 2xl:flex lg:items-center lg:space-x-3 relative">
                       {footerNavigation.map((item) => (
                         <Link
                           key={item.id}
-                          className="tw-outline-none hover:tw-text-primary-light tw-inline-flex tw-text-primary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5"
+                          className="outline-none hover:text-primary-light inline-flex text-primary items-center text-sm xl:text-base font-normal py-2 px-4 xl:px-5"
                           to={item.href}
                         >
                           {item.name}
@@ -82,46 +82,46 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-              <hr className="tw-my-6 sm:tw-mx-auto lg:tw-my-3" />
-              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-p-3 tw-rounded ">
+              <hr className="my-6 sm:mx-auto lg:my-3" />
+              <span className="block text-sm text-white sm:text-center w-full p-3 rounded ">
                 © {getCurrentYear()}{' '}
-                <a href="/" className="tw-underline">
+                <a href="/" className="underline">
                   ProCanje
                 </a>
                 . Todos los derechos reservados.
               </span>
-              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-w-full tw-pb-1 tw-rounded ">
+              <span className="block text-sm text-white sm:text-center w-full pb-1 rounded ">
                 Diseñado y creado por {' '}
-                <a href="https://bidata.cl/" target="_blank" rel='noreferrer' className="tw-underline">
+                <a href="https://bidata.cl/" target="_blank" rel='noreferrer' className="underline">
                  Bidata
                 </a>
               </span>
 
 
 
-            {/* <div className="tw-p-4 tw-flex md:tw-w-3/3 tw-flex-col tw-text-center tw-items-center"> */}
-              {/* <div className="tw-flex tw-ml-2 md:tw-ml-8 lg:tw-ml-10 tw-justify-start tw-flex-grow tw-items-center tw-space-x-3 sm:tw-space-x-8 lg:tw-space-x-10 tw-mt-5">
+            {/* <div className="p-4 flex md:w-3/3 flex-col text-center items-center"> */}
+              {/* <div className="flex ml-2 md:ml-8 lg:ml-10 justify-start flex-grow items-center space-x-3 sm:space-x-8 lg:space-x-10 mt-5">
                 <Logo/>
               </div>
 
-              <div className="tw-flex-grow tw-mt-5">
-                <p className="tw-text-white tw-text-lg tw-title-font tw-font-thin tw-mb-3 tw-tracking-wider">
+              <div className="flex-grow mt-5">
+                <p className="text-white text-lg title-font font-thin mb-3 tracking-wider">
                   "Realiza Canjes con nosotros de forma eficiente"
                 </p>
               </div>
-              <div className="tw-flex-shrink-0 tw-flex tw-items-center tw-justify-end tw-text-gray-600 tw-space-x-1 tw-mt-6 tw-mb-5">
-                <div className="tw-items-center lg:tw-flex tw-space-x-2">
-                  <ul className="tw-flex">
+              <div className="flex-shrink-0 flex items-center justify-end text-gray-600 space-x-1 mt-6 mb-5">
+                <div className="items-center lg:flex space-x-2">
+                  <ul className="flex">
                     {footerSMediaNavigation.map((item) => (
-                      <li key={item.id} className="tw-mx-2">
+                      <li key={item.id} className="mx-2">
                         <a
                           href={item.href}
                           target="_blank"
                           rel="noreferrer nofollow"
-                          className={`tw-bg-white hover:tw-bg-gray-200 tw-text-white hover:tw-text-white tw-w-12 tw-h-12 tw-cursor-pointer tw-rounded-full tw-flex tw-items-center tw-justify-center tw-transform group-hover:tw-scale-110 tw-transition-transform`}
+                          className={`bg-white hover:bg-gray-200 text-white hover:text-white w-12 h-12 cursor-pointer rounded-full flex items-center justify-center transform group-hover:scale-110 transition-transform`}
                         >
                           <span
-                            className={`hover:${item.color} tw-text-gray-800 tw-text-2xl`}
+                            className={`hover:${item.color} text-gray-800 text-2xl`}
                           >
                             {item.icon === '' ? (
                               <img
@@ -141,13 +141,13 @@ const Footer = () => {
                   </ul>
                 </div>
               </div> */}
-              {/* <div className="tw-flex-shrink-0 tw-flex tw-items-center tw-justify-end tw-text-gray-600 tw-space-x-1 tw-mt-5">
-                <div className="tw-items-center lg:tw-flex tw-space-x-2">
-                  <ul className="tw-mr-10 2xl:tw-flex lg:tw-items-center lg:tw-space-x-3 tw-relative">
+              {/* <div className="flex-shrink-0 flex items-center justify-end text-gray-600 space-x-1 mt-5">
+                <div className="items-center lg:flex space-x-2">
+                  <ul className="mr-10 2xl:flex lg:items-center lg:space-x-3 relative">
                     {footerNavigation.map((item) => (
                       <Link
                         key={item.id}
-                        className="tw-outline-none hover:tw-text-primary-light tw-inline-flex tw-text-primary tw-items-center tw-text-sm xl:tw-text-base tw-font-normal tw-py-2 tw-px-4 xl:tw-px-5"
+                        className="outline-none hover:text-primary-light inline-flex text-primary items-center text-sm xl:text-base font-normal py-2 px-4 xl:px-5"
                         to={item.href}
                       >
                         {item.name}
@@ -156,10 +156,10 @@ const Footer = () => {
                   </ul>
                 </div>
               </div> */}
-              {/* <hr className="tw-my-6 tw-border-gray-200 sm:tw-mx-auto lg:tw-my-8" />
-              <span className="tw-block tw-text-sm tw-text-white sm:tw-text-center tw-border tw-w-full tw-p-3 tw-rounded tw-border-t-primary">
+              {/* <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+              <span className="block text-sm text-white sm:text-center border w-full p-3 rounded border-t-primary">
                 © {getCurrentYear()}{' '}
-                <a href="/" className="hover:tw-underline">
+                <a href="/" className="hover:underline">
                 YoKanjeo
                 </a>
                 . Todos los derechos reservados.

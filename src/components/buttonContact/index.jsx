@@ -18,29 +18,29 @@ const ContactWsp = () => {
     setIsOpen(!isOpen);
   }
 
-  const hoverEffect = `hover:tw-scale-105`;
-  const buttonAnimate = `tw-animate-heart`;
+  const hoverEffect = `hover:scale-105`;
+  const buttonAnimate = `animate-heart`;
   return (
-    <div className="tw-select-none tw-group">  
+    <div className="select-none group">  
       {isOpen && (
-          <div className='tw-fixed tw-bottom-9 tw-right-24 tw-rounded-md tw-w-[190px]  lg:tw-w-[200px] 2xl:tw-w-[220px] tw-h-[50px] lg:tw-h-[50px] 2xl:tw-h-[50px] tw-bg-white tw-opacity-30 group-hover:tw-opacity-100 tw-duration-300 tw-drop-shadow-lg tw-shadow-black tw-z-30 tw-flex tw-justify-center tw-items-center hover:tw-cursor-pointer tw-transition-all '>
+          <div className='fixed bottom-9 right-24 rounded-md w-[190px]  lg:w-[200px] 2xl:w-[220px] h-[50px] lg:h-[50px] 2xl:h-[50px] bg-white opacity-30 group-hover:opacity-100 duration-300 drop-shadow-lg shadow-black z-30 flex justify-center items-center hover:cursor-pointer transition-all '>
             <a href={whatsappBusinessLink}
                 target='_blank'
                 rel="noopener noreferrer"
                 aria-label="Enviar mensaje por WhatsApp"
                 title='tooltWsp'>
-              <span className='tw-text-sm tw-font-semibold'>Haz tus consultas aquí!</span>
+              <span className='text-sm font-semibold'>Haz tus consultas aquí!</span>
             </a>
         </div>
       )}
    
       <div
-        className={`tw-fixed tw-bottom-8 tw-right-8 tw-rounded-full tw-w-[60px] tw-h-[60px] tw-bg-green-500  tw-drop-shadow-lg tw-shadow-black tw-z-30 tw-flex tw-justify-center tw-items-center hover:tw-cursor-pointer tw-transition-all ${hoverEffect} ${buttonAnimate}`}
+        className={`fixed bottom-8 right-8 rounded-full w-[60px] h-[60px] bg-green-500  drop-shadow-lg shadow-black z-30 flex justify-center items-center hover:cursor-pointer transition-all ${hoverEffect} ${buttonAnimate}`}
         onClick={handleClick}
       >
         <div
-          className={`tw-transition-all tw-duration-300 ${
-            isOpen ? 'tw-rotate-15' : 'tw-rotate-0'
+          className={`transition-all duration-300 ${
+            isOpen ? 'rotate-15' : 'rotate-0'
           }`}
         >
           <a 
@@ -50,13 +50,13 @@ const ContactWsp = () => {
             aria-label="Enviar mensaje por WhatsApp"
             // title='buttonWsp'
           >
-            <AiOutlineWhatsApp className={`{tw-overflow-hidden tw-rounded-full tw-w-[30px] tw-h-[30px] tw-text-white tw-flex tw-items-center tw-justify-center tw-drop-shadow-lg tw-shadow-black  tw-transition-all ${hoverEffect}`} />
+            <AiOutlineWhatsApp className={`{overflow-hidden rounded-full w-[30px] h-[30px] text-white flex items-center justify-center drop-shadow-lg shadow-black  transition-all ${hoverEffect}`} />
           </a>
         </div>
       </div>
       <div
-        className={`tw-fixed  tw-right-8 tw-rounded-full tw-w-[60px] tw-z-10 tw-flex tw-flex-col-reverse tw-items-center tw-gap-3 tw-transition-all tw-duration-500 tw-transform ${
-          isOpen ? 'tw-bottom-28' : '-tw-bottom-36 tw-opacity-0'
+        className={`fixed  right-8 rounded-full w-[60px] z-10 flex flex-col-reverse items-center gap-3 transition-all duration-500 transform ${
+          isOpen ? 'bottom-28' : '-bottom-36 opacity-0'
         }`}
       >
       </div>

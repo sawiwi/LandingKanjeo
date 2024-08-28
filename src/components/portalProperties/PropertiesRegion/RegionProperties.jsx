@@ -85,7 +85,7 @@ const FilterRegionsProperties = () =>{
     
             return (
                 <div>
-                    <div className="tw-flex tw-gap-2 tw-items-center tw-text-center">
+                    <div className="flex gap-2 items-center text-center">
                         <p>DESDE {' '}
                             <b>{parseToDecimal(ufValue)} UF</b>
                         </p>
@@ -243,20 +243,20 @@ const FilterRegionsProperties = () =>{
     }`;
 
     const renderButtons = () => (
-        <div className="tw-flex tw-flex-row tw-justify-center tw-gap-3 tw-m-2 tw-my-10 2xl:tw-mx-32">
-            <button onClick={toggleMoreProp} className="tw-p-2 tw-px-4 tw-rounded-full tw-border  hover:tw-bg-secondary-light hover:tw-text-white tw-duration-200">
+        <div className="flex flex-row justify-center gap-3 m-2 my-10 2xl:mx-32">
+            <button onClick={toggleMoreProp} className="p-2 px-4 rounded-full border  hover:bg-secondary-light hover:text-white duration-200">
                 {moreProp ? 'Ver primeras 3' : 'Ver todas'}
             </button>
             <button 
                 onClick={() => toggleMoreNext('up')}
-                className={`tw-px-3 sm:tw-p-2 sm:tw-px-3 tw-rounded-full tw-border ${rangeProp[0] === 0 ? 'tw-opacity-25' : 'hover:tw-bg-secondary-light hover:tw-text-white tw-duration-200'}`}
+                className={`px-3 sm:p-2 sm:px-3 rounded-full border ${rangeProp[0] === 0 ? 'opacity-25' : 'hover:bg-secondary-light hover:text-white duration-200'}`}
                 disabled={rangeProp[0] === 0}
             >
                 <FaArrowUp />
             </button>
             <button 
                 onClick={() => toggleMoreNext('down')}
-                className={`tw-p-2 tw-px-3 tw-rounded-full tw-border ${rangeProp[1] >= propertiesInExchange.length ? 'tw-opacity-25' : 'hover:tw-bg-secondary-light hover:tw-text-white tw-duration-200'}`}
+                className={`p-2 px-3 rounded-full border ${rangeProp[1] >= propertiesInExchange.length ? 'opacity-25' : 'hover:bg-secondary-light hover:text-white duration-200'}`}
                 disabled={rangeProp[1] >= propertiesInExchange.length}
             >
                 <FaArrowDown />
@@ -265,7 +265,7 @@ const FilterRegionsProperties = () =>{
     );
 
     const renderProperties = () => (
-        <div className="tw-grid tw-grid-row tw-grid-cols-1 lg:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-6 2xl:tw-gap-2 tw-mt-2 tw-my-3 tw-mx-3 2xl:tw-mx-32">
+        <div className="grid grid-row grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3 gap-6 2xl:gap-2 mt-2 my-3 mx-3 2xl:mx-32">
             {filteredProperties.slice(rangeProp[0], rangeProp[1]).map((item) => (
                 <Reveal
                 keyframes={fadeInUp}
@@ -276,32 +276,32 @@ const FilterRegionsProperties = () =>{
                     <article 
                         key={item.id}
                         onClick={() => onOpenContact(item.id)}
-                        className="tw-cursor-pointer tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-[380px] tw-w-full tw-p-2 tw-group tw-overflow-hidden"
+                        className="cursor-pointer shadow-lg flex flex-col border-2 h-full md:h-[380px] w-full p-2 group overflow-hidden"
                     >
-                        <div className="tw-mb-2 tw-relative">
+                        <div className="mb-2 relative">
                             {item.images.length > 0 &&  /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path)  ? (
                                 <img 
                                     key={item.images[0].id}
                                     src={item.images[0].path || NotFoundProp} 
                                     alt={`img-${item.images[0].id}`} 
-                                    className="tw-h-64 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                    className="h-64 w-full object-cover rounded-md group-hover:-translate-y-2 duration-200 shadow-md" 
                                 /> 
                                 ): (
                                     <img 
                                         src={NotFoundProp} 
                                         alt="img-casa-not-found" 
-                                        className="tw-h-56 tw-w-full tw-object-scale-down tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-my-3" 
+                                        className="h-56 w-full object-scale-down rounded-md group-hover:-translate-y-2 duration-200 my-3" 
                                     />
                                 )                                
                             }
                         </div>
                         <div>
-                            <h2 className="tw-font-semibold tw-text-center tw-text-xl xl:tw-text-lg">{truncate(item?.propertyTitle, 30)}</h2>
-                            <div className="md:tw-mx-4 tw-mt-2 tw-flex tw-flex-row tw-justify-between tw-items-center tw-mb-2 xl:tw-text-md">
-                                <div className="tw-mx-4 tw-flex xl:tw-w-[60%]">
-                                    <p className="tw-font-semibold">{item.address.state.name || 'No se encontró región'}, {item.address.city.name || 'No se encontró comuna'}</p>
+                            <h2 className="font-semibold text-center text-xl xl:text-lg">{truncate(item?.propertyTitle, 30)}</h2>
+                            <div className="md:mx-4 mt-2 flex flex-row justify-between items-center mb-2 xl:text-md">
+                                <div className="mx-4 flex xl:w-[60%]">
+                                    <p className="font-semibold">{item.address.state.name || 'No se encontró región'}, {item.address.city.name || 'No se encontró comuna'}</p>
                                 </div>
-                                <div className="tw-flex tw-gap-2 tw-items-center xl:tw-w-[40%] tw-text-center">
+                                <div className="flex gap-2 items-center xl:w-[40%] text-center">
                                     {formatPrice(item?.currencyId, item?.propertyPrice)}
                                 </div>
                             </div>
@@ -315,22 +315,22 @@ const FilterRegionsProperties = () =>{
 
     return(
         <>
-            <div className="tw-flex tw-justify-center tw-my-6 sm:tw-my-5 tw-mt-14 md:tw-mt-2 tw-mx-2 2xl:tw-mx-32">
-                <h2 className="tw-text-gray-700 tw-text-2xl tw-text-center md:tw-text-start md:tw-text-2xl tw-font-medium">Regiones donde más se hacen canjes</h2>
+            <div className="flex justify-center my-6 sm:my-5 mt-14 md:mt-2 mx-2 2xl:mx-32">
+                <h2 className="text-gray-700 text-2xl text-center md:text-start md:text-2xl font-medium">Regiones donde más se hacen canjes</h2>
             </div>     
-                    <div className="tw-grid tw-grid-cols-2 xl:tw-flex xl:tw-flex-row xl:tw-justify-center tw-mt-8 tw-my-6 tw-mb-8 tw-mx-8 md:tw-mx-32 tw-h-full md:tw-h-40 tw-gap-6 xl:tw-gap-12"> 
+                    <div className="grid grid-cols-2 xl:flex xl:flex-row xl:justify-center mt-8 my-6 mb-8 mx-8 md:mx-32 h-full md:h-40 gap-6 xl:gap-12"> 
                         {regionImgs.map((item, idx) => (
                             <div key={idx} className=''>
-                                    <div className="tw-relative tw-h-28 tw-w-28 md:tw-h-32 md:tw-w-32 2xl:tw-h-40 2xl:tw-w-40 tw-my-5 tw-text-center">
-                                        <small className="tw-font-semibold tw-text-lg tw-mb-5 tw-text-gray-600">{item.region}</small>
+                                    <div className="relative h-28 w-28 md:h-32 md:w-32 2xl:h-40 2xl:w-40 my-5 text-center">
+                                        <small className="font-semibold text-lg mb-5 text-gray-600">{item.region}</small>
                                             <img onClick={() => handleRegionClick(item.region)} 
                                             src={item.img} 
-                                            className="tw-object-cover tw-cursor-pointer tw-rounded-full tw-h-full tw-w-full tw-my-3 hover:tw-scale-105 hover:tw-shadow-xl tw-duration-150" 
+                                            className="object-cover cursor-pointer rounded-full h-full w-full my-3 hover:scale-105 hover:shadow-xl duration-150" 
                                             alt={`img-${item.region}`}/>
                                             {
                                                 selectedRegion === item.region  && ( <div
                                                 onClick={() => handleRegionReset(item.region)} 
-                                                className='tw-absolute tw-top-12 tw-right-0 tw-cursor-pointer tw-bg-white tw-text-gray-700 tw-text-3xl tw-rounded-full tw-z-50'>
+                                                className='absolute top-12 right-0 cursor-pointer bg-white text-gray-700 text-3xl rounded-full z-50'>
                                                     <MdCancel />
                                                 </div>
                                             )}
@@ -341,10 +341,10 @@ const FilterRegionsProperties = () =>{
                             )
                         )}
                     </div>                    
-                    <div className="tw-flex sm:tw-justify-start tw-mt-16  tw-items-center tw-mx-3 2xl:tw-mx-32">
-                        <div className="tw-flex tw-gap-2 tw-my-2">
-                            <p className="tw-text-gray-500">
-                                <span className="tw-font-light tw-cursor-pointer">{rangeProp[1] > filteredProperties.length ? filteredProperties.length : rangeProp[1]} / {filteredProperties.length > 0 ? filteredProperties.length : '0' } </span>
+                    <div className="flex sm:justify-start mt-16  items-center mx-3 2xl:mx-32">
+                        <div className="flex gap-2 my-2">
+                            <p className="text-gray-500">
+                                <span className="font-light cursor-pointer">{rangeProp[1] > filteredProperties.length ? filteredProperties.length : rangeProp[1]} / {filteredProperties.length > 0 ? filteredProperties.length : '0' } </span>
                                 Propiedades en esta región
                             </p>
                         </div>
@@ -352,7 +352,7 @@ const FilterRegionsProperties = () =>{
                     {renderProperties()}
                     {renderButtons()}
 
-                    <Modal open={contactOpen} onClose={onCloseContact} className="tw-w-[90%] tw-h-full tw-z-50">
+                    <Modal open={contactOpen} onClose={onCloseContact} className="w-[90%] h-full z-50">
                         {selectedProperty && (    
                             <ModalLastProperties
                                 key={selectedProperty.id}

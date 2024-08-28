@@ -9,27 +9,27 @@ import { navigationData } from '../../data/navigation';
 const NavMobile = ({ data = navigationData, onClickClose }) => {
   const _renderMenuChild = (item) => {
     return (
-      <ul className="tw-nav-mobile-sub-menu tw-pl-6 tw-pb-1 tw-text-base">
+      <ul className="nav-mobile-sub-menu pl-6 pb-1 text-base">
         {item.children?.map((i, index) => (
           <Disclosure key={i.href + index} as="li">
             <a href={i.href}
               target={i.href === 'https://procanje.app/sign-in' ? '_blank' : ''}
-              className="tw-flex tw-px-4 tw-py-2.5 tw-text-secondary-light tw-text-sm tw-font-medium tw-rounded-lg hover:tw-bg-gray-100 tw-mt-[2px]"
+              className="flex px-4 py-2.5 text-secondary-light text-sm font-medium rounded-lg hover:bg-gray-100 mt-[2px]"
               rel="noreferrer">
               <span
-                className={!i.children ? 'tw-block tw-w-full' : ''}
+                className={!i.children ? 'block w-full' : ''}
                 onClick={onClickClose}
               >
                 {i.name}
               </span>
               {i.children && (
                 <span
-                  className="tw-block tw-flex-grow "
+                  className="block flex-grow "
                   onClick={(e) => e.preventDefault()}
                 >
                   <Disclosure.Button
                     as="span"
-                    className="tw-flex tw-justify-end tw-flex-grow"
+                    className="flex justify-end flex-grow"
                   ></Disclosure.Button>
                 </span>
               )}
@@ -45,10 +45,10 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
 
   const _renderItem = (item) => {
     return (
-      <Disclosure key={item.id} as="li" className="tw-text-secondary-light">
+      <Disclosure key={item.id} as="li" className="text-secondary-light">
         <a
           href={item.href}
-          className="tw-flex tw-w-full itw-tems-center tw-py-3.5 tw-px-4 tw-font-semibold tw-uppercase tw-tracking-wide tw-text-md hover:tw-bg-gray-100 tw-rounded-lg"
+          className="flex w-full itw-tems-center py-3.5 px-4 font-semibold uppercase tracking-wide text-md hover:bg-gray-100 rounded-lg"
           to={{
             pathname: item.href || undefined,
           }}
@@ -56,21 +56,21 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
           rel='noreferrer'
         >
           <span
-            className={!item.children ? 'tw-block tw-w-full' : ''}
+            className={!item.children ? 'block w-full' : ''}
             onClick={onClickClose}
           >
             {item.name}
           </span>
           {item.children && (
             <span
-              className="tw-block tw-flex-grow"
+              className="block flex-grow"
               onClick={(e) => e.preventDefault()}
             >
               <Disclosure.Button
                 as="span"
-                className="tw-flex tw-justify-end tw-flex-grow"
+                className="flex justify-end flex-grow"
               >
-                <MdOutlineArrowDropDown className="tw-text-2xl" />
+                <MdOutlineArrowDropDown className="text-2xl" />
               </Disclosure.Button>
             </span>
           )}
@@ -83,14 +83,14 @@ const NavMobile = ({ data = navigationData, onClickClose }) => {
   };
 
   return (
-    <div className="tw-overflow-y-auto tw-flex tw-flex-col tw-w-full tw-max-w-sm tw-h-screen tw-py-2 tw-transition tw-transform tw-shadow-lg tw-bg-body  tw-divide-y-2 tw-divide-gray-100">
-      <div className="tw-pb-2 tw-px-5">
+    <div className="overflow-y-auto flex flex-col w-full max-w-sm h-screen py-2 transition transform shadow-lg bg-body  divide-y-2 divide-gray-100">
+      <div className="pb-2 px-5">
         <Logo />
-        <span className="tw-absolute tw-right-2 tw-top-5 tw-p-1">
+        <span className="absolute right-2 top-5 p-1">
           <ButtonClose onClick={onClickClose} />
         </span>
       </div>
-      <ul className="tw-flex tw-flex-col tw-py-6 tw-px-2 tw-space-y-1">
+      <ul className="flex flex-col py-6 px-2 space-y-1">
         {data.map(_renderItem)}
       </ul>
     </div>

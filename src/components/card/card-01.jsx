@@ -11,10 +11,10 @@ const Card01 = ({ plan }) => {
     itemList?.map((item, idx) => (
       <li
         key={idx}
-        className="tw-flex tw-mb-2 tw-items-start tw-justify-start tw-text-gray-800"
+        className="flex mb-2 items-start justify-start text-gray-800"
       >
-        <span className="tw-mt-[5px] tw-mr-2">
-          <BsCheckCircleFill className="tw-text-green-500" />
+        <span className="mt-[5px] mr-2">
+          <BsCheckCircleFill className="text-green-500" />
         </span>
         {item}
       </li>
@@ -26,26 +26,26 @@ const Card01 = ({ plan }) => {
       whileInView="onscreen"
       viewport={{ once: true, amount: 0.1 }}
       variants={scrollUpVariants}
-      className="card1 tw-relative tw-overflow-hidden tw-transition-transform tw-duration-300 tw-ease-in-out tw-transform hover:tw--translate-y-2 tw-shadow-md tw-shadow-secondary-light/20 hover:tw-shadow-xl tw-rounded-lg tw-p-4 tw-bg-gray-50"
+      className="card1 relative overflow-hidden transition-transform duration-300 ease-in-out transform hover:-translate-y-2 shadow-md shadow-secondary-light/20 hover:shadow-xl rounded-lg p-4 bg-gray-50"
     >
-      <div className="tw-w-full tw-p-0 tw-m-0">
+      <div className="w-full p-0 m-0">
         <Badge content={category} color="blue" />
       </div>
-      <div className="tw-my-2 tw-w-full tw-p-0 tw-m-0">
-        <h3 className="tw-text-lg sm:tw-text-xl tw-text-secondary">{name}</h3>
+      <div className="my-2 w-full p-0 m-0">
+        <h3 className="text-lg sm:text-xl text-secondary">{name}</h3>
       </div>
-      <div className="tw-w-full tw-p-0 tw-m-0">
-        <p className="small tw-font-thin tw-text-gray-800">{description}</p>
+      <div className="w-full p-0 m-0">
+        <p className="small font-thin text-gray-800">{description}</p>
       </div>
-      <div className="tw-w-full tw-py-7 tw-m-0 tw-flex tw-justify-center tw-items-center xl:tw-mt-7">
+      <div className="w-full py-7 m-0 flex justify-center items-center xl:mt-7">
         <a
           href="#contact-plan-form"
-          className="tw-bg-secondary tw-cursor-pointer tw-px-4 tw-py-3 tw-rounded-full tw-text-primary"
+          className="bg-secondary cursor-pointer px-4 py-3 rounded-full text-primary"
         >
           Cotizar plan
         </a>
       </div>
-      <div className="tw-w-full tw-m-0 tw-p-5  xl:tw-mt-8">
+      <div className="w-full m-0 p-5  xl:mt-8">
         <ul>{_renderedPlanItems}</ul>
       </div>
     </motion.div>

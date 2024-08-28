@@ -57,7 +57,7 @@ const DetailsProperty = ({property}) =>{
         }
         return (
             <div>
-                <p className="tw-grid tw-text-lg">
+                <p className="grid text-lg">
                     <b >{parseToDecimal(ufValue)} UF</b>{parseToCLPCurrency(clpValue)} CLP
                 </p>
             </div>
@@ -68,33 +68,33 @@ const DetailsProperty = ({property}) =>{
 
     return(
         <>
-            <div className="tw-w-full tw-justify-center">
-                    <h3 className="tw-text-xl 2xl:tw-text-2xl tw-text-center tw-font-semibold">
+            <div className="w-full justify-center">
+                    <h3 className="text-xl 2xl:text-2xl text-center font-semibold">
                         Detalles de propiedad
                     </h3>
-                    <div className=" tw-p-2 sm:tw-px-3">
-                                    <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-center tw-mt-2 tw-my-4 tw-mb-12 2xl:tw-mb-4 tw-mx-14 sm:tw-mx-2 tw-w-full sm:tw-h-[110px] 2xl:tw-h-[100px] sm:tw-gap-6"> 
+                    <div className=" p-2 sm:px-3">
+                                    <div className="flex flex-col md:flex-row justify-center mt-2 my-4 mb-12 2xl:mb-4 mx-14 sm:mx-2 w-full sm:h-[110px] 2xl:h-[100px] sm:gap-6"> 
                                         {property.images.length > 0 ? (
                                                     property.images.slice(0,3).map((img) => (
                                                         <div key={img.id}>
-                                                            <div className="tw-h-32 tw-w-32 sm:tw-h-20 sm:tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
+                                                            <div className="h-32 w-32 sm:h-20 sm:w-20 md:h-32 md:w-32 2xl:h-20 2xl:w-20 text-center object-contain">
                                                                 <img 
                                                                 src={img?.path || NotFoundProp} 
                                                                 alt={`img-${img.id}`} 
                                                                 loading='lazy' 
-                                                                className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 tw-mx-10 sm:tw-mx-0 hover:tw-scale-105 hover:sm:tw-shadow-xl tw-duration-150" />
+                                                                className="object-cover cursor-pointer rounded-xl h-full w-full my-3 mx-10 sm:mx-0 hover:scale-105 hover:sm:shadow-xl duration-150" />
                                                             </div>
                                                         </div>
                                                 
                                                     ))
                                                 ): (
                                                     <div>
-                                                        <div className="tw-h-32 tw-w-32 sm:tw-h-20 sm:tw-w-20 md:tw-h-32 md:tw-w-32 2xl:tw-h-20 2xl:tw-w-20 tw-text-center tw-object-contain">
+                                                        <div className="h-32 w-32 sm:h-20 sm:w-20 md:h-32 md:w-32 2xl:h-20 2xl:w-20 text-center object-contain">
                                                             <img 
                                                             src={NotFoundProp} 
                                                             alt="img-propiedad"
                                                             loading='lazy' 
-                                                            className="tw-object-cover tw-cursor-pointer tw-rounded-xl tw-h-full tw-w-full tw-my-3 tw-mx-10 sm:tw-mx-0 hover:tw-scale-105 hover:sm:tw-shadow-xl tw-duration-150"/>
+                                                            className="object-cover cursor-pointer rounded-xl h-full w-full my-3 mx-10 sm:mx-0 hover:scale-105 hover:sm:shadow-xl duration-150"/>
                                                         </div>
                                                     </div>
                                                 )
@@ -102,7 +102,7 @@ const DetailsProperty = ({property}) =>{
                                     </div>
                                     {
                                         property.externalLink !== null && (
-                                        <div className="tw-mx-2 tw-flex tw-justify-center tw-gap-2 tw-text-sm tw-text-gray-500 tw-font-light tw-cursor-pointer">
+                                        <div className="mx-2 flex justify-center gap-2 text-sm text-gray-500 font-light cursor-pointer">
                                             <a href={property.externalLink} target="_blank" rel="noreferrer">
                                                 Url en portal publicada: {property?.externalLink || 'no tiene'}
                                             </a>
@@ -110,23 +110,23 @@ const DetailsProperty = ({property}) =>{
                                         )
                                     }
                 
-                                    <h6 className="tw-font-medium tw-text-xl sm:tw-text-lg tw-text-center">
+                                    <h6 className="font-medium text-xl sm:text-lg text-center">
                                         {property?.propertyTitle || 'No cuenta con Titulo'}
                                     </h6>
-                                    <p className="tw-text-base tw-text-center tw-my-3 2xl:tw-mb-2 ">
+                                    <p className="text-base text-center my-3 2xl:mb-2 ">
                                         {truncate(property?.propertyDescription, 210 || 'No cuenta con una descripción')}
                                     </p>
-                                    <div className="text-start tw-flex tw-flex-col xl:tw-flex-row sm:tw-text-center sm:tw-flex sm:tw-justify-between tw-mt-2 tw-mb-4 2xl:tw-mb-2 tw-gap-2 sm:tw-mx-28">
-                                        <p className="tw-grid"><b>Tipo de operación </b>{property?.typeOfOperationId}</p>
-                                        <p className="tw-grid"><b>Tipo de inmueble </b>{property?.typeOfPropertyId}</p>
+                                    <div className="text-start flex flex-col xl:flex-row sm:text-center sm:flex sm:justify-between mt-2 mb-4 2xl:mb-2 gap-2 sm:mx-28">
+                                        <p className="grid"><b>Tipo de operación </b>{property?.typeOfOperationId}</p>
+                                        <p className="grid"><b>Tipo de inmueble </b>{property?.typeOfPropertyId}</p>
                                         {formatPrice(property?.currencyId, property?.propertyPrice)}
                                     </div>  
                                     <div> 
-                                        <h3 className="tw-text-center tw-text-lg">Características</h3>
-                                        <div className="tw-flex tw-flex-col md:tw-flex-row tw-gap-1 2xl:tw-gap-8 tw-mt-4 md:tw-mt-3 tw-mx-2 sm:tw-mx-52 2xl:tw-mx-12">
-                                            <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start">
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                        <h3 className="text-center text-lg">Características</h3>
+                                        <div className="flex flex-col md:flex-row gap-1 2xl:gap-8 mt-4 md:mt-3 mx-2 sm:mx-52 2xl:mx-12">
+                                            <ul className="flex flex-col gap-1 text-start">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <FaRulerCombined />
                                                         <span>
                                                             Terreno:
@@ -134,8 +134,8 @@ const DetailsProperty = ({property}) =>{
                                                         <p>{property?.characteristics.surface ? property?.characteristics.surface : '0'} mts</p>
                                                     </div>
                                                 </li>
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <FaPencilRuler />
                                                         <span>
                                                             Construido:
@@ -143,8 +143,8 @@ const DetailsProperty = ({property}) =>{
                                                         <p>{property?.characteristics.constructedSurface ? property?.characteristics.constructedSurface : '0'} mts</p>
                                                     </div>
                                                 </li>
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <PiSortDescendingBold/>
                                                         <span>
                                                             Piso(s):
@@ -153,9 +153,9 @@ const DetailsProperty = ({property}) =>{
                                                     </div>
                                                 </li>
                                             </ul>
-                                            <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start">
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-items-center tw-gap-2">
+                                            <ul className="flex flex-col gap-1 text-start">
+                                                <li className="mb-2">
+                                                    <div className="flex items-center gap-2">
                                                         <FaBed/>
                                                         <span>
                                                             Habitación(es):
@@ -163,8 +163,8 @@ const DetailsProperty = ({property}) =>{
                                                         <p>{property?.characteristics.bedroom ? property?.characteristics.bedroom : '0'}</p>
                                                     </div>
                                                 </li>
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <FaBath />
                                                         <span>
                                                             Baño(s):
@@ -172,8 +172,8 @@ const DetailsProperty = ({property}) =>{
                                                         <p>{property?.characteristics.bathrooms ? property?.characteristics.bathrooms : '0'}</p>
                                                     </div>
                                                 </li>
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <FaKitchenSet/>
                                                         <span>
                                                             Cocina:
@@ -182,9 +182,9 @@ const DetailsProperty = ({property}) =>{
                                                     </div>
                                                 </li>
                                             </ul>
-                                            <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start">
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                            <ul className="flex flex-col gap-1 text-start">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <TbAirConditioning/>
                                                         <span>
                                                             Calefacción:
@@ -192,8 +192,8 @@ const DetailsProperty = ({property}) =>{
                                                         <p>{property?.characteristics.typeOfHeating ? property?.characteristics.typeOfHeating  : '0'}</p>
                                                     </div>
                                                 </li>
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <FaParking />
                                                         <span>
                                                             Estacionamiento:
@@ -201,8 +201,8 @@ const DetailsProperty = ({property}) =>{
                                                         <p>{property?.characteristics.hasParking ? property?.characteristics.hasParking  : 'No'}</p>
                                                     </div>
                                                 </li>
-                                                <li className="tw-mb-2">
-                                                    <div className="tw-flex tw-gap-2 tw-items-center">
+                                                <li className="mb-2">
+                                                    <div className="flex gap-2 items-center">
                                                         <BiSolidCarGarage/>
                                                         <span>
                                                             Garage(s):
@@ -212,19 +212,19 @@ const DetailsProperty = ({property}) =>{
                                                 </li>
                                             </ul>
                                         </div>
-                                        <div className="sm:tw-mx-52 2xl:tw-mx-12 tw-my-2 tw-gap-1 ">
+                                        <div className="sm:mx-52 2xl:mx-12 my-2 gap-1 ">
                                             <span  
                                             onClick={toggleViewMore}
-                                            className='tw-flex tw-items-center tw-mb-3 tw-text-secondary-light hover:tw-text-secondary tw-duration-150 tw-cursor-pointer'>
+                                            className='flex items-center mb-3 text-secondary-light hover:text-secondary duration-150 cursor-pointer'>
                                                 {moreView ? 'Ocultar características' : 'Ver más características'}
-                                                {moreView ? <IoIosArrowUp className='tw-mt-1'/> : <IoIosArrowDown className='tw-mt-1'/>}
-                                                {/* Ver más características <IoIosArrowDown className='tw-mt-1'/> */}
+                                                {moreView ? <IoIosArrowUp className='mt-1'/> : <IoIosArrowDown className='mt-1'/>}
+                                                {/* Ver más características <IoIosArrowDown className='mt-1'/> */}
                                             </span>
                                             {!moreView ? '' : moreView && (
-                                                <div className="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-8 md:tw-mt-3">
-                                                        <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start tw-text-gray-700">
-                                                                    <li className="tw-mb-2">
-                                                                        <div className="tw-flex tw-gap-2 tw-items-center">
+                                                <div className="flex flex-col md:flex-row md:gap-8 md:mt-3">
+                                                        <ul className="flex flex-col gap-1 text-start text-gray-700">
+                                                                    <li className="mb-2">
+                                                                        <div className="flex gap-2 items-center">
                                                                             <MdOutlineElevator  />
                                                                             <span>
                                                                                 Elevador:
@@ -232,8 +232,8 @@ const DetailsProperty = ({property}) =>{
                                                                             <p>{property?.characteristics.hasElevator ? property?.characteristics.hasElevator : 'No'} </p>
                                                                         </div>
                                                                     </li>
-                                                                    <li className="tw-mb-2">
-                                                                        <div className="tw-flex tw-gap-2 tw-items-center">
+                                                                    <li className="mb-2">
+                                                                        <div className="flex gap-2 items-center">
                                                                             <CgGym />
                                                                             <span>
                                                                                 Gimnasio:
@@ -241,8 +241,8 @@ const DetailsProperty = ({property}) =>{
                                                                             <p>{property?.characteristics.hasGym ? property?.characteristics.hasGym : 'No'}</p>
                                                                         </div>
                                                                     </li>
-                                                                    <li className="tw-mb-2">
-                                                                        <div className="tw-flex tw-gap-2 tw-items-center">
+                                                                    <li className="mb-2">
+                                                                        <div className="flex gap-2 items-center">
                                                                             <FaSwimmingPool />
                                                                             <span>
                                                                                 Piscina:
@@ -250,8 +250,8 @@ const DetailsProperty = ({property}) =>{
                                                                             <p>{property?.characteristics.hasSwimmingPool ? property?.characteristics.hasSwimmingPool : 'No'}</p>
                                                                         </div>
                                                                     </li>
-                                                                    <li className="tw-mb-2">
-                                                                          <div className="tw-flex tw-gap-2 tw-items-center">
+                                                                    <li className="mb-2">
+                                                                          <div className="flex gap-2 items-center">
                                                                               <FiSunset />
                                                                               <span>
                                                                                   Terraza:
@@ -260,9 +260,9 @@ const DetailsProperty = ({property}) =>{
                                                                           </div>
                                                                       </li>
                                                         </ul>
-                                                        <ul className="tw-flex tw-flex-col tw-gap-1 tw-text-start tw-text-gray-700">
-                                                                    <li className="tw-mb-2">
-                                                                          <div className="tw-flex tw-gap-2 tw-items-center">
+                                                        <ul className="flex flex-col gap-1 text-start text-gray-700">
+                                                                    <li className="mb-2">
+                                                                          <div className="flex gap-2 items-center">
                                                                               <GiBarbecue />
                                                                               <span>
                                                                                   Quincho:
@@ -270,8 +270,8 @@ const DetailsProperty = ({property}) =>{
                                                                               <p>{property?.characteristics.hasBarbecueArea ? property?.characteristics.hasBarbecueArea : 'No'}</p>
                                                                           </div>
                                                                     </li>
-                                                                    <li className="tw-mb-2">
-                                                                          <div className="tw-flex tw-gap-2 tw-items-center">
+                                                                    <li className="mb-2">
+                                                                          <div className="flex gap-2 items-center">
                                                                               <FaMapLocationDot />
                                                                               <span>
                                                                                   Condominio:
@@ -279,8 +279,8 @@ const DetailsProperty = ({property}) =>{
                                                                               <p>{property?.characteristics.locatedInCondominium ? property?.characteristics.locatedInCondominium : 'No'}</p>
                                                                           </div>
                                                                       </li>
-                                                                      <li className="tw-mb-2">
-                                                                          <div className="tw-flex tw-gap-2 tw-items-center">
+                                                                      <li className="mb-2">
+                                                                          <div className="flex gap-2 items-center">
                                                                               <TbHomeShield   />
                                                                               <span>
                                                                                   Tipo seguridad:
@@ -295,9 +295,9 @@ const DetailsProperty = ({property}) =>{
                                             }
                                         </div>
                                     </div>
-                                    <div className="tw-mb-4">
-                                        <h3 className="tw-text-center tw-text-xl sm:tw-text-lg tw-my-3 ">Observaciones</h3>
-                                        <div className="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-8 md:tw-mt-3 tw-mx-2 sm:tw-mx-40 2xl:tw-mx-16">
+                                    <div className="mb-4">
+                                        <h3 className="text-center text-xl sm:text-lg my-3 ">Observaciones</h3>
+                                        <div className="flex flex-col md:flex-row md:gap-8 md:mt-3 mx-2 sm:mx-40 2xl:mx-16">
                                             {property?.observations ? property?.observations : 'No cuenta con observaciones'}
                                         </div>
                                     </div>

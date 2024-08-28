@@ -10,19 +10,19 @@ const ScrollToTop = () => {
       <button
         aria-label="Scroll to top"
         type="button"
-        className="tw-z-100 tw-[200px] tw-group tw-overflow-hidden tw-fixed tw-right-7.5 tw-bottom-15 tw-z-50 tw-shadow-3xl tw-shadow-black/30 tw-p-0 tw-w-15 tw-h-15 tw-rounded-full tw-text-center tw-text-h3 tw-inline-flex tw-justify-center tw-items-center tw-bg-primary tw-text-white"
+        className="z-100 [200px] group overflow-hidden fixed right-7.5 bottom-15 z-50 shadow-3xl shadow-black/30 p-0 w-15 h-15 rounded-full text-center text-h3 inline-flex justify-center items-center bg-primary text-white"
         onClick={onClickHandler}
       >
         <HiArrowUp
           className={clsx(
-            'tw-absolute tw-top-1/2 tw-left-1/2 -tw-translate-x-1/2 -tw-translate-y-1/2 tw-text-white tw-transition-transorm tw-duration-300',
-            'group-hover:-tw-translate-y-20'
+            'absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-white transition-transorm duration-300',
+            'group-hover:-translate-y-20'
           )}
         />
         <HiArrowUp
           className={clsx(
-            'tw-absolute tw-top-1/2 tw-left-1/2 -tw-translate-x-1/2 tw-translate-y-20 tw-text-white tw-transition-transorm tw-duration-300',
-            'group-hover:-tw-translate-y-1/2'
+            'absolute top-1/2 left-1/2 -translate-x-1/2 translate-y-20 text-white transition-transorm duration-300',
+            'group-hover:-translate-y-1/2'
           )}
         />
       </button>

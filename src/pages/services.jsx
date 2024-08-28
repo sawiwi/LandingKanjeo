@@ -21,28 +21,28 @@ const ServicesSect = ()=>{
     ); 
     return(
         <>
-        <Section className="tw-overflow-hidden tw-bg-white" id="servicios">
+        <Section className="overflow-hidden bg-white" id="servicios">
             <TitleSection
-            className="tw-relative tw-z-10 lg:tw-mt-20"
-            subTitleClassName="tw-relative tw-z-10"
+            className="relative z-10 lg:mt-20"
+            subTitleClassName="relative z-10"
             title="Servicio de YoKanjeo"
             subtitle="Nuestras soluciones se adapta a tu negocio."
             position="center"
             />
             <Fade direction="up" triggerOnce={true}>
-            <div className="tw-flex tw-justify-center tw-w-full tw-z-10 tw-relative">
-                <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-3 2xl:tw-grid-cols-4  tw-mt-8 tw-gap-8 tw-max-w-[1450px]">
+            <div className="flex justify-center w-full z-10 relative">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4  mt-8 gap-8 max-w-[1450px]">
                 {_renderedPlans}
                 </div>
             </div>
             </Fade>
         </Section>
         {/* Seccion Del Formulario */}
-        <Section className="tw-overflow-hidden tw-bg-gray-50">
+        <Section className="overflow-hidden bg-gray-50">
             {/* <img
             src={ContactImg}
             alt=""
-            className="tw-absolute tw-w-full tw-left-0 tw-top-0 tw-z-0 tw-object-cover"
+            className="absolute w-full left-0 top-0 z-0 object-cover"
             /> */}
             <Form renderContent={formContent}/>
         </Section>

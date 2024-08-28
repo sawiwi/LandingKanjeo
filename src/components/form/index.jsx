@@ -219,16 +219,16 @@ const Index = ({ renderContent }) => {
   };
 
   return (
-    <div className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-gap-10 tw-relative tw-z-10">
+    <div className="flex justify-center items-center flex-col gap-10 relative z-10">
         {/* <img
           src="https://res.cloudinary.com/dvdb33uyj/image/upload/v1690573530/Projects/qr-service/imgs/Fondo2.webp"
           alt=""
-          className="tw-absolute tw-w-full tw-left-0 tw-top-0 tw-z-0"
+          className="absolute w-full left-0 top-0 z-0"
         /> */}
       <form
         id="contact-plan-form"
         onSubmit={onFormSubmit}
-        className="tw-rounded-2xl tw-px-8 tw-pt-8 tw-pb-8 tw-mb-4 tw-max-w-[700px] tw-w-full tw-shadow-lg tw-bg-primary"
+        className="rounded-2xl px-8 pt-8 pb-8 mb-4 max-w-[700px] w-full shadow-lg bg-primary"
       >
         <TitleSection
           title={renderContent.headings[0].content}
@@ -282,7 +282,7 @@ const Index = ({ renderContent }) => {
           selected={selected}
           setSelected={setSelected}
         />
-        <div className="tw-flex tw-items-center tw-justify-center">
+        <div className="flex items-center justify-center">
           <SendButton text="Enviar" isLoading={loading} />
         </div>
         <ToastContainer />

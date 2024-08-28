@@ -20,23 +20,23 @@ const ReactSlickExtServ = ({ renderContent }) => {
   };
 
   return (
-    <Slider {...settings} className="tw-relative tw-w-full">
+    <Slider {...settings} className="relative w-full">
       {renderContent.length !== 0 ? renderContent.map((item) => (
-        <div key={item.id} className="tw-relative">
+        <div key={item.id} className="relative">
           <img
             src={item.imgHero}
             alt="hero"
-            className="tw-bg-cover tw-h-[80vh] md:tw-h-[70vh] lg:tw-h-[99vh] 2xl:tw-h-[60vh] tw-w-auto tw-object-cover tw-bg-gray-50"
+            className="bg-cover h-[80vh] md:h-[70vh] lg:h-[99vh] 2xl:h-[60vh] w-auto object-cover bg-gray-50"
           />
-          <div className="tw-absolute tw-z-50 tw-inset-0 tw-text-center tw-flex tw-flex-col tw-w-[90%] md:tw-w-[70%] lg:tw-w-[60%] xl:tw-w-[80%] tw-mx-auto tw-justify-center tw-items-center tw-z-100 ">
-            <h1 className="tw-text-white lg:tw-mt-16 2xl:tw-mt-2 tw-opacity-100 tw-font-bold tw-text-3xl 2xl:tw-text-4xl">
+          <div className="absolute z-50 inset-0 text-center flex flex-col w-[90%] md:w-[70%] lg:w-[60%] xl:w-[80%] mx-auto justify-center items-center z-100 ">
+            <h1 className="text-white lg:mt-16 2xl:mt-2 opacity-100 font-bold text-3xl 2xl:text-4xl">
               {item.headings}
             </h1>
-            <p className="tw-text-white tw-opacity-100 tw-font-light tw-text-md md:tw-text-xl tw-mt-2">
+            <p className="text-white opacity-100 font-light text-md md:text-xl mt-2">
               {item.texts}
             </p>
           </div>
-          <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-opacity-60"></div>
+          <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
         </div>
       )): ''}
     </Slider>

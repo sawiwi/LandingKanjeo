@@ -2,25 +2,25 @@ import React from 'react';
 import Button from '../ui/button';
 const Business = ({ renderContent }) => {
   return (
-    <div className="tw-lg:pt-[120px] tw-pb-12 tw-lg:pb-[90px]">
-      <div className="tw-container">
-        <div className="tw-flex tw-flex-wrap tw-mx-4">
-          <div className="tw-w-full tw-px-4">
-            <div className="tw-text-center tw-mx-auto tw-mb-12 tw-lg:mb-20 tw-max-w-[510px]"></div>
+    <div className="lg:pt-[120px] pb-12 lg:pb-[90px]">
+      <div className="container">
+        <div className="flex flex-wrap mx-4">
+          <div className="w-full px-4">
+            <div className="text-center mx-auto mb-12 lg:mb-20 max-w-[510px]"></div>
           </div>
         </div>
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-2 tw-gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
           {renderContent.firstCard.map((e, idx) => (
-            <div key={idx} className="tw-flex tw-flex-col">
-              <div className="tw-p-10 md:tw-px-7 tw-xl:tw-px-10 tw-rounded-[20px] tw-bg-white tw-shadow-md tw-hover:tw-shadow-lg tw-mb-8">
-                <div className="tw-w-[70px] tw-h-[70px] tw-flex tw-items-center tw-justify-center tw-bg-primary-light/20 tw-text-primary tw-rounded-full tw-mb-8">
+            <div key={idx} className="flex flex-col">
+              <div className="p-10 md:px-7 xl:px-10 rounded-[20px] bg-white shadow-md hover:shadow-lg mb-8">
+                <div className="w-[70px] h-[70px] flex items-center justify-center bg-primary-light/20 text-primary rounded-full mb-8">
                   {e.icon}
                 </div>
-                <div className="tw-flex tw-flex-col tw-h-[250px]">
-                  <h4 className="tw-font-semibold tw-text-xl tw-text-dark tw-mb-3">
+                <div className="flex flex-col h-[250px]">
+                  <h4 className="font-semibold text-xl text-dark mb-3">
                     {e.title}
                   </h4>
-                  <p className="tw-text-body-color tw-overflow-hidden tw-overflow-ellipsis">
+                  <p className="text-body-color overflow-hidden overflow-ellipsis">
                     {e.content}
                   </p>
                 </div>
@@ -30,8 +30,8 @@ const Business = ({ renderContent }) => {
         </div>
       </div>
 
-      <div className="tw-mt-8 tw-flex tw-justify-center">
-        <Button href="/" className="tw-bg-primary tw-shadow-md tw-text-sm">
+      <div className="mt-8 flex justify-center">
+        <Button href="/" className="bg-primary shadow-md text-sm">
           Ver planes
         </Button>
       </div>

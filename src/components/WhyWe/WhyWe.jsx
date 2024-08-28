@@ -3,16 +3,16 @@ import '../../assets/css/components/map/map-img.css';
 
 const WhywE = ({ renderContent }) => {
   return (
-    <div className="tw-text-gray-600 tw-body-font tw-mt-10">
-      <div className="tw-container tw-px-2">
-        <div className="tw-flex tw-flex-col tw-text-center tw-w-full tw-mb-6"></div>
-        <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-4 sm:tw-mx-6 md:tw-mx-0">
+    <div className="text-gray-600 body-font mt-10">
+      <div className="container px-2">
+        <div className="flex flex-col text-center w-full mb-6"></div>
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-4 sm:mx-6 md:mx-0">
           {renderContent.card.map((e, idx) => (
-                <div key={idx} className=" tw-mb-16 tw-group tw-flex tw-flex-col tw-justify-start tw-ittems-start tw-gap-2 tw-w-80 lg:tw-w-96 tw-h-56 tw-duration-500 tw-relative tw-rounded-lg tw-p-4 tw-bg-gray-200 hover:-tw-translate-y-2 hover:tw-shadow-xl tw-shadow-gray-300">
-                    <img src={e.img} loading='lazy' className="tw-absolute tw-duration-700 tw-shadow-md tw-group-hover:-tw-translate-y-4 group-hover:-tw-translate-x-4 -tw-bottom-6 -tw-right-1  md:-tw-right-3 tw-w-1/2 tw-h-1/2 tw-rounded-lg tw-bg-primary-light" alt='imageHere'/>
+                <div key={idx} className=" mb-16 group flex flex-col justify-start ittems-start gap-2 w-80 lg:w-96 h-56 duration-500 relative rounded-lg p-4 bg-gray-200 hover:-translate-y-2 hover:shadow-xl shadow-gray-300">
+                    <img src={e.img} loading='lazy' className="absolute duration-700 shadow-md group-hover:-translate-y-4 group-hover:-translate-x-4 -bottom-6 -right-1  md:-right-3 w-1/2 h-1/2 rounded-lg bg-primary-light" alt='imageHere'/>
                   <div className="">
-                    <h2 className="tw-text-2xl tw-font-bold tw-mb-2 tw-text-secondary">{e.title}</h2>
-                    <p className="tw-text-gray-800 tw-line-clamp-3">
+                    <h2 className="text-2xl font-bold mb-2 text-secondary">{e.title}</h2>
+                    <p className="text-gray-800 line-clamp-3">
                     {e.content}
                     </p>
                   </div>

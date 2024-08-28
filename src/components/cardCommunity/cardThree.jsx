@@ -3,17 +3,17 @@
 const CardCommunityThree = ({renderContent}) =>{
     return(
         <>
-        <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 xl:tw-grid-cols-2 tw-gap-3 ">
+        <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-2 gap-3 ">
             {renderContent.length !== 0 ? renderContent.map((item) => (
-                <div key={item.id} className="tw-col-span-1 ">
-                    <a href={item.href} alt="" className="tw-w-full">
-                        <article className='tw-flex tw-flex-wrap tw-flex-row tw-items-center tw-gap-2 lg:tw-h-48 tw-mb-2 2xl:tw-mb-2 tw-p-4 tw-cursor-pointer hover:tw-text-secondary tw-duration-200'>
-                                <img src={item.imgCard}  alt="" loading="lazy" className="tw-object-cover tw-object-right tw-w-full tw-h-56 tw-rounded-xl hover:tw-scale-105 tw-duration-500" />
-                                <div className="tw-block">
-                                    <small className="tw-mt-2 lg:tw-mt-4 tw-text-secondary">{item.subheading}</small>
-                                    <h5 className='tw-opacity-100 xl:tw-font-bold tw-text-md lg:tw-text-base xl:tw-text-xl 2xl:tw-text-2xl'>
-                                        <a className="hover:tw-underline hover:tw-underline-offset-2 tw-duration-150" href={item?.href}>{item.headings?.first}</a> 
-                                        <a className=" hover:tw-underline hover:tw-underline-offset-2 tw-duration-150" href={item?.href2}>{item.headings?.second || ''} </a>
+                <div key={item.id} className="col-span-1 ">
+                    <a href={item.href} alt="" className="w-full">
+                        <article className='flex flex-wrap flex-row items-center gap-2 lg:h-48 mb-2 2xl:mb-2 p-4 cursor-pointer hover:text-secondary duration-200'>
+                                <img src={item.imgCard}  alt="" loading="lazy" className="object-cover object-right w-full h-56 rounded-xl hover:scale-105 duration-500" />
+                                <div className="block">
+                                    <small className="mt-2 lg:mt-4 text-secondary">{item.subheading}</small>
+                                    <h5 className='opacity-100 xl:font-bold text-md lg:text-base xl:text-xl 2xl:text-2xl'>
+                                        <a className="hover:underline hover:underline-offset-2 duration-150" href={item?.href}>{item.headings?.first}</a> 
+                                        <a className=" hover:underline hover:underline-offset-2 duration-150" href={item?.href2}>{item.headings?.second || ''} </a>
                                     </h5>
                                     <p className=''>{item.texts}</p>
                                 </div>         

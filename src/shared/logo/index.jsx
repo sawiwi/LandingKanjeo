@@ -13,13 +13,13 @@ const Logo = () => {
   };
 
   return (
-    <Link to="/" className="tw-flex tw-items-center">
+    <Link to="/" className="flex items-center">
       <img
         src={`/images/logo/${getPathnameLogo(pathname)}`}
         alt="qrservice-logo"
-        className="tw-relative tw-object-cover tw-block tw-cursor-pointer tw-w-36 tw-h-auto sm:tw-w-40 sm:tw-h-auto md:tw-w-auto md:tw-h-10"
+        className="relative object-cover block cursor-pointer w-36 h-auto sm:w-40 sm:h-auto md:w-auto md:h-10"
       />
-      {/* <span className="tw-text-2xl lg:tw-block tw-pl-2 tw-font-extrabold lg:tw-text-4xl tw-text-secondary">
+      {/* <span className="text-2xl lg:block pl-2 font-extrabold lg:text-4xl text-secondary">
         ProCanje
       </span> */}
     </Link>

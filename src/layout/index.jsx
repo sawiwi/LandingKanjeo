@@ -4,8 +4,8 @@ import ScrollToTop from '../components/scroll-to-top';
 
 const Layout = ({ children }) => {
   return (
-    <div className="tw-relative tw-bg-body tw-overflow-hidden">
-      <div className="tw-relative tw-p-0 tw-m-0 tw-w-full tw-h-full">
+    <div className="relative bg-body overflow-hidden">
+      <div className="relative p-0 m-0 w-full h-full">
         <Header />
         <main>{children}</main>
       </div>

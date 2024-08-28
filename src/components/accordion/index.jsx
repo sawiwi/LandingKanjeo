@@ -9,13 +9,13 @@ const Accordion = ({ question, answer }) => {
     <div
       id="accordion-color"
       data-accordion="collapse"
-      data-active-classes="tw-bg-blue-100 tw-text-blue-600 tw-bg-red-500"
+      data-active-classes="bg-blue-100 text-blue-600 bg-red-500"
     >
-      <h2 id="accordion-color-heading-1 tw-bg-red-500">
+      <h2 id="accordion-color-heading-1 bg-red-500">
         <button
           type="button"
           onClick={toggleAccordion}
-          className="tw-flex tw-bg-gray-50 tw-border-b tw-my-2 tw-w-[350px] sm:tw-w-[450px] md:tw-w-[700px] lg:tw-w-[850px] tw-items-center tw-justify-between tw-p-5 tw-font-medium tw-text-left tw-text-secondary-light tw-border tw-border-gray-200 tw-rounded-t-xl focus:tw-ring-4 focus:tw-ring-orange-100 hover:tw-bg-orange-50"
+          className="flex bg-gray-50 border-b my-2 w-[350px] sm:w-[450px] md:w-[700px] lg:w-[850px] items-center justify-between p-5 font-medium text-left text-secondary-light border border-gray-200 rounded-t-xl focus:ring-4 focus:ring-orange-100 hover:bg-orange-50"
           data-accordion-target="#accordion-color-body-1"
           aria-expanded="true"
           aria-controls="accordion-color-body-1"
@@ -23,8 +23,8 @@ const Accordion = ({ question, answer }) => {
           <span>{question}</span>
           <svg
             data-accordion-icon
-            className={`tw-w-3 tw-h-3 tw-transition-transform tw-shrink-0 ${
-              isExpanded ? 'tw-transform tw-rotate-180' : ''
+            className={`w-3 h-3 transition-transform shrink-0 ${
+              isExpanded ? 'transform rotate-180' : ''
             }`}
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
@@ -45,13 +45,13 @@ const Accordion = ({ question, answer }) => {
         id="accordion-color-body-1"
         className={`${
           isExpanded
-            ? 'tw-w-[350px] sm:tw-w-[550px] md:tw-w-[700px] lg:tw-w-[850px]'
-            : 'tw-hidden'
+            ? 'w-[350px] sm:w-[550px] md:w-[700px] lg:w-[850px]'
+            : 'hidden'
         }`}
         aria-labelledby="accordion-color-heading-1"
       >
-        <div className="tw-p-5 tw-border tw-border-b tw-border-gray-200">
-          <p className="tw-mb-2 tw-text-secondary-light">{answer}</p>
+        <div className="p-5 border border-b border-gray-200">
+          <p className="mb-2 text-secondary-light">{answer}</p>
         </div>
       </div>
     </div>

@@ -18,17 +18,17 @@ const RecentActivities = ({data}) =>{
 
 
     return(
-        <div className="tw-flex tw-flex-row tw-mx-2 tw-w-full tw-mt-4 tw-h-96 md:tw-h-80 tw-overflow-y-auto ">
-            {/* <div className="tw-w-[20%]"></div> */}
-            <div className="tw-w-[95%] tw-p-2">
+        <div className="flex flex-row mx-2 w-full mt-4 h-96 md:h-80 overflow-y-auto ">
+            {/* <div className="w-[20%]"></div> */}
+            <div className="w-[95%] p-2">
                     {
                         sortedProperties.length > 0 ? sortedProperties.slice(0, 8).map(item => (
-                            <ul key={item.id} className="tw-list-item">
-                                <li className="tw-relative tw-text-sm tw-text-[15px] sm:tw-text-md tw-mb-4 md:tw-mb-2 tw-m-1 tw-flex tw-flex-row tw-items-center tw-gap-3">
+                            <ul key={item.id} className="list-item">
+                                <li className="relative text-sm text-[15px] sm:text-md mb-4 md:mb-2 m-1 flex flex-row items-center gap-3">
                                     <div className="">
-                                        <GoDotFill className="tw-text-2xl sm:tw-text-lg tw-text-secondary-light" />
+                                        <GoDotFill className="text-2xl sm:text-lg text-secondary-light" />
                                     </div>
-                                    <div className="tw-absolute tw-w-2 tw-h-44 tw-top-28 tw-left-2 xl:tw-h-12 xl:tw-left-[7px] xl:tw-top-12 xl:tw-w-1 tw-text-secondary-light tw-bg-secondary-light"></div>
+                                    <div className="absolute w-2 h-44 top-28 left-2 xl:h-12 xl:left-[7px] xl:top-12 xl:w-1 text-secondary-light bg-secondary-light"></div>
                                     <div className="">
                                         <h5 className="">
                                             {/* {item?.propertyTitle ? "Propiedad:" : "Cliente:"}
@@ -83,8 +83,8 @@ const RecentActivities = ({data}) =>{
                       
                                     </div>                         
                                 </li> 
-                                {/* <hr className="tw-border-b tw-border-gray-400 tw-mx-10 tw-pb-6" />  */}
-                                <hr className="tw-mx-10 tw-pb-3 xl:tw-w-[550px]" /> 
+                                {/* <hr className="border-b border-gray-400 mx-10 pb-6" />  */}
+                                <hr className="mx-10 pb-3 xl:w-[550px]" /> 
                                 
                             </ul>
                         )):'No cuenta con actividades realizadas recientemente...'

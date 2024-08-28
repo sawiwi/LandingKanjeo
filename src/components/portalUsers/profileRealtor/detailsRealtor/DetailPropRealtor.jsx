@@ -44,12 +44,12 @@ const DetailCantProps = ({onClose, data}) => {
             }
             return (
                 <div>
-                     <div className="tw-mx-4 tw-mb-2 tw-my-3 tw-flex tw-flex-row tw-justify-between tw-items-center">
-                        <p className="xl:tw-text-lg">
+                     <div className="mx-4 mb-2 my-3 flex flex-row justify-between items-center">
+                        <p className="xl:text-lg">
                             <b>{parseToDecimal(ufValue)} UF</b>
                         </p>
                        
-                        <p className="xl:tw-text-lg">
+                        <p className="xl:text-lg">
                             <b>{parseToCLPCurrency(clpValue)}.-</b>
                         </p>
                     </div>
@@ -61,45 +61,45 @@ const DetailCantProps = ({onClose, data}) => {
 
 
     return(
-      <div className="tw-relative tw-shadow-lg tw-bg-white tw-h-full md:tw-h-full tw-w-full tw-rounded-md tw-mt-2 tw-mb-2 tw-p-2 tw-px-3 ">
-        <button className="tw-absolute tw-top-2 tw-right-2 tw-p-1 tw-px-2 tw-rounded-full tw-text-gray-600 tw-bg-white hover:tw-bg-gray-50 hover:tw-text-gray-600" onClick={onClose}>
+      <div className="relative shadow-lg bg-white h-full md:h-full w-full rounded-md mt-2 mb-2 p-2 px-3 ">
+        <button className="absolute top-2 right-2 p-1 px-2 rounded-full text-gray-600 bg-white hover:bg-gray-50 hover:text-gray-600" onClick={onClose}>
           X
         </button>
         <div>
-          <h3 className="tw-font-semibold tw-text-2xl sm:tw-mx-12">Propiedades del corredor</h3>
+          <h3 className="font-semibold text-2xl sm:mx-12">Propiedades del corredor</h3>
         </div>
-        <div className="tw-flex tw-flex-col md:tw-grid md:tw-grid-cols-2 2xl:tw-grid-cols-3 tw-gap-4 sm:tw-mx-20 tw-my-4 tw-mt-6">
+        <div className="flex flex-col md:grid md:grid-cols-2 2xl:grid-cols-3 gap-4 sm:mx-20 my-4 mt-6">
           {activeProperties.length > 0 ? (
             activeProperties.map(property => (
               // console.log('precio:' , property.propertyPrice.d)
               <>
-              <article key={property?.id} className="tw-shadow-lg tw-flex tw-flex-col tw-border-2 tw-h-full md:tw-h-60 xl:tw-h-full 2xl:tw-h-full md:tw-w-full tw-p-2 tw-group xl:tw-overflow-hidden 2xl:tw-p-1">
-                <div className="tw-mb-2 tw-relative">
+              <article key={property?.id} className="shadow-lg flex flex-col border-2 h-full md:h-60 xl:h-full 2xl:h-full md:w-full p-2 group xl:overflow-hidden 2xl:p-1">
+                <div className="mb-2 relative">
                   {property.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(property.images[0].path) ? (
                                 <img 
                                       key={property.images[0].id}
                                       src={property.images[0].path || NotFoundProp} 
                                       alt={`img-${property.images[0].id}`} 
-                                      className="tw-h-44 tw-w-full tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200 tw-shadow-md" 
+                                      className="h-44 w-full object-cover rounded-md group-hover:-translate-y-2 duration-200 shadow-md" 
                                                    />
                                       ) :(
                                           <img 
                                             src={NotFoundProp} 
                                             alt="img-casa-not-found" 
-                                            className="tw-h-48 xl:tw-h-44 tw-w-full xl:tw-w-44 tw-object-scale-down group-hover:-tw-translate-y-2 tw-duration-200 tw-p-4 xl:tw-mx-36" 
+                                            className="h-48 xl:h-44 w-full xl:w-44 object-scale-down group-hover:-translate-y-2 duration-200 p-4 xl:mx-36" 
                                                     />
                                                     )                                            
                                                 }
-                  <small className="tw-absolute tw-top-1 tw-left-1 tw-p-[0.15rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-0 tw-duration-200">
+                  <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
                     {property?.typeOfPropertyId || ''}
                   </small>
-                  <small className="tw-absolute tw-top-8 tw-left-1 tw-p-[0.18rem] tw-px-4 tw-font-normal tw-opacity-100 group-hover:tw-opacity-70 tw-bg-secondary tw-text-gray-50 tw-rounded-sm group-hover:tw-top-7 tw-duration-200">
+                  <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
                     {property?.typeOfOperationId || ''}
                   </small>
                 </div>
                 {
                   property.externalLink !== null && (
-                    <div className="tw-mx-2 tw-flex tw-justify-center tw-gap-2 tw-text-sm tw-text-gray-500 tw-font-light tw-cursor-pointer">
+                    <div className="mx-2 flex justify-center gap-2 text-sm text-gray-500 font-light cursor-pointer">
                       <a href={property.externalLink} target="_blank" rel="noreferrer">
                         Url en portal publicada: {property?.externalLink || 'no tiene'}
                       </a>
@@ -107,10 +107,10 @@ const DetailCantProps = ({onClose, data}) => {
                   )  
                 }
        
-                <div className="tw-mx-2">
+                <div className="mx-2">
                   {formatPrice(property?.currencyId, property?.propertyPrice.d)}
-                  <h2 className="tw-font-semibold tw-text-center tw-text-lg">{truncate(property.propertyTitle, 40)}</h2>
-                  <p className="tw-text-center tw-text-sm">{truncate(property?.propertyDescription, 100)}</p>              
+                  <h2 className="font-semibold text-center text-lg">{truncate(property.propertyTitle, 40)}</h2>
+                  <p className="text-center text-sm">{truncate(property?.propertyDescription, 100)}</p>              
                 </div>
               
 
@@ -119,8 +119,8 @@ const DetailCantProps = ({onClose, data}) => {
             
             ))
           ) : (
-            <div className="tw-shadow-lg tw-flex tw-flex-row tw-border-2 tw-h-full md:tw-h-60 xl:tw-h-full 2xl:tw-h-full md:tw-w-full tw-p-2  xl:tw-overflow-hidden 2xl:tw-p-1">
-              <div className="tw-mx-36 2xl:tw-mx-10 tw-text-center">
+            <div className="shadow-lg flex flex-row border-2 h-full md:h-60 xl:h-full 2xl:h-full md:w-full p-2  xl:overflow-hidden 2xl:p-1">
+              <div className="mx-36 2xl:mx-10 text-center">
                 No cuenta con propiedades activas
               </div>
             </div>
