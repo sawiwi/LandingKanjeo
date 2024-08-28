@@ -11,8 +11,8 @@ const ContactRealtor = ({property}) =>{
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
-    // to: property?.user.session.email,
-    to: 'fabians@bidata.cl',
+    to: property?.user.session.email,
+    // to: 'fabians@bidata.cl',
     phone: "",
     mail: "",
     subject: property?.propertyTitle,
@@ -68,11 +68,13 @@ const ContactRealtor = ({property}) =>{
         }
     };
 
-  const [errorMsg, setErrorMsg] = useState({
-    fieldsRequired: '',
-    serverError: '',
-    phone: '',
-  });
+    console.log('click Send',clicDataSendContact )
+
+    const [errorMsg, setErrorMsg] = useState({
+        fieldsRequired: '',
+        serverError: '',
+        phone: '',
+    });
 
     /* ToastMessage : Success */
     const showToastSuccessMsg = (msg) => {

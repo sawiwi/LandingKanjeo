@@ -23,22 +23,32 @@ const PortalRealtor = () =>{
         page,
         setSortOrder
       } = useContext(UsersContext);
+    const [clicDataNameRealtor, setClicDataNameRealtor] = useState([])
 
-    const handleOpenDetail = (user) => {
-        setSelectedUser(user);
-        setOpenDetail(true);
+    const handleOpenDetail = (user, id) => {
+        const clicked = clicDataNameRealtor.find(item => item.id === id);
+        if (clicked) {
+          setClicDataNameRealtor(clicDataNameRealtor.map(item => 
+              item.id === id ? {...item, clicks: item.clicks + 1} : item
+          ));
+      }else {
+        setClicDataNameRealtor([...clicDataNameRealtor, {id, clicks: 1}]);
+      }
+      setSelectedUser(user);
+      setOpenDetail(true);
     };
 
     const columns = [
         {
             header:"Corredor",
             accessorKey: "name",
-            cell: (cellProps: any) => (
+            cell: (cellProps) => (
                 <div className="">      
                     <button 
                     className="tw-font-semibold tw-cursor-pointer tw-duration-200"
-                    onClick={()=> handleOpenDetail((cellProps.row.original))}
+                    onClick={()=> handleOpenDetail((cellProps.row.original), (cellProps.row.original.id))}
                     >
+                      
                   {cellProps.row.original.name}
                 </button>
               </div>

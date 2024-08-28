@@ -11,13 +11,16 @@ const ContactUser = ({dataUser}) =>{
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
-    to: dataUser?.session.email,
+    // to: dataUser?.session.email,
+    to: 'fabians@bidata.cl',
     phone: "",
     mail: "",
     subject: "",
     message: "",
     title: "Portal de Corredores"
   });
+  const [clicDataSendContact, setClicDataSendContact] = useState([]);
+
 
 //   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
   const phoneRegex = /^(0?9\d{8})$/;
@@ -60,6 +63,18 @@ const ContactUser = ({dataUser}) =>{
     serverError: '',
     phone: '',
   });
+
+  const handleCounterClicSend = async (id) => {
+    const clicked = clicDataSendContact.find(item => item.id === id);
+        if (clicked) {
+        setClicDataSendContact(clicDataSendContact.map(item => 
+            item.id === id ? {...item, clicks: item.clicks + 1} : item
+        ));
+        }else {
+            setClicDataSendContact([...clicDataSendContact, {id, clicks: 1}]);
+        }
+    };
+    console.log('click Send', clicDataSendContact )
 
 
     /* ToastMessage : Success */
@@ -306,7 +321,8 @@ const ContactUser = ({dataUser}) =>{
                                 </button>
                             </div>
                         </div>
-                        <div className="tw-relative tw-my-3 tw-mt-2">
+                        <div className="tw-relative tw-my-3 tw-mt-2"
+                            onClick={() => handleCounterClicSend(dataUser.id)}>
                             <Button
                             type="submit"
                             className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-md tw-px-12 tw-py-2 tw-w-full"

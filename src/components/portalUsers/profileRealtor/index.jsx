@@ -24,9 +24,22 @@ const ProfileRealtor = () => {
     const [openContact, setOpenContact] = useState(false);
     const [openCantProp, setOpenCantProp] = useState(false);
     const [openCantRealtor, setOpenCantRealtor] = useState(false);
+
+    const [clicDataOpenWebPage, setClicDataOpenWebPage] = useState([]);
+    const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
     
 
-    const handleOpenContact = () => {
+    const handleOpenContact = (id) => {
+        const clicked = clicDataOpenContact.find(item => item.id === id);
+        if (clicked) {
+            setClicDataOpenContact(clicDataOpenContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicDataOpenContact([...clicDataOpenContact, {id, clicks: 1}]);
+        }
+        console.log('clicDataOpenContact', clicDataOpenContact)
+
         setOpenContact(true);
     };
 
@@ -34,10 +47,10 @@ const ProfileRealtor = () => {
         setOpenCantProp(true);
         setOpenCantRealtor(false);
     }
-    const openDetailRealtor = () =>{
-        setOpenCantRealtor(true);
-        setOpenCantProp(false);
-    }
+    // const openDetailRealtor = () =>{
+    //     setOpenCantRealtor(true);
+    //     setOpenCantProp(false);
+    // }
 
     const bannerImg = [imgBanner, imgBanner2, imgBanner3, imgBanner4];
     const [backgroundBanner, setBackgroundBanner] = useState('');
@@ -59,6 +72,19 @@ const ProfileRealtor = () => {
         }
         getRealtor();
     }, [id])
+
+    const onCountOpenPage = (id) => {
+        const clicked = clicDataOpenWebPage.find(item => item.id === id);
+        if (clicked) {
+            setClicDataOpenWebPage(clicDataOpenWebPage.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicDataOpenWebPage([...clicDataOpenWebPage, {id, clicks: 1}]);
+        }
+        // console.log('clicDataOpenWebPage', clicDataOpenWebPage)
+
+    }
 
     const fadeInUp = keyframes`
     0% {
@@ -120,11 +146,11 @@ const ProfileRealtor = () => {
                                                 <strong>Correo:</strong>{' '}<span>{user?.session.email || 'Sin correo'}</span>    
                                             </li>
                                             <li className='mb-1'>
-                                                {user?.webPage ? <>
+                                                {user?.webPage ? <div onClick={()=> onCountOpenPage(dataRealtor?.id)}>
                                                     <strong>Página web:</strong>{' '}<a href={'https://'+user?.webPage} target='_blank' rel='noreferrer' alt="" className='' >
                                                         <span>{user?.webPage}</span>
                                                     </a> 
-                                                </>      
+                                                </div>      
                                                 : <>
                                                      <strong>Página web:</strong>{' '}<span>{user?.webPage || 'No cuenta con página web'}</span>
                                                 </> }
@@ -159,7 +185,7 @@ const ProfileRealtor = () => {
                                         </ul>
                                         <div className='tw-flex tw-justify-end tw-mt-2 2xl:tw-mt-6 2xl:tw-mr-6'>
                                             <button  
-                                                onClick={()=> handleOpenContact()}
+                                                onClick={()=> handleOpenContact(id)}
                                                 className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
                                                 Contactar
                                             </button>

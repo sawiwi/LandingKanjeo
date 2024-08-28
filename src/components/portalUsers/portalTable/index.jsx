@@ -11,9 +11,10 @@ function TableRealtors({
     const [sorting, setSorting] = useState([])
     const [filtered, setFiltered] = useState({ search: "", region: "", commune: "" });
     // const [filtered, setFiltered] = useState("");
-    const [regionFilter, setRegionFilter] = useState("");
-    const [communeFilter, setCommuneFilter] = useState("");
-    const [filteredRealtors, setFilteredRealtors] = useState([]);
+    // const [regionFilter, setRegionFilter] = useState("");
+    // const [communeFilter, setCommuneFilter] = useState("");
+    // const [filteredRealtors, setFilteredRealtors] = useState([]);
+
 
     const globalFilterFn = (row, columnId, filterValue) => {
         const { search, region, commune } = filterValue;

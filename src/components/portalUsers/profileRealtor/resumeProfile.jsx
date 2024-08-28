@@ -19,6 +19,9 @@ import ContactUser from '../components/ContactModal/ContactUser';
 const ResumeProfile = ({dataRealtor}) =>{
     const [openContact, setOpenContact] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
+    const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
+    const [clicDataOpenWebPage, setClicDataOpenWebPage] = useState([]);
+    const [clicDataProfilRealtor, setClicProfilRealtor] = useState([]);
 
     
 
@@ -30,11 +33,45 @@ const ResumeProfile = ({dataRealtor}) =>{
         setBackgroundBanner(randomBanner)
 
     }, [bannerImg])
-
-
     if (!dataRealtor) return null;
 
-    const handleOpenContact = (dataRealtor) => {
+    const onCountoViewProfile = (id) => {
+        const clicked = clicDataProfilRealtor.find(item => item.id === id);
+        if (clicked) {
+            setClicProfilRealtor(clicDataProfilRealtor.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicProfilRealtor([...clicDataProfilRealtor, {id, clicks: 1}]);
+        }
+        // console.log('setClicProfilRealtor', clicDataProfilRealtor)
+    }
+
+    const onCountOpenPage = (id) => {
+        const clicked = clicDataOpenWebPage.find(item => item.id === id);
+        if (clicked) {
+            setClicDataOpenWebPage(clicDataOpenWebPage.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicDataOpenWebPage([...clicDataOpenWebPage, {id, clicks: 1}]);
+        }
+        // console.log('clicDataOpenWebPage', clicDataOpenWebPage)
+
+    }
+
+    const handleOpenContact = (dataRealtor, id) => {
+                //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
+        const clicked = clicDataOpenContact.find(item => item.id === id);
+        if (clicked) {
+            setClicDataOpenContact(clicDataOpenContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicDataOpenContact([...clicDataOpenContact, {id, clicks: 1}]);
+        }
+        // console.log('clicDataOpenContact', clicDataOpenContact)
+
         setSelectedUser(dataRealtor);
         setOpenContact(true);
     };
@@ -73,10 +110,7 @@ const ResumeProfile = ({dataRealtor}) =>{
                                         className='tw-absolute tw-top-56 tw-left-36 tw-h-10 tw-w-10 hover:tw-scale-110 tw-duration-150'
                                         title='Cuenta confirmada'/> : 
                                         ''
-                                    // <img src={notApprove} alt='por confirmar'  
-                                    // className='tw-absolute tw-top-56 tw-left-36 tw-h-11 tw-w-11 hover:tw-scale-110 tw-duration-150'
-                                    // title='Cuenta por confirmar' />
-                                    }
+                            }
                             <div className='tw-mx-3 tw-flex tw-flex-col md:tw-flex-row tw-gap-2'>
                                 <div className='tw-w-full md:tw-w-[52%]'>
                                     <h5 className='tw-text-3xl tw-text-gray-600 tw-mt-16'>{dataRealtor.name ? dataRealtor.name : 'Cristian'} {dataRealtor.lastName ? dataRealtor.lastName : 'Arevalo'} </h5>
@@ -88,26 +122,17 @@ const ResumeProfile = ({dataRealtor}) =>{
                                             <li className='mb-1'> 
                                                 <strong>Correo:</strong>{' '}<span>{dataRealtor?.session.email ? dataRealtor?.session.email : 'Sin correo'}</span>    
                                             </li>
-                                            <li className='mb-1'> 
-                                                {dataRealtor?.webPage ? <>
+                                            <li className='mb-1' > 
+                                                {dataRealtor?.webPage ? 
+                                                <div onClick={()=> onCountOpenPage(dataRealtor?.id)}>
                                                     <strong>Página web:</strong>{' '}<a href={'https://'+dataRealtor.webPage} alt="" className='' target='_blank' rel='noreferrer' >
                                                         <span>{dataRealtor?.webPage}</span>
                                                     </a> 
-                                                </>      
+                                                </div>      
                                                 : <>
                                                    <strong>Página web:</strong>{' '}<span>{dataRealtor?.webPage || 'No cuenta con página web'}</span>
                                                 </> }
                                             </li>
-                                            {/* <li className='mb-1'> 
-                                                {dataRealtor?.externalLink ? <>
-                                                    <strong>Propiedad en portal:</strong>{' '}<a href={'https://'+dataRealtor.externalLink} alt="" className='' target='_blank' rel='noreferrer' >
-                                                        <span>{dataRealtor?.externalLink}</span>
-                                                    </a> 
-                                                </>      
-                                                : <>
-                                                   <strong>Propiedad en portal:</strong>{' '}<span>{dataRealtor?.externalLink || 'No cuenta con propiedad en portal'}</span>
-                                                </> }
-                                            </li> */}
                                         </ul>
                                 </div>
                                 <div className='tw-w-full md:tw-w-[48%]'>
@@ -130,11 +155,12 @@ const ResumeProfile = ({dataRealtor}) =>{
                         </div>
                         <div className='tw-flex tw-flex-row tw-justify-center md:tw-justify-end tw-px-2 tw-gap-2'>
                             <button  
-                                onClick={()=> handleOpenContact(selectedUser)}
+                                onClick={()=> handleOpenContact(selectedUser, dataRealtor.id)}
                                 className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
                                  Contactar
                             </button>
-                            <a href={`/perfil-corredor/${dataRealtor.id}`} target='_blank' rel='noreferrer' className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
+                            <a onClick={() => onCountoViewProfile(dataRealtor.id)} 
+                                href={`/perfil-corredor/${dataRealtor.id}`} target='_blank' rel='noreferrer' className='tw-flex tw-items-center tw-hover-group tw-bg-secondary-light hover:tw-bg-secondary tw-duration-200 tw-text-white tw-p-2 tw-rounded-lg'>
                                 Ver más <IoIosArrowForward className='tw-mx-1 tw-duration-150'/>
                             </a>
                         </div>
@@ -147,7 +173,7 @@ const ResumeProfile = ({dataRealtor}) =>{
                     <div className='2xl:tw-w-full tw-mt-6 sm:tw-mt-2'>
                         {dataRealtor ? <ContactUser dataUser={dataRealtor}/> : ''}
                     </div>
-                </ModalContact>
+            </ModalContact>
          
         </>
     )

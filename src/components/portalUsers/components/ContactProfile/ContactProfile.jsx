@@ -12,21 +12,23 @@ const ContactProfile = ({dataUser}) =>{
     name: "",
     lastName: "",
     to: dataUser?.session.email,
+    // to: 'fabians@bidata.cl',
     phone: "",
     mail: "",
     subject: "",
     message: ""
   });
+    const [clicDataSendContact, setClicDataSendContact] = useState([]);
 
 //   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
-  const phoneRegex = /^(0?9\d{8})$/;
+    const phoneRegex = /^(0?9\d{8})$/;
 
-  const handleInputChange = (e) => {
+    const handleInputChange = (e) => {
     const inputData = { ...formData, [e.target.name]: e.target.value };
     setFormData(inputData);
-  };
+    };
 
-  const handleInpChange = (e) => {
+    const handleInpChange = (e) => {
     const { name, value } = e.target;
   
     if (name === "phone" && !phoneRegex.test(value)) {
@@ -52,7 +54,20 @@ const ContactProfile = ({dataUser}) =>{
           ...formData,
           message: phrase
         });
-      };
+    };
+
+    const handleCounterClicSend = async (id) => {
+        const clicked = clicDataSendContact.find(item => item.id === id);
+        if (clicked) {
+            setClicDataSendContact(clicDataSendContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            ));
+        }else {
+            setClicDataSendContact([...clicDataSendContact, {id, clicks: 1}]);
+        }
+    };
+
+    // console.log('click Send', clicDataSendContact )
 
   const [errorMsg, setErrorMsg] = useState({
     fieldsRequired: '',
@@ -304,10 +319,11 @@ const ContactProfile = ({dataUser}) =>{
                                 </button>
                             </div>
                         </div>
-                        <div className="tw-relative tw-my-3 tw-mt-2">
+                        <div className="tw-relative tw-my-3 tw-mt-2"
+                        onClick={() => handleCounterClicSend(dataUser.id)}>
                             <Button
-                            type="submit"
-                            className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-md tw-px-12 tw-py-2 tw-w-full"
+                                type="submit"
+                                className="tw-bg-secondary hover:tw-bg-secondary-light tw-text-primary tw-rounded-md tw-px-12 tw-py-2 tw-w-full"
                             >
                             {loading ? 'Enviando...' : 'Enviar'}
                             </Button>

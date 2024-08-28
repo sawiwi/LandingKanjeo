@@ -40,8 +40,6 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
 
     const onOpenContact = async (id, title) =>{
-        //Contador de clix cuado abre el contacto de propiedades 
-        // setCountOpenContact(countOpenContact + 1);
 
         //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
         const clicked = clicDataOpenContact.find(item => item.id === id);
@@ -59,7 +57,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     }
 
     // console.log('contador', countOpenContact)
-    // console.log('contador data', clicDataOpenContact)
+    console.log('contador data', clicDataOpenContact)
 
     const onCloseContact = () =>{
         setContactOpen(false)
@@ -443,8 +441,6 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                         alt={`img-${item.images[0].id}`} 
                                                         className="tw-h-48 tw-w-full xl:tw-w-96 tw-object-cover tw-rounded-md group-hover:-tw-translate-y-2 tw-duration-200" 
                                                         />
-                                                    // console.log('image' , item.images[0].path)
-                                                   
                                                 ) :(
                                                     <img 
                                                         src={NotFoundProp} 
