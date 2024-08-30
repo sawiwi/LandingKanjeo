@@ -1,8 +1,9 @@
 import { IoGridOutline } from "react-icons/io5";
 import { TbLayoutList} from "react-icons/tb";
-import { FaArrowLeft , FaArrowRight, FaRulerCombined, FaPencilRuler, FaParking  } from "react-icons/fa";
+import { FaArrowLeft , FaArrowRight, FaRulerCombined, FaPencilRuler, FaParking } from "react-icons/fa";
 import { FaBed, FaBath, FaKitchenSet } from "react-icons/fa6";
 import { PiSortDescendingBold } from "react-icons/pi";
+import { BiBuildingHouse } from "react-icons/bi";
 
 import {Reveal} from "react-awesome-reveal";
 import { keyframes } from '@emotion/react';
@@ -38,6 +39,9 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     const [filteredProperties, setFilteredProperties] = useState([]);
 //  const [countOpenContact, setCountOpenContact] = useState(0);
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
+
+
+    console.log('properties', properties)
 
     const onOpenContact = async (id, title) =>{
 
@@ -252,20 +256,29 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                 {moreProp ? 'Ver menos' : 'Ver más'}
                             </span>
                         </div>
-                        <ul className="flex gap-3">
-                            <li className="hover:scale-110 duration-200 cursor-pointer">
-                                <button onClick={() => setView('grid')}
-                                className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
-                                    <IoGridOutline className="text-gray-600 text-lg"/>
-                                </button>
-                            </li>
-                            <li className="hover:scale-110 duration-200 cursor-pointer">
-                                <button onClick={() => setView('list')}
-                                className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
-                                    <TbLayoutList className="text-gray-600 text-lg"/>
-                                </button>
-                            </li>                
-                        </ul>
+                        <div className="flex items-center">
+                            <ul className="flex gap-3 items-center">
+                                <li className="hover:scale-110 duration-200 cursor-pointer">
+                                    <button onClick={() => setView('grid')}
+                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                        <IoGridOutline className="text-gray-600 text-lg"/>
+                                    </button>
+                                </li>
+                                <li className="hover:scale-110 duration-200 cursor-pointer">
+                                    <button onClick={() => setView('list')}
+                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                        <TbLayoutList className="text-gray-600 text-lg"/>
+                                    </button>
+                                </li> 
+                                <li className=" hover:scale-110 duration-200 cursor-pointer">
+                                    <a href="/propiedades" target="_blank" rel='noreferrer'
+                                        className="flex items-center gap-2 hover:font-medium duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-full p-1 px-2">
+                                            Ver todas
+                                        <BiBuildingHouse  className="text-gray-600 text-lg"/>
+                                    </a>
+                                </li>                  
+                            </ul>
+                        </div>  
                     </div>
                     {
                         view === 'grid' ? (
@@ -283,8 +296,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                         alt={`img-${item.images[0].id}`} 
                                                         className="h-44 w-full object-cover rounded-md group-hover:-translate-y-2 duration-200 shadow-md" 
                                                         />
-                                                    // console.log('image' , item.images[0].path)
-                                                   
+                                                    // console.log('image' , item.images[0].path)                                                  
                                                 ) :(
                                                     <img 
                                                         src={NotFoundProp} 

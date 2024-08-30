@@ -26,7 +26,7 @@ const PropertiesServices = {
 
   getAllProperties: async () => {
     const response = await api.get(
-      `properties-portal?`
+      `properties-portal?limit=${paginationTopLimit.limit}&disabled=${queryParams.disabled}`
     //   `properties-portal?page=${currentPage}&limit=${limit}`
     );
     return { data: response.data.data, meta: response.data.meta };

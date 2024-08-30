@@ -58,8 +58,7 @@ const PortalProperty = () =>{
                     title="Portal de propiedades"
                     subtitle="Encuentra las propiedades publicadas"
                     position="center"
-                />
-                
+                />         
                 <div>
                     <SelectsProvider>
                         <LastProperties

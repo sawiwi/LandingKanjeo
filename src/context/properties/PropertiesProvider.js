@@ -81,12 +81,26 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
-  const getAllProperties = async () => {
-    const { data, meta } = await PropertiesServices.getAllProperties();
-    // console.log(data)
-    setAllProperties(data);
-    // setAllSimilarProperties(data);
-    // setPropertiesToShow(data.slice(0, 10));
+  const getAllProperties = async (
+    limit
+  ) => {
+    try {
+      setNotFoundMsg('');
+      setIsLoading(true);
+      const { data, meta } = 
+        await PropertiesServices.getAllProperties();
+      setAllProperties(data);
+      setTotalItems(meta.totalItems);
+      setLimit(limit)
+      setNotFoundMsg(
+        data.length === 0
+          ? 'Lo sentimos, tu busqueda no coincide con nuestros registros'
+          : ''
+      );
+      setIsLoading(false);
+    }catch (error) {
+      console.log('Bad server request', error);
+    }
   };
 
   const getValueUF = async () => {
@@ -104,12 +118,14 @@ const PropertiesProvider = ({ children }) => {
 
   const handlePageChange = (newPage) => {
     setProperties([]);
+    setAllProperties([])
     setPropertiesInExchange([])
     setPage(newPage);
   };
 
   useEffect(() => {
     getProperties(page);
+    setAllProperties(page);
     getPropertiesExchange(page);
   }, [page]);
 

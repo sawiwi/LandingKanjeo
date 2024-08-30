@@ -8,6 +8,7 @@ import Community from '../pages/community';
 import PortalRealtor from '../pages/portalRealtors';
 import PortalProperty from '../pages/portalProperties';
 import ProfileRealtor from '../components/portalUsers/profileRealtor';
+import AllProperties from '../components/allProperties/AllProperties';
 import PoliticaCookies from '../components/Politicas/politicasCookies';
 import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
 import ExternalServices from '../pages/externalServices';
@@ -95,6 +96,12 @@ export const navigationRoutes = [
     name:'Cómo Usar ProCanje',
     path:'/como-usar',
     element: <HowUse />
+  },
+  {
+    id:16,
+    name : 'Todas las propiedades',
+    path: '/propiedades',
+    element:<AllProperties/>
   },
 
 ];
