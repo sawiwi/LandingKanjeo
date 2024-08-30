@@ -18,8 +18,6 @@ import { FaRulerCombined, FaParking } from "react-icons/fa";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 import { SelectsContext } from "../../context/selects/SelectsContext";
-import SelectsProvider from "../../context/selects/SelectsProvider";
-
 
 const AllProperties = () => {
     const [contactOpen, setContactOpen] = useState(false);
@@ -47,7 +45,8 @@ const AllProperties = () => {
     const [filteredProperties, setFilteredProperties] = useState([]);
 //  const [countOpenContact, setCountOpenContact] = useState(0);
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
-
+    const [propertyCod, setPropertyCod] = useState('');
+    const [isSearching, setIsSearching] = useState(false);
 
     // console.log('properties', properties)
 
@@ -164,22 +163,30 @@ const AllProperties = () => {
           filtered = filtered.filter(property => 
             property.address.city.name === selectedSelects.commune);
         }
-    
         setFilteredProperties(filtered);
     };
 
-    
-    
-    // useEffect(() => {
-    //     setFilteredProperties(properties); 
-    //   }, [properties]);
+    useEffect(() => {
+        setFilteredProperties(properties); 
+      }, [properties]);
 
-    // useEffect(() => {
-    //     filterProperties(properties);
-    // }, [selectedSelects]);
+    useEffect(() => {
+        filterProperties(properties);
+    }, [selectedSelects]);
 
-    const handleSearch = () => {
-        filterProperties(properties)
+    const handleSearch = async () => {
+        setIsSearching(true);
+       if(propertyCod){
+            try{
+                const data= await PropertiesServices.getPropertyByIdCode(`/properties-portal/${propertyCod}`);
+                console.log('data', data)
+
+                setFilteredProperties(Array.isArray(data) ? data : [data])
+            } catch (error){
+                console.log("Error en filtrar por ID", error)
+            }
+       }
+       setIsSearching(false);
     }
 
     const renderButtons = () => (
@@ -208,8 +215,6 @@ const AllProperties = () => {
         </div>
     );
 
-    
-
     return(     
         <>    
             <Reveal
@@ -225,87 +230,120 @@ const AllProperties = () => {
                     position="center"
             /> 
             {/* FILTROS AVANZADOS */}
-            <div className="flex flex-col md:flex-row justify-between items-center md:mx-36 2xl:mx-96 gap-2 mt-10 w-full md:w-96">
-                <div className="grid w-full mb-1 mx-4 md:mx-0">
-                            <label className="font-semibold mb-1 w-full" for="typeProperty">Tipo de propiedad</label>
-                            <select
-                                id="typeOfProperty"
-                                name="typeOfProperty"
-                                value={selectedSelects.typeOfProperty}
-                                onChange={handleSelectChange}
-                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
-                            >
-                                <option value="">Seleccione un tipo</option>
-                                {typeOfProperty.map((type) => (
-                                <option key={type.id} value={type.name}>{type.name}</option>
-                                ))}
-                            </select>
+            <div className="flex flex-col md:mt-10 mb-6 m-2 p-2 sm:m-1 sm:p-1">
+                <div className="flex flex-row items-center gap-3 md:justify-center">
+                    <div className="grid w-full xl:w-96 mb-1 md:mx-0">
+                            <label className="font-semibold mb-1 w-full" for="searchOfId">Código de propiedad</label>
+                            <input 
+                            id="searchOfId"
+                            name="searchOfId"
+                            value={propertyCod}
+                            onChange={(e)=> setPropertyCod(e.target.value)}
+                            className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                            placeholder="21"></input>
+     
+                    </div>
+                    <button className="hover:bg-secondary hover:text-gray-50 duration-200 h-11 w-auto mt-5 p-1 px-3 border-2 rounded-md" onClick={handleSearch} disabled={isSearching}>
+                        {isSearching ? 'Buscando...' : 'Buscar'}
+                    </button>
                 </div>
-                <div className="grid w-full mb-1 mx-4 md:mx-0 ">
-                            <label className="font-semibold mb-1 w-full" for="operationType">Tipo de operación</label>
-                            <select
-                                id="operationType"
-                                name="operationType"
-                                value={selectedSelects.operationType}
-                                onChange={handleSelectChange}
+                <div className="flex flex-col md:flex-row justify-between items-center md:mx-36 2xl:mx-96 gap-2 mt-6 w-full md:w-96">
+                    <div className="grid w-full mb-1 mx-4 md:mx-0">
+                                <label className="font-semibold mb-1 w-full" for="typeProperty">Tipo de propiedad</label>
+                                <select
+                                    id="typeOfProperty"
+                                    name="typeOfProperty"
+                                    value={selectedSelects.typeOfProperty}
+                                    onChange={handleSelectChange}
+                                    className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                >
+                                    <option value="">Seleccione un tipo</option>
+                                    {typeOfProperty.map((type) => (
+                                    <option key={type.id} value={type.name}>{type.name}</option>
+                                    ))}
+                                </select>
+                    </div>
+                    <div className="grid w-full mb-1 mx-4 md:mx-0 ">
+                                <label className="font-semibold mb-1 w-full" for="operationType">Tipo de operación</label>
+                                <select
+                                    id="operationType"
+                                    name="operationType"
+                                    value={selectedSelects.operationType}
+                                    onChange={handleSelectChange}
+                                    className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                >
+                                    <option value="">Seleccione una operación</option>
+                                    {operationType.map((op) => (
+                                    <option key={op.id} value={op.name}>{op.name}</option>
+                                    ))}
+                                </select>
+                    </div>
+                    <div className="grid w-full mb-1 mx-4 md:mx-0">
+                                <label className="font-semibold mb-1 w-full" for="region">Región</label>
+                                <select
+                                    id="region"
+                                    name="region"
+                                    value={selectedSelects.region}
+                                    onChange={handleSelectChange}
+                                    className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                >
+                                    <option value="">Seleccione una Región</option>
+                                    {regions.map((region) => (
+                                    <option key={region.id} value={region.name}>{region.name}</option>
+                                    ))}
+                                </select>
+                    </div>
+                    <div className="grid w-full mb-1 mx-4 md:mx-0">
+                                <label className="font-semibold mb-1 w-full" for="commune">Comuna</label>
+                                <select
+                                    id="commune"
+                                    name="commune"
+                                    value={selectedSelects.commune}
+                                    onChange={handleSelectChange}
+                                    className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                >
+                                    <option value="">Seleccione una Comuna</option>
+                                    {communes.map((commune) => (
+                                        <option key={commune.id} value={commune.name}>{commune.name}</option>
+                                    ))}
+                                </select>
+                    </div>
+                    <div className="grid w-full mb-1 mx-4 md:mx-0">
+                        <label className="font-semibold mb-1 w-full" for="commune">En canje</label>
+                        <select
+                                id="inExchanged"
+                                name="inExchanged"
+                                // value={selectedSelects.commune}
+                                // onChange={handleSelectChange}
                                 className="rounded-md placeholder:text-gray-400 p-2 border-2"
-                            >
-                                <option value="">Seleccione una operación</option>
-                                {operationType.map((op) => (
-                                <option key={op.id} value={op.name}>{op.name}</option>
-                                ))}
-                            </select>
-                </div>
-                <div className="grid w-full mb-1 mx-4 md:mx-0">
-                            <label className="font-semibold mb-1 w-full" for="region">Región</label>
-                            <select
-                                id="region"
-                                name="region"
-                                value={selectedSelects.region}
-                                onChange={handleSelectChange}
-                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
-                            >
-                                <option value="">Seleccione una Región</option>
-                                {regions.map((region) => (
-                                <option key={region.id} value={region.name}>{region.name}</option>
-                                ))}
-                            </select>
-
-                </div>
-                <div className="grid w-full mb-1 mx-4 md:mx-0">
-                            <label className="font-semibold mb-1 w-full" for="commune">Comuna</label>
-                            <select
-                                id="commune"
-                                name="commune"
-                                value={selectedSelects.commune}
-                                onChange={handleSelectChange}
-                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
-                            >
-                                <option value="">Seleccione una Comuna</option>
+                        >
+                            <option value="">Selecciona estado</option>
                                 {communes.map((commune) => (
-                                    <option key={commune.id} value={commune.name}>{commune.name}</option>
-                                ))}
-                            </select>
-                </div>
-            </div> 
+                            <option key={commune.id} value={commune.name}>{commune.name}</option>
+                                    ))}
+                        </select>
+                    </div>
+                </div> 
+            </div>
+    
             <div className="flex flex-row justify-between items-center mx-2 2xl:mx-32">
                 <div className="flex gap-3 text-base my-3">
-                    <p className="text-gray-500">Propiedades encontradas: {properties?.length || 0}</p>
+                    <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
                 </div>
-            <div className="flex items-center">
-                        <ul className="flex gap-3 items-center">
-                            <li className="hover:scale-110 duration-200 cursor-pointer">
-                                <button onClick={() => setView('grid')}
+                <div className="flex items-center">
+                            <ul className="flex gap-3 items-center">
+                                <li className="hover:scale-110 duration-200 cursor-pointer">
+                                    <button onClick={() => setView('grid')}
+                                            className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                            <IoGridOutline className="text-gray-600 text-lg"/>
+                                        </button>
+                            </li>
+                                <li className="hover:scale-110 duration-200 cursor-pointer">                                    <button onClick={() => setView('list')}
                                         className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
-                                        <IoGridOutline className="text-gray-600 text-lg"/>
+                                            <TbLayoutList className="text-gray-600 text-lg"/>
                                     </button>
-                        </li>
-                            <li className="hover:scale-110 duration-200 cursor-pointer">                                    <button onClick={() => setView('list')}
-                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
-                                        <TbLayoutList className="text-gray-600 text-lg"/>
-                                </button>
-                            </li>                 
-                        </ul>
+                                </li>                 
+                            </ul>
                 </div>
             </div>
 
@@ -314,7 +352,7 @@ const AllProperties = () => {
                 view === 'grid' ? (
                     <>
                         <div className="grid grid-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 2xl:gap-2 mt-4 mb-4 mx-1 xl:mx-12 2xl:mx-32 w-full xl:w-[90%] 2xl:w-[85%]">
-                        {properties.length > 0 ? properties.map((item) => {
+                        {filteredProperties.length > 0 ? filteredProperties.map((item) => {
                             // console.log('image' , item.images[0].path)
                             return(
                                 <article key={item?.id} className="shadow-xl flex flex-col border-2 h-full md:h-[400px] 2xl:h-full md:w-full p-2 group xl:overflow-hidden 2xl:p-1 m-2 xl:mx-4 mb-2 hover:scale-105 duration-200 ">
@@ -391,7 +429,7 @@ const AllProperties = () => {
                     </>
                 ):(
                     <div className="grid grid-row grid-cols-1 gap-6 2xl:gap-2 mt-4 mb-4 mx-3 2xl:mx-32">
-                    {properties.length > 0 ? properties.map((item) => {
+                    {filteredProperties.length > 0 ? filteredProperties.map((item) => {
                         return(
                             <article key={item?.id} className="shadow-lg flex flex-col md:flex-row border-2 h-full md:h-full 2xl:h-[220px] w-full p-2 group">
                                 <div className="mb-2 relative">

@@ -45,12 +45,17 @@ const PropertiesServices = {
       `properties-portal/states/metadata?`
     );
     return response
-  }
+  },
 
-  // getPropertyByIdCode: async (url) => {
-  //   const response = await api.get(`${url}`);
-  //   return response.data;
-  // },
+  getPropertyByIdCode: async (url) => {
+    try{
+      const response = await api.get(`${url}`);
+      return response.data;
+    } catch (error){
+      console.error("Error llamada a propiedad", error);
+      throw new Error("Falla en la llamada")
+    }
+  },
 
 };
 

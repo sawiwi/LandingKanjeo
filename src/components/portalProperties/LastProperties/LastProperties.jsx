@@ -40,11 +40,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
 //  const [countOpenContact, setCountOpenContact] = useState(0);
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
 
-
-    console.log('properties', properties)
-
     const onOpenContact = async (id, title) =>{
-
         //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
         const clicked = clicDataOpenContact.find(item => item.id === id);
         if (clicked) {
@@ -59,9 +55,6 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
         setSelectedProperty(property)
         setContactOpen(true)
     }
-
-    // console.log('contador', countOpenContact)
-    // console.log('contador data', clicDataOpenContact)
 
     const onCloseContact = () =>{
         setContactOpen(false)
