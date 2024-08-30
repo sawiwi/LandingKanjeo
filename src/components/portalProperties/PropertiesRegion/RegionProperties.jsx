@@ -29,6 +29,7 @@ import { PropertiesContext } from "../../../context/properties/PropertiesContext
 import PropertiesServices from '../../../services/portal-properties/PropertiesServices'
 import { parseToCLPCurrency, clpToUf, clpToUf2, ufToClp, parseToDecimal } from '../../../utils/truncateExchange'
 import { FaArrowDown, FaArrowUp } from 'react-icons/fa'
+import { BiBuildingHouse } from "react-icons/bi";
 import NotFoundProp from "../../../assets/img/portal-prop/arquitectura.png"
 
 
@@ -318,7 +319,7 @@ const FilterRegionsProperties = () =>{
             <div className="flex justify-center my-6 sm:my-5 mt-14 md:mt-2 mx-2 2xl:mx-32">
                 <h2 className="text-gray-700 text-2xl text-center md:text-start md:text-2xl font-medium">Regiones donde más se hacen canjes</h2>
             </div>     
-                    <div className="grid grid-cols-2 xl:flex xl:flex-row xl:justify-center mt-8 my-6 mb-8 mx-8 md:mx-32 h-full md:h-40 gap-6 xl:gap-12"> 
+                    <div className="grid grid-cols-2 xl:flex xl:flex-row xl:justify-center mt-8 my-6 mb-8 xl:mb-12 mx-8 md:mx-32 h-full md:h-40 gap-6 xl:gap-12"> 
                         {regionImgs.map((item, idx) => (
                             <div key={idx} className=''>
                                     <div className="relative h-28 w-28 md:h-32 md:w-32 2xl:h-40 2xl:w-40 my-5 text-center">
@@ -341,12 +342,19 @@ const FilterRegionsProperties = () =>{
                             )
                         )}
                     </div>                    
-                    <div className="flex sm:justify-start mt-16  items-center mx-3 2xl:mx-32">
+                    <div className="flex flex-row sm:justify-between mt-16 items-center mx-3 2xl:mx-32">
                         <div className="flex gap-2 my-2">
                             <p className="text-gray-500">
                                 <span className="font-light cursor-pointer">{rangeProp[1] > filteredProperties.length ? filteredProperties.length : rangeProp[1]} / {filteredProperties.length > 0 ? filteredProperties.length : '0' } </span>
                                 Propiedades en esta región
                             </p>
+                        </div>
+                        <div className="flex gap-2 my-2">
+                            <a href="/propiedades" target="_blank" rel='noreferrer'
+                                className="flex items-center gap-2 hover:font-medium rounded-lg shadow-xl bg-gray-200 h-8 w-full p-2 px-2 hover:scale-105 duration-200">
+                                    Ver todas
+                                <BiBuildingHouse  className="text-gray-600 text-lg"/>
+                            </a>
                         </div>
                     </div>
                     {renderProperties()}

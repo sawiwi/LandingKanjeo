@@ -50,7 +50,6 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
         }else {
             setClicDataOpenContact([...clicDataOpenContact, {id, title, clicks: 1}]);
         }
-
         const property = await PropertiesServices.getProperty(id);
         setSelectedProperty(property)
         setContactOpen(true)

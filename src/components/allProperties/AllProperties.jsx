@@ -16,7 +16,8 @@ import {
 import { FaBed, FaBath } from "react-icons/fa6";
 import { FaRulerCombined, FaParking } from "react-icons/fa";
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
-
+import { MdOutlineSearch } from "react-icons/md";
+import { TbHomeSearch, TbTrash  } from "react-icons/tb";
 import { SelectsContext } from "../../context/selects/SelectsContext";
 
 const AllProperties = () => {
@@ -178,9 +179,7 @@ const AllProperties = () => {
         setIsSearching(true);
        if(propertyCod){
             try{
-                const data= await PropertiesServices.getPropertyByIdCode(`/properties-portal/${propertyCod}`);
-                console.log('data', data)
-
+                const data = await PropertiesServices.getPropertyByIdCode(`/properties-portal/${propertyCod}`);
                 setFilteredProperties(Array.isArray(data) ? data : [data])
             } catch (error){
                 console.log("Error en filtrar por ID", error)
@@ -189,14 +188,16 @@ const AllProperties = () => {
        setIsSearching(false);
     }
 
+    const handleSearchReset = async () => {
+        setFilteredProperties(properties)
+    }
+
     const renderButtons = () => (
-        <div className="flex flex-row justify-center gap-3 m-2 my-10 2xl:mx-32">
-           
+        <div className="flex flex-row justify-center gap-3 m-2 my-10 2xl:mx-32">    
             <button 
                 // onClick={() => toggleMoreNext('up')}
                 // className={`px-3 sm:p-2 sm:px-3 rounded-full border ${rangeProp[0] === 0 ? 'opacity-25' : 'hover:bg-secondary-light hover:text-white duration-200'}`}
-                className={`px-3 sm:p-2 sm:px-3 rounded-full border  hover:bg-secondary-light hover:text-white duration-200`}
-                
+                className={`px-3 sm:p-2 sm:px-3 rounded-full border  hover:bg-secondary-light hover:text-white duration-200`}            
                 // disabled={rangeProp[0] === 0}
             >
                 <FaArrowLeft />
@@ -231,21 +232,29 @@ const AllProperties = () => {
             /> 
             {/* FILTROS AVANZADOS */}
             <div className="flex flex-col md:mt-10 mb-6 m-2 p-2 sm:m-1 sm:p-1">
-                <div className="flex flex-row items-center gap-3 md:justify-center">
-                    <div className="grid w-full xl:w-96 mb-1 md:mx-0">
-                            <label className="font-semibold mb-1 w-full" for="searchOfId">Código de propiedad</label>
-                            <input 
-                            id="searchOfId"
-                            name="searchOfId"
-                            value={propertyCod}
-                            onChange={(e)=> setPropertyCod(e.target.value)}
-                            className="rounded-md placeholder:text-gray-400 p-2 border-2"
-                            placeholder="21"></input>
-     
+                <div className="flex flex-row items-center  md:justify-center">
+                    <div className="w-[470px] p-2 bg-secondary/60 rounded-full flex justify-center gap-2 items-center">
+                        <div className="grid w-full xl:w-96 md:mx-0">
+                                {/* <label className="font-semibold mb-1 w-full" for="searchOfId">Código de propiedad</label> */}
+                                <input 
+                                id="searchOfId"
+                                name="searchOfId"
+                                value={propertyCod}
+                                onChange={(e)=> setPropertyCod(e.target.value)}
+                                className="placeholder:text-gray-400 p-2 rounded-full"
+                                placeholder="Ingresa código de la propiedad"></input>
+        
+                        </div>
+                        <button className="bg-gray-50 hover:text-gray-950 hover:scale-105 duration-200 h-10 w-auto p-1 px-3 border rounded-full " onClick={handleSearch} disabled={isSearching}>
+                             {isSearching ? <TbHomeSearch className="animate-pulse"/> : <TbHomeSearch/> }
+                        </button>
+                        <button 
+                            className="bg-red-600/80 text-gray-50 hover:bg-red-600 duration-200 h-10 w-auto p-1 px-3 rounded-full" title="Limpiar búsqueda" 
+                            onClick={handleSearchReset}
+                        >
+                            <TbTrash />
+                        </button>
                     </div>
-                    <button className="hover:bg-secondary hover:text-gray-50 duration-200 h-11 w-auto mt-5 p-1 px-3 border-2 rounded-md" onClick={handleSearch} disabled={isSearching}>
-                        {isSearching ? 'Buscando...' : 'Buscar'}
-                    </button>
                 </div>
                 <div className="flex flex-col md:flex-row justify-between items-center md:mx-36 2xl:mx-96 gap-2 mt-6 w-full md:w-96">
                     <div className="grid w-full mb-1 mx-4 md:mx-0">
@@ -317,7 +326,7 @@ const AllProperties = () => {
                                 // onChange={handleSelectChange}
                                 className="rounded-md placeholder:text-gray-400 p-2 border-2"
                         >
-                            <option value="">Selecciona estado</option>
+                            <option value="">Selecciona...</option>
                                 {communes.map((commune) => (
                             <option key={commune.id} value={commune.name}>{commune.name}</option>
                                     ))}
@@ -326,7 +335,7 @@ const AllProperties = () => {
                 </div> 
             </div>
     
-            <div className="flex flex-row justify-between items-center mx-2 2xl:mx-32">
+            <div className="flex flex-row justify-between items-center mx-2 xl:mx-28 2xl:mx-32">
                 <div className="flex gap-3 text-base my-3">
                     <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
                 </div>
@@ -365,7 +374,7 @@ const AllProperties = () => {
                                                 className="h-44 w-full object-cover rounded-md group-hover:-translate-y-2 duration-200 shadow-md" 
                                                 />
                                             // console.log('image' , item.images[0].path)                                                  
-                                        ) :(
+                                        ):(
                                             <img 
                                                 src={NotFoundProp} 
                                                 alt="img-casa-not-found" 
@@ -410,7 +419,7 @@ const AllProperties = () => {
                                             onClick={() => onOpenContact(item.id, item.propertyTitle)} 
 
                                             className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
-                                            >Contactar</button>
+                                            >Detalles</button>
                                         </div>
                                     </div>
                                 </article>
@@ -422,80 +431,79 @@ const AllProperties = () => {
                                     No se encuantran propiedades
                                 </small>
                             </div>
-                        )
+                            )
                         }
-            
                         </div>
                     </>
                 ):(
                     <div className="grid grid-row grid-cols-1 gap-6 2xl:gap-2 mt-4 mb-4 mx-3 2xl:mx-32">
-                    {filteredProperties.length > 0 ? filteredProperties.map((item) => {
-                        return(
-                            <article key={item?.id} className="shadow-lg flex flex-col md:flex-row border-2 h-full md:h-full 2xl:h-[220px] w-full p-2 group">
-                                <div className="mb-2 relative">
-                                        {item.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path) ? (
+                        {filteredProperties.length > 0 ? filteredProperties.map((item) => {
+                            return(
+                                <article key={item?.id} className="shadow-lg flex flex-col md:flex-row border-2 h-full md:h-full 2xl:h-[220px] w-full p-2 group">
+                                    <div className="mb-2 relative">
+                                            {item.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(item.images[0].path) ? (
+                                                    <img 
+                                                    key={item.images[0].id}
+                                                    src={item.images[0].path || NotFoundProp} 
+                                                    alt={`img-${item.images[0].id}`} 
+                                                    className="h-48 w-full xl:w-96 object-cover rounded-md group-hover:-translate-y-2 duration-200" 
+                                                    />
+                                            ) :(
                                                 <img 
-                                                key={item.images[0].id}
-                                                src={item.images[0].path || NotFoundProp} 
-                                                alt={`img-${item.images[0].id}`} 
-                                                className="h-48 w-full xl:w-96 object-cover rounded-md group-hover:-translate-y-2 duration-200" 
+                                                    src={NotFoundProp} 
+                                                    alt="img-casa-not-found" 
+                                                    className="h-48 w-full xl:w-96 object-scale-down rounded-md group-hover:-translate-y-2 duration-200 " 
                                                 />
-                                        ) :(
-                                            <img 
-                                                src={NotFoundProp} 
-                                                alt="img-casa-not-found" 
-                                                className="h-48 w-full xl:w-96 object-scale-down rounded-md group-hover:-translate-y-2 duration-200 " 
-                                            />
-                                            )                                            
-                                        }
-                                    <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
-                                        {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
-                                    </small>
-                                    <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
-                                        {item.typeOfOperationId}
-                                    </small>
-                                </div>
-                                <div className="mx-2 md:mx-12 w-full">
-                                    <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 90)}</h2>
-                                    {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                    <ul className="flex flex-col sm:flex-row mx-4 xl:mx-10 gap-2 justify-between">
-                                        <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
-                                                <span>Baños</span>
-                                                <small>{item.characteristics.bathrooms || '0'}</small>
-                                        </li>
-                                        <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
-                                                <span>Dormitorio(s)</span>
-                                                <small>{item.characteristics.bedrooms || '0'}</small>
-                                        </li>
-                                        <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
-                                                <span>Mts cuadrados</span>
-                                                <small>{item.characteristics.surface || '0'} mts</small>
-                                        </li>
-                                        <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
-                                                <span>Estacionamiento</span>
-                                                <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
-                                        </li>
-                                    </ul>
-                                    <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
-                                        <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
-                                        <button 
-                                        // onClick={onOpenContact} 
-                                        onClick={() => onOpenContact(item.id, item.propertyTitle)} 
-
-                                        className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
-                                        >Contactar</button>
+                                                )                                            
+                                            }
+                                        <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
+                                            {item.typeOfPropertyId ? item.typeOfPropertyId : 'No hay' }
+                                        </small>
+                                        <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
+                                            {item.typeOfOperationId}
+                                        </small>
                                     </div>
-                                </div>
-                            </article>
+                                    <div className="mx-2 md:mx-12 w-full">
+                                        <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 90)}</h2>
+                                        {formatPrice(item?.currencyId, item?.propertyPrice)}
+                                        <ul className="flex flex-col sm:flex-row mx-4 xl:mx-10 gap-2 justify-between">
+                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
+                                                    <span>Baños</span>
+                                                    <small>{item.characteristics.bathrooms || '0'}</small>
+                                            </li>
+                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
+                                                    <span>Dormitorio(s)</span>
+                                                    <small>{item.characteristics.bedrooms || '0'}</small>
+                                            </li>
+                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
+                                                    <span>Mts cuadrados</span>
+                                                    <small>{item.characteristics.surface || '0'} mts</small>
+                                            </li>
+                                            <li className="flex justify-start items-center gap-2 sm:text-center sm:grid ">
+                                                    <span>Estacionamiento</span>
+                                                    <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
+                                            </li>
+                                        </ul>
+                                        <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
+                                            <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
+                                            <button 
+                                            // onClick={onOpenContact} 
+                                            onClick={() => onOpenContact(item.id, item.propertyTitle)} 
+
+                                            className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
+                                            >Contactar</button>
+                                        </div>
+                                    </div>
+                                </article>
+                            )
+                        }):  (
+                            <div className="w-full text-center my-3 xl:mx-80 2xl:mx-96">
+                                <small className="font-semibold text-center text-lg">
+                                    No se encuantran propiedades
+                                </small>
+                            </div>
                         )
-                    }):  (
-                        <div className="w-full text-center my-3 xl:mx-80 2xl:mx-96">
-                            <small className="font-semibold text-center text-lg">
-                                No se encuantran propiedades
-                            </small>
-                        </div>
-                    )
-                    }
+                        }
                 </div>
                 )
             }
