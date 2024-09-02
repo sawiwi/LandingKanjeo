@@ -182,6 +182,7 @@ const FilterRegionsProperties = () =>{
                 break;
             case 'Metropolitana de Santiago':
             case 'Santiago':
+                region = 'Metropolitana';
                 responseImg = imgSantiago
                 break;
             case 'Rancagua':
@@ -319,10 +320,10 @@ const FilterRegionsProperties = () =>{
             <div className="flex justify-center my-6 sm:my-5 mt-14 md:mt-2 mx-2 2xl:mx-32">
                 <h2 className="text-gray-700 text-2xl text-center md:text-start md:text-2xl font-medium">Regiones donde más se hacen canjes</h2>
             </div>     
-                    <div className="grid grid-cols-2 xl:flex xl:flex-row xl:justify-center mt-8 my-6 mb-8 xl:mb-12 mx-8 md:mx-32 h-full md:h-40 gap-6 xl:gap-12"> 
+                    <div className="grid grid-cols-2 xl:flex xl:flex-row xl:justify-center mt-8 my-6 mb-8 xl:mb-12 mx-8 2xl:mx-32 h-full md:h-40 gap-6 xl:gap-12 2xl:gap-12"> 
                         {regionImgs.map((item, idx) => (
                             <div key={idx} className=''>
-                                    <div className="relative h-28 w-28 md:h-32 md:w-32 2xl:h-40 2xl:w-40 my-5 text-center">
+                                    <div className="relative my-5 text-center h-28 w-28 md:h-40 md:w-40 2xl:h-40 2xl:w-40">
                                         <small className="font-semibold text-lg mb-5 text-gray-600">{item.region}</small>
                                             <img onClick={() => handleRegionClick(item.region)} 
                                             src={item.img} 
@@ -343,13 +344,13 @@ const FilterRegionsProperties = () =>{
                         )}
                     </div>                    
                     <div className="flex flex-row sm:justify-between mt-16 items-center mx-3 2xl:mx-32">
-                        <div className="flex gap-2 my-2">
+                        <div className="flex w-60 sm:w-80 gap-2 my-2">
                             <p className="text-gray-500">
                                 <span className="font-light cursor-pointer">{rangeProp[1] > filteredProperties.length ? filteredProperties.length : rangeProp[1]} / {filteredProperties.length > 0 ? filteredProperties.length : '0' } </span>
                                 Propiedades en esta región
                             </p>
                         </div>
-                        <div className="flex gap-2 my-2">
+                        <div className="flex justify-end gap-2 my-2 ml-10 sm:ml-0">
                             <a href="/propiedades" target="_blank" rel='noreferrer'
                                 className="flex items-center gap-2 hover:font-medium rounded-lg shadow-xl bg-gray-200 h-8 w-full p-2 px-2 hover:scale-105 duration-200">
                                     Ver todas
