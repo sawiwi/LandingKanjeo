@@ -146,7 +146,7 @@ const ProfileRealtor = () => {
                                                 <strong>Correo:</strong>{' '}<span>{user?.session.email || 'Sin correo'}</span>    
                                             </li>
                                             <li className='mb-1'>
-                                                {user?.webPage ? <div onClick={()=> onCountOpenPage(dataRealtor?.id)}>
+                                                {user?.webPage ? <div onClick={()=> onCountOpenPage(user?.id)}>
                                                     <strong>Página web:</strong>{' '}<a href={'https://'+user?.webPage} target='_blank' rel='noreferrer' alt="" className='' >
                                                         <span>{user?.webPage}</span>
                                                     </a> 
