@@ -13,6 +13,15 @@ const PropertiesServices = {
       meta: response.data.meta,
     };
   },
+  getAllProperties: async () => {
+    const response = await api.get(
+      `properties-portal?limit=${paginationTopLimit.limit}&disabled=${queryParams.disabled}`
+    );
+    return {
+      data: response.data.data,
+      meta: response.data.meta,
+    };
+  },
 
   getPropertiesExchange: async () => {
     const response = await api.get(
@@ -24,13 +33,7 @@ const PropertiesServices = {
     };
   },
 
-  getAllProperties: async () => {
-    const response = await api.get(
-      `properties-portal?limit=${paginationTopLimit.limit}&disabled=${queryParams.disabled}`
-    //   `properties-portal?page=${currentPage}&limit=${limit}`
-    );
-    return { data: response.data.data, meta: response.data.meta };
-  },
+
 
   getProperty: async (id) => {
     const response = await api.get(

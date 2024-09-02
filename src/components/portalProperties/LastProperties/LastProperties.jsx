@@ -39,6 +39,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     const [filteredProperties, setFilteredProperties] = useState([]);
 //  const [countOpenContact, setCountOpenContact] = useState(0);
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
+    const [limit, setLimit] = useState(20);
 
     const onOpenContact = async (id, title) =>{
         //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
@@ -127,7 +128,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     };
 
     const filterProperties = (properties) => {
-        let filtered = properties;
+        let filtered = properties.slice(0, limit);
     
         if (selectedSelects.typeOfProperty) {
           filtered = filtered.filter(property => 
@@ -233,38 +234,32 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                 ))}
                             </select>
                         </div>
-                        {/* <div className="grid mb-1 m-1">
-                            <button 
-                            onClick={handleSearch}
-                            type="button"
-                            className="p-2 px-4 mt-5 bg-secondary text-gray-50 rounded-md drop-shadow-md font-semibold">Buscar</button>
-                        </div> */}
                 </div>
                     {/* UTLIMAS PROPIEDAD EN CANJE */}
                     <div className="flex flex-row justify-between items-center mx-2 2xl:mx-32">
-                        <div className="flex gap-3 text-sm my-3">
+                        <div className="flex flex-col md:flex-row gap-3 text-sm sm:text-sm my-3 w-96">
                             <p className="text-gray-500">Últimas propiedades subidas</p>
                             <span onClick={toggleMoreProp} className="font-light cursor-pointer">
                                 {moreProp ? 'Ver menos' : 'Ver más'}
                             </span>
                         </div>
-                        <div className="flex items-center">
-                            <ul className="flex gap-3 items-center">
-                                <li className="hover:scale-110 duration-200 cursor-pointer">
+                        <div className="flex justify-center items-center mt-5 sm:mt-0">
+                            <ul className="grid grid-cols-2 md:flex md:flex-row gap-1 sm:gap-3 items-center">
+                                <li className="col-span-1 hover:scale-110 duration-200 cursor-pointer">
                                     <button onClick={() => setView('grid')}
-                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 sm:h-8 w-full sm:w-8 p-2 sm:p-1 px-6 sm:px-2">
                                         <IoGridOutline className="text-gray-600 text-lg"/>
                                     </button>
                                 </li>
-                                <li className="hover:scale-110 duration-200 cursor-pointer">
+                                <li className="col-span-1 hover:scale-110 duration-200 cursor-pointer">
                                     <button onClick={() => setView('list')}
-                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 sm:h-8 w-full sm:w-8 p-2 sm:p-1 px-6 sm:px-2">
                                         <TbLayoutList className="text-gray-600 text-lg"/>
                                     </button>
                                 </li> 
-                                <li className=" hover:scale-110 duration-200 cursor-pointer">
+                                <li className="hover:scale-110 duration-200 cursor-pointer">
                                     <a href="/propiedades" target="_blank" rel='noreferrer'
-                                        className="flex items-center gap-2 hover:font-medium duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-full p-1 px-2">
+                                        className="flex items-center gap-2 hover:font-medium duration-200 rounded-lg shadow-2xl bg-gray-200 sm:h-8 w-32 sm:w-full p-1 px-2">
                                             Ver todas
                                         <BiBuildingHouse  className="text-gray-600 text-lg"/>
                                     </a>

@@ -1,5 +1,6 @@
   export const paginationTopLimit = {
-    limit: 20,
+    limit: 99,
+    // allLimit: 99,
     topLimit: 999999999,
     limitPage: 1,
   };

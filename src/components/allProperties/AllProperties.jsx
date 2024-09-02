@@ -29,7 +29,6 @@ const AllProperties = () => {
     const {contextData : contextSelectData} = useContext(SelectsContext);
     const {
         properties,
-        AllProperties,
         valueUf,
     } = contextData;
     const {      
@@ -48,11 +47,11 @@ const AllProperties = () => {
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
     const [propertyCod, setPropertyCod] = useState('');
     const [isSearching, setIsSearching] = useState(false);
+    const [limit, setLimit] = useState(4);
 
     // console.log('properties', properties)
 
     const onOpenContact = async (id, title) =>{
-
         //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
         const clicked = clicDataOpenContact.find(item => item.id === id);
         if (clicked) {
@@ -167,9 +166,17 @@ const AllProperties = () => {
         setFilteredProperties(filtered);
     };
 
+    const handleLimitChange = (e) => {
+        setLimit(Number(e.target.value));
+    }
+    const handleViewAll = () => {
+        setLimit((prevLimit) => (prevLimit === 8 ? filteredProperties.length : limit));
+    }
+
+
     useEffect(() => {
-        setFilteredProperties(properties); 
-      }, [properties]);
+        setFilteredProperties(properties.slice(0, limit)); 
+      }, [properties, limit]);
 
     useEffect(() => {
         filterProperties(properties);
@@ -202,8 +209,8 @@ const AllProperties = () => {
             >
                 <FaArrowLeft />
             </button>
-            <button onClick={toggleMoreProp} className="p-2 px-4 rounded-full border  hover:bg-secondary-light hover:text-white duration-200">
-                {moreProp ? 'Ver primeras 3' : 'Ver todas'}
+            <button  onClick={handleViewAll} className="p-2 px-4 rounded-full border  hover:bg-secondary-light hover:text-white duration-200">
+                {limit <= 8 ? 'Ver todas' : 'Ver primeras 8'}
             </button>
             <button 
                 // onClick={() => toggleMoreNext('down')}
@@ -225,7 +232,7 @@ const AllProperties = () => {
                     triggerOnce={true}
                 >
             <TitleSection
-                    className='lg:mt-20 2xl:mt-28'
+                    className='mt-20 2xl:mt-28'
                     title="Todas las propiedades"
                     subtitle="Encuentra las propiedades publicadas"
                     position="center"
@@ -340,19 +347,37 @@ const AllProperties = () => {
                     <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
                 </div>
                 <div className="flex items-center">
-                            <ul className="flex gap-3 items-center">
-                                <li className="hover:scale-110 duration-200 cursor-pointer">
-                                    <button onClick={() => setView('grid')}
-                                            className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
-                                            <IoGridOutline className="text-gray-600 text-lg"/>
-                                        </button>
+                    <ul className="flex gap-3 items-center">
+                            <li className="cursor-pointer">
+                            <label className="font-semibold mr-1" htmlFor="limitSelect">Filtrar por:</label>
+                                <select
+                                    id="limitSelect"
+                                    value={limit}
+                                    onChange={handleLimitChange}
+                                    className="rounded-md p-2 border-2"
+                                >
+                                    <option value={4}>4</option>
+                                    <option value={8}>8</option>
+                                    <option value={12}>12</option>
+                                    <option value={20}>20</option>
+                                    <option value={32}>32</option>
+                                    <option value={48}>48</option>
+                                    <option value={99}>99</option>
+                                </select>
                             </li>
-                                <li className="hover:scale-110 duration-200 cursor-pointer">                                    <button onClick={() => setView('list')}
+                            <li className="hover:scale-110 duration-200 cursor-pointer">
+                                <button onClick={() => setView('grid')}
                                         className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
-                                            <TbLayoutList className="text-gray-600 text-lg"/>
-                                    </button>
-                                </li>                 
-                            </ul>
+                                        <IoGridOutline className="text-gray-600 text-lg"/>
+                                </button>
+                            </li>
+                            <li className="hover:scale-110 duration-200 cursor-pointer">                                    
+                                <button onClick={() => setView('list')}
+                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 h-8 w-8 p-1 px-2">
+                                        <TbLayoutList className="text-gray-600 text-lg"/>
+                                </button>
+                            </li>                 
+                    </ul>
                 </div>
             </div>
 
@@ -361,7 +386,7 @@ const AllProperties = () => {
                 view === 'grid' ? (
                     <>
                         <div className="grid grid-row grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6 2xl:gap-2 mt-4 mb-4 mx-1 xl:mx-12 2xl:mx-32 w-full xl:w-[90%] 2xl:w-[85%]">
-                        {filteredProperties.length > 0 ? filteredProperties.map((item) => {
+                        {filteredProperties.length > 0 ? filteredProperties.slice(0, limit).map((item) => {
                             // console.log('image' , item.images[0].path)
                             return(
                                 <article key={item?.id} className="shadow-xl flex flex-col border-2 h-full md:h-[400px] 2xl:h-full md:w-full p-2 group xl:overflow-hidden 2xl:p-1 m-2 xl:mx-4 mb-2 hover:scale-105 duration-200 ">
@@ -437,7 +462,7 @@ const AllProperties = () => {
                     </>
                 ):(
                     <div className="grid grid-row grid-cols-1 gap-6 2xl:gap-2 mt-4 mb-4 mx-3 2xl:mx-32">
-                        {filteredProperties.length > 0 ? filteredProperties.map((item) => {
+                        {filteredProperties.length > 0 ? filteredProperties.slice(0, limit).map((item) => {
                             return(
                                 <article key={item?.id} className="shadow-lg flex flex-col md:flex-row border-2 h-full md:h-full 2xl:h-[220px] w-full p-2 group">
                                     <div className="mb-2 relative">
@@ -507,11 +532,7 @@ const AllProperties = () => {
                 </div>
                 )
             }
-            {/* {properties.length > 0 ? properties.map(item => (
-                <div className="" key={item.id}>
-                    <p>titulo: {item.propertyTitle}</p>
-                </div>
-            )): ''} */}
+
             </div>
             {renderButtons()}
 

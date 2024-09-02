@@ -18,6 +18,7 @@ const PropertiesProvider = ({ children }) => {
   const [notFoundMsg, setNotFoundMsg] = useState('');
   const [sortOrder, setSortOrder] = useState('');
   const [limit, setLimit] = useState(paginationTopLimit.limit)
+  const [allLimit, setAllLimit] = useState(paginationTopLimit.allLimit)
 
   const [valueUf, setValueUf] = useState('');
 
@@ -26,15 +27,15 @@ const PropertiesProvider = ({ children }) => {
     setSortOrder(event.target.value);
   };
 
-  properties.sort((a, b) => {
-    if (sortOrder === 'asc') {
-      return a.price - b.price;
-    } else if (sortOrder === 'desc') {
-      return b.price - a.price;
-    } else {
-      return 0;
-    }
-  });
+  // properties.sort((a, b) => {
+  //   if (sortOrder === 'asc') {
+  //     return a.price - b.price;
+  //   } else if (sortOrder === 'desc') {
+  //     return b.price - a.price;
+  //   } else {
+  //     return 0;
+  //   }
+  // });
 
   const getProperties = async (
   ) => {
@@ -57,8 +58,28 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
+  const getAllProperties = async (
+  ) => {
+    try {
+      setNotFoundMsg('');
+      setIsLoading(true);
+      const { data, meta } =
+        await PropertiesServices.getAllProperties();
+      setAllProperties(data)
+      setTotalItems(meta.totalItems);
+      // setTotalPages(Math.ceil(meta.totalItems / limit)); // + 0.5
+      setNotFoundMsg(
+        data.length === 0
+          ? 'Lo sentimos, tu busqueda no coincide con nuestros registros'
+          : ''
+      );
+      setIsLoading(false);
+    } catch (error) {
+      console.log('Bad server request', error);
+    }
+  };
+
   const getPropertiesExchange = async (
-    // limit = paginationTopLimit.limit
     limit
   ) => {
     try {
@@ -81,27 +102,25 @@ const PropertiesProvider = ({ children }) => {
     }
   };
 
-  const getAllProperties = async (
-    limit
-  ) => {
-    try {
-      setNotFoundMsg('');
-      setIsLoading(true);
-      const { data, meta } = 
-        await PropertiesServices.getAllProperties();
-      setAllProperties(data);
-      setTotalItems(meta.totalItems);
-      setLimit(limit)
-      setNotFoundMsg(
-        data.length === 0
-          ? 'Lo sentimos, tu busqueda no coincide con nuestros registros'
-          : ''
-      );
-      setIsLoading(false);
-    }catch (error) {
-      console.log('Bad server request', error);
-    }
-  };
+  // const getAllProperties = async () => {
+  //   try {
+  //     setNotFoundMsg('');
+  //     setIsLoading(true);
+  //     const { data, meta } = 
+  //       await PropertiesServices.getAllProperties();
+  //     setAllProperties(data);
+  //     setTotalItems(meta.totalItems);
+  //     // setLimit(allLimit)
+  //     setNotFoundMsg(
+  //       data.length === 0
+  //         ? 'Lo sentimos, tu busqueda no coincide con nuestros registros'
+  //         : ''
+  //     );
+  //     setIsLoading(false);
+  //   }catch (error) {
+  //     console.log('Bad server request', error);
+  //   }
+  // };
 
   const getValueUF = async () => {
     const value = await ExchangeRateServices.getExchangeRateUF();
@@ -112,9 +131,9 @@ const PropertiesProvider = ({ children }) => {
     getValueUF();
   }, []);
 
-  useEffect(() => {
-    getAllProperties();
-  }, []);
+  // useEffect(() => {
+  //   getAllProperties();
+  // }, []);
 
   const handlePageChange = (newPage) => {
     setProperties([]);
@@ -125,7 +144,7 @@ const PropertiesProvider = ({ children }) => {
 
   useEffect(() => {
     getProperties(page);
-    setAllProperties(page);
+    getAllProperties(page);
     getPropertiesExchange(page);
   }, [page]);
 
@@ -135,9 +154,9 @@ const PropertiesProvider = ({ children }) => {
         contextData: {
           properties,
           allProperties,
+          setAllProperties,
           // allSimilarProperties,
           // highlightedProperties,
-          setAllProperties,
           // propertiesToShow,
           // setPropertiesToShow,
           // propertiesInMap,
@@ -159,7 +178,9 @@ const PropertiesProvider = ({ children }) => {
           setSortOrder,
           valueUf,
           limit, 
-          setLimit
+          setLimit,
+          allLimit,
+          setAllLimit,
         },
       }}
     >
@@ -170,26 +191,3 @@ const PropertiesProvider = ({ children }) => {
 
 export default PropertiesProvider;
 
-//     useEffect(() => {
-//         getPropertiesPortal(page)
-//     }, [page])
-
-//     return(
-//         <PropertiesContext.Provider
-//             value={{
-//                 contextData :{
-//                     properties,
-//                     setProperties,
-//                     allProperties,
-//                     setAllProperties,
-//                     page,
-//                     setPage
-//                 }
-//             }}
-//         >
-//             {children}
-//         </PropertiesContext.Provider>
-//     )
-// }
-
-// export default PropertiesProvider;
