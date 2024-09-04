@@ -30,7 +30,7 @@ const ReactSlick = ({ renderContent }) => {
             alt="hero"
             className="bg-cover object-top mx-auto h-[80%] sm:h-[30%] xl:h-[75%] w-full object-cover bg-gray-50"
           />
-           <div key={item.id} className="absolute top-40 left-8 sm:left-0 sm:inset-48 z-50 xl:bottom-20 2xl:bottom-32 xl:left-56 text-center xl:hidden w-[90%] md:w-[70%] lg:w-[70%] 2xl:w-[80%] mx-auto justify-center items-center z-100 ">             
+           <div key={item.id} className="absolute top-60 left-8 sm:left-0 sm:inset-48 z-50 xl:bottom-20 2xl:bottom-32 xl:left-56 text-center xl:hidden w-[90%] md:w-[70%] lg:w-[70%] 2xl:w-[80%] mx-auto justify-center items-center z-100 ">             
                 <a
                   target='_blank'
                   rel='noreferrer'
@@ -66,7 +66,7 @@ const ReactSlick = ({ renderContent }) => {
                 </a>
             </div>
           {/* APARECE CUANDO SUPERA EL TAMAÑO DE PANTALLA ARRIBA DE LOS XL */}
-          <div key={item.id} className="hidden xl:absolute z-50 xl:bottom-20 2xl:bottom-32 xl:left-56 text-center xl:flex  xl:flex-col w-[90%] md:w-[70%] lg:w-[70%] 2xl:w-[80%] mx-auto justify-center items-center z-100 ">             
+          <div key={item.id} className="hidden xl:absolute z-50 md:bottom-9 xl:bottom-16 2xl:bottom-32 xl:left-56 text-center xl:flex  xl:flex-col w-[90%] md:w-[70%] lg:w-[70%] 2xl:w-[80%] mx-auto justify-center items-center z-50">             
                 <a
                   target='_blank'
                   rel='noreferrer'
@@ -80,7 +80,7 @@ const ReactSlick = ({ renderContent }) => {
                     <div className="relative h-full w-10"></div>
                   </div>
                 </a>
-              <h1 className="text-white lg:mt-4 2xl:mt-8 opacity-100 font-bold text-3xl 2xl:text-4xl ">
+              <h1 className="text-white mt-4 lg:mt-4 2xl:mt-8 opacity-100 font-bold text-3xl 2xl:text-4xl ">
                 {item.headings}
               </h1>
               <p className="text-white opacity-100 font-light text-md md:text-xl mt-2 mb-2">
@@ -100,29 +100,29 @@ const ReactSlick = ({ renderContent }) => {
                   >
                   </div>
               </a>
-              <div className="flex flex-row lg:mt-2 2xl:mt-4 gap-4 2xl:gap-6">
-                <div className='flex flex-row gap-5 lg:col-span-1 xl:col-span-2 2xl:col-span-1 lg:mt-12 2xl:mt-16'>
-                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+              <div className="flex flex-row 2xl:mt-4 gap-4 2xl:gap-6">
+                <div className='flex flex-row gap-5 lg:col-span-1 xl:col-span-2 2xl:col-span-1 lg:mt-10 2xl:mt-16'>
+                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-48 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
                       <div className='text-4xl 2xl:text-6xl xl:my-4 xl:mx-20 '>{item.card[0].icon}</div>
                       <h5 className='opacity-100 2xl:font-semibold text-md lg:text-base 2xl:text-md'>{item.card[0].info}</h5>
                   </article>
-                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-48 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
                       <div className='text-4xl 2xl:text-6xl xl:my-4 xl:mx-20 '>{item.card[1].icon}</div>
                       <h5 className='opacity-100 2xl:font-bold text-md lg:text-base 2xl:text-md'>{item.card[1].info}</h5>
                   </article>
-                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>              
+                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-48 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>              
                       <div className='text-4xl 2xl:text-6xl xl:my-4 xl:mx-20 '>{item.card[2].icon}</div>
                       <h5 className='opacity-100 2xl:font-bold text-md lg:text-base 2xl:text-md'>{item.card[2].info}</h5>                  
                   </article>
-                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-48 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
                       <div className='text-4xl 2xl:text-6xl xl:my-4 xl:mx-20 '>{item.card[3].icon}</div> 
                       <h5 className='opacity-100 2xl:font-semibold text-md lg:text-base 2xl:text-md'>{item.card[3].info}</h5>
                   </article>
-                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-48 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
                       <div className='text-4xl 2xl:text-6xl xl:my-4 xl:mx-20 '>{item.card[4].icon}</div> 
                       <h5 className='opacity-100 2xl:font-bold text-md lg:text-base 2xl:text-md'>{item.card[4].info}</h5>
                   </article>
-                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-44 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                  <article className='flex flex-wrap flex-row overflow-hidden items-center justify-center gap-2 drop-shadow-xl bg-gray-100 text-secondary lg:h-48 lg:w-[190px] 2xl:h-48 2xl:w-[240px] mb-2 2xl:mb-4 p-2 py-3 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
                       <div className='text-4xl 2xl:text-6xl xl:my-4 xl:mx-20 '>{item.card[5].icon}</div>
                       <h5 className='opacity-100 2xl:font-bold text-md lg:text-base 2xl:text-md'>{item.card[5].info}</h5>
                   </article>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import Logo from '../../assets/img/logo/procanje-lg.png';
+import Logo from '../../assets/img/logo/procanje-lg-white.png';
 import {
   footerSMediaNavigation,
   footerNavigation,
