@@ -132,7 +132,7 @@ const ReactSlick = ({ renderContent }) => {
     
           <DataBanner/>
 
-          <div className="absolute top-0 left-0 w-full h-full sm:h-[92.5%] xl:h-[75%] 2xl:h-[75%] bg-black opacity-60"></div>
+          <div className="absolute top-0 left-0 w-full h-full sm:h-[92.5%] xl:h-[75%] 2xl:h-[75%] bg-black opacity-20"></div>
         </div>
       )): ''}
     </Slider>

@@ -6,6 +6,7 @@ import { Fade, Reveal } from 'react-awesome-reveal';
 import { keyframes } from '@emotion/react';
 import HeroText from '../components/HeroText/index.jsx';
 import ContactWsp from '../components/buttonContact/index.jsx';
+import Benefits from '../components/Benefits/Benefits.jsx';
 
 
 const Home = () => {
@@ -76,18 +77,20 @@ const Home = () => {
                     </article>
                   </div>
             </div>
-            </>
+          </>
    
         )):''}
   
         </div>
-        {/* <div className=''>
+        <div className='p-2'>
+          <Benefits/>
+        </div>
+      </div>
+       {/* <div className=''>
           <Fade>
             <HeroText/>
           </Fade>
         </div> */}
-      </div>
-
       {/* HERO */}
       {/* <div className='grid grid-cols-1 flex-wrap-reverse lg:grid-cols-2 xl:grid-cols-3'>
           <div className='col-span-1 xl:col-span-1'>
