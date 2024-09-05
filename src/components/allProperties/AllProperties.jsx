@@ -439,12 +439,12 @@ const AllProperties = () => {
                                         </ul>
                                         <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
                                             <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
-                                            <button 
-                                            // onClick={onOpenContact} 
-                                            onClick={() => onOpenContact(item.id, item.propertyTitle)} 
-
+                                            <a 
+                                            href={`/propiedades/${item?.id}`}
+                                            target="_blank"
+                                            rel="noreferrer"
                                             className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
-                                            >Detalles</button>
+                                            >Detalles</a>
                                         </div>
                                     </div>
                                 </article>

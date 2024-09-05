@@ -14,7 +14,7 @@ import PoliticaPrivacidad from '../components/Politicas/politicasPriv';
 import ExternalServices from '../pages/externalServices';
 import ListExtServices from '../components/ListExternalService/listExtService';
 import HowUse from '../components/howUse/HowUse';
-
+import DetailsProperty from '../components/allProperties/detailsProperty/DetailsProperty';
 
 export const navigationRoutes = [
   {
@@ -102,6 +102,12 @@ export const navigationRoutes = [
     name : 'Todas las propiedades',
     path: '/propiedades',
     element:<AllProperties/>
+  },
+  {
+    id:17,
+    name : 'Detalle propiedad',
+    path: '/propiedades/:id',
+    element:<DetailsProperty/>
   },
 
 ];
