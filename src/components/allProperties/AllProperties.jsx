@@ -199,6 +199,35 @@ const AllProperties = () => {
         setFilteredProperties(properties)
     }
 
+    const renderButtonsBottom = () => (
+        <div className="flex flex-row justify-between items-center mx-2 xl:mx-28 2xl:mx-36 mb-3">
+        <div className="flex gap-3 text-base my-3">
+            <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
+        </div>
+        <div className="flex items-center">
+            <ul className="flex gap-3 items-center">
+                    <li className="cursor-pointer">
+                    <label className="font-semibold mr-1" htmlFor="limitSelect">Filtrar por:</label>
+                        <select
+                            id="limitSelect"
+                            value={limit}
+                            onChange={handleLimitChange}
+                            className="rounded-md p-1 px-3 border-2"
+                        >
+                            <option value={4}>4</option>
+                            <option value={8}>8</option>
+                            <option value={12}>12</option>
+                            <option value={20}>20</option>
+                            <option value={32}>32</option>
+                            <option value={48}>48</option>
+                            <option value={99}>99</option>
+                        </select>
+                    </li>           
+            </ul>
+        </div>
+    </div>
+    )
+
     const renderButtons = () => (
         <div className="flex flex-row justify-center gap-3 m-2 my-10 2xl:mx-32">    
             <button 
@@ -342,8 +371,8 @@ const AllProperties = () => {
                 </div> 
             </div>
     
-            <div className="flex flex-row justify-between items-center mx-2 xl:mx-28 2xl:mx-32">
-                <div className="flex gap-3 text-base my-3">
+            <div className="flex flex-row justify-between items-center mx-2 xl:mx-28 2xl:mx-36">
+                <div className="flex gap-3 text-base my-2">
                     <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
                 </div>
                 <div className="flex items-center">
@@ -354,7 +383,7 @@ const AllProperties = () => {
                                     id="limitSelect"
                                     value={limit}
                                     onChange={handleLimitChange}
-                                    className="rounded-md p-2 border-2"
+                                    className="rounded-md p-1 px-2 border-2"
                                 >
                                     <option value={4}>4</option>
                                     <option value={8}>8</option>
@@ -534,7 +563,8 @@ const AllProperties = () => {
             }
 
             </div>
-            {renderButtons()}
+            {renderButtonsBottom()}
+            {/* {renderButtons()} */}
 
             </Reveal>
         </>

@@ -182,7 +182,7 @@ const FilterRegionsProperties = () =>{
                 break;
             case 'Metropolitana de Santiago':
             case 'Santiago':
-                region = 'Metropolitana';
+                // region = 'Santiago';
                 responseImg = imgSantiago
                 break;
             case 'Rancagua':
@@ -324,7 +324,7 @@ const FilterRegionsProperties = () =>{
                         {regionImgs.map((item, idx) => (
                             <div key={idx} className=''>
                                     <div className="relative my-5 text-center h-28 w-28 md:h-40 md:w-40 2xl:h-40 2xl:w-40">
-                                        <small className="font-semibold text-lg mb-5 text-gray-600">{item.region}</small>
+                                        <small className="font-semibold text-lg mb-5 text-gray-600">{truncate(item.region, 17)}</small>
                                             <img onClick={() => handleRegionClick(item.region)} 
                                             src={item.img} 
                                             className="object-cover cursor-pointer rounded-full h-full w-full my-3 hover:scale-105 hover:shadow-xl duration-150" 

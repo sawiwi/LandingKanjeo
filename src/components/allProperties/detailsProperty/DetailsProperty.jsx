@@ -384,7 +384,7 @@ const DetailsProperty = () => {
                                                         </li>
                                                         <li className="mb-2">                              
                                                             <div className="flex gap-1.5 items-center">      
-                                                                <TbHomeShield className="text-3xl" />
+                                                                <TbHomeShield className="text-xl" />
                                                                 <div className="flex flex-col">
                                                                     <span>
                                                                     Tipo seguridad:
