@@ -20,7 +20,7 @@ import {
 import NotFoundProp from "../../../../../assets/img/portal-prop/arquitectura.png"
 
 const DetailsProperty = ({property}) =>{
-    console.log('propiedad', property)
+   
     const [moreView,  setMoreView] = useState(false);
     const { contextData } = useContext(PropertiesContext);
     const {
