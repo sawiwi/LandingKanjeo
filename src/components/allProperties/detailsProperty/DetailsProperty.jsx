@@ -16,6 +16,9 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { MdOutlineElevator } from 'react-icons/md'
 import { CgGym } from "react-icons/cg";
 import imgProfile from '../../../assets/img/perfil/perfil.png'
+import ModalAllPropertyContact from "../../modal/ModalAllContact";
+import ModalAllProperties from "../components/ModalContact/ModalAllContact";
+
 
 import { 
     parseToCLPCurrency, 
@@ -24,6 +27,7 @@ import {
     clpToUf2 } from "../../../utils/truncateExchange";
 import { PropertiesContext } from "../../../context/properties/PropertiesContext";
 import PropertiesServices from "../../../services/portal-properties/PropertiesServices";
+
 
 
 const DetailsProperty = () => {
@@ -45,6 +49,9 @@ const DetailsProperty = () => {
     const {
         valueUf,
     } = contextData;
+    const [contactOpen, setContactOpen] = useState(false);
+    const [selectedProperty, setSelectedProperty] = useState(null);
+
 
     //limitare los caracteres y poniendo ... en su lugar si es demasiado largo
     const truncate = (str, n) => {
@@ -90,6 +97,26 @@ const DetailsProperty = () => {
 
     };
 
+    const onOpenContact = async (id) =>{
+        //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
+        // const clicked = clicDataOpenContact.find(item => item.id === id);
+        // if (clicked) {
+        //     setClicDataOpenContact(clicDataOpenContact.map(item => 
+        //         item.id === id ? {...item, clicks: item.clicks + 1} : item
+        //     ));
+        // }else {
+        //     setClicDataOpenContact([...clicDataOpenContact, {id, clicks: 1}]);
+        // }
+
+        const property = await PropertiesServices.getProperty(id);
+        setSelectedProperty(property)
+        setContactOpen(true)
+    }
+
+    const onCloseContact = () =>{
+        setContactOpen(false)
+    }
+
 
     useEffect(() =>{
         const getProperty = async () => {
@@ -129,7 +156,7 @@ const DetailsProperty = () => {
                triggerOnce={true}>
 
             {!property ? <p>Cargando Propiedad...</p> : ''}
-                <div className="grid grid-row grid-cols-1 gap-4 sm:mt-10 md:mx-10 xl:mx-20 2xl:mx-28 text-gray-500">
+                <div className="grid grid-row grid-cols-1 gap-4 sm:mt-10 md:mx-6 xl:mx-6 2xl:mx-28 text-gray-500">
                         <div className='relative shadow-lg bg-white h-full w-full rounded-md xl:mt-3 mb-2 2xl:mb-0 p-2 px-3'>
                             {/* <img src={backgroundBanner} className='w-full h-52 object-cover object-center rounded-md' alt='bannerImg' /> */}
                             <div className="mx-2 md:mx-16 2xl:mx-36 sm:px-10 ">
@@ -239,7 +266,7 @@ const DetailsProperty = () => {
                                                 Ver perfil
                                             </a>
                                             <button  
-                                                // onClick={()=> handleOpenContact(id)}
+                                                onClick={()=> onOpenContact(property?.id)}
                                                 className='flex items-center hover-group bg-secondary-light hover:bg-secondary duration-200 text-white p-2 px-20 sm:px-2 rounded-lg'>
                                                 Contactar
                                             </button>
@@ -408,9 +435,20 @@ const DetailsProperty = () => {
                                 </div>
                             </div> 
                         </div>
-                    </div>
+                </div>
 
             </Reveal>
+
+            <ModalAllPropertyContact open={contactOpen} onClose={onCloseContact} className="">
+                {
+                    selectedProperty && (
+                        <ModalAllProperties
+                            key={selectedProperty.id}
+                            data={selectedProperty} 
+                        />
+                    )
+                }
+            </ModalAllPropertyContact>
         </Section>
         </>
     )

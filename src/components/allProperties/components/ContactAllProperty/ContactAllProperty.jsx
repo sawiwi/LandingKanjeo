@@ -1,168 +1,170 @@
-import Button from '../../../../ui/button';
-import Alert from '../../../../alert';
+import Button from '../../../ui/button';
+import Alert from '../../../alert';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Fade } from 'react-awesome-reveal';
 import { useState } from 'react';
-import ContactApiFormServices from '../../../../../services/portal-contact/ContactFormServices';
-
-const ContactRealtor = ({property}) =>{
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    name: "",
-    lastName: "",
-    to: property?.user.session.email,
-    // to: 'fabians@bidata.cl',
-    phone: "",
-    mail: "",
-    subject: property?.propertyTitle,
-    message: "",
-    title: "Portal de Propiedades"
-  });
-  const [clicDataSendContact, setClicDataSendContact] = useState([]);
-
-//   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
-    const phoneRegex = /^(0?9\d{8})$/;
-
-  const handleInputChange = (e) => {
-    const inputData = { ...formData, [e.target.name]: e.target.value };
-    setFormData(inputData);
-  };
-
-    const handleInpChange = (e) => {
-    const { name, value } = e.target;
-  
-    if (name === "phone" && !phoneRegex.test(value)) {
-      setErrorMsg({
-        ...errorMsg,
-        phone: 'Error al ingresar número de celular, debe comenzar con 9 acompañado de 8 digitos',
-      });
-    } else {
-      setErrorMsg({
-        ...errorMsg,
-        phone: '',
-      });
-    }
-
-    setFormData({
-        ...formData,
-        [name]: value,
-      });
-        };
-
-    const handlePhraseClick = (phrase) => {
-        setFormData({
-          ...formData,
-          message: phrase
-        });
-      };
-
-    const handleCounterClicSend = async (id, title) => {
-        const clicked = clicDataSendContact.find(item => item.id === id);
-        if (clicked) {
-            setClicDataSendContact(clicDataSendContact.map(item => 
-                item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
-        }else {
-            setClicDataSendContact([...clicDataSendContact, {id, title, clicks: 1}]);
-        }
-    };
+import ContactApiFormServices from '../../../../services/portal-contact/ContactFormServices';
 
 
-    const [errorMsg, setErrorMsg] = useState({
-        fieldsRequired: '',
-        serverError: '',
-        phone: '',
+
+const ContactOfAllProperty = ({property}) => {
+    const [loading, setLoading] = useState(false);
+    const [formData, setFormData] = useState({
+      name: "",
+      lastName: "",
+      to: property?.user.session.email,
+      // to: 'fabians@bidata.cl',
+      phone: "",
+      mail: "",
+      subject: property?.propertyTitle,
+      message: "",
+      title: "Portal de Propiedades"
     });
-
-    /* ToastMessage : Success */
-    const showToastSuccessMsg = (msg) => {
-        toast.success(msg, {
-          position: 'bottom-center',
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'light',
-        });
-      };
+    const [clicDataSendContact, setClicDataSendContact] = useState([]);
+  
+  //   const phoneRegex = /^(\+?56)?(\s?)(0?9)(\s?)[9876543]\d{7}$|^(\+?56)?(\s?)(0?2|0[3-8]\d)(\s?)\d{7}$/;
+      const phoneRegex = /^(0?9\d{8})$/;
+  
+    const handleInputChange = (e) => {
+      const inputData = { ...formData, [e.target.name]: e.target.value };
+      setFormData(inputData);
+    };
+  
+      const handleInpChange = (e) => {
+      const { name, value } = e.target;
     
-      /* ToastMessage : Error */
-      const showToastErrorMsg = (msg) => {
-        toast.error(msg, {
-          position: 'bottom-center',
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: 'light',
-        });
-      };
-
-  const onFormSubmit = async (e) => {
-    e.preventDefault();
-    if(Object.values(formData).includes('') || errorMsg.phone){
+      if (name === "phone" && !phoneRegex.test(value)) {
         setErrorMsg({
-            fieldsRequired:'Todos los campos son requeridos'
+          ...errorMsg,
+          phone: 'Error al ingresar número de celular, debe comenzar con 9 acompañado de 8 digitos',
         });
-        setTimeout(() => {
-            setErrorMsg({
-                fieldsRequired: '',
-            });
-        }, 3000);
-        return;
-    }
-    try {
-        setLoading(true);
-        const response = await ContactApiFormServices.contactForm(formData);
-
-        if (response?.status === 200 ||  response?.status === 201 ||  response?.status === true ){
-            showToastSuccessMsg(
-                'Formulario enviado con exito!'
-            );
-            setLoading(false);
-            resetForm();
-            setErrorMsg({
-                allFieldRequierd: '',
-                serverEmailError: '',
-                phone:'',
-            });
-        }else {
-            showToastErrorMsg(
-                'Error al Completar tu Solicitud, Verifique los campos e Intente nuevamente.'
+      } else {
+        setErrorMsg({
+          ...errorMsg,
+          phone: '',
+        });
+      }
+  
+      setFormData({
+          ...formData,
+          [name]: value,
+        });
+          };
+  
+      const handlePhraseClick = (phrase) => {
+          setFormData({
+            ...formData,
+            message: phrase
+          });
+        };
+  
+      const handleCounterClicSend = async (id, title) => {
+          const clicked = clicDataSendContact.find(item => item.id === id);
+          if (clicked) {
+              setClicDataSendContact(clicDataSendContact.map(item => 
+                  item.id === id ? {...item, clicks: item.clicks + 1} : item
+              ));
+          }else {
+              setClicDataSendContact([...clicDataSendContact, {id, title, clicks: 1}]);
+          }
+      };
+  
+  
+      const [errorMsg, setErrorMsg] = useState({
+          fieldsRequired: '',
+          serverError: '',
+          phone: '',
+      });
+  
+      /* ToastMessage : Success */
+      const showToastSuccessMsg = (msg) => {
+          toast.success(msg, {
+            position: 'bottom-center',
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        };
+      
+        /* ToastMessage : Error */
+        const showToastErrorMsg = (msg) => {
+          toast.error(msg, {
+            position: 'bottom-center',
+            autoClose: 2500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: 'light',
+          });
+        };
+  
+    const onFormSubmit = async (e) => {
+      e.preventDefault();
+      if(Object.values(formData).includes('') || errorMsg.phone){
+          setErrorMsg({
+              fieldsRequired:'Todos los campos son requeridos'
+          });
+          setTimeout(() => {
+              setErrorMsg({
+                  fieldsRequired: '',
+              });
+          }, 3000);
+          return;
+      }
+      try {
+          setLoading(true);
+          const response = await ContactApiFormServices.contactForm(formData);
+  
+          if (response?.status === 200 ||  response?.status === 201 ||  response?.status === true ){
+              showToastSuccessMsg(
+                  'Formulario enviado con exito!'
               );
               setLoading(false);
-        }
-    }catch (error) {
-        setLoading(false);
-        showToastErrorMsg(
-            'Lo siento, no hemos podido enviar tu formulario, Vuelve a intentarlo más tarde!'
-        );
+              resetForm();
+              setErrorMsg({
+                  allFieldRequierd: '',
+                  serverEmailError: '',
+                  phone:'',
+              });
+          }else {
+              showToastErrorMsg(
+                  'Error al Completar tu Solicitud, Verifique los campos e Intente nuevamente.'
+                );
+                setLoading(false);
+          }
+      }catch (error) {
+          setLoading(false);
+          showToastErrorMsg(
+              'Lo siento, no hemos podido enviar tu formulario, Vuelve a intentarlo más tarde!'
+          );
+      }
+    };
+  
+  
+    const resetForm = () =>{
+      setFormData({
+          name: "",
+          lastName: "",
+          to: property?.user.session.email,
+          phone: "",
+          mail: "",
+          subject: property?.propertyTitle,
+          message: "",
+          title: "Portal Propiedades"
+      })
     }
-  };
-
-
-  const resetForm = () =>{
-    setFormData({
-        name: "",
-        lastName: "",
-        to: property?.user.session.email,
-        phone: "",
-        mail: "",
-        subject: property?.propertyTitle,
-        message: "",
-        title: "Portal Propiedades"
-    })
-  }
 
     return(
         <>
         <div className="w-full justify-center">
-            <h3 className="text-2xl text-center font-semibold mb-3">
+            <h3 className="text-2xl xl:text-3xl text-center font-semibold mb-3 mt-3">
                 Contacta
             </h3>
             <div className="p-2 px-3">
@@ -347,4 +349,5 @@ const ContactRealtor = ({property}) =>{
     </>
     )
 }
-export default ContactRealtor;
+
+export default ContactOfAllProperty;
