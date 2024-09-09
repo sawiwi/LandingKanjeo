@@ -1,7 +1,7 @@
 const Modal = ({open, onClose, children }) =>{
     return (
       <div
-      className={`fixed inset-0 z-50 xl:py-10 2xl:py-6 flex justify-center items-center transition-colors ${open ? "visible bg-black/50 2xl:h-full z-50 rounded-lg" : "invisible"}`} 
+      className={`fixed inset-0 z-50 xl:py-10 2xl:py-6 flex justify-center items-center transition-colors ${open ? "visible bg-black/50 z-50 rounded-lg" : "invisible"}`} 
       // className={`fixed inset-0 z-50 sm:relative sm:flex sm:justify-center sm:items-center w-full transition-colors ${open ? "visible bg-black/60 h-full sm:bg-transparent rounded-xl sm:rounded-none xl:h-full " : "invisible"}`} 
       onClick={onClose}>
         {/* Modal */}
