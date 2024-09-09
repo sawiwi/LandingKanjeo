@@ -352,9 +352,9 @@ const FilterRegionsProperties = () =>{
                         </div>
                         <div className="flex justify-end gap-2 my-2 ml-10 sm:ml-0">
                             <a href="/propiedades" target="_blank" rel='noreferrer'
-                                className="flex items-center gap-2 hover:font-medium rounded-lg shadow-xl bg-gray-200 h-8 w-full p-2 px-2 hover:scale-105 duration-200">
+                                className="flex items-center gap-2 hover:font-medium rounded-lg shadow-xl text-gray-200 hover:text-secondary-light border hover:border-secondary-light bg-secondary-light hover:bg-gray-50 h-8 w-full p-2 px-2 hover:scale-105 duration-200">
                                     Ver todas
-                                <BiBuildingHouse  className="text-gray-600 text-lg"/>
+                                <BiBuildingHouse  className="text-lg"/>
                             </a>
                         </div>
                     </div>

@@ -52,31 +52,8 @@ const AllProperties = () => {
     const [limit, setLimit] = useState(4);
 
     // console.log('properties', properties)
-
-    const onOpenContact = async (id, title) =>{
-        //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
-        const clicked = clicDataOpenContact.find(item => item.id === id);
-        if (clicked) {
-            setClicDataOpenContact(clicDataOpenContact.map(item => 
-                item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
-        }else {
-            setClicDataOpenContact([...clicDataOpenContact, {id, title, clicks: 1}]);
-        }
-
-        const property = await PropertiesServices.getProperty(id);
-        setSelectedProperty(property)
-        setContactOpen(true)
-    }
-
     // console.log('contador', countOpenContact)
     // console.log('contador data', clicDataOpenContact)
-
- 
-
-    const toggleMoreProp = async () => {
-        setMoreProp(!moreProp)
-    } 
 
     const fadeInUp = keyframes`
     0% {
@@ -163,8 +140,15 @@ const AllProperties = () => {
           filtered = filtered.filter(property => 
             property.address.city.name === selectedSelects.commune);
         }
+
+        if (selectedSelects.inExchanged) {
+            const isInExchanged = selectedSelects.inExchanged === 'true';
+            filtered = filtered.filter(property => 
+              property.isExchanged === isInExchanged);
+          }
         setFilteredProperties(filtered);
     };
+
 
     const handleLimitChange = (e) => {
         setLimit(Number(e.target.value));
@@ -361,14 +345,13 @@ const AllProperties = () => {
                             <select
                                     id="inExchanged"
                                     name="inExchanged"
-                                    // value={selectedSelects.commune}
-                                    // onChange={handleSelectChange}
+                                    value={selectedSelects.inExchanged || ''}
+                                    onChange={handleSelectChange}
                                     className="rounded-md placeholder:text-gray-400 p-2 border-2"
                             >
                                 <option value="">Selecciona...</option>
-                                    {communes.map((commune) => (
-                                <option key={commune.id} value={commune.name}>{commune.name}</option>
-                                        ))}
+                                <option value="true">En canje</option>                    
+                                <option value="false">No canje</option>                    
                             </select>
                         </div>
                     </div> 
@@ -402,7 +385,7 @@ const AllProperties = () => {
                                 <li className="hover:scale-110 duration-200 cursor-pointer">
                                     <button onClick={() => setView('grid')}
                                             className="hover:font-semibold rounded-lg shadow-2xl text-gray-50 hover:text-secondary-light border bg-secondary-light hover:bg-gray-50 hover:border hover:border-secondary-light duration-150 h-8 w-8 px-1.5">
-                                            <IoGridOutline className=" text-lg"/>
+                                            <IoGridOutline className="text-lg"/>
                                     </button>
                                 </li>
                                 <li className="hover:scale-110 duration-200 cursor-pointer">                                    

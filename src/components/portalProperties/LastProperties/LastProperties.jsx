@@ -172,7 +172,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     return(
         <>
             {/* FILTROS AVANZADOS */}
-                <div className="flex flex-col md:flex-row justify-between items-center md:mx-36 2xl:mx-96 gap-2 mt-10 w-full md:w-96">
+                <div className="flex flex-col md:flex-row justify-between items-center md:mx-24 2xl:mx-96 gap-2 mt-10 w-full md:w-96 mb-3">
                         <div className="grid w-full mb-1 mx-4 md:mx-0">
                             <label className="font-semibold mb-1 w-full" for="typeProperty">Tipo de propiedad</label>
                             <select
@@ -236,7 +236,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                         </div>
                 </div>
                     {/* UTLIMAS PROPIEDAD EN CANJE */}
-                    <div className="flex flex-row justify-between items-center mx-2 2xl:mx-32">
+                    <div className="flex flex-row justify-between items-center mx-2 xl:mx-16 2xl:mx-32">
                         <div className="flex flex-col md:flex-row gap-3 text-sm sm:text-sm my-3 w-96">
                             <p className="text-gray-500">Últimas propiedades subidas</p>
                             <span onClick={toggleMoreProp} className="font-light cursor-pointer">
@@ -247,21 +247,21 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                             <ul className="grid grid-cols-2 md:flex md:flex-row gap-1 sm:gap-3 items-center">
                                 <li className="col-span-1 hover:scale-110 duration-200 cursor-pointer">
                                     <button onClick={() => setView('grid')}
-                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 sm:h-8 w-full sm:w-8 p-2 sm:p-1 px-6 sm:px-2">
-                                        <IoGridOutline className="text-gray-600 text-lg"/>
+                                    className="hover:font-semibold rounded-lg shadow-2xl text-gray-50 hover:text-secondary-light border bg-secondary-light hover:bg-gray-50 hover:border hover:border-secondary-light duration-150 h-8 w-8 px-1.5">
+                                        <IoGridOutline className="text-lg"/>
                                     </button>
                                 </li>
                                 <li className="col-span-1 hover:scale-110 duration-200 cursor-pointer">
                                     <button onClick={() => setView('list')}
-                                    className="hover:font-semibold duration-200 rounded-lg shadow-2xl bg-gray-200 sm:h-8 w-full sm:w-8 p-2 sm:p-1 px-6 sm:px-2">
-                                        <TbLayoutList className="text-gray-600 text-lg"/>
+                                    className="hover:font-semibold rounded-lg shadow-2xl text-gray-50 hover:text-secondary-light border bg-secondary-light hover:bg-gray-50 hover:border hover:border-secondary-light duration-150 h-8 w-8 px-1.5">
+                                        <TbLayoutList className="text-lg"/>
                                     </button>
                                 </li> 
                                 <li className="hover:scale-110 duration-200 cursor-pointer">
                                     <a href="/propiedades" target="_blank" rel='noreferrer'
-                                        className="flex items-center gap-2 hover:font-medium duration-200 rounded-lg shadow-2xl bg-gray-200 sm:h-8 w-32 sm:w-full p-1 px-2">
+                                        className="flex items-center gap-2 hover:font-medium duration-200 rounded-lg shadow-2xl text-gray-200 hover:text-secondary-light border hover:border-secondary-light bg-secondary-light hover:bg-gray-50 sm:h-8 w-32 sm:w-full p-1 px-2">
                                             Ver todas
-                                        <BiBuildingHouse  className="text-gray-600 text-lg"/>
+                                        <BiBuildingHouse  className="text-lg"/>
                                     </a>
                                 </li>                  
                             </ul>
