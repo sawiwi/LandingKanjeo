@@ -18,5 +18,18 @@ const UsersServices = {
         );
         return response.data;
     },
+
+    getClicksUsers: async (id, formData) => {
+        try {
+            const response = await api.post(
+                `/users-portal/click/${id}`, formData
+            );
+            return response.data;
+        }catch (error){
+            console.log('error al enviar', error)
+            throw error
+        }
+
+    },
 }
 export default UsersServices;

@@ -185,30 +185,30 @@ const AllProperties = () => {
 
     const renderButtonsBottom = () => (
         <div className="flex flex-row justify-between items-center mx-2 xl:mx-28 2xl:mx-24 mb-3">
-        <div className="flex gap-3 text-base my-3">
-            <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
-        </div>
-        <div className="flex items-center">
-            <ul className="flex gap-3 items-center">
-                    <li className="cursor-pointer">
-                    <label className="font-semibold mr-1" htmlFor="limitSelect">Filtrar por:</label>
-                        <select
-                            id="limitSelect"
-                            value={limit}
-                            onChange={handleLimitChange}
-                            className="rounded-md p-1 px-3 border-2"
-                        >
-                            <option value={4}>4</option>
-                            <option value={8}>8</option>
-                            <option value={12}>12</option>
-                            <option value={20}>20</option>
-                            <option value={32}>32</option>
-                            <option value={48}>48</option>
-                            <option value={99}>99</option>
-                        </select>
-                    </li>           
-            </ul>
-        </div>
+            <div className="flex gap-3 text-base my-3">
+                <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
+            </div>
+            <div className="flex items-center">
+                <ul className="flex gap-3 items-center">
+                        <li className="cursor-pointer">
+                        <label className="font-semibold mr-1" htmlFor="limitSelect">Filtrar por:</label>
+                            <select
+                                id="limitSelect"
+                                value={limit}
+                                onChange={handleLimitChange}
+                                className="rounded-md p-1 px-3 border-2"
+                            >
+                                <option value={4}>4</option>
+                                <option value={8}>8</option>
+                                <option value={12}>12</option>
+                                <option value={20}>20</option>
+                                <option value={32}>32</option>
+                                <option value={48}>48</option>
+                                <option value={99}>99</option>
+                            </select>
+                        </li>           
+                </ul>
+            </div>
     </div>
     )
 
@@ -246,7 +246,7 @@ const AllProperties = () => {
                 >
 
    
-            <div className="bg-white/90 shadow-lg rounded-md xl:w-[90vw] 2xl:w-[75vw] grid items-center p-2 px-4 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-20 xl:mt-32">
+            <div className="bg-white/90 border-l-[5px] border-l-secondary shadow-lg rounded-md xl:w-[90vw] 2xl:w-[75vw] grid items-center p-2 px-4 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-20 xl:mt-32">
                 <TitleSection
                         className='mt-2 xl:mt-8 2xl:mt-6'
                         title="Todas las propiedades"
@@ -358,7 +358,7 @@ const AllProperties = () => {
                 </div>
             </div>
 
-            <div className="bg-white/90 shadow-lg rounded-md 2xl:w-[75vw] grid items-center p-2 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-4">
+            <div className="bg-white/90 border-l-[5px] border-l-secondary shadow-lg rounded-md 2xl:w-[75vw] grid items-center p-2 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-4">
                 <div className="flex flex-row justify-between items-center mx-2 xl:mx-16 2xl:mx-24 mt-3 xl:mt-6">
                     <div className="flex gap-3 text-base xl:text-lg my-2">
                         <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>

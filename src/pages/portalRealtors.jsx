@@ -7,11 +7,11 @@ import { Realtors } from "../data/community/index";
 // import MapsRealtor from "../components/mapRealtors";
 import { useState, useContext, useEffect } from "react";
 import { UsersContext } from '../context/realtors/UsersContext';
-import UsersServices from "../services/portal-users/UsersServices";
 import ModalRealtor from "../components/modal/ModalRealtor";
 import ResumeProfile from "../components/portalUsers/profileRealtor/resumeProfile";
 import { FaRegUserCircle } from "react-icons/fa";
 
+import UsersServices from "../services/portal-users/UsersServices";
 
 
 const PortalRealtor = () =>{
@@ -19,24 +19,46 @@ const PortalRealtor = () =>{
     const [selectedUser, setSelectedUser] = useState(null);
     const {
         users,
-        setUsers,
-        page,
-        setSortOrder
       } = useContext(UsersContext);
-    const [clicDataNameRealtor, setClicDataNameRealtor] = useState([])
+    const [clicDataNameRealtor, setClicDataNameRealtor] = useState([]);
 
-    const handleOpenDetail = (user, id) => {
+
+
+    const handleOpenDetail = async (user, id) => {
         const clicked = clicDataNameRealtor.find(item => item.id === id);
+        let updateClicks;
+
         if (clicked) {
-          setClicDataNameRealtor(clicDataNameRealtor.map(item => 
+          updateClicks = clicDataNameRealtor.map(item => 
               item.id === id ? {...item, clicks: item.clicks + 1} : item
-          ));
+          );
+          // setClicDataNameRealtor(updateClicks);
       }else {
-        setClicDataNameRealtor([...clicDataNameRealtor, {id, clicks: 1}]);
+        updateClicks = [...clicDataNameRealtor, {id, clicks:1}];
+        // setClicDataNameRealtor([...clicDataNameRealtor, {id, clicks: 1}]);
       }
+      setClicDataNameRealtor(updateClicks)
       setSelectedUser(user);
       setOpenDetail(true);
+
+
+      const formData = {
+        clickOfNameRealtor: updateClicks?.find(item => item.id === id).clicks,
+        clickOfMoreOfRealtor: 0,
+        clickOfOpenContact: 0,
+        clickOfSendContact: 0,
+        clickOfWebPage: 0
+      }
+
+      try {
+        await UsersServices.getClicksUsers(id, formData);
+        console.log('Datos enviados correctamente', formData)
+      }catch (error){
+        console.log('ERROR al enviar los clics', error)
+      }
     };
+
+
 
     const columns = [
         {
