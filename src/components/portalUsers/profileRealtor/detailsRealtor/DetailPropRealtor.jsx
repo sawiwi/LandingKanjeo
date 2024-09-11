@@ -101,7 +101,7 @@ const DetailCantProps = ({onClose, data}) => {
                   property.externalLink !== null && (
                     <div className="mx-2 flex justify-center gap-2 text-sm text-gray-500 font-light cursor-pointer">
                       <a href={property.externalLink} target="_blank" rel="noreferrer">
-                        Url en portal publicada: {property?.externalLink || 'no tiene'}
+                          {truncate(property?.externalLink, 36 || 'no tiene')}
                       </a>
                   </div> 
                   )  

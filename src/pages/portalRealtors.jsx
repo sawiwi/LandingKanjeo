@@ -32,32 +32,29 @@ const PortalRealtor = () =>{
           updateClicks = clicDataNameRealtor.map(item => 
               item.id === id ? {...item, clicks: item.clicks + 1} : item
           );
-          // setClicDataNameRealtor(updateClicks);
       }else {
         updateClicks = [...clicDataNameRealtor, {id, clicks:1}];
-        // setClicDataNameRealtor([...clicDataNameRealtor, {id, clicks: 1}]);
       }
       setClicDataNameRealtor(updateClicks)
       setSelectedUser(user);
       setOpenDetail(true);
 
-
       const formData = {
-        clickOfNameRealtor: updateClicks?.find(item => item.id === id).clicks,
+        clickOfNameRealtor: 1,
         clickOfMoreOfRealtor: 0,
         clickOfOpenContact: 0,
         clickOfSendContact: 0,
         clickOfWebPage: 0
       }
 
-      try {
-        await UsersServices.getClicksUsers(id, formData);
-        console.log('Datos enviados correctamente', formData)
+    try {
+      await UsersServices.getClicksUsers(id, formData);
+        // console.log('Datos enviados correctamente', formData)
+        // console.log('update', updateClicks,)
       }catch (error){
-        console.log('ERROR al enviar los clics', error)
+        console.log('error al enviar los clics', error)
       }
     };
-
 
 
     const columns = [

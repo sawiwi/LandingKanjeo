@@ -5,14 +5,15 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Fade } from 'react-awesome-reveal';
 import { useState } from 'react';
 import ContactApiFormServices from '../../../../services/portal-contact/ContactFormServices';
+import UsersServices from '../../../../services/portal-users/UsersServices';
 
 const ContactUser = ({dataUser}) =>{
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     lastName: "",
-    // to: dataUser?.session.email,
-    to: 'fabians@bidata.cl',
+    to: dataUser?.session.email,
+    // to: 'fabians@bidata.cl',
     phone: "",
     mail: "",
     subject: "",
@@ -66,16 +67,33 @@ const ContactUser = ({dataUser}) =>{
 
   const handleCounterClicSend = async (id) => {
     const clicked = clicDataSendContact.find(item => item.id === id);
+    let updateClicks;
         if (clicked) {
-        setClicDataSendContact(clicDataSendContact.map(item => 
+        updateClicks = clicDataSendContact.map(item => 
             item.id === id ? {...item, clicks: item.clicks + 1} : item
-        ));
+        );
         }else {
-            setClicDataSendContact([...clicDataSendContact, {id, clicks: 1}]);
+            updateClicks= [...clicDataSendContact, {id, clicks: 1}];
+        }
+
+        setClicDataSendContact(updateClicks);
+
+        const formData = {
+            clickOfNameRealtor: 0,
+            clickOfMoreOfRealtor: 0,
+            clickOfOpenContact: 0,
+            clickOfSendContact: 1,
+            clickOfWebPage: 0
+        };
+
+        try {
+            await UsersServices.getClicksUsers(id, formData);
+            // console.log('Datos enviados correctamente', formData);
+            // console.log('update', updateClicks);
+        }catch (error){
+            console.log('ERROR al enviar los clics', error)
         }
     };
-    console.log('click Send', clicDataSendContact )
-
 
     /* ToastMessage : Success */
     const showToastSuccessMsg = (msg) => {

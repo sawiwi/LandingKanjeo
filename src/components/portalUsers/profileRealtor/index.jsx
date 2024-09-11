@@ -18,6 +18,8 @@ import ContactProfile from '../components/ContactProfile/ContactProfile';
 import DetailPropsRealtor from './detailsRealtor/DetailPropRealtor';
 import DetailRealtors from './detailsRealtor/DetailCantRealtor';
 import RecentActivities from './detailsRealtor/RecentActivities';
+
+
 const ProfileRealtor = () => {
     const {id} = useParams();
     const [user, setUser] = useState();
@@ -29,18 +31,36 @@ const ProfileRealtor = () => {
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
     
 
-    const handleOpenContact = (id) => {
+    const handleOpenContact = async (id) => {
         const clicked = clicDataOpenContact.find(item => item.id === id);
-        if (clicked) {
-            setClicDataOpenContact(clicDataOpenContact.map(item => 
-                item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
-        }else {
-            setClicDataOpenContact([...clicDataOpenContact, {id, clicks: 1}]);
-        }
-        console.log('clicDataOpenContact', clicDataOpenContact)
+        let updateClicksContact;
 
+        if (clicked) {
+            updateClicksContact = clicDataOpenContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            );
+        }else {
+           updateClicksContact =[...clicDataOpenContact, {id, clicks: 1}];
+        }
+        
+        setClicDataOpenContact(updateClicksContact);
         setOpenContact(true);
+
+        const formData = {
+            clickOfNameRealtor: 0,
+            clickOfMoreOfRealtor: 0,
+            clickOfOpenContact: 1,
+            clickOfSendContact: 0,
+            clickOfWebPage: 0
+        }
+
+        try {
+            await UsersServices.getClicksUsers(id, formData);
+            // console.log('Datos enviados correctamente', formData)
+        }catch (error){
+            console.log('ERROR al enviar los clics', error)
+        }
+
     };
 
     const openDetailProp = () =>{
@@ -73,16 +93,34 @@ const ProfileRealtor = () => {
         getRealtor();
     }, [id])
 
-    const onCountOpenPage = (id) => {
+    const onCountOpenPage = async (id) => {
         const clicked = clicDataOpenWebPage.find(item => item.id === id);
+        let updateClicks;
+
         if (clicked) {
-            setClicDataOpenWebPage(clicDataOpenWebPage.map(item => 
+            updateClicks = clicDataOpenWebPage.map(item => 
                 item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
+            );
         }else {
-            setClicDataOpenWebPage([...clicDataOpenWebPage, {id, clicks: 1}]);
+            updateClicks = [...clicDataOpenWebPage, {id, clicks: 1}];
         }
         // console.log('clicDataOpenWebPage', clicDataOpenWebPage)
+        setClicDataOpenWebPage(updateClicks);
+
+        const formData = {
+            clickOfNameRealtor: 0,
+            clickOfMoreOfRealtor: 0,
+            clickOfOpenContact: 0,
+            clickOfSendContact: 0,
+            clickOfWebPage: 1
+        }
+        
+        try {
+            await UsersServices.getClicksUsers(id, formData);
+            // console.log('Datos enviados correctamente', formData)
+        }catch (error){
+            console.log('ERROR al enviar los clics', error)
+        }
 
     }
 

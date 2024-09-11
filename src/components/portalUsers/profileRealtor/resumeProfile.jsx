@@ -14,6 +14,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useEffect, useState } from 'react';
 import ModalContact from '../../modal/ModalContact';
 import ContactUser from '../components/ContactModal/ContactUser';
+import UsersServices from '../../../services/portal-users/UsersServices'
 
 
 const ResumeProfile = ({dataRealtor}) =>{
@@ -35,45 +36,98 @@ const ResumeProfile = ({dataRealtor}) =>{
     }, [bannerImg])
     if (!dataRealtor) return null;
 
-    const onCountoViewProfile = (id) => {
+    const onCountOfViewProfile = async (id) => {
         const clicked = clicDataProfilRealtor.find(item => item.id === id);
+        let updateClicks;
+
         if (clicked) {
-            setClicProfilRealtor(clicDataProfilRealtor.map(item => 
+            updateClicks = clicDataProfilRealtor.map(item => 
                 item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
+            );
         }else {
-            setClicProfilRealtor([...clicDataProfilRealtor, {id, clicks: 1}]);
+            updateClicks = [...clicDataProfilRealtor, {id, clicks: 1}];
         }
-        // console.log('setClicProfilRealtor', clicDataProfilRealtor)
+        setClicProfilRealtor(updateClicks);
+        setSelectedUser(dataRealtor);
+
+        const formData = {
+            clickOfNameRealtor: 0,
+            clickOfMoreOfRealtor: 1,
+            clickOfOpenContact: 0,
+            clickOfSendContact: 0,
+            clickOfWebPage: 0
+        }
+
+        try {
+            await UsersServices.getClicksUsers(id, formData);
+            // console.log('Datos enviados correctamente', formData)
+        }catch (error){
+            console.log('ERROR al enviar los clics', error)
+        }
     }
 
-    const onCountOpenPage = (id) => {
+    const onCountOpenPage = async (id) => {
         const clicked = clicDataOpenWebPage.find(item => item.id === id);
+        let updateClicksOpen;
+
         if (clicked) {
-            setClicDataOpenWebPage(clicDataOpenWebPage.map(item => 
+            updateClicksOpen = clicDataOpenWebPage.map(item => 
                 item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
+            );
         }else {
             setClicDataOpenWebPage([...clicDataOpenWebPage, {id, clicks: 1}]);
         }
+        setClicDataOpenWebPage(updateClicksOpen);
         // console.log('clicDataOpenWebPage', clicDataOpenWebPage)
+        
+        const formData = {
+            clickOfNameRealtor: 0,
+            clickOfMoreOfRealtor: 0,
+            clickOfOpenContact: 0,
+            clickOfSendContact: 0,
+            clickOfWebPage: 1
+        }
+
+        try {
+            await UsersServices.getClicksUsers(id, formData);
+            // console.log('Datos enviados correctamente', formData)
+        }catch (error){
+            console.log('ERROR al enviar los clics', error)
+        }
 
     }
 
-    const handleOpenContact = (dataRealtor, id) => {
-                //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
+    const handleOpenContact = async (dataRealtor, id) => {
+        //se salvan los clics en un contador a la vez que el id de la propiedad
         const clicked = clicDataOpenContact.find(item => item.id === id);
-        if (clicked) {
-            setClicDataOpenContact(clicDataOpenContact.map(item => 
-                item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
-        }else {
-            setClicDataOpenContact([...clicDataOpenContact, {id, clicks: 1}]);
-        }
-        // console.log('clicDataOpenContact', clicDataOpenContact)
+        let updateClicksContact;
 
+        if (clicked) {
+            updateClicksContact = clicDataOpenContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            );
+        }else {
+            updateClicksContact = [...clicDataOpenContact, {id, clicks: 1}];
+        }
+        
+        setClicDataOpenContact(updateClicksContact)
         setSelectedUser(dataRealtor);
         setOpenContact(true);
+
+        const formData = {
+            clickOfNameRealtor: 0,
+            clickOfMoreOfRealtor: 0,
+            clickOfOpenContact: 1,
+            clickOfSendContact: 0,
+            clickOfWebPage: 0
+        }
+        
+        try {
+            await UsersServices.getClicksUsers(id, formData);
+            // console.log('Datos enviados correctamente', formData)
+        }catch (error){
+            console.log('ERROR al enviar los clics', error)
+        }
     };
 
 
@@ -159,7 +213,7 @@ const ResumeProfile = ({dataRealtor}) =>{
                                 className='flex items-center hover-group bg-secondary-light hover:bg-secondary duration-200 text-white p-2 rounded-lg'>
                                  Contactar
                             </button>
-                            <a onClick={() => onCountoViewProfile(dataRealtor.id)} 
+                            <a onClick={() => onCountOfViewProfile(dataRealtor.id)} 
                                 href={`/perfil-corredor/${dataRealtor.id}`} target='_blank' rel='noreferrer' className='flex items-center hover-group bg-secondary-light hover:bg-secondary duration-200 text-white p-2 rounded-lg'>
                                 Ver más <IoIosArrowForward className='mx-1 duration-150'/>
                             </a>

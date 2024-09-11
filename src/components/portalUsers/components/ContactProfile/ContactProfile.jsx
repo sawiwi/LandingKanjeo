@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Fade } from 'react-awesome-reveal';
 import { useState } from 'react';
 import ContactApiFormServices from '../../../../services/portal-contact/ContactFormServices';
+import UsersServices from '../../../../services/portal-users/UsersServices';
 
 const ContactProfile = ({dataUser}) =>{
   const [loading, setLoading] = useState(false);
@@ -16,7 +17,8 @@ const ContactProfile = ({dataUser}) =>{
     phone: "",
     mail: "",
     subject: "",
-    message: ""
+    message: "",
+    title: "Portal de Corredores"
   });
     const [clicDataSendContact, setClicDataSendContact] = useState([]);
 
@@ -58,16 +60,34 @@ const ContactProfile = ({dataUser}) =>{
 
     const handleCounterClicSend = async (id) => {
         const clicked = clicDataSendContact.find(item => item.id === id);
+        let updateClicks;
+
         if (clicked) {
-            setClicDataSendContact(clicDataSendContact.map(item => 
+            updateClicks = clicDataSendContact.map(item => 
                 item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
+            );
         }else {
-            setClicDataSendContact([...clicDataSendContact, {id, clicks: 1}]);
+            updateClicks = [...clicDataSendContact, {id, clicks: 1}];
         }
+        setClicDataSendContact(updateClicks);
+
+        const formData = {
+            clickOfNameRealtor: 0,
+            clickOfMoreOfRealtor: 0,
+            clickOfOpenContact: 0,
+            clickOfSendContact: 1,
+            clickOfWebPage: 0
+        };
+
+        try {
+            await UsersServices.getClicksUsers(id, formData);
+            console.log('Datos enviados correctamente', formData)
+        }catch (error){
+            console.log('ERROR al enviar los clics', error)
+        }
+
     };
 
-    // console.log('click Send', clicDataSendContact )
 
   const [errorMsg, setErrorMsg] = useState({
     fieldsRequired: '',
@@ -156,6 +176,7 @@ const ContactProfile = ({dataUser}) =>{
         mail: "",
         subject: "",
         message: "",
+        title:"Portal de Corredores"
     })
   }
 
