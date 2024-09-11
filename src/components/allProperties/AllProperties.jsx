@@ -23,7 +23,7 @@ import { SelectsContext } from "../../context/selects/SelectsContext";
 
 const AllProperties = () => {
     
-    const [contactOpen, setContactOpen] = useState(false);
+    // const [contactOpen, setContactOpen] = useState(false);
     const [moreProp, setMoreProp] = useState(false)
     const [view, setView] = useState('grid');
     const [selectedProperty, setSelectedProperty] = useState(null);
@@ -46,7 +46,8 @@ const AllProperties = () => {
 
     const [filteredProperties, setFilteredProperties] = useState([]);
 //  const [countOpenContact, setCountOpenContact] = useState(0);
-    const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
+    // const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
+    const [clickDataOpenDetails, setClickDataOpenDetails] = useState([]);
     const [propertyCod, setPropertyCod] = useState('');
     const [isSearching, setIsSearching] = useState(false);
     const [limit, setLimit] = useState(4);
@@ -66,6 +67,31 @@ const AllProperties = () => {
         -webkit-transform: translateY(0);
         transform: translateY(0);
     }`;
+
+    const onClickDetails = async (id) => {
+        const clicked = clickDataOpenDetails.find(item => item.id === id);
+        let updateClicks;
+
+        if(clicked) {
+            updateClicks = clickDataOpenDetails.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1}: item
+            );
+        }else {
+            updateClicks = [...clickDataOpenDetails, {id, clicks: 1}];
+        }
+        setClickDataOpenDetails(updateClicks);
+        const formData = {
+            clickOfExternalLink: 0,
+            clickOfOpenContact: 1,
+            clickOfSendContact: 0
+        }
+        try {
+            await PropertiesServices.getClicksProperties(id, formData);
+            // console.log('Datos enviados correctamente', formData);
+        }catch (error){
+            console.log('Error al enviar los clics', error)
+        }
+    }
 
     //limitare los caracteres y poniendo ... en su lugar si es demasiado largo
     const truncate = (str, n) => {
@@ -97,7 +123,6 @@ const AllProperties = () => {
                     <p className="xl:text-xl">
                         <b>{parseToDecimal(ufValue)} UF</b>
                     </p>
-                   
                     <p className="xl:text-xl">
                         <b>{parseToCLPCurrency(clpValue)}.-</b>
                     </p>
@@ -157,7 +182,6 @@ const AllProperties = () => {
         setLimit((prevLimit) => (prevLimit === 8 ? filteredProperties.length : limit));
     }
 
-
     useEffect(() => {
         setFilteredProperties(properties.slice(0, limit)); 
       }, [properties, limit]);
@@ -178,7 +202,6 @@ const AllProperties = () => {
        }
        setIsSearching(false);
     }
-
     const handleSearchReset = async () => {
         setFilteredProperties(properties)
     }
@@ -246,7 +269,7 @@ const AllProperties = () => {
                 >
 
    
-            <div className="bg-white/90 border-l-[5px] border-l-secondary shadow-lg rounded-md xl:w-[90vw] 2xl:w-[75vw] grid items-center p-2 px-4 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-20 xl:mt-32">
+            <div className="bg-white/90  shadow-lg rounded-md xl:w-[90vw] 2xl:w-[75vw] grid items-center p-2 px-4 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-20 xl:mt-32">
                 <TitleSection
                         className='mt-2 xl:mt-8 2xl:mt-6'
                         title="Todas las propiedades"
@@ -358,7 +381,7 @@ const AllProperties = () => {
                 </div>
             </div>
 
-            <div className="bg-white/90 border-l-[5px] border-l-secondary shadow-lg rounded-md 2xl:w-[75vw] grid items-center p-2 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-4">
+            <div className="bg-white/90 shadow-lg rounded-md 2xl:w-[75vw] grid items-center p-2 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-4">
                 <div className="flex flex-row justify-between items-center mx-2 xl:mx-16 2xl:mx-24 mt-3 xl:mt-6">
                     <div className="flex gap-3 text-base xl:text-lg my-2">
                         <p className="text-gray-500">Propiedades encontradas: {filteredProperties?.length || 0}</p>
@@ -432,8 +455,7 @@ const AllProperties = () => {
                                         </div>
                                         <div className="mx-2">
                                         <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 40)}</h2>                                      
-                                        {formatPrice(item?.currencyId, item?.propertyPrice)}
-                                        
+                                        {formatPrice(item?.currencyId, item?.propertyPrice)}                                       
                                             <ul className="flex flex-row sm:flex-row mx-4 xl:mx-12 gap-2 justify-between">
                                                 <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
                                                         {/* <span>Baño(s)</span> */}   
@@ -456,6 +478,7 @@ const AllProperties = () => {
                                             <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
                                                 <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                 <a 
+                                                onClick={() => onClickDetails(item?.id)}
                                                 href={`/propiedades/${item?.id}`}
                                                 target="_blank"
                                                 rel="noreferrer"
