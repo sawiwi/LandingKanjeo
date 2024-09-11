@@ -8,7 +8,6 @@ import { BiBuildingHouse } from "react-icons/bi";
 import {Reveal} from "react-awesome-reveal";
 import { keyframes } from '@emotion/react';
 
-
 import { 
     truncateString, 
     parseToCLPCurrency, 
@@ -41,19 +40,36 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
     const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
     const [limit, setLimit] = useState(20);
 
-    const onOpenContact = async (id, title) =>{
+    const onOpenContact = async (id) =>{
         //se salvan los clics en un contador a la vez que el id de la propiedad con su titulo respectivo
         const clicked = clicDataOpenContact.find(item => item.id === id);
+        let updateClicks;
+
         if (clicked) {
-            setClicDataOpenContact(clicDataOpenContact.map(item => 
+            updateClicks = clicDataOpenContact.map(item => 
                 item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
+            );
         }else {
-            setClicDataOpenContact([...clicDataOpenContact, {id, title, clicks: 1}]);
+            updateClicks = [...clicDataOpenContact, {id, clicks: 1}];
         }
         const property = await PropertiesServices.getProperty(id);
-        setSelectedProperty(property)
-        setContactOpen(true)
+
+        setClicDataOpenContact(updateClicks);
+        setSelectedProperty(property);
+        setContactOpen(true);
+
+        const formData = {
+            clickOfExternalLink: 0,
+            clickOfOpenContact: 1,
+            clickOfSendContact: 0
+        }
+
+        try {
+            await PropertiesServices.getClicksProperties(id, formData);
+            // console.log('Datos enviados correctamente', formData);
+        }catch (error){
+            console.log('Error al enviar los clics', error)
+        }
     }
 
     const onCloseContact = () =>{
@@ -167,7 +183,6 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
         filterProperties(properties)
     }
 
-    
 
     return(
         <>
@@ -326,7 +341,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                     <p className="font-medium">{item.address.state.name || 'No se encontro región'}, {item.address.city.name || 'No se encontro comuna'}</p>
                                                     <button 
                                                     // onClick={onOpenContact} 
-                                                    onClick={() => onOpenContact(item.id, item.propertyTitle)} 
+                                                    onClick={() => onOpenContact(item.id)} 
         
                                                     className="p-2 px-3 bg-secondary hover:bg-secondary-light duration-200 text-white rounded-full"
                                                     >Contactar</button>

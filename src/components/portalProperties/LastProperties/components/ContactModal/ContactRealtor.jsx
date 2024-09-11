@@ -5,6 +5,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import { Fade } from 'react-awesome-reveal';
 import { useState } from 'react';
 import ContactApiFormServices from '../../../../../services/portal-contact/ContactFormServices';
+import PropertiesServices from '../../../../../services/portal-properties/PropertiesServices';
+
 
 const ContactRealtor = ({property}) =>{
   const [loading, setLoading] = useState(false);
@@ -57,14 +59,28 @@ const ContactRealtor = ({property}) =>{
         });
       };
 
-    const handleCounterClicSend = async (id, title) => {
+    const handleCounterClicSend = async (id) => {
         const clicked = clicDataSendContact.find(item => item.id === id);
+        let updateClicks;
+
         if (clicked) {
-            setClicDataSendContact(clicDataSendContact.map(item => 
+            updateClicks = clicDataSendContact.map(item => 
                 item.id === id ? {...item, clicks: item.clicks + 1} : item
-            ));
+            );
         }else {
-            setClicDataSendContact([...clicDataSendContact, {id, title, clicks: 1}]);
+            updateClicks = [...clicDataSendContact, {id, clicks: 1}];
+        }
+        setClicDataSendContact(updateClicks);
+        const formData = {
+            clickOfExternalLink: 0,
+            clickOfOpenContact: 0,
+            clickOfSendContact: 1
+        }
+        try {
+            await PropertiesServices.getClicksProperties(id, formData);
+            // console.log('Datos enviados correctamente', formData);
+        }catch (error){
+            console.log('Error al enviar los clics', error)
         }
     };
 

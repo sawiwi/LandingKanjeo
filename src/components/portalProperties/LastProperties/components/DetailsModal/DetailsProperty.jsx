@@ -18,6 +18,8 @@ import {
     clpToUf2 } from "../../../../../utils/truncateExchange";
 
 import NotFoundProp from "../../../../../assets/img/portal-prop/arquitectura.png"
+import PropertiesServices from "../../../../../services/portal-properties/PropertiesServices";
+
 
 const DetailsProperty = ({property}) =>{
    
@@ -26,13 +28,14 @@ const DetailsProperty = ({property}) =>{
     const {
         valueUf,
     } = contextData;
+    const [clickOfExternalLink, setClickOfExternalLink] = useState([])
 
     const toggleViewMore  = async () => {
         setMoreView(!moreView)
     }
 
 
-        //limitare los caracteres y poniendo ... en su lugar si es demasiado largo
+    //limitare los caracteres y poniendo ... en su lugar si es demasiado largo
     const truncate = (str, n) => {
         return str?.length > n ? str.substr(0, n - 1) + '...' : str;
     };
@@ -66,6 +69,35 @@ const DetailsProperty = ({property}) =>{
         )
 
     };
+
+    const onClickExternal = async (id) =>
+    {
+        const clicked = clickOfExternalLink.find(item => item.id === id); 
+        let updateClicks;
+
+        if (clicked) {
+            updateClicks = clickOfExternalLink.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            );
+        }else {
+            updateClicks = [...clickOfExternalLink, {id, clicks: 1}];
+        }
+
+        setClickOfExternalLink(updateClicks);
+
+        const formData = {
+            clickOfExternalLink: 1,
+            clickOfOpenContact: 0,
+            clickOfSendContact: 0
+        }
+
+        try {
+            await PropertiesServices.getClicksProperties(id, formData);
+            // console.log('Datos enviados correctamente', formData);
+        }catch (error){
+            console.log('Error al enviar los clics', error)
+        }
+    }
 
     return(
         <>
@@ -103,8 +135,12 @@ const DetailsProperty = ({property}) =>{
                                     </div>
                                     {
                                         property.externalLink !== null && (
-                                        <div className="mx-2 flex justify-center gap-2 text-sm text-gray-500 font-light cursor-pointer">
-                                            <a href={property.externalLink} target="_blank" rel="noreferrer">
+                                        <div className="mx-2 flex justify-center gap-2 text-sm text-secondary-light font-light cursor-pointer">
+                                            <a  href={property.externalLink} 
+                                                target="_blank" 
+                                                rel="noreferrer"
+                                                onClick={() => onClickExternal(property.id)}
+                                                className="underline underline-offset-1 italic">
                                                 {truncate(property?.externalLink, 36 || 'no tiene')}
                                             </a>
                                         </div> 
@@ -120,7 +156,7 @@ const DetailsProperty = ({property}) =>{
                                     <div className="text-start flex flex-col xl:flex-row sm:text-center sm:flex sm:justify-between mt-2 mb-4 2xl:mb-2 gap-2 sm:mx-28">
                                         <p className="grid"><b>Tipo de operación </b>{property?.typeOfOperationId}</p>
                                         <p className="grid"><b>Tipo de inmueble </b>{property?.typeOfPropertyId}</p>
-                                        {formatPrice(property?.currencyId, property?.propertyPrice)}
+                                    {formatPrice(property?.currencyId, property?.propertyPrice)}
                                     </div>  
                                     <div> 
                                         <h3 className="text-center text-lg">Características</h3>
@@ -145,7 +181,7 @@ const DetailsProperty = ({property}) =>{
                                                     </div>
                                                 </li>
                                                 <li className="mb-2">
-                                                    <div className="flex gap-2 items-center">
+                                                        <div className="flex gap-2 items-center">
                                                         <PiSortDescendingBold/>
                                                         <span>
                                                             Piso(s):

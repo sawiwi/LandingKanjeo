@@ -48,12 +48,39 @@ const FilterRegionsProperties = () =>{
     const [moreProp, setMoreProp] = useState(false);
     const [rangeProp, setRangeProp] = useState([0,3]);
     const [selectedRegion, setSelectedRegion] = useState(null);
+    const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
 
 
     const onOpenContact = async (id) =>{
+        const clicked = clicDataOpenContact.find(item => item.id === id);
+        let updateClicks;
+
+        if (clicked) {
+            updateClicks = clicDataOpenContact.map(item => 
+                item.id === id ? {...item, clicks: item.clicks + 1} : item
+            );
+        }else {
+            updateClicks = [...clicDataOpenContact, {id, clicks: 1}];
+        }
         const property = await PropertiesServices.getProperty(id);
-        setSelectedProperty(property)
-        setContactOpen(true)
+        
+        setClicDataOpenContact(updateClicks);
+        setSelectedProperty(property);
+        setContactOpen(true);
+
+        const formData = {
+            clickOfExternalLink: 0,
+            clickOfOpenContact: 1,
+            clickOfSendContact: 0
+        }
+
+        try {
+            await PropertiesServices.getClicksProperties(id, formData);
+            // console.log('Datos enviados correctamente', formData);
+        }catch (error){
+            console.log('Error al enviar los clics', error)
+        }
+
     }
 
     const onCloseContact = () =>{

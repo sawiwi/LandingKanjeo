@@ -33,8 +33,6 @@ const PropertiesServices = {
     };
   },
 
-
-
   getProperty: async (id) => {
     const response = await api.get(
       `properties-portal/${id}?`
@@ -59,6 +57,18 @@ const PropertiesServices = {
       throw new Error("Falla en la llamada")
     }
   },
+
+  getClicksProperties: async (id, formData) => {
+      try{
+        const response = await api.post(
+          `/properties-portal/click/${id}`, formData
+        );
+        return response.data;
+      }catch (error){
+        console.log('error al enviar', error)
+        throw error
+      }
+  }
 
 };
 
