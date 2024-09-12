@@ -259,22 +259,22 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                             </span>
                         </div>
                         <div className="flex justify-center items-center mt-5 sm:mt-0">
-                            <ul className="grid grid-cols-2 md:flex md:flex-row gap-1 sm:gap-3 items-center">
+                            <ul className="grid grid-cols-2 md:flex md:flex-row sm:gap-3 items-center">
                                 <li className="col-span-1 hover:scale-110 duration-200 cursor-pointer">
                                     <button onClick={() => setView('grid')}
-                                    className="hover:font-semibold rounded-lg shadow-2xl text-gray-50 hover:text-secondary-light border bg-secondary-light hover:bg-gray-50 hover:border hover:border-secondary-light duration-150 h-8 w-8 px-1.5">
+                                    className="hover:font-semibold rounded-lg shadow-2xl text-gray-50 hover:text-secondary-light border bg-secondary-light hover:bg-gray-50 hover:border hover:border-secondary-light duration-150  h-8 w-full sm:w-8 px-6 sm:px-1.5">
                                         <IoGridOutline className="text-lg"/>
                                     </button>
                                 </li>
                                 <li className="col-span-1 hover:scale-110 duration-200 cursor-pointer">
                                     <button onClick={() => setView('list')}
-                                    className="hover:font-semibold rounded-lg shadow-2xl text-gray-50 hover:text-secondary-light border bg-secondary-light hover:bg-gray-50 hover:border hover:border-secondary-light duration-150 h-8 w-8 px-1.5">
+                                    className="hover:font-semibold rounded-lg shadow-2xl text-gray-50 hover:text-secondary-light border bg-secondary-light hover:bg-gray-50 hover:border hover:border-secondary-light duration-150 h-8 w-full sm:w-8 px-6 sm:px-1.5">
                                         <TbLayoutList className="text-lg"/>
                                     </button>
                                 </li> 
                                 <li className="hover:scale-110 duration-200 cursor-pointer">
                                     <a href="/propiedades" target="_blank" rel='noreferrer'
-                                        className="flex items-center gap-2 hover:font-medium duration-200 rounded-lg shadow-2xl text-gray-200 hover:text-secondary-light border hover:border-secondary-light bg-secondary-light hover:bg-gray-50 sm:h-8 w-32 sm:w-full p-1 px-2">
+                                        className="flex items-center gap-2 hover:font-medium duration-200 rounded-lg shadow-2xl text-gray-200 hover:text-secondary-light border hover:border-secondary-light bg-secondary-light hover:bg-gray-50 h-8 sm:h-9 w-36 sm:w-full px-6 sm:px-2">
                                             Ver todas
                                         <BiBuildingHouse  className="text-lg"/>
                                     </a>

@@ -40,10 +40,10 @@ const ReactSlick = ({ renderContent }) => {
           className={`fixed sm:top-0 z-50 sm:relative sm:flex sm:justify-center sm:items-center transition-colors ${videoOpen ? "visible bg-black/50 sm:bg-black/80 h-full w-full sm:h-[100vh] sm:w-[100vw] z-50" : "invisible"}`}
           onClick={onCloseVideo}>
             {/* Modal */}
-            <div className={`bg-transparent sm:bg-gray-50 rounded-xl shadow-lg sm:p-6 transition-all overflow-y-auto w-[100vw] sm:w-[37vw] my-56 sm:my-0
+            <div className={`bg-transparent p-2 sm:bg-gray-50 rounded-xl shadow-lg sm:p-6 transition-all overflow-y-auto w-[100vw] sm:w-[37vw] xl:w-[53vw] 2xl:w-[37vw] my-56 sm:my-0
               ${videoOpen ? "scale-100 opacity-100" : "scale-125 opacity-0"}`}
               onClick={(e) => e.stopPropagation()}>
-              <button className="absolute top-2 right-2 p-1 px-2 rounded-full text-gray-600 bg-white hover:bg-gray-50 hover:text-gray-600" onClick={onCloseVideo}>
+              <button className="absolute right-5 sm:top-2 sm:right-2 sm:p-1 px-2 sm:px-3 rounded-full text-gray-600 bg-white hover:bg-gray-50 hover:text-gray-600" onClick={onCloseVideo}>
                 X
               </button>
               <div className='hidden sm:block'>

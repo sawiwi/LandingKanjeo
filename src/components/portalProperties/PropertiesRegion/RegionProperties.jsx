@@ -349,8 +349,8 @@ const FilterRegionsProperties = () =>{
             </div>     
                     <div className="grid grid-cols-2 xl:flex xl:flex-row xl:justify-center mt-8 my-6 mb-8 xl:mb-12 mx-8 2xl:mx-32 h-full md:h-40 gap-6 xl:gap-12 2xl:gap-12"> 
                         {regionImgs.map((item, idx) => (
-                            <div key={idx} className=''>
-                                    <div className="relative my-5 text-center h-28 w-28 md:h-40 md:w-40 2xl:h-40 2xl:w-40">
+                            <div key={idx} className='col-span-1 w-[60%] sm:w-auto'>
+                                    <div className="relative my-5 mb-8 text-center h-36 w-36 md:h-40 md:w-40 2xl:h-40 2xl:w-40">
                                         <small className="font-semibold text-lg mb-5 text-gray-600">{truncate(item.region, 17)}</small>
                                             <img onClick={() => handleRegionClick(item.region)} 
                                             src={item.img} 
@@ -377,9 +377,9 @@ const FilterRegionsProperties = () =>{
                                 Propiedades en esta región
                             </p>
                         </div>
-                        <div className="flex justify-end gap-2 my-2 ml-10 sm:ml-0">
+                        <div className="flex justify-end gap-2 my-2 ml-16 sm:ml-0">
                             <a href="/propiedades" target="_blank" rel='noreferrer'
-                                className="flex items-center gap-2 hover:font-medium rounded-lg shadow-xl text-gray-200 hover:text-secondary-light border hover:border-secondary-light bg-secondary-light hover:bg-gray-50 h-8 w-full p-2 px-2 hover:scale-105 duration-200">
+                                className="flex items-center gap-2 hover:font-medium rounded-lg shadow-xl text-gray-200 hover:text-secondary-light border hover:border-secondary-light bg-secondary-light hover:bg-gray-50 h-10 sm:h-9 w-full p-3 sm:p-2 px-2 hover:scale-105 duration-200">
                                     Ver todas
                                 <BiBuildingHouse  className="text-lg"/>
                             </a>

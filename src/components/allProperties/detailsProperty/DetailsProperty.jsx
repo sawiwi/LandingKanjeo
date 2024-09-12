@@ -122,7 +122,7 @@ const DetailsProperty = () => {
         const getProperty = async () => {
             try{
                 const propertyData = await PropertiesServices.getProperty(id);
-                console.log('propertyData', propertyData)
+                // console.log('propertyData', propertyData)
                 setProperty(propertyData);
             }catch (error) {
                 console.log('error al obtener data propiedad',error)
@@ -159,7 +159,7 @@ const DetailsProperty = () => {
                 <div className="grid grid-row grid-cols-1 gap-4 sm:mt-10 md:mx-6 xl:mx-6 2xl:mx-28 text-gray-500">
                         <div className='relative shadow-lg bg-white h-full w-full rounded-md xl:mt-3 mb-2 2xl:mb-0 p-2 px-3'>
                             {/* <img src={backgroundBanner} className='w-full h-52 object-cover object-center rounded-md' alt='bannerImg' /> */}
-                            <div className="mx-2 md:mx-16 2xl:mx-36 sm:px-10 ">
+                            <div className="mx-2 mb-10 md:mx-16 2xl:mx-36 sm:px-10 ">
                                 <Slider {...settings} className="relative w-full sm:w-60 h-80 xl:h-[40vh]">
                                     {property?.images.length > 0 ? property?.images.map((item) => (
                                         <div key={item.id} className="relative">
