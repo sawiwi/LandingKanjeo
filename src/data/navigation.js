@@ -30,7 +30,7 @@ export const navigationData = [
   },
   {
     id: 7,
-    name: 'Mi cuenta',
-    href: 'https://procanje.app/sign-in',
+    name: 'Registrate aquí',
+    href: 'https://procanje.app/sign-up',
   },
 ];

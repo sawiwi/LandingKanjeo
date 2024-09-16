@@ -105,11 +105,11 @@ const ReactSlick = ({ renderContent }) => {
               <a
                   target='_blank'
                   rel='noreferrer'
-                  href={'https://procanje.app/sign-in'}
+                  href={'https://procanje.app/sign-up'}
                   className="2xl:my-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-secondary-light backdrop-blur-lg px-6 py-2 text-base text-white transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-secondary-light border border-secondary"
                   >
                   <span className="text-lg">
-                      Unirse
+                      Registrate aquí
                   </span>
                   <div
                     className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]"
@@ -139,11 +139,11 @@ const ReactSlick = ({ renderContent }) => {
               <a
                   target='_blank'
                   rel='noreferrer'
-                  href={'https://procanje.app/sign-in'}
+                  href={'https://procanje.app/sign-up'}
                   className="2xl:my-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-secondary-light backdrop-blur-lg px-6 py-2 text-base text-white transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-secondary-light border border-secondary"
                   >
                   <span className="text-lg">
-                      Unirse
+                      Registrate aquí
                   </span>
                   <div
                     className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]"
