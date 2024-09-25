@@ -224,7 +224,7 @@ const FilterRegionsProperties = () =>{
             case 'Biobío':
                 responseImg = imgBiobio;
                 break;
-            case 'Araucanía':
+            case 'La Araucanía':
                 responseImg = imgAraucania;
                 break;
             case 'Los Ríos':
