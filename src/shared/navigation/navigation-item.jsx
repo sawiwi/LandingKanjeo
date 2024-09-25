@@ -71,14 +71,14 @@ const NavigationItem = ({ menuItem }) => {
     <a
       href={href}
       target={
-        href === 'https://procanje.app/sign-up'
+        href === 'https://procanje.app/sign-in'
           ? '_blank'
           : ''
       }
       className={`inline-flex items-center text-sm xl:text-base font-normal outline-none py-2 px-4 xl:px-3 hover:text-secondary-light ${
         pathname === href
           ? 'inline-flex text-secondary items-center text-sm xl:text-base font-normal py-2 px-4 xl:px-5 '
-          : name === 'Registrate aquí'
+          : name === 'Mi cuenta'
           ? 'bg-secondary border rounded-full inline-flex items-center text-sm xl:text-base font-normal py-2 px-4 xl:px-5  text-primary hover:bg-secondary-light hover:text-white hover:border hover:border-secondary-light duration-200'
           : 'inline-flex items-center text-sm xl:text-base font-normal py-2 px-4 xl:px-5  text-secondary  hover:text-secondary-light'
       }`}
@@ -86,7 +86,7 @@ const NavigationItem = ({ menuItem }) => {
 
     >
       {/* {console.log(href)} */}
-      {name === 'Registrate aquí' && <AiOutlineUser />} {name}
+      {name === 'Mi cuenta' && <AiOutlineUser />} {name}
     </a>
   );
 };

@@ -106,7 +106,7 @@ const ReactSlick = ({ renderContent }) => {
                   target='_blank'
                   rel='noreferrer'
                   href={'https://procanje.app/sign-up'}
-                  className="2xl:my-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-secondary-light backdrop-blur-lg px-6 py-2 text-base text-white transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-secondary-light border border-secondary"
+                  className="2xl:my-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-secondary-light backdrop-blur-lg px-6 py-2 text-base text-white transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-secondary-light border border-secondary animate-ping"
                   >
                   <span className="text-lg">
                       Registrate aquí
