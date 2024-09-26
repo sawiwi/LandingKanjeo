@@ -6,6 +6,7 @@ import { PropertiesContext } from "../../context/properties/PropertiesContext";
 import PropertiesServices from '../../services/portal-properties/PropertiesServices'
 import { TbLayoutList} from "react-icons/tb";
 import { IoGridOutline } from "react-icons/io5";
+import { IoIosArrowDown } from "react-icons/io";
 import NotFoundProp from "../../assets/img/portal-prop/arquitectura.png"
 import { 
     truncateString, 
@@ -19,12 +20,15 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 import { MdOutlineSearch } from "react-icons/md";
 import { TbHomeSearch, TbTrash  } from "react-icons/tb";
 import { SelectsContext } from "../../context/selects/SelectsContext";
+import { ToastContainer, toast } from 'react-toastify';
+
+
 
 
 const AllProperties = () => {
-    
     // const [contactOpen, setContactOpen] = useState(false);
     const [moreProp, setMoreProp] = useState(false)
+    const [selectDivise, setSelectDivise] = useState('UF');
     const [view, setView] = useState('grid');
     const [selectedProperty, setSelectedProperty] = useState(null);
     const { contextData } = useContext(PropertiesContext);
@@ -45,16 +49,53 @@ const AllProperties = () => {
     } = contextSelectData;
 
     const [filteredProperties, setFilteredProperties] = useState([]);
-//  const [countOpenContact, setCountOpenContact] = useState(0);
-    // const [clicDataOpenContact, setClicDataOpenContact] = useState([]);
     const [clickDataOpenDetails, setClickDataOpenDetails] = useState([]);
     const [propertyCod, setPropertyCod] = useState('');
     const [isSearching, setIsSearching] = useState(false);
     const [limit, setLimit] = useState(4);
+    const [moreFilters, setMoreFilters] = useState(false);
 
-    // console.log('properties', properties)
-    // console.log('contador', countOpenContact)
-    // console.log('contador data', clicDataOpenContact)
+    /* ToastMessage : Success */
+    const showToastSuccessMsg = (msg) => {
+        toast.success(msg, {
+          position: 'top-center',
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      };
+    
+      /* ToastMessage : Error */
+      const showToastErrorMsg = (msg) => {
+        toast.error(msg, {
+          position: 'top-center',
+          autoClose: 2500,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: 'light',
+        });
+      };
+
+          /* ToastMessage : Error */
+    const showToastWarningMsg = (msg) => {
+            toast.warning(msg, {
+              position: 'top-center',
+              autoClose: 2500,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              theme: 'light',
+            });
+          };
 
     const fadeInUp = keyframes`
     0% {
@@ -133,6 +174,13 @@ const AllProperties = () => {
 
     };
 
+    const handleRangeChange = (e, field) => {
+        setSelectedSelects({
+            ...selectedSelects,
+            [field]: e.target.value
+        });
+    };
+
     const handleSelectChange = (e) => {
         const {name, value} = e.target;
         setSelectedSelects((prev) => ({...prev, [name]: value}));
@@ -171,6 +219,42 @@ const AllProperties = () => {
             filtered = filtered.filter(property => 
               property.isExchanged === isInExchanged);
           }
+        
+        if(selectedSelects.orderBy) {
+            const orderBySort = selectedSelects.orderBy === 'asc';
+            filtered = filtered.sort((a, b) => {
+               return  orderBySort ? a.id - b.id : b.id - a.id
+            }
+            )
+        }
+
+        if(selectedSelects.currencyId) {
+            filtered = filtered.filter(property => 
+               property.currencyId === selectedSelects.currencyId);
+        }
+
+        if(selectedSelects.minPrice) {
+            filtered = filtered.filter(property => 
+                property.propertyPrice >= selectedSelects.minPrice
+            )
+        }
+        if(selectedSelects.maxPrice) {
+            filtered = filtered.filter(property => 
+                property.propertyPrice <= selectedSelects.maxPrice
+            )
+        }
+
+
+        if(selectedSelects.orderByPrice) {
+            const orderByPrice = selectedSelects.orderByPrice === 'asc';
+            filtered = filtered.sort((a, b) => {
+               return  orderByPrice ? a.propertyPrice - b.propertyPrice : b.propertyPrice - a.propertyPrice
+                }
+            )
+        }else{
+            filtered = [...filtered];
+        }
+
         setFilteredProperties(filtered);
     };
 
@@ -195,16 +279,37 @@ const AllProperties = () => {
        if(propertyCod){
             try{
                 const data = await PropertiesServices.getPropertyByIdCode(`/properties-portal/${propertyCod}`);
-                setFilteredProperties(Array.isArray(data) ? data : [data])
+                
+                if(!data || (Array.isArray(data) && data.length === 0)){
+                    showToastErrorMsg(
+                        'El código ingresado no pertence a ninguna propiedad!'
+                    );
+                    setFilteredProperties([])
+                }else {
+                    setFilteredProperties(Array.isArray(data) ? data : [data])
+                }
+                
             } catch (error){
-                console.log("Error en filtrar por ID", error)
+                showToastErrorMsg(
+                    'El código ingresado no pertence a ninguna propiedad, Intentelo nuevamente!'
+                );
+                // console.log("Error en filtrar por ID", error)
             }
-       }
+        }else {
+            showToastWarningMsg(
+                'Por favor ingresa un código de propiedad'
+            );
+        }
        setIsSearching(false);
     }
     const handleSearchReset = async () => {
+        setPropertyCod("")
         setFilteredProperties(properties)
     }
+
+    const toggleMoreFilter = async () => {
+        setMoreFilters(!moreFilters)
+    } 
 
     const renderButtonsBottom = () => (
         <div className="flex flex-row justify-between items-center mx-2 xl:mx-28 2xl:mx-24 mb-3">
@@ -259,15 +364,20 @@ const AllProperties = () => {
         </div>
     );
 
+    const handleSelect = async () => {
+        setSelectDivise(!selectDivise)
+    };
+
     return(     
         <>    
+            <ToastContainer />
+
             <Reveal
                     keyframes={fadeInUp}
                     delay={500}
                     duration={800}
                     triggerOnce={true}
                 >
-
    
             <div className="bg-white/90  shadow-lg rounded-md xl:w-[90vw] 2xl:w-[75vw] grid items-center p-2 px-4 2xl:px-8 m-2 xl:mx-16 2xl:mx-52 mt-20 xl:mt-32">
                 <TitleSection
@@ -295,7 +405,8 @@ const AllProperties = () => {
                                 {isSearching ? <TbHomeSearch className="animate-pulse"/> : <TbHomeSearch/> }
                             </button>
                             <button 
-                                className="bg-red-600/80 text-gray-50 hover:bg-red-600 duration-200 h-10 w-auto p-1 px-3 rounded-full" title="Limpiar búsqueda" 
+                                className="bg-red-600/80 text-gray-50 hover:bg-red-600 duration-200 h-10 w-auto p-1 px-3 rounded-full" 
+                                title="Limpiar búsqueda" 
                                 onClick={handleSearchReset}
                             >
                                 <TbTrash />
@@ -378,6 +489,98 @@ const AllProperties = () => {
                             </select>
                         </div>
                     </div> 
+                    <div 
+                    onClick={toggleMoreFilter}
+                    className="flex flex-row gap-1 items-center justify-end text-secondary group cursor-pointer">
+                        <p>{moreFilters ? 'Ocultar filtros' : 'Filtros avanzados'}</p>
+                        {/* <p className="italic ">Filtros avanzados </p> */}
+                        <IoIosArrowDown className="group-hover:translate-y-1 duration-150"/>
+                    </div>
+                    {
+                        !moreFilters ? '' : moreFilters && (
+                        <Reveal
+                        keyframes={fadeInUp}
+                        delay={500}
+                        duration={800}
+                        triggerOnce={true}>
+                            <div className="flex flex-col md:flex-row justify-between items-center gap-2 mt-4 xl:mt-2 w-[98%] md:w-full 2xl:w-[100%]  2xl:mx-2">
+                                <div className="grid w-full mb-1 mx-4 md:mx-0 ">
+                                    <label className="font-semibold mb-1 w-full" for="orderBy">Ordernar propiedades</label>
+                                            <select
+                                                id="orderBy"
+                                                name="orderBy"
+                                                value={selectedSelects.orderBy}
+                                                onChange={handleSelectChange}
+                                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                            >
+                                                <option value="">Por defecto</option>
+                                                <option value="desc">Más recientes</option>
+                                                <option value="asc">Más antiguas</option>
+                                            </select>
+                                </div>
+                                <div className="grid w-full mb-1 mx-4 md:mx-0 ">
+                                    <label className="font-semibold mb-1 w-full" for="orderByPrice">Ordernar precios</label>
+                                            <select
+                                                id="orderByPrice"
+                                                name="orderByPrice"
+                                                value={selectedSelects.orderByPrice}
+                                                onChange={handleSelectChange}
+                                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                            >
+                                                <option value="asc">Por defecto</option>
+                                                <option value="desc">Mayor precio</option>
+                                                <option value="asc">Menor precio</option>
+                                            </select>
+                                </div>
+                                {/* <div className="grid w-full mb-1 mx-4 md:mx-0">
+                                            <label className="font-semibold mb-1 w-full" for="currencyId">Tipo de moneda</label>
+                                            <select
+                                                id="currencyId"
+                                                name="currencyId"
+                                                value={selectedSelects.currencyId}
+                                                onChange={handleSelectChange}
+                                                className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                            >
+                                                <option value="">Seleccione una moneda</option>
+                                                <option onClick={handleSelect} value="UF">UF</option>
+                                                <option value="CLP">CLP</option>
+                                           
+                                            </select>
+                                </div>  */}
+                                <div className="grid w-full mx-4 md:mx-0">
+                                    <label className="font-semibold mb-1 w-full md:w-72" htmlFor="minPriceRange">Precio Mínimo (CLP)</label>
+                                    <input
+                                        id="minPriceRange"
+                                        type="range"
+                                        name="minPriceRange"
+                                        min="0"
+                                        max="10000000" // Ajusta el valor máximo según tu necesidad
+                                        step="100000" // Ajusta el step según tu preferencia
+                                        value={selectedSelects.minPrice || '0'}
+                                        onChange={(e) => handleRangeChange(e, 'minPrice')}
+                                        className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                    />
+                                    <small className="">{selectedSelects.minPrice ? `${selectedSelects.minPrice} CLP` : '0 CLP'}</small>
+                                </div>
+                                <div className="grid w-full mx-4 md:mx-0">
+                                    <label className="font-semibold mb-1 w-full" htmlFor="maxPriceRange">Precio Maximo (CLP)</label>
+                                    <input
+                                        id="maxPriceRange"
+                                        type="range"
+                                        name="maxPriceRange"
+                                        min="0"
+                                        max="200000000"
+                                        step="100000" 
+                                        value={selectedSelects.maxPrice || '200,000,000'}
+                                        onChange={(e) => handleRangeChange(e, 'maxPrice')}
+                                        className="rounded-md placeholder:text-gray-400 p-2 border-2"
+                                    />
+                                    <small>{selectedSelects.maxPrice ? `${selectedSelects.maxPrice} CLP` : '10,000,000 CLP'}</small>
+                                </div>
+                            </div> 
+                        </Reveal>
+                        )
+                    }
                 </div>
             </div>
 
@@ -573,6 +776,7 @@ const AllProperties = () => {
                 </div>
                 {renderButtonsBottom()}
                 {/* {renderButtons()} */}
+
             </div>
           
             </Reveal>
