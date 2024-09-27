@@ -117,7 +117,7 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
             ufValue = 0;
         }
         return (
-            <div>
+            <div className="text-gray-700">
                  <div className="mx-4 mb-2 my-3 flex flex-row justify-between items-center">
                     <p className="xl:text-xl">
                         <b>{parseToDecimal(ufValue)} UF</b>
@@ -315,26 +315,26 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                 </small>
                                             </div>
                                             <div className="mx-2">
-                                            <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 40)}</h2>                                      
+                                            <h2 className="font-semibold text-center text-lg text-gray-800">{truncate(item.propertyTitle, 40)}</h2>                                      
                                             {formatPrice(item?.currencyId, item?.propertyPrice)}
                                             
-                                                <ul className="flex flex-row sm:flex-row mx-4 xl:mx-12 gap-2 justify-between">
-                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                <ul className="flex flex-row sm:flex-row mx-4 xl:mx-12 gap-2 justify-between text-gray-600">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                             {/* <span>Baño(s)</span> */}   
                                                             <FaBath />
                                                             <small>{item.characteristics.bathrooms || '0'}</small>
                                                     </li>
-                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                             <FaBed/>
                                                             <small>{item.characteristics.bedrooms || '0'}</small>
                                                     </li>
-                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                             <FaRulerCombined />
                                                             <small>{item.characteristics.surface || '0'}mts</small>
                                                     </li>
-                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                    <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                             <FaParking />
-                                                            <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>
+                                                            <small>{item.characteristics.hasParking !== false ? item.characteristics.hasParking  : '0' }</small>
                                                     </li>
                                                 </ul>
                                                 <div className="mx-4 mb-2 mt-8 flex flex-row justify-between items-center">
@@ -394,25 +394,25 @@ const LastProperties = ({regions, communes, stateId, setStateId, operationType, 
                                                             </small>
                                                         </div>
                                                         <div className="mx-2">
-                                                        <h2 className="font-semibold text-center text-lg">{truncate(item.propertyTitle, 40)}</h2>                                          
+                                                        <h2 className="font-semibold text-center text-lg text-gray-800">{truncate(item.propertyTitle, 40)}</h2>                                          
                                                             {formatPrice(item?.currencyId, item?.propertyPrice)}                                       
-                                                            <ul className="flex flex-row sm:flex-row mx-4 xl:mx-12 gap-2 justify-between">
-                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                            <ul className="flex flex-row sm:flex-row mx-4 xl:mx-12 gap-2 justify-between text-gray-600">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                                         {/* <span>Baño(s)</span> */}   
                                                                         <FaBath />
                                                                         <small>{item.characteristics.bathrooms || '0'}</small>
                                                                 </li>
-                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                                         {/* <span>Dormitorio(s)</span> */}
                                                                         <FaBed/>
                                                                         <small>{item.characteristics.bedrooms || '0'}</small>
                                                                 </li>
-                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                                         {/* <span>Mts cuadrados</span> */}
                                                                         <FaRulerCombined />
                                                                         <small>{item.characteristics.surface || '0'}mts</small>
                                                                 </li>
-                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid ">
+                                                                <li className="flex justify-center items-center gap-2 sm:text-center sm:grid hover:text-gray-800 hover:scale-105 duration-100 cursor-default">
                                                                         {/* <span>Estacionamiento(s)</span> */}
                                                                         <FaParking />
                                                                         <small>{item?.characteristics?.hasParking !== false ? item?.characteristics?.hasParking  : 'no' }</small>

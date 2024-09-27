@@ -527,7 +527,7 @@ const AllProperties = () => {
                                                 onChange={handleSelectChange}
                                                 className="rounded-md placeholder:text-gray-400 p-2 border-2"
                                             >
-                                                <option value="asc">Por defecto</option>
+                                                <option value="">Por defecto</option>
                                                 <option value="desc">Mayor precio</option>
                                                 <option value="asc">Menor precio</option>
                                             </select>

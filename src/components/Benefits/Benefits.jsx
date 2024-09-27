@@ -84,9 +84,9 @@ const Benefits = () => {
                             <div className="absolute -top-4 md:left-7 2xl:left-[72px] z-50 text-sm group-hover:-translate-y-3 group-hover:bg-white group-hover:text-secondary duration-200 bg-secondary text-white p-2 px-3 rounded-full">
                                 CONSULTA POR EL TUYO
                             </div>
-                        <article className='flex flex-wrap flex-row p-2 xl:px-6 overflow-hidden items-center justify-center xl:justify-start gap-1 drop-shadow-xl border-2 border-secondary bg-gray-100 text-secondary h-48 lg:h-56 lg:w-full 2xl:h-72 2xl:w-80 mb-2 2xl:mb-4 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
-                            <h5 className='opacity-100 font-semibold text-xl xl:text-2xl mx-2 mt'>Asistente Personal AI</h5>
-                            <p className='text-base text-start first-letter:my-2 mx-2'>Maneja tus tareas calendario y/o correo a traves nuestro asistente IA.</p>
+                        <article className='flex flex-wrap flex-row p-2 xl:px-6 2xl:px-3 overflow-hidden items-center justify-center xl:justify-start gap-1 drop-shadow-xl border-2 border-secondary bg-gray-100 text-secondary h-48 lg:h-56 lg:w-full 2xl:h-72 2xl:w-80 mb-2 2xl:mb-4 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
+                            <h5 className='opacity-100 font-semibold text-xl xl:text-2xl mx-2 mt'>Potencia tus Propiededes</h5>
+                            <p className='text-base text-start first-letter:my-2 mx-2'>Podras potencias las visitas e interacciones con tu web, mediante campañas en Google Ads y/o Meta</p>
                         </article>
                     </div>
                     <div className="relative group">
@@ -94,8 +94,8 @@ const Benefits = () => {
                                 CONSULTA POR EL TUYO
                             </div>
                         <article className='flex flex-wrap flex-row p-2 xl:px-6 overflow-hidden items-center justify-center xl:justify-start gap-1 drop-shadow-xl border-2 border-secondary bg-gray-100 text-secondary h-48 lg:h-56 lg:w-full 2xl:h-72 2xl:w-80 mb-2 2xl:mb-4 hover:scale-110 hover:bg-secondary hover:text-gray-50 duration-200 rounded-md'>
-                            <h5 className='opacity-100 font-semibold text-xl xl:text-2xl mx-2 mt'>Asistente Personal AI</h5>
-                            <p className='text-base text-start first-letter:my-2 mx-2'>Maneja tus tareas calendario y/o correo a traves nuestro asistente IA.</p>
+                            <h5 className='opacity-100 font-semibold text-xl xl:text-2xl mx-2 mt'>Construye alianzas</h5>
+                            <p className='text-base text-start first-letter:my-2 mx-2'>¿Por qué no una alianza con más corredores? ¡Potenciemos nuestro negocio!</p>
                         </article>
                     </div>
 

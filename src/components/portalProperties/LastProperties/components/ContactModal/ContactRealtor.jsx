@@ -6,7 +6,7 @@ import { Fade } from 'react-awesome-reveal';
 import { useState } from 'react';
 import ContactApiFormServices from '../../../../../services/portal-contact/ContactFormServices';
 import PropertiesServices from '../../../../../services/portal-properties/PropertiesServices';
-
+import { IoIosArrowDown } from "react-icons/io";
 
 const ContactRealtor = ({property}) =>{
   const [loading, setLoading] = useState(false);
@@ -232,7 +232,7 @@ const ContactRealtor = ({property}) =>{
                             </div>
                         </div>
                         <div className='flex flex-col md:flex-row gap-2'>
-                            <div className="relative mb-4 mt-2 sm:mt-6 w-full">
+                            <div className="relative mb-4 mt-2  w-full">
                                 <label
                                     htmlFor="email"
                                     className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
@@ -252,7 +252,7 @@ const ContactRealtor = ({property}) =>{
                                 />
                          
                             </div>
-                            <div className="relative mb-4 mt-2 sm:mt-6 w-full">
+                            <div className="relative mb-4 mt-2  w-full">
                                 <label
                                     htmlFor="phone"
                                     className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
@@ -274,7 +274,7 @@ const ContactRealtor = ({property}) =>{
                       
                             </div>
                         </div>
-                        <div className="relative mb-4 mt-2 sm:mt-6">
+                        <div className="relative mb-4 mt-2 ">
                             <label
                                 htmlFor="subject"
                                 className="text-gray-800 text-base font-semibold xl:mb-2 transition-all duration-300"
@@ -313,24 +313,27 @@ const ContactRealtor = ({property}) =>{
                                 // className="peer placeholder-white h-10 w-full border text-gray-800/70 text-gray-800 rounded-md pl-2 focus:outline-none focus:borer-rose-600 text-sm"
                                 placeholder="Ingresa una breve descripción de tu interes en esta propiedad"
                             />
-
+                            <div className='flex flex-row gap-1 items-center'>
+                                <p className='my-2 text-sm'>Elige un de estas opciones rápidas</p><IoIosArrowDown className='animate-bounce duration-100'/>
+                            </div>
+                            
                             <div className='flex flex-col md:flex-row gap-2'>
                                 <button
                                 type='button' 
                                 onClick={() => handlePhraseClick('Me interesa esta propiedad, quisiera saber más por favor!')}
-                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
+                                className=' p-2 hover:shadow-lg rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
                                     Me interesa esta propiedad, quisiera saber más por favor!
                                 </button>
                                 <button 
                                 type='button' 
                                 onClick={() => handlePhraseClick('Quisiera saber más sobre esta propiedad por favor!')}
-                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
+                                className='p-2 hover:shadow-lg rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
                                      Quisiera saber más sobre esta propiedad por favor!
                                 </button>
                                 <button 
                                 type='button' 
                                 onClick={() => handlePhraseClick('Estoy interesado, necesito más detalles por favor!')}
-                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
+                                className='p-2 hover:shadow-lg rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
                                     Estoy interesado, necesito más detalles por favor!
                                 </button>
                             </div>
