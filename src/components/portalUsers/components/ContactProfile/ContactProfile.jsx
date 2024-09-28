@@ -319,7 +319,7 @@ const ContactProfile = ({dataUser}) =>{
                                 // className="peer placeholder-white h-10 w-full border text-gray-800/70 text-gray-800 rounded-md pl-2 focus:outline-none focus:borer-rose-600 text-sm"
                                 placeholder="Ingresa o elige una breve descripción para contactar"
                             />
-                              <div className='flex flex-row gap-1 items-center'>
+                            <div className='flex flex-row gap-1 items-center'>
                                 <p className='my-2 text-sm'>Elige un de estas opciones rápidas</p><IoIosArrowDown className='animate-bounce duration-100'/>
                             </div>
 

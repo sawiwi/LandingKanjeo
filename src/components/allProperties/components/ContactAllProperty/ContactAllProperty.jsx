@@ -307,7 +307,7 @@ const ContactOfAllProperty = ({property}) => {
                                 <button
                                 type='button' 
                                 onClick={() => handlePhraseClick('Me interesa esta propiedad, quisiera saber más por favor!')}
-                                className='p-2  hover:shadow-lg duration-200 rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
+                                className='p-2  hover:shadow-lg rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
                                     Me interesa esta propiedad, quisiera saber más por favor!
                                 </button>
                                 <button 
