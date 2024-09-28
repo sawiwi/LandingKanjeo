@@ -38,8 +38,8 @@ const DetailsProperty = () => {
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        speed: 3000,
-        autoplaySpeed: 8000,
+        speed: 1000,
+        autoplaySpeed: 4000,
         cssEase: 'linear',
         pauseOnHover: true,
       };

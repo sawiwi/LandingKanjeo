@@ -16,6 +16,7 @@ const DetailCantProps = ({onClose, data}) => {
   } = contextData;
     const propertiesOfRealt = data?.properties || [];
     const activeProperties = propertiesOfRealt.filter(property => property.propertyStatus.name === 'Activa');
+    const [more, setMore] = useState(false);
 
 
         //limitare los caracteres y poniendo ... en su lugar si es demasiado largo
@@ -59,9 +60,10 @@ const DetailCantProps = ({onClose, data}) => {
     
         };
 
-        const onDetailsProp = (id)=> {
-          
-        }
+
+        const toggleMoreProp = async () => {
+          setMore(!more)
+      } 
 
 
     return(
@@ -72,10 +74,14 @@ const DetailCantProps = ({onClose, data}) => {
         <div>
           <h3 className="font-semibold text-2xl sm:mx-12">Propiedades del corredor</h3>
         </div>
-        <div className="flex flex-col md:grid md:grid-cols-2 2xl:grid-cols-3 gap-4 sm:mx-20 my-4 mt-6">
+        <div className="flex justify-start sm:mx-20 ml-8 mt-6">
+          <p onClick={toggleMoreProp} className="italic font-light cursor-pointer text-secondary" >
+            {more ? 'Ver menos' : 'Ver más'}
+          </p>
+        </div>
+        <div className="flex flex-col md:grid md:grid-cols-2 2xl:grid-cols-3 gap-4 sm:mx-20 my-3 mt-5">
           {activeProperties.length > 0 ? (
-            activeProperties.map(property => (
-              // console.log('precio:' , property.propertyPrice.d)
+            activeProperties.slice(0, 6).map(property => (
               <>
               
                 <article key={property?.id} className="shadow-lg flex flex-col border-2 h-full md:h-60 xl:h-full 2xl:h-full md:w-full p-2 group xl:overflow-hidden 2xl:p-1">
@@ -131,6 +137,66 @@ const DetailCantProps = ({onClose, data}) => {
               </div>
             </div>
           )}
+          { 
+          !more ? '' : more && (
+            activeProperties.length > 0 ? (
+              activeProperties.slice(6, 99).map(property => (
+                <>
+                  <article key={property?.id} className="shadow-lg flex flex-col border-2 h-full md:h-60 xl:h-full 2xl:h-full md:w-full p-2 group xl:overflow-hidden 2xl:p-1">
+                    <a href={`/propiedades/${property?.id}`} target="_blank" rel="noreferrer">
+                    <div className="mb-2 relative">
+                      {property.images.length > 0 && /\.(jpg|jpeg|png|avif)$/.test(property.images[0].path) ? (
+                                    <img 
+                                          key={property.images[0].id}
+                                          src={property.images[0].path || NotFoundProp} 
+                                          alt={`img-${property.images[0].id}`} 
+                                          className="h-44 w-full object-cover rounded-md group-hover:-translate-y-2 duration-200 shadow-md" 
+                                                      />
+                                          ) :(
+                                              <img 
+                                                src={NotFoundProp} 
+                                                alt="img-casa-not-found" 
+                                                className="h-48 xl:h-44 w-full xl:w-44 object-scale-down group-hover:-translate-y-2 duration-200 p-4 xl:mx-36" 
+                                                        />
+                                                        )                                            
+                                                    }
+                      <small className="absolute top-1 left-1 p-[0.15rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-0 duration-200">
+                        {property?.typeOfPropertyId || ''}
+                      </small>
+                      <small className="absolute top-8 left-1 p-[0.18rem] px-4 font-normal opacity-100 group-hover:opacity-70 bg-secondary text-gray-50 rounded-sm group-hover:top-7 duration-200">
+                        {property?.typeOfOperationId || ''}
+                      </small>
+                    </div>
+                    {
+                      property.externalLink !== null && (
+                        <div className="mx-2 flex justify-center gap-2 text-sm text-gray-500 font-light cursor-pointer">
+                          <a href={property.externalLink} target="_blank" rel="noreferrer">
+                              {truncate(property?.externalLink, 36 || 'no tiene')}
+                          </a>
+                      </div> 
+                      )  
+                    }
+          
+                    <div className="mx-2">
+                      {formatPrice(property?.currencyId, property?.propertyPrice.d)}
+                      <h2 className="font-semibold text-center text-lg">{truncate(property.propertyTitle, 40)}</h2>
+                      <p className="text-center text-sm">{truncate(property?.propertyDescription, 100)}</p>              
+                    </div>
+                    </a>
+                  </article>
+                
+                </>
+              
+              ))
+            ) : (
+              <div className="shadow-lg flex flex-row border-2 h-full md:h-60 xl:h-full 2xl:h-full md:w-full p-2  xl:overflow-hidden 2xl:p-1">
+                <div className="mx-36 2xl:mx-10 text-center">
+                  No cuenta con propiedades activas
+                </div>
+              </div>
+            )
+          )} 
+          
         </div>
     </div>
     );

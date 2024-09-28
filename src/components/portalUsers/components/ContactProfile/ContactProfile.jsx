@@ -6,6 +6,7 @@ import { Fade } from 'react-awesome-reveal';
 import { useState } from 'react';
 import ContactApiFormServices from '../../../../services/portal-contact/ContactFormServices';
 import UsersServices from '../../../../services/portal-users/UsersServices';
+import { IoIosArrowDown } from "react-icons/io";
 
 const ContactProfile = ({dataUser}) =>{
   const [loading, setLoading] = useState(false);
@@ -81,7 +82,7 @@ const ContactProfile = ({dataUser}) =>{
 
         try {
             await UsersServices.getClicksUsers(id, formData);
-            console.log('Datos enviados correctamente', formData)
+            // console.log('Datos enviados correctamente', formData)
         }catch (error){
             console.log('ERROR al enviar los clics', error)
         }
@@ -318,24 +319,27 @@ const ContactProfile = ({dataUser}) =>{
                                 // className="peer placeholder-white h-10 w-full border text-gray-800/70 text-gray-800 rounded-md pl-2 focus:outline-none focus:borer-rose-600 text-sm"
                                 placeholder="Ingresa o elige una breve descripción para contactar"
                             />
+                              <div className='flex flex-row gap-1 items-center'>
+                                <p className='my-2 text-sm'>Elige un de estas opciones rápidas</p><IoIosArrowDown className='animate-bounce duration-100'/>
+                            </div>
 
                             <div className='flex flex-col md:flex-row gap-2'>
                                 <button
                                 type='button' 
                                 onClick={() => handlePhraseClick('Muy buenas, necesito asesoría sobre arriendo / venta')}
-                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
+                                className='p-2 hover:shadow-lg rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
                                     Muy buenas, necesito asesoría sobre arriendo / venta
                                 </button>
                                 <button 
                                 type='button' 
                                 onClick={() => handlePhraseClick('Quisiera saber más sobre arriendo!')}
-                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
+                                className=' p-2  hover:shadow-lg  rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
                                      Quisiera saber más sobre arriendo!
                                 </button>
                                 <button 
                                 type='button' 
                                 onClick={() => handlePhraseClick('Estoy interesado en una asesoria, necesito vender rápido.')}
-                                className='border border-spacing-1 border-gray-500 p-2 bg-transparent hover:shadow-lg duration-200 rounded-lg text-sm text-gray-600'>
+                                className='p-2  hover:shadow-lg rounded-lg text-sm text-white bg-secondary/60 hover:bg-secondary duration-150'>
                                     Estoy interesado en una asesoria, necesito vender rápido.
                                 </button>
                             </div>

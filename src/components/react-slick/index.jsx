@@ -102,11 +102,12 @@ const ReactSlick = ({ renderContent }) => {
               <p className="text-white opacity-100 font-light text-md md:text-xl mt-2 mb-2">
                 {item.texts}
               </p>
-              <a
+              <div className='flex flex-col gap-2 mx-20'>
+                <a
                   target='_blank'
                   rel='noreferrer'
                   href={'https://procanje.app/sign-up'}
-                  className="2xl:my-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-secondary-light backdrop-blur-lg px-6 py-2 text-base text-white transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-secondary-light border border-secondary animate-bounce"
+                  className="2xl:my-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-secondary-light backdrop-blur-lg px-6 py-2 text-base text-white transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-secondary-light border border-secondary"
                   >
                   <span className="text-lg">
                       Registrate aquí
@@ -116,6 +117,22 @@ const ReactSlick = ({ renderContent }) => {
                   >
                   </div>
                 </a>
+                <a
+                  target='_blank'
+                  rel='noreferrer'
+                  href={'https://procanje.app/sign-in'}
+                  className="2xl:my-4 group/button relative inline-flex items-center justify-center overflow-hidden rounded-md bg-white backdrop-blur-lg px-6 py-2 text-base text-secondary transition-all duration-500 ease-in-out hover:scale-110 hover:shadow-xl hover:shadow-secondary-light border border-secondary"
+                  >
+                  <span className="text-lg">
+                      Iniciar sesión
+                  </span>
+                  <div
+                    className="absolute inset-0 flex h-full w-full justify-center [transform:skew(-13deg)_translateX(-100%)] group-hover/button:duration-1000 group-hover/button:[transform:skew(-13deg)_translateX(100%)]"
+                  >
+                  </div>
+                </a>
+              </div>
+         
             </div>
           {/* APARECE CUANDO SUPERA EL TAMAÑO DE PANTALLA ARRIBA DE LOS XL */}
           <div key={item.id} className="hidden xl:absolute md:bottom-9 xl:bottom-16 2xl:bottom-32 xl:left-56 text-center xl:flex  xl:flex-col w-[90%] md:w-[70%] lg:w-[70%] 2xl:w-[80%] mx-auto justify-center items-center z-50">
